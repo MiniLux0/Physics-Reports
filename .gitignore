@@ -1,0 +1,29 @@
+# LaTeX - Archivos auxiliares comunes
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.pdfsync
+
+# Biber / Bibliografía
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+
+# Salida final (opcional: ignora los PDF generados para no inflar el repo)
+*.pdf
+
+# Carpeta de salida de compilación (la que usas en tu configuración)
+out/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Sistema Operativo (Windows/Mac)
+Thumbs.db
+.DS_Store
