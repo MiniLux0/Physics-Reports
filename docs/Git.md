@@ -1,143 +1,82 @@
-# 🐙 PASO 2 — Git, GitHub
+# Configuración de Git, GitHub y VS Code
+
+Esta guía cubre todo lo necesario para contribuir al repositorio desde Windows.
 
 ---
 
-# 1️⃣ Instalar Git
+## 1. Instalar Git
 
-Git es el sistema que permite guardar versiones del proyecto y trabajar con GitHub.
+Descarga el instalador desde [git-scm.com/download/win](https://git-scm.com/download/win).
 
-### 📥 Descarga
-
-[https://git-scm.com/download/win](https://git-scm.com/download/win)
-
----
-
-## ⚙️ Instalación importante (NO saltar esto)
-
-Durante la instalación, presta atención a este paso:
-
-### 🔴 “Adjusting your PATH environment”
-
-Selecciona esta opción:
+Durante la instalación hay un paso crítico — en la pantalla **"Adjusting your PATH environment"**, selecciona:
 
 ```
-✔ Git from the command line and also from 3rd-party software
+Git from the command line and also from 3rd-party software
 ```
 
-⚠️ Esto es MUY importante
-Si no lo haces, Git no funcionará en VS Code ni en la terminal.
+El resto de opciones déjalas por defecto. Sin esto, Git no funcionará dentro de VS Code.
 
----
+**Verificar que quedó bien instalado** — abre una terminal y escribe:
 
-## 📌 Resto de instalación
-
-* Siguiente → Siguiente → Instalar (todo por defecto)
-
----
-
-## ✅ Verificar instalación
-
-Abre una Terminal y escribe:
 ```bash
 git --version
 ```
 
-Si ves una versión (ej: `git version 2.xx.x`) → está correcto.
+Deberías ver algo como `git version 2.xx.x`.
 
 ---
 
-# 2️⃣ Crear cuenta en GitHub
+## 2. Crear cuenta en GitHub
 
-GitHub es donde se guarda el código en la nube.
-
-### 📥 Pasos:
-
-1. Ve a: [https://github.com](https://github.com)
-2. Clic en **Sign up**
-3. Regístrate con:
-
-   * correo electrónico
-   * usuario
-   * contraseña
+Si aún no tienes cuenta, ve a [github.com](https://github.com) y haz clic en **Sign up**. Usa un correo al que tengas acceso fácil.
 
 ---
 
-# 3️⃣ Instalar VS Code
+## 3. Instalar VS Code
 
-VS Code será tu editor principal para LaTeX y Git.
-
-### 📥 Descarga
-
-[https://code.visualstudio.com/](https://code.visualstudio.com/)
-
-Instala con opciones por defecto.
+Descarga desde [code.visualstudio.com](https://code.visualstudio.com/) e instala con opciones por defecto.
 
 ---
 
-# 4️⃣ Conectar VS Code con GitHub
+## 4. Configurar Git con tu identidad
 
-Esto es lo que permite clonar repositorios sin problemas.
-
-### 📌 Pasos:
-
-1. Abre VS Code
-2. Busca el ícono de **Accounts** (perfil) en la esquina
-3. Haz clic en:
-
-```
-Sign in to GitHub
-```
-
-4. Se abrirá el navegador
-5. Inicia sesión en GitHub
-6. Autoriza VS Code
-
----
-
-## ✅ Resultado esperado
-
-Ahora VS Code está conectado a tu cuenta de GitHub.
-
----
-
-# 5️⃣ Clonar repositorio (desde VS Code)
-
-### 📌 Método recomendado:
-
-1. Abre VS Code
-2. Presiona:
-
-```
-Ctrl + Shift + P
-```
-
-3. Escribe:
-
-```
-Git: Clone
-```
-
-4. Pega el link del repositorio:
+Antes de hacer cualquier commit, dile a Git quién eres. Abre la terminal de VS Code (`Ctrl + `` ` ``) y ejecuta:
 
 ```bash
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu@correo.com"
+```
+
+Usa el mismo correo de tu cuenta de GitHub. Esto aparecerá en cada commit que hagas.
+
+---
+
+## 5. Conectar VS Code con GitHub
+
+1. Abre VS Code
+2. Haz clic en el ícono de **Accounts** (esquina inferior izquierda)
+3. Selecciona **Sign in to GitHub**
+4. Se abrirá el navegador — inicia sesión y autoriza VS Code
+
+VS Code quedará autenticado con tu cuenta y podrás clonar, hacer push y pull sin ingresar contraseña cada vez.
+
+---
+
+## 6. Clonar el repositorio
+
+1. Presiona `Ctrl + Shift + P`
+2. Escribe `Git: Clone` y selecciónalo
+3. Pega la URL del repositorio:
+
+```
 https://github.com/MiniLux0/Physics-Reports.git
 ```
 
-5. Selecciona una carpeta local
-
-6. Espera la descarga
+4. Elige una carpeta local donde quieras guardarlo
+5. Cuando termine, VS Code preguntará `Open Repository?` — haz clic en **Open**
 
 ---
 
-# 📂 Abrir proyecto
+## Siguiente paso
 
-Cuando termine:
-
-* VS Code preguntará:
-
-```
-Open Repository?
-```
-
-👉 Haz clic en **Open**
-
+Con el repositorio clonado, lee **[Workflow.md](Workflow.md)** para saber cómo trabajar con ramas y pull requests.
