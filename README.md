@@ -7,10 +7,11 @@ Plantilla basada en `article` estándar — sin dependencias externas.
 
 ## ⚙️ Instalación y Configuración
 
-Si eres nuevo en el repositorio y necesitas configurar tu entorno (MiKTeX, VS Code, Git), por favor lee la siguiente guía antes de empezar a editar:
+Si eres nuevo en el repositorio, lee estas guías antes de empezar:
 
-* 👉 **[Guía de Git + VS Code + GitHub](https://github.com/MiniLux0/Physics-Reports/blob/main/docs/Git.md)**
-* 👉 **[Guía de instalación de MiKTeX y LaTeX](https://github.com/MiniLux0/Physics-Reports/blob/main/docs/MikTeX.md)**
+* 👉 **[Configurar Git + VS Code + GitHub](https://github.com/MiniLux0/Physics-Reports/blob/main/docs/Git.md)**
+* 👉 **[Instalar MiKTeX y LaTeX](https://github.com/MiniLux0/Physics-Reports/blob/main/docs/MiKTeX.md)**
+* 👉 **[Cómo colaborar en el repositorio](https://github.com/MiniLux0/Physics-Reports/blob/main/docs/Workflow.md)**
 
 ---
 
@@ -34,8 +35,10 @@ physics-reports/
 │
 ├── docs/              ← documentación y tutoriales
 │   ├── Git.md
-│   └── MikTeX.md
+│   ├── MiKTeX.md
+│   └── Workflow.md
 │
+├── .gitattributes     ← normalización de saltos de línea (LF)
 └── README.md
 ```
 
@@ -45,21 +48,23 @@ physics-reports/
 
 ```bash
 # 1. Copiar la plantilla
-cp -r template/ lab02/
+cp -r template/ lab0N/
 
-# 2. Editar SOLO el bloque "DATOS DEL INFORME" en lab02/main.tex
+# 2. Editar SOLO el bloque "DATOS DEL INFORME" en lab0N/main.tex
 
-# 3. Trabajar en lab02/sections/ — nunca mezclar con otros labs
+# 3. Trabajar en lab0N/sections/ — nunca mezclar con otros labs
 ```
+
+> Para el flujo completo con ramas y pull requests, ver **[docs/Workflow.md](docs/Workflow.md)**.
 
 ---
 
 ## 🛠️ Compilación
 
 Con **VS Code + LaTeX Workshop**: compila automáticamente al guardar (`Ctrl + S`).
-*Receta recomendada:* `latexmk (latexmkrc)` o `pdflatex → biber → pdflatex × 2`.
+Receta recomendada: `latexmk (latexmkrc)` o `pdflatex → biber → pdflatex × 2`.
 
-### Compilación manual en terminal:
+### Compilación manual en terminal
 
 ```bash
 pdflatex main.tex
@@ -89,4 +94,4 @@ Todos son estándar en TeX Live / MiKTeX:
 
 ## 📩 Contacto
 
-Si tienes cualquier duda, error o sugerencia, puedes consultar directamente con el autor del repositorio.
+Dudas, errores o sugerencias: abre un [Issue](https://github.com/MiniLux0/Physics-Reports/issues) o consulta directamente con el autor del repositorio.
