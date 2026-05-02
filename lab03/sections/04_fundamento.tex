@@ -5,27 +5,108 @@
 
 \section{Fundamento Teórico}
 
-% Desarrollar los conceptos físicos necesarios para entender el experimento.
-% Cada concepto como subsección numerada.
-% Todas las ecuaciones deben estar numeradas y referenciadas en el texto.
-% Incluir citas bibliográficas (\cite{clave}).
+\subsection{Elasticidad y deformación}
 
-\subsection{Concepto 1}
+Cuando un cuerpo sólido es sometido a una fuerza externa, experimenta un cambio en su
+forma o dimensiones denominado \textit{deformación}. Si el cuerpo recupera su geometría
+original al retirar la fuerza, se dice que el comportamiento es elástico. La propiedad
+que caracteriza esta capacidad de recuperación se denomina \textit{elasticidad}
+\cite{serway}.
 
-Texto explicativo. Ecuación de ejemplo:
-
+La deformación longitudinal unitaria $\varepsilon$ cuantifica el cambio relativo en la
+longitud del cuerpo respecto a su longitud natural $\ell_0$:
 \begin{equation}
-    \vec{\tau} = I\,\vec{\alpha}
-    \label{eq:torque}
+    \varepsilon = \frac{\Delta\ell}{\ell_0} = \frac{\ell - \ell_0}{\ell_0},
+    \label{eq:deformacion_unitaria}
+\end{equation}
+donde $\ell$ es la longitud bajo la acción de la fuerza y $\Delta\ell$ es la deformación
+total. Al ser un cociente de longitudes, $\varepsilon$ es adimensional.
+
+\subsection{Esfuerzo de tensión}
+
+El esfuerzo $\sigma$ representa la fuerza interna por unidad de área que actúa sobre la
+sección transversal del material. Se distinguen dos definiciones según el área de
+referencia empleada \cite{halliday}:
+
+El \textit{esfuerzo técnico} (o de ingeniería) utiliza el área de la sección transversal
+original $S_0$, medida antes de aplicar la carga:
+\begin{equation}
+    \sigma_0 = \frac{F}{S_0} \quad (\unit{\pascal}),
+    \label{eq:esfuerzo_tecnico}
 \end{equation}
 
-Como se muestra en la Ec.~\eqref{eq:torque} \cite{serway}, \ldots
-
-\subsection{Concepto 2}
-
-Texto explicativo.
-
+El \textit{esfuerzo real} utiliza el área deformada $S$ de la sección transversal bajo
+la acción de la fuerza $F$:
 \begin{equation}
-    E_c = \frac{1}{2}Mv_{CM}^2 + \frac{1}{2}I\omega^2
-    \label{eq:ec_rodadura}
+    \sigma = \frac{F}{S} \quad (\unit{\pascal}).
+    \label{eq:esfuerzo_real}
 \end{equation}
+
+Para deformaciones pequeñas, $S \approx S_0$ y ambas definiciones son equivalentes.
+
+\subsection{Ley de Hooke y módulo de Young}
+
+En 1658, Robert Hooke estableció empíricamente que, para deformaciones dentro del límite
+elástico, el esfuerzo es proporcional a la deformación unitaria. Esta relación se conoce
+como la \textit{Ley de Hooke} y se expresa como \cite{serway}:
+\begin{equation}
+    \sigma = Y\varepsilon,
+    \label{eq:hooke}
+\end{equation}
+donde la constante de proporcionalidad $Y$ es el \textit{módulo de Young} o módulo de
+elasticidad en tracción, con unidades de \unit{\pascal}. El módulo de Young caracteriza
+la rigidez del material: cuanto mayor es $Y$, mayor es la resistencia del material a
+deformarse.
+
+Combinando las Ecs.~\eqref{eq:deformacion_unitaria}, \eqref{eq:esfuerzo_tecnico} y
+\eqref{eq:hooke}, se obtiene la relación entre la fuerza aplicada $F$ y la deformación
+$\Delta\ell$:
+\begin{equation}
+    F = \frac{Y S_0}{\ell_0}\,\Delta\ell = k\,\Delta\ell,
+    \label{eq:hooke_resorte}
+\end{equation}
+donde $k = Y S_0 / \ell_0$ es la \textit{constante recuperadora} del resorte
+(\unit{\newton\per\metre}). Esta expresión muestra que la fuerza y la deformación son
+linealmente proporcionales, lo que define el comportamiento de un resorte ideal.
+
+\subsection{Límite elástico y diagrama esfuerzo--deformación}
+
+La Ley de Hooke es válida únicamente para deformaciones pequeñas, dentro de un intervalo
+denominado \textit{región elástica}. Superado el \textit{límite elástico} $\sigma_{\text{límite}}$,
+la relación lineal deja de cumplirse y la deformación se vuelve permanente
+\cite{halliday}.
+
+En la Fig.~\ref{fig:diagrama_sigma_epsilon} se muestra el diagrama $\sigma$--$\varepsilon$
+típico de un material dúctil, donde se identifican la región elástica lineal, el límite
+elástico y el punto de ruptura.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\linewidth]{fig_diagrama_hooke}
+    \caption{Diagrama esfuerzo vs.\ deformación unitaria de un material dúctil.
+             Se distinguen la región elástica lineal (Ley de Hooke), el límite elástico
+             $\sigma_{\text{límite}}$ y el punto de ruptura.}
+    \label{fig:diagrama_sigma_epsilon}
+\end{figure}
+
+\subsection{Histéresis elástica}
+
+En materiales no perfectamente elásticos, como la liga o el jebe, las curvas de carga y
+descarga en el diagrama $\sigma$--$\varepsilon$ no coinciden, formando un lazo cerrado
+denominado \textit{lazo de histéresis}. El área encerrada por este lazo representa la
+energía disipada por el material en un ciclo completo de deformación, asociada a
+mecanismos de disipación interna como la viscosidad y la fricción molecular
+\cite{serway}.
+
+\subsection{Trabajo de deformación}
+
+El trabajo realizado por la fuerza $F$ para deformar el resorte desde su longitud natural
+hasta una elongación $\Delta\ell_f$ se obtiene integrando la Ec.~\eqref{eq:hooke_resorte}:
+\begin{equation}
+    W = \int_0^{\Delta\ell_f} F\,\mathrm{d}(\Delta\ell)
+      = \int_0^{\Delta\ell_f} k\,\Delta\ell\,\mathrm{d}(\Delta\ell)
+      = \frac{1}{2}k\,(\Delta\ell_f)^2.
+    \label{eq:trabajo_resorte}
+\end{equation}
+Experimentalmente, este trabajo se puede estimar como el área bajo la curva $F$
+vs.\ $\Delta\ell$ mediante integración numérica (regla del trapecio).

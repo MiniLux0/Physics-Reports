@@ -1,14 +1,51 @@
 %% ============================================================
 %%  SECCIÓN 1 — Introducción
-%%  Responsable: [Nombre]
+%%  Responsable: [Minilux]
 %% ============================================================
 
 \section{Introducción}
 
-% Contexto físico del experimento. ¿Qué fenómeno se estudia y por qué?
-% Mencionar brevemente el principio físico central con cita bibliográfica.
-% Describir el sistema experimental en términos generales.
-% Anticipar los resultados o magnitudes a determinar.
-% Extensión recomendada: 3–5 párrafos.
+El estudio de la elasticidad constituye uno de los pilares fundamentales de la mecánica
+de materiales. Cuando un cuerpo sólido es sometido a una fuerza externa, experimenta
+una deformación cuya naturaleza depende tanto de las propiedades intrínsecas del
+material como de la magnitud del esfuerzo aplicado. Si el cuerpo recupera su forma
+original al retirar la fuerza, se dice que el comportamiento es \textit{elástico}; en caso
+contrario, la deformación es permanente y el material se denomina \textit{inelástico}
+\cite{serway}.
 
-Texto de introducción.
+La relación entre el esfuerzo aplicado y la deformación resultante fue establecida
+empíricamente por Robert Hooke en 1658. Hooke observó que, para deformaciones
+pequeñas, la deformación unitaria $\varepsilon$ es proporcional al esfuerzo $\sigma$
+ejercido sobre el cuerpo. Esta proporcionalidad, conocida como la \textit{Ley de Hooke},
+se expresa como:
+\begin{equation}
+    \sigma = Y\varepsilon,
+\end{equation}
+donde la constante de proporcionalidad $Y$ recibe el nombre de \textit{módulo de Young},
+en honor al científico Thomas Young quien lo calculó formalmente en 1802. El módulo de
+Young caracteriza la rigidez del material y tiene dimensiones de presión (\unit{\pascal})
+\cite{halliday}.
+
+El esfuerzo técnico $\sigma_0$ se define como el cociente entre la fuerza aplicada $F$ y
+el área de la sección transversal original $S_0$ del cuerpo:
+\begin{equation}
+    \sigma_0 = \frac{F}{S_0}.
+    \label{eq:esfuerzo}
+\end{equation}
+Asimismo, la deformación unitaria $\varepsilon$ se define como el cambio porcentual de la
+longitud respecto a la longitud natural $\ell_0$:
+\begin{equation}
+    \varepsilon = \frac{\Delta\ell}{\ell_0}.
+    \label{eq:deformacion}
+\end{equation}
+La validez de la Ley de Hooke se restringe a deformaciones pequeñas, dentro del
+denominado \textit{límite elástico}. Superado este umbral, la relación entre esfuerzo y
+deformación deja de ser lineal y el material puede alcanzar su \textit{punto de ruptura}.
+
+El presente experimento estudia el comportamiento elástico de dos materiales con
+propiedades físicas distintas: un resorte metálico y una tira de jebe (liga). Para cada
+material se aplican cargas crecientes y se registran las deformaciones producidas, tanto
+en la carga como en la descarga, con el fin de determinar experimentalmente la constante
+recuperadora del resorte y el módulo de Young a partir de un ajuste lineal por mínimos
+cuadrados. La comparación entre los comportamientos de ambos materiales permite además
+ilustrar los conceptos de elasticidad, histéresis y límite elástico.

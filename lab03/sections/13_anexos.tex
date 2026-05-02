@@ -5,7 +5,7 @@
 
 \begin{appendices}
 
-\section{Propagación de incertidumbre — ejemplo}
+\section{Propagación de incertidumbre}
 
 % Reemplazar con el cálculo real del lab.
 % Fórmula base, derivadas parciales, sustitución numérica, resultado final.
@@ -22,17 +22,24 @@ Para $a_G = 2d/t^2$, aplicando suma en cuadratura:
 Resultado:
 
 \[
-    \boxed{a_G = (3{,}50 \pm 0{,}07) \times 10^{-3}\ \si{m/s^2}}
+    \boxed{a_G = (3{,}50 \pm 0{,}07) \times 10^{-3}\ \unit{m/s^2}}
 \]
 
-%% --- Agregar más anexos según necesidad ---
-% \section{Anexo B — nombre}
+\section{Código de generación de figuras}
+
+Las figuras presentadas en este informe fueron generadas mediante scripts de Python
+disponibles en el repositorio del grupo:
+
+\url{https://github.com/MiniLux0/Physics-Reports}
+
+Los scripts se encuentran en la carpeta \texttt{lab03/scripts/}.
 
 \section{Hoja de recolección de datos}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.80\linewidth]{fig_hoja_datos}
+    %% Reemplazar \fbox por: \includegraphics[width=0.80\linewidth]{fig_hoja_datos}
+    \fbox{\rule{0pt}{10cm}\rule{0.80\linewidth}{0pt}}
     \caption{Hoja de recolección de datos original.}
     \label{fig:hoja_datos}
 \end{figure}

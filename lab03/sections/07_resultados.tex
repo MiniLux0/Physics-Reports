@@ -1,26 +1,73 @@
 %% ============================================================
 %%  SECCIÓN 7 — Resultados Experimentales
-%%  Responsable: [Nombre]
 %% ============================================================
 
 \section{Resultados Experimentales}
 
-% Presentar los datos crudos obtenidos en el laboratorio.
-% Todas las tablas deben tener caption, label, y ser referenciadas en el texto.
-% Incluir incertidumbres en todas las mediciones.
+En esta sección se presentan los datos crudos obtenidos durante las mediciones en el laboratorio, tanto para el resorte metálico como para la liga (tira de jebe). Se han registrado las masas nominales y reales, así como las deformaciones geométricas del sistema frente a los procesos de carga y, en el caso de la liga, también de descarga.
+
+\subsection{Datos del Resorte Metálico}
+
+En la Tabla~\ref{tab:datos_resorte} se detallan las mediciones de longitud ($L$) y diámetro de la sección transversal ($D$) del resorte para diferentes masas. Se consideraron los siguientes parámetros iniciales y constantes para este sistema: 
+\begin{itemize}
+    \item Diámetro inicial del resorte: $D_0 = 1{,}40\ \text{cm}$
+    \item Masa del portapesas: $m_0 = 0{,}0463\ \text{kg}$
+    \item Longitud natural del resorte: $L_0 = 16{,}6\ \text{cm}$
+\end{itemize}
 
 \begin{table}[H]
     \centering
-    \caption{Nombre de la tabla.}
-    \label{tab:datos1}
+    \caption{Datos experimentales de deformación para el resorte. Las incertidumbres instrumentales son $\Delta x = \pm 0{,}25\times 10^{-3}\ \text{m}$ para la longitud y $\Delta D = \pm 0{,}02\times 10^{-3}\ \text{m}$ para el diámetro.}
+    \label{tab:datos_resorte}
     \begin{tabular}{ccccc}
         \toprule
-        Tramo & $t_1\ (\text{s})$ & $t_2\ (\text{s})$ & $t_3\ (\text{s})$ & Promedio (s) \\
+        \multirow{2}{*}{\textbf{N$^\circ$}} & \multicolumn{2}{c}{\textbf{Masa $m$ (g)}} & \textbf{Longitud $L$} & \textbf{Diámetro $D$} \\
+        \cmidrule(lr){2-3}
+         & Nominal & Real & $(\times 10^{-3}\ \text{m})$ & $(\times 10^{-3}\ \text{m})$ \\
         \midrule
-        $A_0 A_1$ & $7{,}95 \pm 0{,}15$ & $7{,}59 \pm 0{,}15$ & $7{,}16 \pm 0{,}15$ & $7{,}48 \pm 0{,}15$ \\
-        $A_1 A_2$ & $3{,}13 \pm 0{,}15$ & $3{,}16 \pm 0{,}15$ & $3{,}11 \pm 0{,}15$ & $3{,}14 \pm 0{,}15$ \\
+        1 & 500  & 499{,}8  & 29{,}8 & 14{,}22 \\
+        2 & 750  & 754{,}3  & 32{,}1 & 14{,}14 \\
+        3 & 1000 & 1005{,}0 & 35{,}0 & 14{,}04 \\
+        4 & 1250 & 1259{,}5 & 38{,}5 & 13{,}98 \\
+        5 & 1500 & 1504{,}8 & 41{,}7 & 13{,}94 \\
+        6 & 1750 & 1759{,}3 & 44{,}6 & 13{,}90 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-En la Tabla~\ref{tab:datos1} se presentan los tiempos registrados por tramo.
+\subsection{Datos de la Liga (Tira de Jebe)}
+
+Para la liga elástica, se evaluó tanto el comportamiento bajo incremento de masa (carga) como en la reducción de la misma (descarga) para evidenciar posibles ciclos de histéresis. Los datos obtenidos para la longitud ($L$) y las dimensiones de la sección transversal ($a$ y $b$) se reportan en la Tabla~\ref{tab:datos_liga}. Los parámetros iniciales fueron:
+\begin{itemize}
+    \item Sección transversal inicial: $a_0 = 14{,}80\ \text{mm}$, $b_0 = 5{,}50\ \text{mm}$
+    \item Masa del portapesas: $m_0 = 0{,}0463\ \text{kg}$
+    \item Longitud natural de la liga: $L_0 = 34{,}2\ \text{cm}$
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \caption{Datos experimentales de deformación para la liga en fases de carga y descarga. Las incertidumbres son $\Delta x = \pm 0{,}25\ \text{cm}$ para la longitud, y $\Delta a = \Delta b = \pm 0{,}02\ \text{mm}$ para la sección transversal.}
+    \label{tab:datos_liga}
+    \begin{tabular}{ccccccc}
+        \toprule
+        \multirow{2}{*}{\textbf{Fase}} & \multirow{2}{*}{\textbf{N$^\circ$}} & \multicolumn{2}{c}{\textbf{Masa $m$ (g)}} & \textbf{$L$} & \textbf{$a$} & \textbf{$b$} \\
+        \cmidrule(lr){3-4}
+        & & Nominal & Real & (\text{cm}) & (\text{mm}) & (\text{mm}) \\
+        \midrule
+        \multirow{6}{*}{\textbf{Carga}} 
+        & 1 & 500  & 499{,}8  & 36{,}7 & 14{,}24 & 5{,}60 \\
+        & 2 & 750  & 754{,}3  & 38{,}6 & 13{,}76 & 5{,}46 \\
+        & 3 & 1000 & 1005{,}0 & 41{,}5 & 13{,}14 & 5{,}24 \\
+        & 4 & 1250 & 1259{,}5 & 45{,}0 & 13{,}14 & 5{,}24 \\
+        & 5 & 1500 & 1504{,}8 & 47{,}1 & 13{,}12 & 5{,}14 \\
+        & 6 & 1750 & 1759{,}3 & 48{,}3 & 12{,}84 & 5{,}14 \\
+        \midrule
+        \multirow{5}{*}{\textbf{Descarga}} 
+        & 5 & 1500 & 1504{,}8 & 47{,}4 & 12{,}32 & 5{,}12 \\
+        & 4 & 1250 & 1259{,}5 & 46{,}0 & 13{,}30 & 5{,}40 \\
+        & 3 & 1000 & 1005{,}0 & 45{,}5 & 13{,}42 & 5{,}42 \\
+        & 2 & 750  & 754{,}3  & 42{,}2 & 13{,}52 & 5{,}36 \\
+        & 1 & 500  & 499{,}8  & 39{,}4 & 13{,}60 & 5{,}58 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
