@@ -5,41 +5,190 @@
 
 \begin{appendices}
 
+%% ===========================================================
 \section{Propagación de incertidumbre}
+%% ============================================================
 
-% Reemplazar con el cálculo real del lab.
-% Fórmula base, derivadas parciales, sustitución numérica, resultado final.
+Se aplica la regla de suma en cuadratura en todos los casos.
+Las incertidumbres instrumentales empleadas son:
+$\delta m = \qty{0,5}{g}$,
+$\delta L = \qty{0,05}{cm}$ (resorte),
+$\delta L = \qty{0,25}{cm}$ (liga),
+$\delta D_i = \delta a_i = \delta b_i = \qty{0,02}{mm}$.
 
-Para $a_G = 2d/t^2$, aplicando suma en cuadratura:
+% ----------------------------------------------------------
+\subsection*{A.1\quad Área de la sección transversal inicial — resorte}
+% ----------------------------------------------------------
+
+Para $S_{0,r} = \tfrac{\pi}{4}D_0^2$, con única variable $D_0$:
 
 \begin{equation}
-    \delta a_G = \sqrt{
-        \left(\frac{2}{t^2}\,\delta d\right)^2 +
-        \left(\frac{4d}{t^3}\,\delta t\right)^2
-    }
+    \delta S_{0,r}
+    = \frac{\partial S_{0,r}}{\partial D_0}\,\delta D_0
+    = \frac{\pi D_0}{2}\,\delta D_0
+    \label{eq:inc_S0r}
 \end{equation}
 
-Resultado:
+Sustituyendo $D_0 = \qty{14,00}{mm}$ y $\delta D_0 = \qty{0,02}{mm}$:
 
 \[
-    \boxed{a_G = (3{,}50 \pm 0{,}07) \times 10^{-3}\ \unit{m/s^2}}
+    \delta S_{0,r}
+    = \frac{\pi \times 14{,}00}{2} \times 0{,}02
+    = \qty{0,440}{mm^2}
+    = \qty{4,40e-7}{m^2}
 \]
 
+\[
+    \boxed{S_{0,r} = (1{,}539 \pm 0{,}044)\times10^{-4}\ \unit{m^2}}
+\]
+
+% ----------------------------------------------------------
+\subsection*{A.2\quad Área de la sección transversal inicial — liga}
+% ----------------------------------------------------------
+
+Para $S_{0,l} = a_0\,b_0$, con $a_0$ y $b_0$ independientes:
+
+\begin{equation}
+    \delta S_{0,l}
+    = \sqrt{\bigl(b_0\,\delta a_0\bigr)^2 + \bigl(a_0\,\delta b_0\bigr)^2}
+    \label{eq:inc_S0l}
+\end{equation}
+
+Sustituyendo $a_0 = \qty{14,80}{mm}$, $b_0 = \qty{5,50}{mm}$,
+$\delta a_0 = \delta b_0 = \qty{0,02}{mm}$:
+
+\[
+    \delta S_{0,l}
+    = \sqrt{(5{,}50 \times 0{,}02)^2 + (14{,}80 \times 0{,}02)^2}
+    = \sqrt{0{,}0121 + 0{,}0877}
+    = \qty{0,316}{mm^2}
+    = \qty{3,16e-8}{m^2}
+\]
+
+\[
+    \boxed{S_{0,l} = (8{,}14 \pm 0{,}32)\times10^{-5}\ \unit{m^2}}
+\]
+
+% ----------------------------------------------------------
+\subsection*{A.3\quad Deformación unitaria}
+% ----------------------------------------------------------
+
+Para $\varepsilon = \Delta\ell/\ell_0$, con $\ell$ y $\ell_0$ medidas
+con el mismo instrumento ($\delta\ell = \delta\ell_0$):
+
+\begin{equation}
+    \delta\varepsilon
+    = \frac{\delta\ell}{\ell_0}\sqrt{1 + \varepsilon^2}
+    \label{eq:inc_eps}
+\end{equation}
+
+\textbf{Ejemplo} — resorte, carga 1
+($\ell_0 = \qty{0,1660}{m}$,\ $\varepsilon_1 = 0{,}7952$,\
+$\delta\ell = \qty{5e-4}{m}$):
+
+\[
+    \delta\varepsilon_1
+    = \frac{5\times10^{-4}}{0{,}1660}
+      \sqrt{1 + 0{,}7952^2}
+    = 3{,}012\times10^{-3} \times 1{,}278
+    \approx 3{,}85\times10^{-3}
+\]
+
+\[
+    \boxed{\varepsilon_1 = 0{,}7952 \pm 0{,}0039}
+\]
+
+% ----------------------------------------------------------
+\subsection*{A.4\quad Esfuerzo real}
+% ----------------------------------------------------------
+
+Para $\sigma = mg/S_i$, propagando $m$ y el área instantánea $S_i$:
+
+\begin{equation}
+    \frac{\delta\sigma}{\sigma}
+    = \sqrt{
+        \left(\frac{\delta m}{m}\right)^{\!2}
+        +
+        \left(\frac{\delta S_i}{S_i}\right)^{\!2}
+      }
+    \label{eq:inc_sigma}
+\end{equation}
+
+\textbf{Ejemplo} — resorte, carga 1. 
+Primero se halla la incertidumbre del área instantánea $S_1$ con $D_1 = \qty{14,22}{mm}$:
+$\delta S_1 = \frac{\pi \times 14{,}22}{2} \times 0{,}02 = \qty{4,47e-7}{m^2}$.
+
+Datos: ($m_1 = \qty{0,4998}{kg}$,\ $\delta m = \qty{5e-4}{kg}$,\
+$S_1 = \qty{1,588e-4}{m^2}$,\ $\delta S_1 = \qty{4,47e-7}{m^2}$):
+
+\[
+    \frac{\delta\sigma_{1}}{\sigma_{1}}
+    = \sqrt{
+        \left(\frac{5\times10^{-4}}{0{,}4998}\right)^{\!2}
+        +
+        \left(\frac{4{,}47\times10^{-7}}{1{,}588\times10^{-4}}\right)^{\!2}
+      }
+    = \sqrt{(1{,}00\times10^{-3})^2 + (2{,}81\times10^{-3})^2}
+    = 2{,}98\times10^{-3}
+\]
+
+\[
+    \delta\sigma_{1}
+    = 2{,}98\times10^{-3} \times \qty{30,84}{kPa}
+    \approx \qty{0,09}{kPa}
+\]
+
+\[
+    \boxed{\sigma_{1} = (30{,}84 \pm 0{,}09)\ \unit{kPa}}
+\]
+
+% ----------------------------------------------------------
+\subsection*{A.5\quad Constante recuperadora \texorpdfstring{$k$}{k}
+             y módulo de Young \texorpdfstring{$Y$}{Y}}
+% ----------------------------------------------------------
+
+Las incertidumbres de $k$ e $Y_r$ se obtienen del error estándar de la
+pendiente del ajuste lineal por mínimos cuadrados.
+Para $n$ pares $(x_i,\,y_i)$ con pendiente estimada $\hat{m}$ e
+intercepto $\hat{b}$:
+
+\begin{equation}
+    s_{\hat{m}}
+    = \sqrt{
+        \dfrac{
+            \dfrac{1}{n-2}\displaystyle\sum_{i=1}^{n}
+            \bigl(y_i - \hat{m}\,x_i - \hat{b}\bigr)^2
+        }{
+            \displaystyle\sum_{i=1}^{n}(x_i - \bar{x})^2
+        }
+      }
+    \label{eq:inc_pendiente}
+\end{equation}
+
+Evaluando numéricamente con los datos de las
+Tablas~\ref{tab:sumas_resorte} y~\ref{tab:sumas_young_resorte}
+se obtienen los resultados reportados en las
+Ecs.~(\ref{eq:resultado_k}) y~(\ref{eq:Young_resorte}).
+
+%% ============================================================
 \section{Código de generación de figuras}
 
-Las figuras presentadas en este informe fueron generadas mediante scripts de Python
-disponibles en el repositorio del grupo:
+Las figuras presentadas en este informe fueron generadas mediante
+scripts de Python disponibles en el repositorio del grupo:
 
 \url{https://github.com/MiniLux0/Physics-Reports}
 
-Los scripts se encuentran en la carpeta \texttt{lab03/scripts/}.
+Los scripts se encuentran en la carpeta \texttt{lab03/scripts/} y
+emplean las bibliotecas \texttt{NumPy}~\cite{numpy},
+\texttt{Matplotlib}~\cite{matplotlib} y \texttt{SciPy}~\cite{scipy}.
 
+%% ============================================================
 \section{Hoja de recolección de datos}
+%% ============================================================
 
 \begin{figure}[H]
     \centering
-    %% Reemplazar \fbox por: \includegraphics[width=0.80\linewidth]{fig_hoja_datos}
-    \fbox{\rule{0pt}{10cm}\rule{0.80\linewidth}{0pt}}
+    \includegraphics[width=0.80\linewidth]{fig_hoja_datos}
     \caption{Hoja de recolección de datos original.}
     \label{fig:hoja_datos}
 \end{figure}

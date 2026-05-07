@@ -1,14 +1,91 @@
 %% ============================================================
-%%  SECCIÓN VIII — Análisis Experimental
-%%  Responsable: [Nombre]
+%%  SECCIÓN 8 — Análisis Experimental
 %% ============================================================
 
 \section{Análisis Experimental}
 
-% Interpretar cualitativamente los datos de las tablas.
-% No calcular aún — eso va en Tratamiento de Datos.
-% Explicar tendencias, comportamientos observados, consistencia de mediciones.
+En esta sección se examina el comportamiento cualitativo de los materiales
+a partir de los datos experimentales presentados en la
+Sección~\ref{sec:resultados}. El análisis se limita a la identificación de
+tendencias y patrones observables, sin considerar aún el cálculo de
+magnitudes derivadas.
 
-\subsection{Análisis de la Tabla~\ref{tab:datos1}}
+%% ------------------------------------------------------------------
+\subsection{Comportamiento del Resorte Metálico}
+%% ------------------------------------------------------------------
 
-Texto de análisis.
+De acuerdo con la Tabla~\ref{tab:datos_resorte}, la longitud $L$ del
+resorte presenta un incremento monótono al aumentar la masa aplicada,
+variando desde \qty{29,8}{cm} hasta \qty{44,6}{cm}. Los incrementos
+sucesivos de longitud muestran una tendencia aproximadamente uniforme,
+lo que sugiere una relación proporcional entre la carga y la deformación
+longitudinal.
+
+En relación con el diámetro $D$, se observa una disminución progresiva
+conforme aumenta la carga, pasando de \qty{14,22}{mm} a
+\qty{13,90}{mm}. Esta variación es consistente con la contracción
+transversal asociada a la elongación del material.
+
+Durante la fase de descarga, las longitudes registradas para cada
+configuración de masa coincidieron con los valores obtenidos en la fase
+de carga. Al retirar todas las masas, el resorte recuperó íntegramente
+su longitud natural, sin evidencia de deformación remanente. Este
+comportamiento confirma que el resorte permaneció dentro de su región
+elástica durante todo el experimento, por lo que no se presenta una
+tabla de descarga separada.
+
+%% ------------------------------------------------------------------
+\subsection{Comportamiento de la Liga Elástica}
+%% ------------------------------------------------------------------
+
+\subsubsection{Fase de carga}
+
+Durante la fase de carga (Tabla~\ref{tab:datos_liga}), la longitud $L$
+de la liga aumenta con la masa aplicada, desde \qty{36,7}{cm} hasta
+\qty{48,3}{cm}. A diferencia del resorte, los incrementos de longitud
+no presentan una tendencia uniforme, evidenciando una relación no lineal
+entre la carga y la deformación.
+
+Las dimensiones de la sección transversal $a$ y $b$ disminuyen conforme
+se incrementa la carga. No obstante, en ciertas mediciones consecutivas
+se observa una variación mínima o nula, lo que podría estar asociado a
+limitaciones experimentales o a cambios en la respuesta mecánica del
+material en ese intervalo.
+
+\subsubsection{Fase de descarga}
+
+En la fase de descarga, al comparar valores correspondientes a una misma
+masa, se observa que la longitud $L$ es sistemáticamente mayor que en la
+fase de carga. Por ejemplo, para \qty{1000}{g} se registra una longitud
+de \qty{41,5}{cm} en carga y \qty{45,5}{cm} en descarga, una diferencia
+de \qty{4,0}{cm}.
+
+Esta diferencia es considerable y puede atribuirse a tres mecanismos no
+excluyentes entre sí:
+
+\begin{enumerate}
+    \item \textbf{Histéresis viscoelástica:} En elastómeros, las cadenas
+    poliméricas no recuperan su configuración de equilibrio de forma
+    inmediata al disminuir la carga, produciendo una recuperación retardada
+    que genera longitudes de descarga mayores que las de carga para igual
+    masa.
+
+    \item \textbf{Deformación plástica parcial:} Si la liga superó
+    localmente su límite elástico durante el ensayo, parte de la deformación
+    se vuelve permanente e irreversible, contribuyendo a la diferencia
+    observada.
+
+    \item \textbf{Errores sistemáticos de medición:} La resolución limitada
+    de la regla métrica (\qty{\pm 0,25}{cm} para la liga) y el posible
+    error de paralaje pudieron introducir desviaciones sistemáticas,
+    especialmente en las mediciones de descarga donde el material aún no
+    había alcanzado el equilibrio estático.
+\end{enumerate}
+
+De manera similar, las dimensiones transversales $a$ y $b$ no coinciden
+con los valores de carga para iguales condiciones de masa, con valores
+de descarga sistemáticamente menores que los de carga en la región de
+cargas altas. Este comportamiento en conjunto es característico de
+materiales \textbf{viscoelásticos} con posible componente plástica,
+cuya respuesta mecánica depende de la historia de carga y no es
+completamente reversible.

@@ -1,29 +1,406 @@
 %% ============================================================
 %%  SECCIÓN IX — Tratamiento de Datos y Resultados
-%%  Responsable: [Nombre]
 %% ============================================================
 
 \section{Tratamiento de Datos y Resultados}
+\label{sec:tratamiento}
 
-% Presentar todos los cálculos con fórmulas numeradas.
-% Sustituir valores con unidades en cada paso.
-% Presentar resultados con incertidumbre: (valor ± error) unidad.
+En esta sección se obtienen, a partir de los datos experimentales de la
+Sección~\ref{sec:resultados}, las magnitudes derivadas necesarias para
+caracterizar el comportamiento elástico de cada material. Se adopta
+$g = \qty{9{,}8}{m/s^2}$ y se emplean exclusivamente las masas reales
+registradas con la balanza.
 
-\subsection{Magnitud 1 — nombre}
+%% ------------------------------------------------------------------
+\subsection{Área de la sección transversal inicial}
+%% ------------------------------------------------------------------
 
-A partir de la relación:
+\subsubsection{Resorte metálico — sección circular}
 
 \begin{equation}
-    a_G = \frac{2d}{t^2}
-    \label{eq:aceleracion}
+    S_{0,r} = \frac{\pi\,D_0^2}{4}
+    \label{eq:area_resorte}
 \end{equation}
 
-Sustituyendo $d = \qty{0,40}{m}$ y $t = \qty{15,12}{s}$:
+Sustituyendo $D_0 = \qty{14{,}00}{mm} = \qty{1{,}400e-2}{m}$:
 
 \begin{equation*}
-    a_G = \frac{2 \times 0{,}40}{(15{,}12)^2} = \qty{3,51e-3}{m/s^2}
+    S_{0,r} = \frac{\pi\,(1{,}400\times10^{-2})^2}{4}
+             = \qty{1{,}539e-4}{m^2}
 \end{equation*}
 
-\subsection{Magnitud 2 — nombre}
+\subsubsection{Liga elástica — sección rectangular}
 
-Texto del cálculo.
+\begin{equation}
+    S_{0,l} = a_0\,b_0
+    \label{eq:area_liga}
+\end{equation}
+
+Sustituyendo $a_0 = \qty{14{,}80}{mm}$ y $b_0 = \qty{5{,}50}{mm}$:
+
+\begin{equation*}
+    S_{0,l} = (14{,}80\times10^{-3})(5{,}50\times10^{-3})
+             = \qty{8{,}14e-5}{m^2}
+\end{equation*}
+
+%% ------------------------------------------------------------------
+\subsection{Magnitudes derivadas — Resorte metálico}
+%% -----------------------------------------------------------------
+
+Para cada configuración de carga $i$ se calculan el área deformada $S_i$ y el esfuerzo real $\sigma_i$:
+
+\begin{equation}
+    F_i = m_i\,g, \qquad
+    \Delta\ell_i = L_i - L_0, \qquad
+    \varepsilon_i = \frac{\Delta\ell_i}{L_0}, \qquad
+    S_i = \frac{\pi\,D_i^2}{4}, \qquad
+    \sigma_i = \frac{F_i}{S_i}
+    \label{eq:mag_deriv}
+\end{equation}
+
+con $L_0 = \qty{16{,}60}{cm} = \qty{0{,}1660}{m}$.
+
+\paragraph{Cálculo representativo para $i = 1$:}
+
+\begin{align*}
+    F_1        &= 0{,}4998 \times 9{,}8 = \qty{4{,}898}{N}\\
+    \Delta\ell_1 &= 0{,}298 - 0{,}1660  = \qty{0{,}1320}{m}\\
+    \varepsilon_1 &= \frac{0{,}1320}{0{,}1660} = 0{,}7952\\
+    S_1 &= \frac{\pi\,(14{,}22\times10^{-3})^2}{4} = \qty{1{,}588e-4}{m^2}\\
+    \sigma_1  &= \frac{4{,}898}{1{,}588\times10^{-4}} = \qty{30{,}84}{kPa}
+\end{align*}
+
+\begin{table}[H]
+    \centering
+    \caption{Magnitudes derivadas del resorte metálico empleando esfuerzo real.}
+    \label{tab:deriv_resorte}
+    \begin{tabular}{cccccc}
+        \toprule
+        \textbf{N$^{\circ}$}
+            & \textbf{$F$ (N)}
+            & \textbf{$\Delta\ell$ (m)}
+            & \textbf{$\varepsilon$}
+            & \textbf{$S_i$ ($10^{-4}$ m$^2$)}
+            & \textbf{$\sigma$ (kPa)} \\
+        \midrule
+        1 &  4{,}898 & 0{,}1320 & 0{,}7952 & 1{,}588 &  30{,}84 \\
+        2 &  7{,}392 & 0{,}1550 & 0{,}9337 & 1{,}570 &  47{,}08 \\
+        3 &  9{,}849 & 0{,}1840 & 1{,}1084 & 1{,}548 &  63{,}62 \\
+        4 & 12{,}343 & 0{,}2190 & 1{,}3193 & 1{,}535 &  80{,}41 \\
+        5 & 14{,}747 & 0{,}2510 & 1{,}5120 & 1{,}526 &  96{,}64 \\
+        6 & 17{,}241 & 0{,}2800 & 1{,}6867 & 1{,}517 & 113{,}65 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+%% ------------------------------------------------------------------
+\subsection{Magnitudes derivadas — Liga elástica}
+%% ------------------------------------------------------------------
+
+Se aplican relaciones análogas empleando $S_i = a_i \times b_i$ 
+y $L_0 = \qty{34{,}20}{cm} = \qty{0{,}3420}{m}$.
+
+\paragraph{Cálculo representativo para $i = 1$ (carga):}
+
+\begin{align*}
+    F_1          &= \qty{4{,}898}{N}\\
+    \Delta\ell_1 &= 0{,}367 - 0{,}3420 = \qty{0{,}0250}{m}\\
+    \varepsilon_1 &= \frac{0{,}0250}{0{,}3420} = 0{,}07310\\
+    S_1 &= (14{,}24\times10^{-3})(5{,}60\times10^{-3}) = \qty{79{,}74e-6}{m^2}\\
+    \sigma_1  &= \frac{4{,}898}{79{,}74\times10^{-6}} = \qty{61{,}42}{kPa}
+\end{align*}
+
+\begin{table}[H]
+    \centering
+    \caption{Magnitudes derivadas de la liga elástica — fase de carga.}
+    \label{tab:deriv_liga_carga}
+    \begin{tabular}{cccccc}
+        \toprule
+        \textbf{N$^{\circ}$}
+            & \textbf{$F$ (N)}
+            & \textbf{$\Delta\ell$ (m)}
+            & \textbf{$\varepsilon$}
+            & \textbf{$S_i$ ($10^{-6}$ m$^2$)}
+            & \textbf{$\sigma$ (kPa)} \\
+        \midrule
+        1 &  4{,}898 & 0{,}0250 & 0{,}07310 & 79{,}74 &  61{,}42 \\
+        2 &  7{,}392 & 0{,}0440 & 0{,}12865 & 75{,}13 &  98{,}39 \\
+        3 &  9{,}849 & 0{,}0730 & 0{,}21345 & 68{,}85 & 143{,}05 \\
+        4 & 12{,}343 & 0{,}1080 & 0{,}31579 & 68{,}85 & 179{,}27 \\
+        5 & 14{,}747 & 0{,}1290 & 0{,}37719 & 67{,}44 & 218{,}67 \\
+        6 & 17{,}241 & 0{,}1410 & 0{,}41228 & 66{,}00 & 261{,}23 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Magnitudes derivadas de la liga elástica — fase de descarga.}
+    \label{tab:deriv_liga_descarga}
+    \begin{tabular}{cccccc}
+        \toprule
+        \textbf{N$^{\circ}$}
+            & \textbf{$F$ (N)}
+            & \textbf{$\Delta\ell$ (m)}
+            & \textbf{$\varepsilon$}
+            & \textbf{$S_i$ ($10^{-6}$ m$^2$)}
+            & \textbf{$\sigma$ (kPa)} \\
+        \midrule
+        5 & 14{,}747 & 0{,}1320 & 0{,}38596 & 63{,}08 & 233{,}78 \\
+        4 & 12{,}343 & 0{,}1180 & 0{,}34503 & 71{,}82 & 171{,}86 \\
+        3 &  9{,}849 & 0{,}1130 & 0{,}33041 & 72{,}74 & 135{,}40 \\
+        2 &  7{,}392 & 0{,}0800 & 0{,}23392 & 72{,}47 & 101{,}95 \\
+        1 &  4{,}898 & 0{,}0520 & 0{,}15205 & 75{,}89 &  64{,}54 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+%% ------------------------------------------------------------------
+\subsection{Constante recuperadora del resorte}
+%% ------------------------------------------------------------------
+
+Por la Ley de Hooke $F = k\,\Delta\ell$, la constante $k$ se obtiene
+como la pendiente del ajuste lineal mínimo-cuadrático a los datos
+$(\Delta\ell_i,\,F_i)$:
+
+\begin{equation}
+    k = \frac{n\displaystyle\sum_{i}\Delta\ell_i F_i
+              - \displaystyle\sum_{i}\Delta\ell_i\displaystyle\sum_{i}F_i}
+             {n\displaystyle\sum_{i}(\Delta\ell_i)^2
+              - \!\left(\displaystyle\sum_{i}\Delta\ell_i\right)^{\!2}}
+    \label{eq:k_lsq}
+\end{equation}
+
+\begin{table}[H]
+    \centering
+    \caption{Productos auxiliares para el ajuste $F$ vs.\ $\Delta\ell$ del resorte.}
+    \label{tab:sumas_resorte}
+    \begin{tabular}{crrr}
+        \toprule
+        \textbf{N$^{\circ}$}
+            & \textbf{$\Delta\ell_i$ (m)}
+            & \textbf{$(\Delta\ell_i)^2$ (m$^2$)}
+            & \textbf{$\Delta\ell_i\,F_i$ (N$\cdot$m)} \\
+        \midrule
+        1 & 0{,}1320 & 0{,}017424 & 0{,}64654 \\
+        2 & 0{,}1550 & 0{,}024025 & 1{,}14576 \\
+        3 & 0{,}1840 & 0{,}033856 & 1{,}81222 \\
+        4 & 0{,}2190 & 0{,}047961 & 2{,}70312 \\
+        5 & 0{,}2510 & 0{,}063001 & 3{,}70150 \\
+        6 & 0{,}2800 & 0{,}078400 & 4{,}82748 \\
+        \midrule
+        $\Sigma$ & 1{,}2210 & 0{,}264667 & 14{,}83662 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Sustituyendo en~\eqref{eq:k_lsq} con $n = 6$ y
+$\sum F_i = \qty{66{,}470}{N}$:
+
+\begin{equation*}
+    k = \frac{6(14{,}83662) - (1{,}2210)(66{,}470)}
+             {6(0{,}264667) - (1{,}2210)^2}
+      = \frac{89{,}020 - 81{,}160}
+             {1{,}5880 - 1{,}4908}
+      = \frac{7{,}860}{0{,}09718}
+\end{equation*}
+
+La incertidumbre de $k$ se estima mediante el error estándar de la
+pendiente del ajuste por mínimos cuadrados, evaluando numéricamente
+$s_k = \qty{2{,}38}{N/m}$, por lo que:
+
+\begin{equation}
+    \boxed{k = \qty{80{,}89 \pm 2{,}38}{N/m}}
+    \label{eq:resultado_k}
+\end{equation}
+
+%% ------------------------------------------------------------------
+\subsection{Módulo de Young}
+%% ------------------------------------------------------------------
+
+El módulo de Young $Y$ corresponde a la pendiente de la recta de ajuste
+en el diagrama $\sigma$ vs.\ $\varepsilon$:
+
+\begin{equation}
+    Y = \frac{n\displaystyle\sum_{i}\varepsilon_i\,\sigma_{i}
+              - \displaystyle\sum_{i}\varepsilon_i\displaystyle\sum_{i}\sigma_{i}}
+             {n\displaystyle\sum_{i}\varepsilon_i^2
+              - \!\left(\displaystyle\sum_{i}\varepsilon_i\right)^{\!2}}
+    \label{eq:Young_lsq}
+\end{equation}
+
+\subsubsection{Resorte metálico}
+
+\begin{table}[H]
+    \centering
+    \caption{Productos auxiliares para el ajuste $\sigma$ vs.\ $\varepsilon$
+             del resorte.}
+    \label{tab:sumas_young_resorte}
+    \begin{tabular}{crrr}
+        \toprule
+        \textbf{N$^{\circ}$}
+            & \textbf{$\varepsilon_i$}
+            & \textbf{$\varepsilon_i^2$}
+            & \textbf{$\varepsilon_i\,\sigma_i$ (kPa)} \\
+        \midrule
+        1 & 0{,}7952 & 0{,}63235 &  24{,}524 \\
+        2 & 0{,}9337 & 0{,}87179 &  43{,}959 \\
+        3 & 1{,}1084 & 1{,}22855 &  70{,}516 \\
+        4 & 1{,}3193 & 1{,}74055 & 106{,}085 \\
+        5 & 1{,}5120 & 2{,}28614 & 146{,}120 \\
+        6 & 1{,}6867 & 2{,}84497 & 191{,}695 \\
+        \midrule
+        $\Sigma$ & 7{,}3553 & 9{,}60435 & 582{,}899 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Con $\sum\sigma_{i} = \qty{432{,}24}{kPa}$ y $n = 6$:
+
+\begin{equation*}
+    Y_r = \frac{6(582{,}899) - (7{,}3553)(432{,}24)}
+               {6(9{,}60435) - (7{,}3553)^2}
+        = \frac{3497{,}394 - 3179{,}256}
+               {57{,}6261 - 54{,}1004}
+        = \frac{318{,}138}{3{,}5257}
+\end{equation*}
+
+Evaluando numéricamente $s_Y = \qty{2{,}65}{kPa}$,
+por lo que:
+
+\begin{equation}
+    \boxed{Y_r = \qty{90{,}23 \pm 2{,}65}{kPa}}
+    \label{eq:Young_resorte}
+\end{equation}
+
+\subsubsection{Liga elástica — fase de carga}
+
+Se emplea únicamente la fase de carga para el ajuste lineal inicial.
+
+\begin{table}[H]
+    \centering
+    \caption{Productos auxiliares para el ajuste $\sigma$ vs.\ $\varepsilon$
+             de la liga (carga).}
+    \label{tab:sumas_young_liga}
+    \begin{tabular}{crrr}
+        \toprule
+        \textbf{N$^{\circ}$}
+            & \textbf{$\varepsilon_i$}
+            & \textbf{$\varepsilon_i^2$}
+            & \textbf{$\varepsilon_i\,\sigma_i$ (kPa)} \\
+        \midrule
+        1 & 0{,}07310 & 0{,}005344 &   4{,}490 \\
+        2 & 0{,}12865 & 0{,}016551 &  12{,}658 \\
+        3 & 0{,}21345 & 0{,}045561 &  30{,}534 \\
+        4 & 0{,}31579 & 0{,}099723 &  56{,}612 \\
+        5 & 0{,}37719 & 0{,}142272 &  82{,}480 \\
+        6 & 0{,}41228 & 0{,}169975 & 107{,}700 \\
+        \midrule
+        $\Sigma$ & 1{,}52046 & 0{,}479426 & 294{,}474 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Con $\sum\sigma_i = \qty{962{,}03}{kPa}$ y $n = 6$:
+
+\begin{equation*}
+    Y_l = \frac{6(294{,}474) - (1{,}52046)(962{,}03)}
+               {6(0{,}479426) - (1{,}52046)^2}
+        = \frac{1766{,}844 - 1462{,}728}
+               {2{,}87656 - 2{,}31180}
+        = \frac{304{,}116}{0{,}56476}
+\end{equation*}
+
+\begin{equation}
+    \boxed{Y_l = \qty{538 \pm 25}{kPa} \approx \qty{0{,}538}{MPa}}
+    \label{eq:Young_liga}
+\end{equation}
+
+Dado el carácter no lineal de la liga, $Y_l$ debe interpretarse como un
+módulo de Young efectivo o \textit{módulo secante} promediado sobre la
+región de carga ensayada, no como una propiedad intrínseca del material.
+El análisis riguroso requeriría el módulo tangente
+$E_t = \mathrm{d}\sigma/\mathrm{d}\varepsilon$, dependiente de la
+deformación.
+
+%% ------------------------------------------------------------------
+\subsection{Trabajo de deformación del resorte}
+%% ------------------------------------------------------------------
+
+El trabajo realizado se estima mediante la regla trapezoidal aplicada 
+a la curva $F$ vs.\ $\Delta\ell$:
+
+\begin{equation}
+    W \approx \sum_{i=0}^{2}
+      \frac{F_i + F_{i+1}}{2}\,(\Delta\ell_{i+1} - \Delta\ell_i)
+    \label{eq:trabajo_trap}
+\end{equation}
+
+donde $(\Delta\ell_0,\,F_0) = (0,\,0)$ es el estado inicial sin carga.
+Sustituyendo:
+
+\begin{align*}
+    W &\approx \frac{0 + 4{,}898}{2}(0{,}1320)
+             + \frac{4{,}898 + 7{,}392}{2}(0{,}0230)
+             + \frac{7{,}392 + 9{,}849}{2}(0{,}0290)\\[6pt]
+      &= 0{,}3233 + 0{,}1413 + 0{,}2500
+\end{align*}
+
+\begin{equation}
+    \boxed{W = \qty{0{,}715}{J}}
+    \label{eq:trabajo}
+\end{equation}
+
+%% ------------------------------------------------------------------
+\subsection{Área del lazo de histéresis}
+%% ------------------------------------------------------------------
+
+El área encerrada por el lazo de histéresis en el diagrama 
+$\sigma$--$\varepsilon$ representa la energía disipada por unidad de 
+volumen. Se calcula mediante la integral cerrada:
+
+\begin{equation}
+    A = \oint \sigma \, d\varepsilon 
+      = \int_{\text{carga}} \sigma \, d\varepsilon 
+      - \int_{\text{descarga}} \sigma \, d\varepsilon
+    \label{eq:area_histeresis}
+\end{equation}
+
+Evaluando ambas integrales numéricamente mediante la regla trapezoidal
+($\sum \frac{\sigma_i + \sigma_{i+1}}{2} \Delta\varepsilon$):
+
+\begin{table}[H]
+    \centering
+    \caption{Integración numérica del área bajo las curvas de carga y descarga.}
+    \label{tab:area_histeresis}
+    \begin{tabular}{cc|cc}
+        \toprule
+        \multicolumn{2}{c|}{\textbf{Fase de Carga}} & \multicolumn{2}{c}{\textbf{Fase de Descarga}} \\
+        \textbf{Intervalo} & \textbf{Área ($kJ/m^3$)} & \textbf{Intervalo} & \textbf{Área ($kJ/m^3$)} \\
+        \midrule
+        0 $\to$ 1 &  2{,}245 & 6 $\to$ 5d &  6{,}514 \\
+        1 $\to$ 2 &  4{,}439 & 5d $\to$ 4d &  8{,}301 \\
+        2 $\to$ 3 & 10{,}237 & 4d $\to$ 3d &  2{,}246 \\
+        3 $\to$ 4 & 16{,}493 & 3d $\to$ 2d & 11{,}451 \\
+        4 $\to$ 5 & 12{,}217 & 2d $\to$ 1d &  6{,}815 \\
+        5 $\to$ 6 &  8{,}420 & 1d $\to$ 0 &  4{,}907 \\
+        \midrule
+        \textbf{Total Carga} & \textbf{54{,}051} & \textbf{Total Descarga} & \textbf{40{,}234} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Restando el área de descarga a la energía absorbida en la carga:
+
+\begin{equation*}
+    A \approx 54{,}051 - 40{,}234 = \qty{13{,}817}{kJ/m^3}
+\end{equation*}
+
+\begin{equation}
+    \boxed{A = \qty{13{,}817}{kJ/m^3} \approx \qty{13817}{J/m^3}}
+    \label{eq:resultado_area}
+\end{equation}
+
+Este valor representa la energía mecánica disipada internamente por
+unidad de volumen de la liga, evidenciando el efecto termodinámico 
+irreversible producto de la fricción de sus cadenas poliméricas.

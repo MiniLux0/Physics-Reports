@@ -1,35 +1,121 @@
 %% ============================================================
 %%  SECCIÓN XII — Observaciones
-%%  Responsable: [Nombre]
 %% ============================================================
 
 \section{Observaciones}
 
-% Factores que afectaron la precisión del experimento.
-% Fuentes de error identificadas (sistemáticas y aleatorias).
+Durante el desarrollo del experimento se identificaron las siguientes
+fuentes de error e incidencias que pudieron afectar la precisión de
+los resultados:
 
-Texto de observaciones.
+\begin{enumerate}
+
+    \item \textbf{Error de paralaje en la lectura de la regla:}
+    Al medir la longitud del resorte y la liga suspendidos verticalmente,
+    la posición del observador respecto a la escala graduada introduce
+    un error sistemático difícil de eliminar por completo, a pesar de
+    las precauciones adoptadas.
+
+    \item \textbf{Oscilaciones del sistema:}
+    Al colocar o retirar las masas, el resorte y la liga experimentaron
+    oscilaciones transitorias. Aunque se esperó al equilibrio antes de
+    registrar cada medición, no puede descartarse que algunos valores
+    hayan sido tomados con una deformación ligeramente distinta a la
+    de equilibrio estático.
+
+    \item \textbf{Deformación remanente de la liga:}
+    Se observó que, al retirar todas las masas, la liga no recuperó
+    exactamente su longitud natural original, evidenciando una
+    deformación plástica parcial acumulada a lo largo del experimento.
+    Este efecto contribuye a los valores de histéresis registrados.
+
+    \item \textbf{Precisión limitada de la regla métrica:}
+    Con una resolución de \qty{1}{mm} e incertidumbre de
+    \qty{\pm 0{,}5}{mm}, la regla constituye la principal fuente de
+    error aleatorio en las mediciones de longitud, especialmente para
+    la liga, cuyas deformaciones iniciales son pequeñas en comparación con su longitud natural.
+
+    \item \textbf{Instrumento compartido:}
+    La balanza fue utilizada por varios grupos simultáneamente, lo que
+    limitó la posibilidad de verificar la masa de cada configuración
+    con la frecuencia deseada, dependiendo de los valores nominales en algunos casos.
+
+    \item \textbf{Alineación vertical:}
+    La liga, por su menor rigidez lateral respecto al resorte, mostró
+    mayor tendencia a desviarse de la vertical bajo carga, lo que pudo
+    introducir una componente horizontal no considerada en el modelo de tracción pura.
+
+\end{enumerate}
 
 %% ============================================================
 %%  SECCIÓN XIII — Sugerencias
-%%  Responsable: [Nombre]
 %% ============================================================
 
 \section{Sugerencias}
 
-% Recomendaciones para mejorar el experimento en futuras sesiones.
+Con el fin de mejorar la precisión y reproducibilidad del experimento
+en sesiones futuras, se proponen las siguientes recomendaciones:
 
-Texto de sugerencias.
+\begin{enumerate}
+
+    \item \textbf{Emplear un sensor de posición o extensómetro:}
+    Sustituir la regla métrica por un sensor digital de desplazamiento
+    reduciría significativamente el error de paralaje y permitiría
+    registrar la deformación en tiempo real durante la carga y descarga.
+
+    \item \textbf{Utilizar una cámara fija como referencia:}
+    Montar una cámara alineada horizontalmente con la escala graduada
+    permitiría realizar las lecturas de longitud \textit{a posteriori}, eliminando
+    el error de paralaje del operador mediante software de análisis de imagen.
+
+    \item \textbf{Permitir mayor tiempo de estabilización:}
+    Especialmente para la liga, establecer un tiempo mínimo de espera
+    fijo (por ejemplo, \qty{30}{s}) antes de registrar cada medición
+    garantizaría lecturas en equilibrio estático real, mitigando efectos viscoelásticos transitorios.
+
+    \item \textbf{Limitar el rango de carga de la liga:}
+    Para evitar la deformación plástica parcial observada, conviene
+    determinar previamente el límite elástico del material elastomérico y no superarlo
+    durante el experimento.
+
+    \item \textbf{Disponer de una balanza por grupo:}
+    Contar con una balanza exclusiva por grupo eliminaría los tiempos
+    de espera y permitiría verificar las masas exactas antes de cada etapa
+    de carga.
+
+    \item \textbf{Repetir el ciclo de carga y descarga:}
+    Realizar al menos tres ciclos completos de carga–descarga y promediar
+    los resultados permitiría estimar la incertidumbre estadística de
+    los datos y cuantificar con mayor rigor el efecto de histéresis acumulada.
+
+\end{enumerate}
 
 %% ============================================================
 %%  SECCIÓN XIV — Conclusiones
-%%  Responsable: [Nombre]
 %% ============================================================
 
 \section{Conclusiones}
 
-% Responder directamente a cada objetivo específico.
-% Incluir resultados numéricos con incertidumbre y error relativo.
-% Comparar con valores teóricos si aplica.
+A partir del análisis experimental y del tratamiento de datos realizados empleando el modelo de esfuerzo real, se establecen las siguientes conclusiones:
 
-Texto de conclusiones.
+\begin{enumerate}
+
+    \item \textbf{Verificación de la Ley de Hooke:}
+    El resorte metálico exhibió una relación lineal entre la fuerza
+    aplicada $F$ y la deformación longitudinal $\Delta\ell$ en el
+    rango ensayado ($R^2 = 0{,}9966$), confirmando su comportamiento dentro de la región elástica. La constante recuperadora obtenida fue $k = \qty{80{,}89 \pm 2{,}38}{N/m}$.
+
+    \item \textbf{Determinación del módulo de Young efectivo:}
+    El módulo de Young del resorte, obtenido a partir del diagrama de esfuerzo real ($\sigma$) vs. deformación ($\varepsilon$), resultó ser $Y_r = \qty{90{,}23 \pm 2{,}65}{kPa}$. Este valor es órdenes de magnitud inferior al del acero masivo, lo cual es físicamente consistente dado que la geometría helicoidal disipa la carga mediante torsión y flexión del alambre.
+
+    \item \textbf{Comportamiento no lineal del elastómero:}
+    La liga elástica no siguió la Ley de Hooke; su diagrama $\sigma$--$\varepsilon$ presentó una curvatura convexa creciente. El módulo de Young promedio (módulo secante) para la fase de carga fue $Y_l = \qty{538 \pm 25}{kPa}$, valor representativo para cauchos naturales bajo deformaciones moderadas. Se concluye que el uso del esfuerzo real es indispensable para observar el endurecimiento del material por reducción de área.
+
+    \item \textbf{Cuantificación de la histéresis elástica:}
+    Se confirmó la presencia de histéresis mediante la formación de un lazo cerrado en el diagrama de esfuerzo real. La energía mecánica disipada internamente por unidad de volumen durante el ciclo de carga--descarga se estimó en $A = \qty{13{,}817}{kJ/m^3}$, consecuencia de la fricción molecular y la naturaleza viscoelástica de la liga.
+
+    \item \textbf{Estimación del trabajo elástico:}
+    El trabajo realizado sobre el resorte para alcanzar la tercera
+    configuración de carga, calculado mediante integración numérica (regla trapezoidal), fue $W = \qty{0{,}715}{J}$. A diferencia de la liga, esta energía se considera conservativa dada la ausencia de un lazo de histéresis apreciable en el metal.
+
+\end{enumerate}

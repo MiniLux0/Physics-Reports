@@ -59,15 +59,28 @@ la rigidez del material: cuanto mayor es $Y$, mayor es la resistencia del materi
 deformarse.
 
 Combinando las Ecs.~\eqref{eq:deformacion_unitaria}, \eqref{eq:esfuerzo_tecnico} y
-\eqref{eq:hooke}, se obtiene la relación entre la fuerza aplicada $F$ y la deformación
-$\Delta\ell$:
+\eqref{eq:hooke}, se obtiene para una barra prismática sometida a tracción axial uniforme:
 \begin{equation}
     F = \frac{Y S_0}{\ell_0}\,\Delta\ell = k\,\Delta\ell,
     \label{eq:hooke_resorte}
 \end{equation}
-donde $k = Y S_0 / \ell_0$ es la \textit{constante recuperadora} del resorte
-(\unit{\newton\per\metre}). Esta expresión muestra que la fuerza y la deformación son
-linealmente proporcionales, lo que define el comportamiento de un resorte ideal.
+donde $k = Y S_0 / \ell_0$ es la \textit{constante recuperadora}
+(\unit{\newton\per\metre}), que cuantifica la rigidez del elemento elástico.
+
+Es importante señalar que esta deducción es estrictamente válida para barras rectas de
+sección uniforme bajo deformación axial homogénea. En el caso de un resorte helicoidal,
+la deformación longitudinal observada surge predominantemente de la \textit{torsión del
+alambre} que lo compone, no de tracción axial directa. Por ello, la expresión
+$F = k\,\Delta\ell$ se aplica al resorte como una analogía macroscópica formal: $k$
+sigue siendo la constante recuperadora del sistema, pero no puede relacionarse
+directamente con $Y$ mediante $k = Y S_0/\ell_0$. El modelo riguroso del resorte
+helicoidal proviene de la teoría de torsión \cite{halliday}:
+\begin{equation}
+    k = \frac{G\,d^4}{8\,D^3\,N},
+    \label{eq:k_resorte_helico}
+\end{equation}
+donde $G$ es el módulo de rigidez del material, $d$ el diámetro del alambre, $D$ el
+diámetro medio de la hélice y $N$ el número de espiras activas.
 
 \subsection{Límite elástico y diagrama esfuerzo--deformación}
 
@@ -110,3 +123,40 @@ hasta una elongación $\Delta\ell_f$ se obtiene integrando la Ec.~\eqref{eq:hook
 \end{equation}
 Experimentalmente, este trabajo se puede estimar como el área bajo la curva $F$
 vs.\ $\Delta\ell$ mediante integración numérica (regla del trapecio).
+
+\subsection{Clasificación de esfuerzos}
+
+El \textit{esfuerzo normal} es aquel cuya dirección es perpendicular al plano de la
+sección transversal sobre la que actúa. Puede ser de tracción, cuando tiende a alargar
+el cuerpo, o de compresión, cuando tiende a acortarlo. En este experimento, la fuerza
+aplicada sobre el resorte y la liga actúa en dirección axial, por lo que el esfuerzo
+resultante es de naturaleza normal \cite{halliday}.
+
+El \textit{esfuerzo tangencial} (o cortante) actúa en dirección paralela al plano de la
+sección transversal y tiende a producir un deslizamiento entre planos adyacentes del
+material. El \textit{esfuerzo de torsión} es un caso particular del esfuerzo tangencial
+que surge cuando se aplica un momento torsor sobre el eje longitudinal del cuerpo;
+su distribución sobre la sección transversal no es uniforme, sino proporcional a la
+distancia al eje de giro. Aunque ambos son de naturaleza tangencial, el esfuerzo
+cortante puro se asocia a fuerzas transversales, mientras que el de torsión se origina
+exclusivamente por momentos de giro \cite{serway}.
+
+\subsection{Esfuerzo de fluencia, esfuerzo límite y módulo de elasticidad}
+
+El \textit{módulo de elasticidad en tracción o compresión} es precisamente el módulo de
+Young $Y$ definido en la Ec.~\eqref{eq:hooke}: representa la pendiente de la región
+lineal del diagrama $\sigma$--$\varepsilon$ y cuantifica la rigidez intrínseca del
+material frente a deformaciones axiales \cite{halliday}.
+
+El \textit{esfuerzo límite} $\sigma_{\text{límite}}$ (o límite elástico) es el valor
+máximo del esfuerzo para el cual el material aún se comporta elásticamente, es decir,
+recupera su forma original al retirar la carga. Por encima de este valor la deformación
+deja de ser proporcional al esfuerzo y comienza a ser permanente.
+
+El \textit{esfuerzo de fluencia} $\sigma_y$ es el esfuerzo al que el material comienza
+a deformarse plásticamente de manera apreciable y sostenida sin necesidad de incrementar
+la carga. En materiales dúctiles se identifica en el diagrama $\sigma$--$\varepsilon$
+como el punto donde la curva presenta una meseta horizontal o una caída brusca tras el
+límite elástico, tal como se aprecia en la Fig.~\ref{fig:diagrama_sigma_epsilon}. En la
+práctica, $\sigma_y$ suele determinarse mediante el criterio del $0{,}2\%$ de
+deformación permanente cuando no existe una meseta claramente definida \cite{serway}.

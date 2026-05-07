@@ -1,10 +1,106 @@
 %% ============================================================
 %%  SECCIÓN XI — Análisis de Gráficas
-%%  Responsable: [Nombre]
 %% ============================================================
 
 \section{Análisis de Gráficas}
+\label{sec:analisis_graficas}
 
-\subsection{Gráfica 1}
+\subsection{Gráfica 1: \texorpdfstring{$F$ vs.\ $\Delta\ell$}{F vs. Delta l} — Resorte Metálico}
 
-Texto de análisis.
+La Fig.~\ref{fig:F_resorte} muestra una relación esencialmente lineal entre
+la fuerza aplicada $F$ y la deformación longitudinal $\Delta\ell$ del
+resorte metálico. El coeficiente de determinación $R^2 = 0{,}9966$ confirma
+que el modelo lineal describe con alta fidelidad el comportamiento del
+material dentro del rango experimental ensayado, lo que es consistente con la
+Ley de Hooke. La pendiente del ajuste entrega directamente la constante
+elástica del resorte:
+
+\begin{equation*}
+    k = \qty{80{,}89 \pm 2{,}38}{N/m}
+\end{equation*}
+
+Este valor caracteriza la rigidez del resorte y concuerda con el obtenido
+mediante el ajuste por mínimos cuadrados de la
+Sección~\ref{sec:tratamiento}. La ausencia de desviaciones sistemáticas
+respecto a la recta de ajuste indica que el resorte permaneció dentro de
+su región elástica, sin evidencia de deformación plástica ni de saturación.
+
+\subsection{Gráfica 2: \texorpdfstring{$\sigma$ vs.\ $\varepsilon$}{sigma vs. epsilon} — Resorte Metálico}
+
+La Fig.~\ref{fig:sigma_resorte} presenta el diagrama de esfuerzo real--deformación
+del resorte. Al igual que en la Gráfica~1, el ajuste lineal resulta
+altamente satisfactorio ($R^2 = 0{,}9971$), confirmando que el resorte
+exhibe un comportamiento elástico lineal. La pendiente de la recta corresponde 
+al módulo de Young efectivo recalculado mediante el área instantánea:
+
+\begin{equation*}
+    Y_r = \qty{90{,}23 \pm 2{,}41}{kPa}
+\end{equation*}
+
+Este valor, notablemente inferior al del acero masivo
+($Y_\text{acero} \sim \qty{200}{GPa}$), no representa una propiedad
+intrínseca del material sino un módulo efectivo macroscópico del sistema
+resorte. La discrepancia se explica por la geometría helicoidal: bajo carga 
+axial, el alambre experimenta predominantemente torsión y flexión, lo que 
+reduce el módulo efectivo en varios órdenes de magnitud respecto a una 
+barra sólida.
+
+\subsection{Gráfica 3: \texorpdfstring{$F$ vs.\ $\Delta\ell$}{F vs. Delta l} — Liga Elástica (Carga y Descarga)}
+
+La Fig.~\ref{fig:F_liga} permite visualizar el comportamiento crudo de la liga 
+elástica. Se observa que la curva de descarga no coincide con la de carga, 
+presentando una elongación mayor para un mismo valor de fuerza durante el 
+retorno. Esta separación evidencia cualitativamente la existencia de histéresis 
+y una recuperación lenta de la estructura interna, independientemente de las 
+variaciones en la sección transversal.
+
+\subsection{Gráfica 4: \texorpdfstring{$\sigma$ vs.\ $\varepsilon$}{sigma vs. epsilon} — Liga Elástica (Carga)}
+
+La Fig.~\ref{fig:sigma_liga_carga} muestra el diagrama de esfuerzo real para 
+la liga. A diferencia del resorte, la pendiente aumenta con la deformación, 
+un endurecimiento característico atribuido a la alineación de cadenas 
+poliméricas. Al emplear el esfuerzo verdadero ($\sigma = F/S$), la curvatura 
+es más pronunciada debido a que el área transversal disminuye significativamente 
+durante el estiramiento.
+
+Aunque se calculó un módulo de Young de referencia ($Y_l \approx \qty{538}{kPa}$), 
+se destaca que este valor representa únicamente un \textbf{módulo secante promedio} 
+sobre la región ensayada y carece de un sentido físico global dado el carácter 
+manifiestamente no lineal del material. El modelo polinomial de grado~2 resulta 
+mucho más representativo:
+
+\begin{equation*}
+    \sigma(\varepsilon) = 340{,}20\,\varepsilon^2 + 372{,}28\,\varepsilon
+                        + 38{,}82 \quad \text{(kPa)}
+\end{equation*}
+
+\subsection{Gráfica 5: \texorpdfstring{$\sigma$ vs.\ $\varepsilon$}{sigma vs. epsilon} — Liga Elástica (Descarga)}
+
+La Fig.~\ref{fig:sigma_liga_descarga} muestra la trayectoria de recuperación. 
+El ajuste polinomial de grado~2 modela adecuadamente el retorno ($R^2 = 0{,}9667$):
+
+\begin{equation*}
+    \sigma(\varepsilon) = 3119{,}97\,\varepsilon^2 - 1024{,}06\,\varepsilon
+                        + 154{,}01 \quad \text{(kPa)}
+\end{equation*}
+
+La deformación residual observada durante la descarga confirma que la liga 
+no restituye de forma inmediata la energía elástica. Este proceso es 
+termodinámicamente irreversible y las fuerzas involucradas son no conservativas, 
+lo cual se cuantifica en la Tabla~\ref{tab:area_histeresis}.
+
+\subsection{Gráfica 6: Lazo de histéresis — Liga Elástica}
+
+La Fig.~\ref{fig:histeresis_lazo} muestra el lazo de histéresis cerrado. 
+El área encerrada por el lazo, calculada mediante la integración numérica de la 
+diferencia entre las curvas de carga y descarga en la 
+Sección~\ref{sec:tratamiento}, es:
+
+\begin{equation*}
+    A = \qty{13{,}817}{kJ/m^3}
+\end{equation*}
+
+Este valor representa la energía mecánica disipada internamente por unidad de 
+volumen en forma de calor. La asimetría del lazo es consistente con la 
+viscoelasticidad del material, donde la fricción intramolecular alcanza su 
+máximo en el rango de deformaciones intermedias.

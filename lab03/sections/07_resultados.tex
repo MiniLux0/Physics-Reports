@@ -3,30 +3,62 @@
 %% ============================================================
 
 \section{Resultados Experimentales}
+\label{sec:resultados}
 
-En esta sección se presentan los datos crudos obtenidos durante las mediciones en el laboratorio, tanto para el resorte metálico como para la liga (tira de jebe). Se han registrado las masas nominales y reales, así como las deformaciones geométricas del sistema frente a los procesos de carga y, en el caso de la liga, también de descarga.
+En esta sección se presentan los datos obtenidos durante las mediciones
+en el laboratorio. Para cada material se reportan primero los parámetros
+geométricos iniciales y, a continuación, las mediciones registradas bajo
+la aplicación de cargas progresivas. En el caso de la liga elástica se
+incluyen también las mediciones correspondientes a la fase de descarga.
 
-\subsection{Datos del Resorte Metálico}
+%% ------------------------------------------------------------------
+\subsection{Resorte Metálico}
+%% ------------------------------------------------------------------
 
-En la Tabla~\ref{tab:datos_resorte} se detallan las mediciones de longitud ($L$) y diámetro de la sección transversal ($D$) del resorte para diferentes masas. Se consideraron los siguientes parámetros iniciales y constantes para este sistema: 
-\begin{itemize}
-    \item Diámetro inicial del resorte: $D_0 = 1{,}40\ \text{cm}$
-    \item Masa del portapesas: $m_0 = 0{,}0463\ \text{kg}$
-    \item Longitud natural del resorte: $L_0 = 16{,}6\ \text{cm}$
-\end{itemize}
+Se determinaron los parámetros geométricos iniciales del resorte metálico
+y su masa en reposo. La Tabla~\ref{tab:param_resorte} presenta dichos
+parámetros.
 
 \begin{table}[H]
     \centering
-    \caption{Datos experimentales de deformación para el resorte. Las incertidumbres instrumentales son $\Delta x = \pm 0{,}25\times 10^{-3}\ \text{m}$ para la longitud y $\Delta D = \pm 0{,}02\times 10^{-3}\ \text{m}$ para el diámetro.}
-    \label{tab:datos_resorte}
-    \begin{tabular}{ccccc}
+    \caption{Parámetros iniciales del resorte metálico.}
+    \label{tab:param_resorte}
+    \begin{tabular}{lcc}
         \toprule
-        \multirow{2}{*}{\textbf{N$^\circ$}} & \multicolumn{2}{c}{\textbf{Masa $m$ (g)}} & \textbf{Longitud $L$} & \textbf{Diámetro $D$} \\
-        \cmidrule(lr){2-3}
-         & Nominal & Real & $(\times 10^{-3}\ \text{m})$ & $(\times 10^{-3}\ \text{m})$ \\
+        \textbf{Magnitud} & \textbf{Símbolo} & \textbf{Valor} \\
         \midrule
-        1 & 500  & 499{,}8  & 29{,}8 & 14{,}22 \\
-        2 & 750  & 754{,}3  & 32{,}1 & 14{,}14 \\
+        Masa del resorte       & $m_r$ & $46{,}3  \pm 0{,}5\  \text{g}$  \\
+        Longitud natural       & $L_0$ & $16{,}60 \pm 0{,}05\ \text{cm}$ \\
+        Diámetro de la sección & $D_0$ & $14{,}00 \pm 0{,}02\ \text{mm}$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Las mediciones de longitud $L$ y diámetro $D$ del resorte bajo carga
+progresiva se registran en la Tabla~\ref{tab:datos_resorte}. Se emplearon
+seis configuraciones de masa, con valores nominales entre \qty{500}{g}
+y \qty{1750}{g}. Para cada configuración se consignaron la masa nominal,
+la masa real medida con la balanza, la longitud total del resorte y el
+diámetro de su sección transversal deformada, necesario para el cálculo
+del esfuerzo real $\sigma = F/S$.
+
+\begin{table}[H]
+    \centering
+    \caption{Mediciones de longitud y diámetro del resorte bajo carga progresiva.
+             Incertidumbres: $\Delta L = \pm 0{,}05\ \text{cm}$,\;
+             $\Delta D = \pm 0{,}02\ \text{mm}$.}
+    \label{tab:datos_resorte}
+    \begin{tabular}{crrcc}
+        \toprule
+        \multirow{2}{*}{\textbf{N$^{\circ}$}}
+            & \multicolumn{2}{c}{\textbf{Masa $m$ (g)}}
+            & \textbf{$L$ (cm)}
+            & \textbf{$D$ (mm)} \\
+        \cmidrule(lr){2-3}
+            & Nominal & Real & & \\
+        \midrule
+        1 &  500 &  499{,}8 & 29{,}8 & 14{,}22 \\
+        2 &  750 &  754{,}3 & 32{,}1 & 14{,}14 \\
         3 & 1000 & 1005{,}0 & 35{,}0 & 14{,}04 \\
         4 & 1250 & 1259{,}5 & 38{,}5 & 13{,}98 \\
         5 & 1500 & 1504{,}8 & 41{,}7 & 13{,}94 \\
@@ -35,39 +67,72 @@ En la Tabla~\ref{tab:datos_resorte} se detallan las mediciones de longitud ($L$)
     \end{tabular}
 \end{table}
 
-\subsection{Datos de la Liga (Tira de Jebe)}
+%% ------------------------------------------------------------------
+\subsection{Liga Elástica}
+%% ------------------------------------------------------------------
 
-Para la liga elástica, se evaluó tanto el comportamiento bajo incremento de masa (carga) como en la reducción de la misma (descarga) para evidenciar posibles ciclos de histéresis. Los datos obtenidos para la longitud ($L$) y las dimensiones de la sección transversal ($a$ y $b$) se reportan en la Tabla~\ref{tab:datos_liga}. Los parámetros iniciales fueron:
-\begin{itemize}
-    \item Sección transversal inicial: $a_0 = 14{,}80\ \text{mm}$, $b_0 = 5{,}50\ \text{mm}$
-    \item Masa del portapesas: $m_0 = 0{,}0463\ \text{kg}$
-    \item Longitud natural de la liga: $L_0 = 34{,}2\ \text{cm}$
-\end{itemize}
+Se determinaron los parámetros geométricos iniciales de la liga elástica
+y su masa en reposo. La Tabla~\ref{tab:param_liga} presenta dichos
+parámetros.
 
 \begin{table}[H]
     \centering
-    \caption{Datos experimentales de deformación para la liga en fases de carga y descarga. Las incertidumbres son $\Delta x = \pm 0{,}25\ \text{cm}$ para la longitud, y $\Delta a = \Delta b = \pm 0{,}02\ \text{mm}$ para la sección transversal.}
-    \label{tab:datos_liga}
-    \begin{tabular}{ccccccc}
+    \caption{Parámetros iniciales de la liga elástica.}
+    \label{tab:param_liga}
+    \begin{tabular}{lcc}
         \toprule
-        \multirow{2}{*}{\textbf{Fase}} & \multirow{2}{*}{\textbf{N$^\circ$}} & \multicolumn{2}{c}{\textbf{Masa $m$ (g)}} & \textbf{$L$} & \textbf{$a$} & \textbf{$b$} \\
+        \textbf{Magnitud} & \textbf{Símbolo} & \textbf{Valor} \\
+        \midrule
+        Masa de la liga       & $m_l$ & $46{,}3  \pm 0{,}5\  \text{g}$   \\
+        Longitud natural      & $L_0$ & $34{,}20 \pm 0{,}05\ \text{cm}$  \\
+        Ancho de la sección   & $a_0$ & $14{,}80 \pm 0{,}02\ \text{mm}$  \\
+        Espesor de la sección & $b_0$ & $5{,}50  \pm 0{,}02\ \text{mm}$  \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Las mediciones de longitud $L$, ancho $a$ y espesor $b$ de la sección
+transversal se registran en la Tabla~\ref{tab:datos_liga}. Las mediciones
+se realizaron en dos etapas: carga y descarga, registrándose las
+dimensiones de la sección transversal deformada en cada caso, necesarias
+para el cálculo del esfuerzo real $\sigma = F/S$. Se emplearon seis
+configuraciones de masa en la fase de carga (entre \qty{500}{g} y
+\qty{1750}{g}) y cinco en la fase de descarga (hasta \qty{500}{g}),
+consignando en cada punto la masa nominal, la masa real, la longitud
+total y las dimensiones de la sección transversal.
+
+\begin{table}[H]
+    \centering
+    \caption{Mediciones de longitud y sección transversal de la liga en
+             fases de carga y descarga.
+             Incertidumbres: $\Delta L = \pm 0{,}25\ \text{cm}$,\;
+             $\Delta a = \Delta b = \pm 0{,}02\ \text{mm}$.}
+    \label{tab:datos_liga}
+    \begin{tabular}{lcrrccc}
+        \toprule
+        \multirow{2}{*}{\textbf{Fase}}
+            & \multirow{2}{*}{\textbf{N$^{\circ}$}}
+            & \multicolumn{2}{c}{\textbf{Masa $m$ (g)}}
+            & \textbf{$L$ (cm)}
+            & \textbf{$a$ (mm)}
+            & \textbf{$b$ (mm)} \\
         \cmidrule(lr){3-4}
-        & & Nominal & Real & (\text{cm}) & (\text{mm}) & (\text{mm}) \\
+            & & Nominal & Real & & & \\
         \midrule
-        \multirow{6}{*}{\textbf{Carga}} 
-        & 1 & 500  & 499{,}8  & 36{,}7 & 14{,}24 & 5{,}60 \\
-        & 2 & 750  & 754{,}3  & 38{,}6 & 13{,}76 & 5{,}46 \\
-        & 3 & 1000 & 1005{,}0 & 41{,}5 & 13{,}14 & 5{,}24 \\
-        & 4 & 1250 & 1259{,}5 & 45{,}0 & 13{,}14 & 5{,}24 \\
-        & 5 & 1500 & 1504{,}8 & 47{,}1 & 13{,}12 & 5{,}14 \\
-        & 6 & 1750 & 1759{,}3 & 48{,}3 & 12{,}84 & 5{,}14 \\
+        \multirow{6}{*}{\textbf{Carga}}
+            & 1 &  500 &  499{,}8 & 36{,}7 & 14{,}24 & 5{,}60 \\
+            & 2 &  750 &  754{,}3 & 38{,}6 & 13{,}76 & 5{,}46 \\
+            & 3 & 1000 & 1005{,}0 & 41{,}5 & 13{,}14 & 5{,}24 \\
+            & 4 & 1250 & 1259{,}5 & 45{,}0 & 13{,}14 & 5{,}24 \\
+            & 5 & 1500 & 1504{,}8 & 47{,}1 & 13{,}12 & 5{,}14 \\
+            & 6 & 1750 & 1759{,}3 & 48{,}3 & 12{,}84 & 5{,}14 \\
         \midrule
-        \multirow{5}{*}{\textbf{Descarga}} 
-        & 5 & 1500 & 1504{,}8 & 47{,}4 & 12{,}32 & 5{,}12 \\
-        & 4 & 1250 & 1259{,}5 & 46{,}0 & 13{,}30 & 5{,}40 \\
-        & 3 & 1000 & 1005{,}0 & 45{,}5 & 13{,}42 & 5{,}42 \\
-        & 2 & 750  & 754{,}3  & 42{,}2 & 13{,}52 & 5{,}36 \\
-        & 1 & 500  & 499{,}8  & 39{,}4 & 13{,}60 & 5{,}58 \\
+        \multirow{5}{*}{\textbf{Descarga}}
+            & 5 & 1500 & 1504{,}8 & 47{,}4 & 12{,}32 & 5{,}12 \\
+            & 4 & 1250 & 1259{,}5 & 46{,}0 & 13{,}30 & 5{,}40 \\
+            & 3 & 1000 & 1005{,}0 & 45{,}5 & 13{,}42 & 5{,}42 \\
+            & 2 &  750 &  754{,}3 & 42{,}2 & 13{,}52 & 5{,}36 \\
+            & 1 &  500 &  499{,}8 & 39{,}4 & 13{,}60 & 5{,}58 \\
         \bottomrule
     \end{tabular}
 \end{table}
