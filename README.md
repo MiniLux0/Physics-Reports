@@ -1,97 +1,60 @@
-# 🔬 Physics Reports — UNI Facultad de Ciencias
+# 🔬 Physics Reports — Física II (CF1B2)
 
-Repositorio de informes de laboratorio de Física II (CF1B2).
-Plantilla basada en `article` estándar — sin dependencias externas.
+**Universidad Nacional de Ingeniería (UNI) — Facultad de Ciencias**
 
----
+Este repositorio sirve como portafolio y archivo central de los informes de laboratorio del curso de Física II. Todos los documentos están redactados con alto rigor académico utilizando **LaTeX** (`article` estándar), y el tratamiento de datos experimentales, ajustes de curvas e integración numérica se realizan mediante **Python** (`NumPy`, `SciPy`, `Matplotlib`).
 
-## ⚙️ Instalación y Configuración
-
-Si eres nuevo en el repositorio, lee estas guías antes de empezar:
-
-* 👉 **[Configurar Git + VS Code + GitHub](https://github.com/MiniLux0/Physics-Reports/blob/main/docs/Git.md)**
-* 👉 **[Instalar MiKTeX y LaTeX](https://github.com/MiniLux0/Physics-Reports/blob/main/docs/MiKTeX.md)**
-* 👉 **[Cómo colaborar en el repositorio](https://github.com/MiniLux0/Physics-Reports/blob/main/docs/Workflow.md)**
+## 👥 Equipo de Trabajo
+* **Vera Vivanco, Jesus Rodolfo**
+* **Bustos Ttito, Jose Fabricio**
+* **Cauti Huachaca, Yordan Orlando**
 
 ---
 
-## 📂 Estructura
+## 📊 Estado de los Laboratorios
+
+A continuación se presenta la relación de experiencias del curso y el estado actual de nuestros informes:
+
+| Lab | Título del Experimento | Docente | Estado | Carpeta |
+| :---: | :--- | :--- | :---: | :--- |
+| **L1** | **Dinámica de Rotación** | Prof. G. Cortez | 🟢 Completado | [`/lab01`](./lab01) |
+| **L2** | **Péndulo Físico y Teorema de Steiner** | Prof. R. Salazar | 🟢 Completado | [`/lab02`](./lab02) |
+| **L3** | **Ley de Hooke** | Prof. G. Cortez | 🟢 Completado | [`/lab03`](./lab03) |
+| **L4** | **Tensión Superficial** | Prof. R. Salazar | ⚪ Pendiente | `-` |
+| **L5** | **Coeficiente de Dilatación Lineal** | Prof. G. Cortez | ⚪ Pendiente | `-` |
+| **L6** | **Calor Específico** | Prof. R. Salazar | ⚪ Pendiente | `-` |
+
+---
+
+## 🔬 Resumen de Experiencias Completadas
+
+### 📌 [Laboratorio 01] Dinámica de Rotación
+Estudio experimental de las variables cinemáticas y dinámicas en sistemas rotacionales. Análisis de la conservación del momento angular, cálculo de momentos de inercia de diferentes geometrías y validación experimental de las leyes de Newton aplicadas a la rotación.
+
+### 📌 [Laboratorio 02] Péndulo Físico y Teorema de Steiner
+Determinación de la aceleración de la gravedad y análisis del comportamiento oscilatorio de un cuerpo rígido. Comprobación experimental del Teorema de Ejes Paralelos (Steiner) midiendo el periodo de oscilación al variar la distancia entre el centro de masa y el eje de rotación.
+
+### 📌 [Laboratorio 03] Ley de Hooke
+Análisis contrastado del comportamiento elástico de un metal (resorte helicoidal) y un polímero viscoelástico (tira de jebe). La experiencia incluyó:
+* Verificación del límite elástico y cálculo del módulo de Young.
+* Análisis de esfuerzos reales frente a la reducción del área transversal (Efecto de Poisson).
+* Cuantificación de la energía mecánica disipada térmica a través de la integración numérica de lazos de histéresis.
+
+---
+
+## 📂 Estructura del Repositorio
+
+El repositorio está organizado en carpetas independientes para cada sesión de laboratorio, garantizando que el código y las figuras no se mezclen:
 
 ```text
 physics-reports/
-├── template/          ← plantilla maestra (no editar directamente)
-│   ├── main.tex
-│   ├── refs.bib
-│   ├── sections/
-│   └── Figures/
+├── lab01/             ← Informe 1: Dinámica de Rotación
+├── lab02/             ← Informe 2: Péndulo Físico
+├── lab03/             ← Informe 3: Ley de Hooke
+│   ├── main.tex       (Documento principal)
+│   ├── sections/      (Secciones modulares del documento)
+│   ├── Figures/       (Gráficas y diagramas)
+│   └── scripts/       (Código Python para el tratamiento de datos)
 │
-├── lab02/             ← informe del laboratorio 2
-│   ├── main.tex
-│   ├── refs.bib
-│   ├── sections/
-│   ├── Figures/
-│   ├── data/
-│   └── analysis/
-│
-├── docs/              ← documentación y tutoriales
-│   ├── Git.md
-│   ├── MiKTeX.md
-│   └── Workflow.md
-│
-├── .gitattributes     ← normalización de saltos de línea (LF)
+├── template/          ← Plantilla LaTeX base para futuros informes
 └── README.md
-```
-
----
-
-## 🚀 Flujo de trabajo para cada nuevo lab
-
-```bash
-# 1. Copiar la plantilla
-cp -r template/ lab0N/
-
-# 2. Editar SOLO el bloque "DATOS DEL INFORME" en lab0N/main.tex
-
-# 3. Trabajar en lab0N/sections/ — nunca mezclar con otros labs
-```
-
-> Para el flujo completo con ramas y pull requests, ver **[docs/Workflow.md](docs/Workflow.md)**.
-
----
-
-## 🛠️ Compilación
-
-Con **VS Code + LaTeX Workshop**: compila automáticamente al guardar (`Ctrl + S`).
-Receta recomendada: `latexmk (latexmkrc)` o `pdflatex → biber → pdflatex × 2`.
-
-### Compilación manual en terminal
-
-```bash
-pdflatex main.tex
-biber main
-pdflatex main.tex
-pdflatex main.tex
-```
-
----
-
-## 📦 Paquetes requeridos
-
-Todos son estándar en TeX Live / MiKTeX:
-
-| Paquete                | Uso                         |
-| ---------------------- | --------------------------- |
-| `babel` (spanish)      | Idioma                      |
-| `amsmath`, `mathtools` | Matemáticas                 |
-| `physics`              | Derivadas, gradientes, etc. |
-| `siunitx`              | Unidades SI                 |
-| `booktabs`             | Tablas profesionales        |
-| `biblatex` + `biber`   | Bibliografía                |
-| `fancyhdr`             | Encabezados/pie             |
-| `titlesec`             | Estilo de secciones         |
-
----
-
-## 📩 Contacto
-
-Dudas, errores o sugerencias: abre un [Issue](https://github.com/MiniLux0/Physics-Reports/issues) o consulta directamente con el autor del repositorio.
