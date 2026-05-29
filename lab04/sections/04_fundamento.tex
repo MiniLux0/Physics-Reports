@@ -54,12 +54,12 @@ Aplicando la Ec.~\eqref{eq:equilibrio_torques}:
     \left(\sum_{j} m_j \,\frac{n_j}{10}\right) g \cdot d_{\text{brazo}},
     \label{eq:torque_balance}
 \end{equation}
-de donde se obtiene la masa efectiva equivalente
+donde $g$ es la aceleración de la gravedad. De aquí se obtiene la masa efectiva equivalente:
 \begin{equation}
     M_{\text{ef}} = \sum_{j} m_j \,\frac{n_j}{10}
     \label{eq:masa_ef}
 \end{equation}
-y la fuerza de tensión superficial
+y la fuerza de tensión superficial asociada:
 \begin{equation}
     F_{TS} = M_{\text{ef}}\, g.
     \label{eq:fuerza_ts}
@@ -106,12 +106,13 @@ y en la dirección horizontal sobre la película:
     \sum F_x = 2\gamma(2h) - 2T\cos\alpha = 0,
     \label{eq:eq_horizontal}
 \end{equation}
-donde $T$ es la tensión en el hilo y $P = mg$ el peso del tubo inferior.
+donde $T$ es la tensión en el hilo y $P = mg$ el peso del tubo inferior. Cabe destacar que **el factor 2** que multiplica a $\gamma$ en ambos balances obedece a que la película jabonosa posee dos superficies libres (frontal y posterior), ejerciendo tensión a lo largo de cada una de ellas.
+
 Dividiendo la Ec.~\eqref{eq:eq_vertical} entre la
 Ec.~\eqref{eq:eq_horizontal} y usando las relaciones
 geométricas~\eqref{eq:geometria_arco}, se demuestra que:
 \begin{equation}
-    \gamma = \frac{P}{2\!\left(\dfrac{h^{2}}{a - b} + a + b\right)}.
+    \gamma = \frac{P}{2 \left( \dfrac{h^{2}}{a - b} + a + b \right)}.
     \label{eq:gamma_m2}
 \end{equation}
 La demostración detallada de la Ec.~\eqref{eq:gamma_m2} se desarrolla en el

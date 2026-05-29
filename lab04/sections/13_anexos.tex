@@ -12,10 +12,10 @@
 
 Se aplica la regla de suma en cuadratura en todos los casos. Las
 incertidumbres instrumentales empleadas son:
-$\delta R = \qty{0,005}{\centi\meter}$ (vernier),
-$\delta m = \qty{0,1}{\gram}$ (balanza de precisión),
+$\delta R = \qty{0.005}{\centi\meter}$ (vernier),
+$\delta m = \qty{0.1}{\gram}$ (balanza de precisión),
 $\delta n = 1$ división (brazo mayor).
-Se adopta $g = \qty{9,81}{\meter\per\second\squared}$.
+Se adopta $g = \qty{9.81}{\meter\per\second\squared}$.
 
 %% ------------------------------------------------------------------
 \subsection{Longitud de contacto \texorpdfstring{$L$}{L}}
@@ -33,12 +33,12 @@ y $R_{\text{int}}$ medidos con el mismo instrumento:
 Sustituyendo $\delta R = \qty{5e-5}{\meter}$:
 
 \begin{equation*}
-    \delta L = 2\pi\sqrt{2} \times 5\times10^{-5}
-             = \qty{4,44e-4}{\meter}
+    \delta L = 2\pi\sqrt{2} \times \num{5e-5}
+             = \qty{4.44e-4}{\meter}
 \end{equation*}
 
 \begin{equation*}
-    \boxed{L = (6{,}2957 \pm 0{,}0004) \times 10^{-1}\ \si{\meter}}
+    \boxed{L = \qty{6.2957 \pm 0.0004e-1}{\meter}}
 \end{equation*}
 
 %% ------------------------------------------------------------------
@@ -59,9 +59,9 @@ Cálculo representativo — Medición~1
 
 \begin{equation*}
     \delta M_{\text{ef},1}
-    = \frac{0{,}1\times10^{-3}}{10}\sqrt{1^2 + 3^2}
-    = 10^{-5}\sqrt{10}
-    = \qty{3,16e-5}{\kilogram}
+    = \frac{\num{0.1e-3}}{10}\sqrt{1^2 + 3^2}
+    = \num{1e-5}\sqrt{10}
+    = \qty{3.16e-5}{\kilogram}
 \end{equation*}
 
 %% ------------------------------------------------------------------
@@ -80,59 +80,59 @@ cuadratura:
 \end{equation}
 
 Cálculo representativo — Medición~1
-($M_{\text{ef},1} = \qty{2,38e-3}{\kilogram}$,
-$\delta M_{\text{ef},1} = \qty{3,16e-5}{\kilogram}$):
+($M_{\text{ef},1} = \qty{2.38e-3}{\kilogram}$,
+$\delta M_{\text{ef},1} = \qty{3.16e-5}{\kilogram}$):
 
 \begin{equation*}
     \frac{\delta\gamma_1}{\gamma_1}
     = \sqrt{
-        \left(\frac{3{,}16\times10^{-5}}{2{,}38\times10^{-3}}\right)^2 +
-        \left(\frac{4{,}44\times10^{-4}}{6{,}2957\times10^{-1}}\right)^2
+        \left(\frac{\num{3.16e-5}}{\num{2.38e-3}}\right)^2 +
+        \left(\frac{\num{4.44e-4}}{\num{6.2957e-1}}\right)^2
       }
-    = \sqrt{(0{,}01328)^2 + (0{,}000705)^2}
-    = 0{,}01330
+    = \sqrt{(\num{0.01328})^2 + (\num{0.000705})^2}
+    = \num{0.01330}
 \end{equation*}
 
 \begin{equation*}
-    \delta\gamma_1 = 0{,}01330 \times 37{,}09 = \qty{0,49}{\milli\newton\per\meter}
+    \delta\gamma_1 = \num{0.01330} \times \num{37.09} = \qty{0.49}{\milli\newton\per\meter}
 \end{equation*}
 
 %% ------------------------------------------------------------------
-\subsection{Incertidumbre del promedio \texorpdfstring{$\bar{\gamma}_1$}{gamma promedio}}
+\subsection{Incertidumbre del promedio \texorpdfstring{$\overline{\gamma}_1$}{gamma promedio}}
 %% ------------------------------------------------------------------
 
 La incertidumbre del promedio se estima mediante la desviación estándar
 de la media:
 
 \begin{equation}
-    \delta\bar{\gamma}_1
-    = \sqrt{\frac{\displaystyle\sum_{i=1}^{N}(\gamma_i - \bar{\gamma}_1)^2}
+    \delta\overline{\gamma}_1
+    = \sqrt{\frac{\displaystyle\sum_{i=1}^{N}(\gamma_i - \overline{\gamma}_1)^2}
                  {N(N-1)}}
 \end{equation}
 
 Sustituyendo con $N = 5$ y
-$\bar{\gamma}_1 = \qty{39,73}{\milli\newton\per\meter}$:
+$\overline{\gamma}_1 = \qty{39.73}{\milli\newton\per\meter}$:
 
 \begin{equation*}
-    \sum_{i=1}^{5}(\gamma_i - \bar{\gamma}_1)^2
-    = (37{,}09-39{,}73)^2 + (41{,}60-39{,}73)^2 + (38{,}33-39{,}73)^2
-      + (40{,}20-39{,}73)^2 + (41{,}45-39{,}73)^2
+    \sum_{i=1}^{5}(\gamma_i - \overline{\gamma}_1)^2
+    = (\num{37.09}-\num{39.73})^2 + (\num{41.60}-\num{39.73})^2 + (\num{38.33}-\num{39.73})^2
+      + (\num{40.20}-\num{39.73})^2 + (\num{41.45}-\num{39.73})^2
 \end{equation*}
 
 \begin{equation*}
-    = 6{,}9696 + 3{,}4969 + 1{,}9600 + 0{,}2209 + 2{,}9584
-    = \qty{15,608}{\milli\newton\squared\per\meter\squared}
+    = \num{6.9696} + \num{3.4969} + \num{1.9600} + \num{0.2209} + \num{2.9584}
+    = \qty{15.608}{\milli\newton\squared\per\meter\squared}
 \end{equation*}
 
 \begin{equation*}
-    \delta\bar{\gamma}_1
-    = \sqrt{\frac{15{,}608}{5 \times 4}}
-    = \sqrt{0{,}7804}
-    = \qty{0,88}{\milli\newton\per\meter}
+    \delta\overline{\gamma}_1
+    = \sqrt{\frac{\num{15.608}}{5 \times 4}}
+    = \sqrt{\num{0.7804}}
+    = \qty{0.88}{\milli\newton\per\meter}
 \end{equation*}
 
 \begin{equation*}
-    \boxed{\bar{\gamma}_1 = (39{,}73 \pm 0{,}88)\;\si{\milli\newton\per\meter}}
+    \boxed{\overline{\gamma}_1 = \qty{39.73 \pm 0.88}{\milli\newton\per\meter}}
 \end{equation*}
 
 %% ------------------------------------------------------------------
@@ -145,13 +145,13 @@ independientes con incertidumbre son $m$, $a$, $b$ y $h$.
 Primero se calcula el peso y su incertidumbre:
 
 \begin{equation*}
-    P = mg = 1{,}2\times10^{-3} \times 9{,}81 = \qty{11{,}772e-3}{\newton}
+    P = mg = \num{1.2e-3} \times \num{9.81} = \qty{11.772e-3}{\newton}
 \end{equation*}
 
 \begin{equation*}
     \delta P = \delta m \cdot g
-    = 0{,}1\times10^{-3} \times 9{,}81
-    = \qty{0{,}981e-3}{\newton}
+    = \num{0.1e-3} \times \num{9.81}
+    = \qty{0.981e-3}{\newton}
 \end{equation*}
 
 Definiendo $Q = h^2/(a-b) + a + b$, las derivadas parciales son:
@@ -162,46 +162,46 @@ Definiendo $Q = h^2/(a-b) + a + b$, las derivadas parciales son:
     \frac{\partial Q}{\partial h} = \frac{2h}{a-b}
 \end{equation}
 
-Sustituyendo $a = \qty{2,73}{\centi\meter}$,
-$b = \qty{2,55}{\centi\meter}$,
-$h = \qty{2,78}{\centi\meter}$,
-$a - b = \qty{0,18}{\centi\meter}$,
-$\delta a = \delta b = \delta h = \qty{0,005}{\centi\meter}$:
+Sustituyendo $a = \qty{2.73}{\centi\meter}$,
+$b = \qty{2.55}{\centi\meter}$,
+$h = \qty{2.78}{\centi\meter}$,
+$a - b = \qty{0.18}{\centi\meter}$,
+$\delta a = \delta b = \delta h = \qty{0.005}{\centi\meter}$:
 
 \begin{equation*}
     \frac{\partial Q}{\partial a}
-    = -\frac{(2{,}78)^2}{(0{,}18)^2} + 1
-    = -\frac{7{,}7284}{0{,}0324} + 1
-    = -238{,}53 + 1
-    = -237{,}53
+    = -\frac{(\num{2.78})^2}{(\num{0.18})^2} + 1
+    = -\frac{\num{7.7284}}{\num{0.0324}} + 1
+    = -\num{238.53} + 1
+    = -\num{237.53}
 \end{equation*}
 
 \begin{equation*}
     \frac{\partial Q}{\partial b}
-    = \frac{7{,}7284}{0{,}0324} + 1
-    = 238{,}53 + 1
-    = 239{,}53
+    = \frac{\num{7.7284}}{\num{0.0324}} + 1
+    = \num{238.53} + 1
+    = \num{239.53}
 \end{equation*}
 
 \begin{equation*}
     \frac{\partial Q}{\partial h}
-    = \frac{2 \times 2{,}78}{0{,}18}
-    = 30{,}89
+    = \frac{2 \times \num{2.78}}{\num{0.18}}
+    = \num{30.89}
 \end{equation*}
 
 \begin{equation*}
     \delta Q = \sqrt{
-        (237{,}53 \times 0{,}005)^2 +
-        (239{,}53 \times 0{,}005)^2 +
-        (30{,}89  \times 0{,}005)^2
+        (\num{237.53} \times \num{0.005})^2 +
+        (\num{239.53} \times \num{0.005})^2 +
+        (\num{30.89}  \times \num{0.005})^2
     }\ \si{\centi\meter}
 \end{equation*}
 
 \begin{equation*}
-    \delta Q = \sqrt{1{,}4077 + 1{,}4328 + 0{,}0238}
-             = \sqrt{2{,}8643}
-             = \qty{1{,}693}{\centi\meter}
-             = \qty{1{,}693e-2}{\meter}
+    \delta Q = \sqrt{\num{1.4077} + \num{1.4328} + \num{0.0238}}
+             = \sqrt{\num{2.8643}}
+             = \qty{1.693}{\centi\meter}
+             = \qty{1.693e-2}{\meter}
 \end{equation*}
 
 Finalmente, para $\gamma_2 = P/(2Q)$:
@@ -217,21 +217,31 @@ Finalmente, para $\gamma_2 = P/(2Q)$:
 \begin{equation*}
     \frac{\delta\gamma_2}{\gamma_2}
     = \sqrt{
-        \left(\frac{0{,}981\times10^{-3}}{11{,}772\times10^{-3}}\right)^2 +
-        \left(\frac{1{,}693\times10^{-2}}{4{,}822\times10^{-1}}\right)^2
+        \left(\frac{\num{0.981e-3}}{\num{11.772e-3}}\right)^2 +
+        \left(\frac{\num{1.693e-2}}{\num{4.822e-1}}\right)^2
       }
-    = \sqrt{(0{,}0833)^2 + (0{,}0351)^2}
-    = 0{,}0904
+    = \sqrt{(\num{0.0833})^2 + (\num{0.0351})^2}
+    = \num{0.0904}
 \end{equation*}
 
 \begin{equation*}
-    \delta\gamma_2 = 0{,}0904 \times 12{,}21
-                  = \qty{1{,}10}{\milli\newton\per\meter}
+    \delta\gamma_2 = \num{0.0904} \times \num{12.21}
+                  = \qty{1.10}{\milli\newton\per\meter}
 \end{equation*}
 
 \begin{equation*}
-    \boxed{\gamma_2 = (12{,}21 \pm 1{,}10)\;\si{\milli\newton\per\meter}}
+    \boxed{\gamma_2 = \qty{12.21 \pm 1.10}{\milli\newton\per\meter}}
 \end{equation*}
+
+\section{Código de generación de figuras}
+\label{anx:codigo}
+
+La figura presentada en este informe fue generada mediante un script
+de Python disponible en el repositorio del grupo:
+
+\begin{center}
+\url{https://github.com/MiniLux0/Physics-Reports/blob/main/lab04/scripts/grap.py}
+\end{center}
 
 %% ============================================================
 \section{Hoja de recolección de datos}

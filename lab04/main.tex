@@ -99,7 +99,7 @@
 %%  INDICE
 %% ------------------------------------------------------------
 \usepackage{tocloft}
-\renewcommand{\contentsname}{Indice de Contenidos}
+\renewcommand{\contentsname}{Índice de Contenidos}
 \renewcommand{\cftsecfont}{\normalfont}
 \renewcommand{\cftsecpagefont}{\normalfont\bfseries}
 \renewcommand{\cftsecdotsep}{\cftdotsep}
@@ -137,17 +137,17 @@
 %%  DATOS DEL INFORME  <-- EDITAR SOLO ESTE BLOQUE POR LAB
 %% ============================================================
 
-\newcommand{\labcurso}{Fisica II (CF1B2) --- Seccion A}
-\newcommand{\labnumero}{2}
-\newcommand{\labtitulo}{Titulo del laboratorio}
-\newcommand{\labfecha}{Lima, DD de mes de 2026}
-\newcommand{\labdocente}{Apellido, Nombre}
+\newcommand{\labcurso}{Física II (CF1B2) --- Sección A}
+\newcommand{\labnumero}{4}
+\newcommand{\labtitulo}{Tensión Superficial}
+\newcommand{\labfecha}{Lima, 29 de mayo de 2026}
+\newcommand{\labdocente}{Salazar, Roberto}
 
 \newcommand{\labintegrantes}{%
     \begin{enumerate}
-        \item Vera Vivanco, Jesus Rodolfo \quad (20252703K)
-        \item Bustos Ttito, Jose Fabricio \quad (20200490F)
+        \item Vera Vivanco, Jesús Rodolfo \quad (20252703K)
         \item Cauti Huachaca, Yordan Orlando \quad (20222236E)
+        \item Marín Quispe, Joel Gabriel \quad (20250438H)
     \end{enumerate}
 }
 
@@ -162,9 +162,9 @@
     \centering
     \vspace*{0.8cm}
     {\Large\bfseries UNIVERSIDAD NACIONAL DE INGENIER\'IA}\\[0.3cm]
-    {\large\bfseries FACULTAD DE CIENCIAS}\\[0.1cm]
-    {\large Escuela de F\'isica}\\[1.2cm]
-    \includegraphics[width=0.27\linewidth]{uni_logo}\\[1.2cm]
+    {\large\bfseries FACULTAD DE CIENCIAS}\\[0.2cm]
+    {\Large Escuela de F\'isica}\\[1.2cm]
+    \includegraphics[width=0.4\linewidth]{uni_logo}\\[1.2cm]
     {\normalsize\labcurso}\\[0.8cm]
     {\large LABORATORIO N\textdegree\,\labnumero:}\\[0.4cm]
     {\LARGE\bfseries \labtitulo}\\[1.2cm]
@@ -183,25 +183,28 @@
 \tableofcontents
 \newpage
 
-%% ============================================================
-%%  SECCIONES
-%%  Persona 1: 01, 02, 03, 04
-%%  Persona 2: 05, 06, 07
-%%  Persona 3: 08, 09, 10, 11, 12
-%%  Todos:     13 (anexos)
-%% ============================================================
-
 \input{sections/01_introduccion}
+\clearpage
 \input{sections/02_resumen}
+\clearpage
 \input{sections/03_objetivos}
+\clearpage
 \input{sections/04_fundamento}
+\clearpage
 \input{sections/05_materiales}
+\clearpage
 \input{sections/06_procedimiento}
+\clearpage
 \input{sections/07_resultados}
+\clearpage
 \input{sections/08_analisis_exp}
+\clearpage
 \input{sections/09_tratamiento}
+\clearpage
 \input{sections/10_graficas}
+\clearpage
 \input{sections/11_analisis_graficas}
+\clearpage
 \input{sections/12_obs_sug_conclusiones}
 
 %% ------------------------------------------------------------
@@ -213,6 +216,8 @@
 %% ------------------------------------------------------------
 %%  ANEXOS
 %% ------------------------------------------------------------
+\clearpage
 \input{sections/13_anexos}
+\clearpage
 
 \end{document}

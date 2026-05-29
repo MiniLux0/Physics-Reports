@@ -8,31 +8,38 @@
 
 \begin{enumerate}
 
-    \item \textbf{Punto de desprendimiento impreciso:} La adición de
+    \item \textbf{Fase elástica y punto de desprendimiento:} La adición de
     arena mediante pipeta no permite un control fino del instante exacto
-    en que el anillo se desprende de la superficie, lo que introduce una
-    sobreestimación sistemática de la fuerza de tensión superficial en
+    de ruptura. Durante el ensayo se observó una fase de estiramiento elástico
+    donde el menisco cilíndrico genera una fuerza restauradora vertical opuesta
+    al movimiento de la balanza. Esto introduce 
+    una sobreestimación sistemática de la fuerza de tensión superficial en
     cada medición.
 
     \item \textbf{Contaminación del agua:} El uso prolongado del mismo
     recipiente pudo introducir trazas de detergente u otras impurezas en
-    el agua, reduciendo $\gamma$ respecto al valor de agua pura a
+    el agua, reduciendo $\gamma$ respecto al valor ideal del agua pura a
     \SI{20}{\celsius}.
 
     \item \textbf{Temperatura no controlada:} El coeficiente de tensión
-    superficial del agua disminuye con la temperatura. No se registró la
-    temperatura del agua durante el experimento, por lo que no es posible
-    corregir el valor de referencia bibliográfico.
+    superficial del agua disminuye conforme aumenta la temperatura. Al no
+    haber registrado la temperatura del fluido durante el experimento, no
+    es posible realizar una corrección exacta del valor de referencia
+    bibliográfico.
 
     \item \textbf{Evaporación y drenaje en el segundo método:} La
-    película jabonosa comienza a evaporarse y drenar desde el momento en
-    que se retira el dispositivo de la solución, alterando las dimensiones
-    geométricas $a$, $b$ y $h$ antes de completar la medición.
+    película jabonosa comienza a evaporarse y a drenar por gravedad desde
+    el momento en que se retira el dispositivo de la solución. 
+    Estos factores generan un gradiente de espesores y sutiles oscilaciones 
+    ópticas en las fronteras de los hilos, lo que altera las dimensiones geométricas 
+    $a$, $b$ y $h$ y dificulta su medición exacta.
 
-    \item \textbf{Resolución discreta del brazo mayor:} Los jinetillos
+    \item \textbf{Resolución y escala del brazo mayor:} Los jinetillos
     solo pueden colocarse en ranuras enteras, lo que limita la resolución
-    de la masa efectiva y genera una incertidumbre irreducible en
-    $\gamma_i$.
+    de la masa efectiva. Adicionalmente, el cálculo matemático asume que el 
+    brazo de la balanza trabaja con 10 divisiones útiles exactas. 
+    Si el equipo real empleó una escala distinta, se introduce una incertidumbre 
+    sistemática en la conversión de torque a fuerza.
 
 \end{enumerate}
 
@@ -48,26 +55,32 @@
 
     \item \textbf{Registrar la temperatura del agua:} Medir la
     temperatura del líquido antes y después de cada serie de mediciones
-    permitiría corregir el valor de referencia
-    $\gamma_{\text{ref}}(T)$ y reducir el error relativo.
+    permitiría utilizar un valor de referencia corregido,
+    $\gamma_{\text{ref}}(T)$, reduciendo así el error relativo calculado.
 
-    \item \textbf{Renovar el agua entre mediciones:} Usar agua destilada
+    \item \textbf{Renovar el agua entre mediciones:} Utilizar agua destilada
     fresca en cada repetición evitaría la acumulación de impurezas y
-    garantizaría condiciones reproducibles.
+    garantizaría condiciones termodinámicas más reproducibles.
 
-    \item \textbf{Emplear un tornillo micrométrico para la arena:}
-    Sustituir la pipeta por un tornillo micrométrico o un sistema de
-    goteo controlado permitiría detectar el punto de desprendimiento con
-    mayor precisión.
+    \item \textbf{Emplear un sistema de dosificación de precisión:}
+    Sustituir la pipeta por un dosificador de micro-goteo controlado
+    permitiría acercarse al punto de desprendimiento del anillo con
+    mucha mayor exactitud, evitando sobreestimar la masa.
 
-    \item \textbf{Fotografiar la película jabonosa:} Capturar una imagen
-    del dispositivo de tubitos inmediatamente después de retirarlo de la
-    solución permitiría medir $a$, $b$ y $h$ con mayor precisión mediante
-    análisis de imagen, eliminando el error por evaporación.
+    \item \textbf{Fotografiar la película jabonosa:} Tomar fotografías
+    perpendiculares al plano de la película permitiría medir $a$, $b$ y $h$ 
+    con mayor precisión mediante un software de análisis de imágenes. 
+    Esto reduciría el error de paralaje y mitigaría el error inducido por la rápida evaporación.
 
-    \item \textbf{Repetir el ciclo al menos tres veces:} Realizar tres
-    ciclos completos por cada método y promediar los resultados reduciría
-    la incertidumbre estadística y permitiría identificar valores atípicos.
+    \item \textbf{Verificación de la escala del equipo:} Confirmar 
+    experimentalmente el número real de divisiones efectivas de la balanza 
+    Mohr--Westphal antes de convertir el torque a fuerza, para asegurar 
+    que la masa equivalente calculada sea la correcta.
+
+    \item \textbf{Aumentar la muestra estadística:} Realizar al menos tres
+    ciclos experimentales completos por cada método y promediar los resultados
+    reduciría la incertidumbre estadística y facilitaría la identificación de
+    valores atípicos.
 
 \end{enumerate}
 
@@ -84,38 +97,42 @@
     \item \textbf{Determinación de $\gamma$ por el primer método:} A
     partir del equilibrio de torques en la balanza de Mohr--Westphal se
     obtuvo un coeficiente de tensión superficial promedio de
-    $\bar{\gamma}_1 = (39{,}73 \pm 0{,}88)\;\si{\milli\newton\per\meter}$,
-    con un error relativo de \qty{45,4}{\percent} respecto al valor
-    bibliográfico $\gamma_{\text{ref}} = \qty{72,8}{\milli\newton\per\meter}$
-    \cite{serway}. La discrepancia se atribuye principalmente a la
-    imprecisión en la detección del punto de desprendimiento del anillo
-    y a la posible contaminación del agua.
+    $\overline{\gamma}_1 = \qty{39.73 \pm 0.88}{\milli\newton\per\meter}$,
+    con un error relativo del \qty{45.4}{\percent} respecto al valor
+    bibliográfico $\gamma_{\text{ref}} = \qty{72.8}{\milli\newton\per\meter}$
+    \cite{serway}. El tratamiento de datos excluyó un valor atípico originado 
+    por un error de registro, lo cual mejoró notablemente la confiabilidad 
+    del promedio final. La discrepancia restante se atribuye a
+    la imprecisión empírica al detectar el desprendimiento y a la probable 
+    contaminación del agua.
 
     \item \textbf{Determinación de $\gamma$ por el segundo método:} La
     aplicación de la Ec.~\eqref{eq:gamma_m2} a los parámetros geométricos
     de la película jabonosa arrojó
-    $\gamma_2 = \qty{12,21}{\milli\newton\per\meter}$, con un error
-    relativo de \qty{83,2}{\percent}. Este valor, significativamente
-    inferior al bibliográfico, es consistente con la reducción de tensión
-    superficial producida por el surfactante presente en la solución
-    jabonosa.
+    $\gamma_2 = \qty{12.21}{\milli\newton\per\meter}$, con un error
+    relativo del \qty{83.2}{\percent}. Este valor, significativamente
+    inferior al bibliográfico, es consistente y demuestra empíricamente la
+    reducción de la tensión superficial producida por el surfactante presente
+    en la solución jabonosa.
 
     \item \textbf{Comparación entre métodos:} El primer método, realizado
-    con agua pura, produce un valor de $\gamma$ más próximo al
-    referencial que el segundo. La diferencia entre ambos resultados
-    constituye una verificación cualitativa del efecto de los
-    surfactantes sobre la tensión superficial.
+    con agua pura, produce un valor de $\gamma$ mucho más próximo al
+    referencial teórico que el segundo. La notable diferencia entre ambos
+    resultados constituye una verificación cualitativa exitosa del efecto
+    disruptivo de los surfactantes sobre las fuerzas de cohesión superficial.
 
     \item \textbf{Sensibilidad geométrica del segundo método:} El
-    análisis de la Ec.~\eqref{eq:gamma_m2} muestra que el resultado es
-    altamente sensible a variaciones en $b$: un error de
-    $\Delta b = \qty{0,1}{\milli\meter}$ se propaga como una variación
-    relativa de $\sim\qty{6}{\percent}$ en $\gamma$, lo que hace de este
-    método el menos robusto de los dos ante imprecisiones de medición.
+    análisis de la Ec.~\eqref{eq:gamma_m2} demuestra que el resultado es
+    altamente sensible a las variaciones en $b$: un error de medición de
+    apenas $\Delta b = \qty{0.1}{\milli\meter}$ se propaga como una variación
+    relativa de $\sim\qty{6}{\percent}$ en $\gamma$. Esto convierte a este
+    procedimiento en el menos robusto ante imprecisiones instrumentales.
 
-    \item \textbf{Reproducibilidad del primer método:} La dispersión
-    relativa de \qty{6}{\percent} entre las cinco mediciones válidas
-    indica una reproducibilidad aceptable dentro de las limitaciones
-    instrumentales de la balanza de Mohr--Westphal.
+    \item \textbf{Confirmación fenomenológica:} Los resultados confirman 
+    cualitativamente el fenómeno de tensión superficial, evidenciando que 
+    la película ejerce fuerzas capaces de sostener el sistema y deformar el hilo. 
+    No obstante, se concluye que la exactitud numérica de la constante depende 
+    fuertemente del rigor experimental y de las limitaciones instrumentales 
+    inherentes a los equipos utilizados.
 
 \end{enumerate}
