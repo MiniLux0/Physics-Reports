@@ -1,0 +1,218 @@
+%% ============================================================
+%%  Plantilla de Informe de Laboratorio — UNI Facultad de Ciencias
+%%  Clase: article (estándar, sin dependencias externas)
+%%
+%%  PARA CADA NUEVO LAB: editar SOLO el bloque "DATOS DEL INFORME"
+%%  COMPILAR: latexmk (lee .latexmkrc automáticamente)
+%% ============================================================
+
+\documentclass[a4paper, 11pt, oneside]{article}
+
+%% ------------------------------------------------------------
+%%  CODIFICACIÓN, IDIOMA Y CITAS
+%% ------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{csquotes}
+
+%% ------------------------------------------------------------
+%%  TIPOGRAFÍA Y GEOMETRÍA
+%% ------------------------------------------------------------
+\usepackage{lmodern}
+\usepackage[top=2.5cm, bottom=2.5cm, left=3.0cm, right=2.5cm]{geometry}
+
+%% ------------------------------------------------------------
+%%  MATEMÁTICAS
+%% ------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+%% ------------------------------------------------------------
+%%  UNIDADES SI
+%% ------------------------------------------------------------
+\usepackage{siunitx}
+\sisetup{
+    output-decimal-marker = {,},
+    separate-uncertainty  = true,
+    per-mode              = symbol,
+}
+
+%% ------------------------------------------------------------
+%%  FIGURAS Y TABLAS
+%% ------------------------------------------------------------
+\usepackage{graphicx}
+\graphicspath{{Figures/}}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+
+%% ------------------------------------------------------------
+%%  COLORES E HIPERVÍNCULOS
+%% ------------------------------------------------------------
+\usepackage[dvipsnames]{xcolor}
+\definecolor{uni-blue}{RGB}{0, 56, 101}
+
+\usepackage[
+    colorlinks = true,
+    linkcolor  = uni-blue,
+    citecolor  = uni-blue,
+    urlcolor   = uni-blue
+]{hyperref}
+
+%% ------------------------------------------------------------
+%%  ENCABEZADO Y PIE DE PÁGINA
+%% ------------------------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{\labcurso}}
+\fancyhead[R]{\small\textit{Lab \labnumero\ --- \labtitulo}}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+%% ------------------------------------------------------------
+%%  ESTILO DE SECCIONES
+%% ------------------------------------------------------------
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+\titleformat{\section}
+    [block]{\Large\bfseries}{\thesection.}{0.6em}{}
+    [\vspace{2pt}\titlerule\vspace{4pt}]
+\titleformat{\subsection}
+    [block]{\large\bfseries}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}
+    [runin]{\normalsize\bfseries\itshape}{\thesubsubsection}{0.5em}{}[.\quad]
+
+\titlespacing*{\section}       {0pt}{1.8em}{0.8em}
+\titlespacing*{\subsection}    {0pt}{1.2em}{0.4em}
+\titlespacing*{\subsubsection} {0pt}{0.8em}{0pt}
+
+\setcounter{secnumdepth}{3}
+
+%% ------------------------------------------------------------
+%%  INDICE
+%% ------------------------------------------------------------
+\usepackage{tocloft}
+\renewcommand{\contentsname}{Indice de Contenidos}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont\bfseries}
+\renewcommand{\cftsecdotsep}{\cftdotsep}
+\setlength{\cftbeforesecskip}{4pt}
+\setlength{\cftbeforesubsecskip}{2pt}
+
+%% ------------------------------------------------------------
+%%  ESPACIADO
+%% ------------------------------------------------------------
+\usepackage{setspace}
+\setstretch{1.15}
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{0pt}
+
+%% ------------------------------------------------------------
+%%  BIBLIOGRAFIA
+%% ------------------------------------------------------------
+\usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
+\addbibresource{refs.bib}
+
+%% ------------------------------------------------------------
+%%  ANEXOS
+%% ------------------------------------------------------------
+\usepackage[toc, page]{appendix}
+\renewcommand{\appendixname}{Anexo}
+\renewcommand{\appendixtocname}{Anexos}
+\renewcommand{\appendixpagename}{Anexos}
+
+%% ------------------------------------------------------------
+%%  MICROTYPE --- al final para evitar conflictos
+%% ------------------------------------------------------------
+\usepackage[nopatch={toc,footnote}]{microtype}
+
+%% ============================================================
+%%  DATOS DEL INFORME  <-- EDITAR SOLO ESTE BLOQUE POR LAB
+%% ============================================================
+
+\newcommand{\labcurso}{Fisica II (CF1B2) --- Seccion A}
+\newcommand{\labnumero}{2}
+\newcommand{\labtitulo}{Titulo del laboratorio}
+\newcommand{\labfecha}{Lima, DD de mes de 2026}
+\newcommand{\labdocente}{Apellido, Nombre}
+
+\newcommand{\labintegrantes}{%
+    \begin{enumerate}
+        \item Vera Vivanco, Jesus Rodolfo \quad (20252703K)
+        \item Bustos Ttito, Jose Fabricio \quad (20200490F)
+        \item Cauti Huachaca, Yordan Orlando \quad (20222236E)
+    \end{enumerate}
+}
+
+%% ============================================================
+
+\begin{document}
+
+%% ------------------------------------------------------------
+%%  PORTADA
+%% ------------------------------------------------------------
+\begin{titlepage}
+    \centering
+    \vspace*{0.8cm}
+    {\Large\bfseries UNIVERSIDAD NACIONAL DE INGENIER\'IA}\\[0.3cm]
+    {\large\bfseries FACULTAD DE CIENCIAS}\\[0.1cm]
+    {\large Escuela de F\'isica}\\[1.2cm]
+    \includegraphics[width=0.27\linewidth]{uni_logo}\\[1.2cm]
+    {\normalsize\labcurso}\\[0.8cm]
+    {\large LABORATORIO N\textdegree\,\labnumero:}\\[0.4cm]
+    {\LARGE\bfseries \labtitulo}\\[1.2cm]
+    {\normalsize\bfseries INTEGRANTES:}\\[0.2cm]
+    {\normalsize\labintegrantes}
+    \vfill
+    {\normalsize\bfseries Docente:} {\normalsize\labdocente}\\[0.4cm]
+    {\normalsize\labfecha}
+\end{titlepage}
+
+\setcounter{page}{1}
+
+%% ------------------------------------------------------------
+%%  INDICE
+%% ------------------------------------------------------------
+\tableofcontents
+\newpage
+
+%% ============================================================
+%%  SECCIONES
+%%  Persona 1: 01, 02, 03, 04
+%%  Persona 2: 05, 06, 07
+%%  Persona 3: 08, 09, 10, 11, 12
+%%  Todos:     13 (anexos)
+%% ============================================================
+
+\input{sections/01_introduccion}
+\input{sections/02_resumen}
+\input{sections/03_objetivos}
+\input{sections/04_fundamento}
+\input{sections/05_materiales}
+\input{sections/06_procedimiento}
+\input{sections/07_resultados}
+\input{sections/08_analisis_exp}
+\input{sections/09_tratamiento}
+\input{sections/10_graficas}
+\input{sections/11_analisis_graficas}
+\input{sections/12_obs_sug_conclusiones}
+
+%% ------------------------------------------------------------
+%%  BIBLIOGRAFIA
+%% ------------------------------------------------------------
+\section{Bibliograf\'ia}
+\printbibliography[heading=none]
+
+%% ------------------------------------------------------------
+%%  ANEXOS
+%% ------------------------------------------------------------
+\input{sections/13_anexos}
+
+\end{document}

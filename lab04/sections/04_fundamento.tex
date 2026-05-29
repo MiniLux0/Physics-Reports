@@ -1,0 +1,127 @@
+%% ============================================================
+%%  SECCIÓN 4 — Fundamento Teórico
+%%  Responsable: Minilux
+%% ============================================================
+
+\section{Fundamento Teórico}
+
+\subsection{Fuerzas intermoleculares y tensión superficial}
+
+Las moléculas de un líquido se atraen entre sí mediante fuerzas cohesivas de
+corto alcance. Una molécula en el interior del líquido está rodeada
+simétricamente por vecinas en todas las direcciones, por lo que la fuerza
+resultante neta es nula. En cambio, una molécula ubicada en la superficie
+carece de vecinas en la fase gaseosa superior, de modo que la resultante apunta
+hacia el interior y es perpendicular a la interfaz. Esta asimetría confiere a
+la capa superficial un exceso de energía libre que se manifiesta como una
+tendencia a contraerse, dando lugar al fenómeno conocido como \textit{tensión
+superficial} \cite{serway}.
+
+\subsection{Coeficiente de tensión superficial}
+
+El \textit{coeficiente de tensión superficial} $\gamma$ se define como la
+fuerza por unidad de longitud que ejerce una porción de superficie líquida
+sobre la porción adyacente a lo largo de una línea imaginaria trazada sobre
+ella \cite{halliday}:
+\begin{equation}
+    \gamma = \frac{F}{L},
+    \label{eq:gamma_def}
+\end{equation}
+donde $F$ es la componente de fuerza tangente a la superficie y $L$ la
+longitud de la línea de contacto. Las unidades en el SI son
+\unit{\newton\per\meter}, equivalentes a \unit{\joule\per\meter\squared}, lo
+que evidencia que $\gamma$ también representa la energía superficial por unidad
+de área. El valor aceptado para el agua pura a \SI{20}{\celsius} es
+$\gamma_{\text{ref}} = \SI{72.8e-3}{\newton\per\meter}$ \cite{serway}.
+
+\subsection{Equilibrio de torques — primer método}
+
+La balanza de Mohr--Westphal opera bajo la segunda condición de equilibrio
+estático: la suma de torques respecto al eje de rotación es nula,
+\begin{equation}
+    \sum_{i} \tau_i = 0.
+    \label{eq:equilibrio_torques}
+\end{equation}
+En el primer método, el anillo metálico sumergido en agua ejerce sobre la
+superficie una fuerza de tensión superficial $F_{TS}$ a lo largo de su
+perímetro de contacto, tanto interno como externo. Esta fuerza actúa en el
+brazo mayor de la balanza a una distancia $d_{\text{brazo}}$ del eje. Los
+jinetillos de masa $m_j$ colocados en la ranura $n_j$ del brazo mayor (de 10
+divisiones totales) generan el torque equivalente que equilibra el sistema.
+Aplicando la Ec.~\eqref{eq:equilibrio_torques}:
+\begin{equation}
+    F_{TS} \cdot d_{\text{brazo}} =
+    \left(\sum_{j} m_j \,\frac{n_j}{10}\right) g \cdot d_{\text{brazo}},
+    \label{eq:torque_balance}
+\end{equation}
+de donde se obtiene la masa efectiva equivalente
+\begin{equation}
+    M_{\text{ef}} = \sum_{j} m_j \,\frac{n_j}{10}
+    \label{eq:masa_ef}
+\end{equation}
+y la fuerza de tensión superficial
+\begin{equation}
+    F_{TS} = M_{\text{ef}}\, g.
+    \label{eq:fuerza_ts}
+\end{equation}
+La longitud de contacto es la suma de las circunferencias interna y externa del
+anillo:
+\begin{equation}
+    L = 2\pi R_{\text{ext}} + 2\pi R_{\text{int}}
+      = 2\pi\,(R_{\text{ext}} + R_{\text{int}}),
+    \label{eq:longitud_contacto}
+\end{equation}
+por lo que, combinando las Ecs.~\eqref{eq:gamma_def},
+\eqref{eq:fuerza_ts} y \eqref{eq:longitud_contacto}:
+\begin{equation}
+    \gamma = \frac{M_{\text{ef}}\,g}{2\pi\,(R_{\text{ext}} + R_{\text{int}})}.
+    \label{eq:gamma_m1}
+\end{equation}
+
+\subsection{Equilibrio de fuerzas — segundo método}
+
+En el segundo método se forma una película jabonosa entre dos tubitos de vidrio
+unidos por un hilo. Al suspender el sistema por el tubo superior, la tensión
+superficial de la película curva el hilo inferior, que se modela como un arco
+de circunferencia de radio $R$ \cite{halliday}. Las magnitudes geométricas
+relevantes son: $a$, el semiancho del tubo; $b$, el semiancho mínimo de la
+película curvada; y $h$, la semialtura de la película. 
+
+De la geometría del arco se obtienen las relaciones
+\begin{equation}
+    a + R\sin\alpha = b + R, \qquad h = R\cos\alpha,
+    \label{eq:geometria_arco}
+\end{equation}
+donde $\alpha$ es el ángulo que forma la tangente al arco en el punto de
+contacto con el tubo respecto a la vertical.
+
+Aplicando equilibrio de fuerzas sobre el tubo inferior en la dirección
+vertical:
+\begin{equation}
+    \sum F_y = P - 2\gamma(2a) - 2T\sin\alpha = 0,
+    \label{eq:eq_vertical}
+\end{equation}
+y en la dirección horizontal sobre la película:
+\begin{equation}
+    \sum F_x = 2\gamma(2h) - 2T\cos\alpha = 0,
+    \label{eq:eq_horizontal}
+\end{equation}
+donde $T$ es la tensión en el hilo y $P = mg$ el peso del tubo inferior.
+Dividiendo la Ec.~\eqref{eq:eq_vertical} entre la
+Ec.~\eqref{eq:eq_horizontal} y usando las relaciones
+geométricas~\eqref{eq:geometria_arco}, se demuestra que:
+\begin{equation}
+    \gamma = \frac{P}{2\!\left(\dfrac{h^{2}}{a - b} + a + b\right)}.
+    \label{eq:gamma_m2}
+\end{equation}
+La demostración detallada de la Ec.~\eqref{eq:gamma_m2} se desarrolla en el
+Anexo~A.
+
+\subsection{Efecto de los surfactantes}
+
+Los surfactantes son moléculas anfifílicas que se adsorben preferentemente en
+la interfaz líquido--aire, reduciendo las fuerzas cohesivas entre moléculas de
+agua y disminuyendo $\gamma$ de forma apreciable. El detergente empleado en el
+segundo método actúa como surfactante, por lo que se espera que el valor de
+$\gamma$ obtenido en ese método sea significativamente inferior al del primer
+método, realizado con agua pura \cite{serway}.

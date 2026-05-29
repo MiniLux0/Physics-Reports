@@ -1,0 +1,215 @@
+%% ============================================================
+%%  SECCIÓN 9 — Tratamiento de Datos y Resultados
+%%  Responsable: Minilux
+%% ============================================================
+
+\section{Tratamiento de Datos y Resultados}
+\label{sec:tratamiento}
+
+En esta sección se obtienen las magnitudes derivadas a partir de los
+datos experimentales de la Sección~\ref{sec:resultados}. Se adopta
+$g = \qty{9,81}{\meter\per\second\squared}$.
+
+%% ------------------------------------------------------------------
+\subsection{Longitud de contacto del anillo}
+%% ------------------------------------------------------------------
+
+La longitud total de contacto es la suma de las circunferencias interna
+y externa del anillo:
+
+\begin{equation}
+    L = 2\pi\bigl(R_{\text{ext}} + R_{\text{int}}\bigr)
+    \label{eq:t9_longitud_contacto}
+\end{equation}
+
+Sustituyendo $R_{\text{ext}} = \qty{5,040e-2}{\meter}$ y
+$R_{\text{int}} = \qty{4,980e-2}{\meter}$:
+
+\begin{equation*}
+    L = 2\pi\,(0{,}05040 + 0{,}04980) = \qty{6,2957e-1}{\meter}
+\end{equation*}
+
+%% ------------------------------------------------------------------
+\subsection{Primer método — masa efectiva y coeficiente de tensión
+superficial}
+%% ------------------------------------------------------------------
+
+Para cada medición $i$, la masa efectiva equivalente se obtiene
+ponderando cada jinetillo por su posición relativa en el brazo mayor:
+
+\begin{equation}
+    M_{\text{ef},i} = \sum_{j} m_j \,\frac{n_j}{10}
+    \label{eq:t9_masa_efectiva}
+\end{equation}
+
+El coeficiente de tensión superficial para cada medición resulta de
+combinar la Ec.~\eqref{eq:masa_ef} con la definición
+$\gamma = F_{TS}/L$:
+
+\begin{equation}
+    \gamma_i = \frac{M_{\text{ef},i}\,g}{L}
+    \label{eq:t9_gamma_m1}
+\end{equation}
+
+\paragraph{Cálculo representativo — Medición~1}
+($J_1 = \qty{20,2}{\gram}$ en $n = 1$;\;
+ $J_4 = \qty{1,2}{\gram}$  en $n = 3$):
+
+\begin{equation*}
+    M_{\text{ef},1}
+    = 20{,}2 \times \frac{1}{10} + 1{,}2 \times \frac{3}{10}
+    = 2{,}02 + 0{,}36
+    = \qty{2,38e-3}{\kilogram}
+\end{equation*}
+
+\begin{equation*}
+    \gamma_1
+    = \frac{\qty{2,38e-3}{\kilogram}
+            \times \qty{9,81}{\meter\per\second\squared}}
+           {\qty{6,2957e-1}{\meter}}
+    = \qty{37,09e-3}{\newton\per\meter}
+\end{equation*}
+
+Los resultados para las cinco mediciones válidas se consignan en la
+Tabla~\ref{tab:t9_gamma_m1}.
+
+\begin{table}[htbp]
+\centering
+\caption{Masa efectiva y coeficiente de tensión superficial para cada
+medición del primer método.}
+\label{tab:t9_gamma_m1}
+\begin{tabular}{cccc}
+\toprule
+Medición &
+$M_{\text{ef}}$ (\si{\gram}) &
+$F_{TS}$ (\si{\milli\newton}) &
+$\gamma_i$ (\si{\milli\newton\per\meter}) \\
+\midrule
+1 & 2{,}38 & 23{,}35 & 37{,}09 \\
+2 & 2{,}67 & 26{,}19 & 41{,}60 \\
+3 & 2{,}46 & 24{,}13 & 38{,}33 \\
+4 & 2{,}58 & 25{,}31 & 40{,}20 \\
+5 & 2{,}66 & 26{,}09 & 41{,}45 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+El valor promedio se obtiene como:
+
+\begin{equation}
+    \bar{\gamma}_1 = \frac{1}{N}\sum_{i=1}^{N}\gamma_i
+    \label{eq:t9_gamma_promedio}
+\end{equation}
+
+\begin{equation*}
+    \bar{\gamma}_1
+    = \frac{37{,}09 + 41{,}60 + 38{,}33 + 40{,}20 + 41{,}45}{5}
+    = \qty{39,73}{\milli\newton\per\meter}
+\end{equation*}
+
+La propagación de incertidumbre se desarrolla en el
+Anexo~\ref{anx:prop_incertidumbre}. El resultado final del primer
+método es:
+
+\begin{equation}
+    \boxed{\bar{\gamma}_1 = (39{,}73 \pm 0{,}88)\;\si{\milli\newton\per\meter}}
+    \label{eq:t9_resultado_m1}
+\end{equation}
+
+El error relativo respecto al valor bibliográfico
+$\gamma_{\text{ref}} = \qty{72,8}{\milli\newton\per\meter}$
+\cite{serway} es:
+
+\begin{equation*}
+    E_r
+    = \frac{|\bar{\gamma}_1 - \gamma_{\text{ref}}|}{\gamma_{\text{ref}}}
+      \times 100\%
+    = \frac{|39{,}73 - 72{,}8|}{72{,}8} \times 100\%
+    = \qty{45,4}{\percent}
+\end{equation*}
+
+%% ------------------------------------------------------------------
+\subsection{Segundo método — coeficiente de tensión superficial}
+%% ------------------------------------------------------------------
+
+Aplicando la Ec.~\eqref{eq:gamma_m2} con los datos de la
+Tabla~\ref{tab:datos_m2}:
+$a = \qty{2,73}{\centi\meter}$,
+$b = \qty{2,55}{\centi\meter}$,
+$h = \qty{2,78}{\centi\meter}$,
+$P = \qty{11,772e-3}{\newton}$.
+
+\paragraph{Cálculo}
+
+\begin{equation*}
+    a - b = 2{,}73 - 2{,}55 = \qty{0,18}{\centi\meter},
+    \qquad
+    a + b = \qty{5,28}{\centi\meter}
+\end{equation*}
+
+\begin{equation*}
+    \frac{h^2}{a - b} + a + b
+    = \frac{(2{,}78)^2}{0{,}18} + 5{,}28
+    = 42{,}94 + 5{,}28
+    = \qty{48,22}{\centi\meter}
+    = \qty{4,822e-1}{\meter}
+\end{equation*}
+
+Sustituyendo en la Ec.~\eqref{eq:gamma_m2}:
+
+\begin{equation*}
+    \gamma_2
+    = \frac{P}{2\!\left(\dfrac{h^2}{a-b} + a + b\right)}
+    = \frac{\qty{11,772e-3}{\newton}}
+           {2 \times \qty{4,822e-1}{\meter}}
+    = \frac{\qty{11,772e-3}{\newton}}
+           {\qty{9,644e-1}{\meter}}
+\end{equation*}
+
+\begin{equation}
+    \boxed{\gamma_2 = \qty{12,21}{\milli\newton\per\meter}}
+    \label{eq:t9_resultado_m2}
+\end{equation}
+
+El error relativo respecto al valor bibliográfico es:
+
+\begin{equation*}
+    E_r
+    = \frac{|12{,}21 - 72{,}8|}{72{,}8} \times 100\%
+    = \qty{83,2}{\percent}
+\end{equation*}
+
+La marcada diferencia respecto a $\gamma_{\text{ref}}$ es consistente
+con la reducción de tensión superficial esperada por efecto del
+surfactante, discutida en la Sección~\ref{sec:analisis_exp}.
+
+%% ------------------------------------------------------------------
+\subsection{Comparación de resultados}
+%% ------------------------------------------------------------------
+
+\begin{table}[htbp]
+\centering
+\caption{Comparación de los valores de $\gamma$ obtenidos por ambos
+métodos con el valor bibliográfico para agua pura a \SI{20}{\celsius}.}
+\label{tab:t9_comparacion}
+\begin{tabular}{lccc}
+\toprule
+Método &
+$\gamma$ (\si{\milli\newton\per\meter}) &
+$E_r$ (\si{\percent}) &
+Fluido \\
+\midrule
+Primer método (Mohr--Westphal) &
+    $39{,}73 \pm 0{,}88$ & 45{,}4 & Agua pura \\
+Segundo método (película jabonosa) &
+    $12{,}21$ & 83{,}2 & Solución jabonosa \\
+Bibliografía \cite{serway,halliday} &
+    $72{,}8$ & --- & Agua pura, \SI{20}{\celsius} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La Tabla~\ref{tab:t9_comparacion} resume los valores obtenidos por
+ambos métodos y su error relativo respecto al valor bibliográfico. El
+análisis de las discrepancias observadas se desarrolla en la
+Sección~\ref{sec:conclusiones}.
