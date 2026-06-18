@@ -1,68 +1,92 @@
-# 🔬 Physics Reports — Física II (CF1B2)
+# Physics Reports — Física II (CF1B2)
 
-**Universidad Nacional de Ingeniería (UNI) — Facultad de Ciencias**
+**Universidad Nacional de Ingeniería (UNI) — Facultad de Ciencias — Escuela de Física**
 
-Este repositorio sirve como portafolio y archivo central de los informes de laboratorio del curso de Física II. Todos los documentos están redactados con alto rigor académico utilizando **LaTeX** (`article` estándar), y el tratamiento de datos experimentales, ajustes de curvas e integración numérica se realizan mediante **Python** (`NumPy`, `SciPy`, `Matplotlib`).
+Repositorio de informes de laboratorio del curso **Física II (CF1B2), Sección A**. Los documentos se redactan en **LaTeX** (`article` estándar, compilado con `latexmk` + `biber`) y el tratamiento de datos experimentales se realiza con **Python** (`NumPy`, `SciPy`, `Matplotlib`).
 
-## 👥 Equipo de Trabajo
-* **Vera Vivanco, Jesús Rodolfo**
-* **Cauti Huachaca, Yordan Orlando**
-* **Marín Quispe, Joel Gabriel**
+**Autor principal:** Vera Vivanco, Jesús Rodolfo — 20252703K
+Los integrantes de cada informe se especifican en la portada del documento correspondiente.
 
 ---
 
-## 📊 Estado de los Laboratorios
+## Estado de los laboratorios
 
-A continuación se presenta la relación de experiencias del curso y el estado actual de nuestros informes:
-
-| Lab | Título del Experimento | Docente | Estado | Carpeta |
-| :---: | :--- | :--- | :---: | :--- |
-| **L1** | **Dinámica de Rotación** | Prof. G. Cortez | 🟢 Completado | [`/lab01`](./lab01) |
-| **L2** | **Péndulo Físico y Teorema de Steiner** | Prof. R. Salazar | 🟢 Completado | [`/lab02`](./lab02) |
-| **L3** | **Ley de Hooke** | Prof. G. Cortez | 🟢 Completado | [`/lab03`](./lab03) |
-| **L4** | **Tensión Superficial** | Prof. R. Salazar | 🟢 Completado | [`/lab04`](./lab04) |
-| **L5** | **Coeficiente de Dilatación Lineal** | Prof. G. Cortez | ⚪ Pendiente | `-` |
-| **L6** | **Calor Específico** | Prof. R. Salazar | ⚪ Pendiente | `-` |
+| Lab | Título | Docente | Estado |
+| :---: | :--- | :--- | :---: |
+| L1 | Dinámica de Rotación | Cortez, G. | ✅ Completado |
+| L2 | Péndulo Físico y Teorema de Steiner | Salazar, R. | ✅ Completado |
+| L3 | Ley de Hooke | Cortez, G. | ✅ Completado |
+| L4 | Tensión Superficial | Salazar, R. | ✅ Completado |
+| L5 | Coeficiente de Dilatación Lineal | Cortez, G. | ✅ Completado |
+| L6 | Calor Específico | Salazar, R. | ⬜ Pendiente |
 
 ---
 
-## 🔬 Resumen de Experiencias Completadas
+## Laboratorios completados
 
-### 📌 [Laboratorio 01] Dinámica de Rotación
-Estudio experimental de las variables cinemáticas y dinámicas en sistemas rotacionales. Análisis de la conservación del momento angular, cálculo de momentos de inercia de diferentes geometrías y validación experimental de las leyes de Newton aplicadas a la rotación.
+### L1 — Dinámica de Rotación
+Estudio de las variables cinemáticas y dinámicas en sistemas rotacionales. Análisis de la conservación del momento angular, cálculo de momentos de inercia de distintas geometrías y validación de las leyes de Newton aplicadas a la rotación.
 
-### 📌 [Laboratorio 02] Péndulo Físico y Teorema de Steiner
-Determinación de la aceleración de la gravedad y análisis del comportamiento oscilatorio de un cuerpo rígido. Comprobación experimental del Teorema de Ejes Paralelos (Steiner) midiendo el periodo de oscilación al variar la distancia entre el centro de masa y el eje de rotación.
+### L2 — Péndulo Físico y Teorema de Steiner
+Determinación experimental de la aceleración de la gravedad y análisis del comportamiento oscilatorio de un cuerpo rígido. Comprobación del Teorema de Ejes Paralelos (Steiner) midiendo el periodo de oscilación en función de la distancia entre el centro de masa y el eje de rotación.
 
-### 📌 [Laboratorio 03] Ley de Hooke
-Análisis contrastado del comportamiento elástico de un metal (resorte helicoidal) y un polímero viscoelástico (tira de jebe). La experiencia incluyó:
-* Verificación del límite elástico y cálculo del módulo de Young.
-* Análisis de esfuerzos reales frente a la reducción del área transversal (Efecto de Poisson).
-* Cuantificación de la energía mecánica disipada térmica a través de la integración numérica de lazos de histéresis.
+### L3 — Ley de Hooke
+Análisis del comportamiento elástico de un resorte helicoidal y un polímero viscoelástico (tira de jebe). Se determinó la constante elástica, el módulo de Young y la energía disipada por histéresis mediante integración numérica.
 
-### 📌 [Laboratorio 04] Tensión Superficial
-Determinación experimental del coeficiente de tensión superficial ($\gamma$) del agua mediante métodos basados en el equilibrio estático. La experiencia incluyó:
-* Cálculo de $\gamma$ para el agua pura aplicando equilibrio de torques mediante una balanza de Mohr-Westphal.
-* Análisis de una película jabonosa mediante un dispositivo de tubitos e hilo bajo la condición de equilibrio de fuerzas.
-* Comprobación cualitativa y cuantitativa de la reducción de las fuerzas de cohesión superficial debido a la acción de moléculas anfifílicas (surfactantes).
-* Evaluación de sensibilidad geométrica y propagación de incertidumbres analíticas mediante derivadas parciales.
+### L4 — Tensión Superficial
+Determinación del coeficiente de tensión superficial γ del agua por dos métodos de equilibrio estático: torques con balanza de Mohr–Westphal (agua pura, γ₁ = 39,73 ± 0,88 mN/m) y fuerzas con película jabonosa sobre dispositivo de hilo (γ₂ = 12,21 ± 1,10 mN/m). Se verificó cuantitativamente la reducción de γ por acción de surfactantes y se realizó propagación analítica de incertidumbres con derivadas parciales.
+
+### L5 — Coeficiente de Dilatación Lineal
+Determinación experimental del coeficiente de dilatación lineal $\alpha$ para cobre, aluminio y vidrio borosilicato mediante el método de la aguja giratoria por rodadura sin deslizamiento ($\Delta L = D\,\Delta\theta$), calentando las muestras por flujo continuo de vapor de agua. Se reportaron los coeficientes con incertidumbres absolutas propagadas en cuadratura: $\alpha_{\text{Al}} = (2{,}46 \pm 0{,}11) \times 10^{-5}\ ^\circ\text{C}^{-1}$, $\alpha_{\text{Cu}} = (1{,}60 \pm 0{,}07) \times 10^{-5}\ ^\circ\text{C}^{-1}$ y $\alpha_{\text{vidrio}} = (2{,}43 \pm 0{,}14) \times 10^{-6}\ ^\circ\text{C}^{-1}$. Se analizó el deslizamiento mecánico y la transferencia de calor convectiva como principales fuentes de desviación.
 
 ---
 
-## 📂 Estructura del Repositorio
+## Estructura del repositorio
 
-El repositorio está organizado en carpetas independientes para cada sesión de laboratorio, garantizando que el código y las figuras no se mezclen:
-
-```text
-physics-reports/
-├── lab01/             ← Informe 1: Dinámica de Rotación
-├── lab02/             ← Informe 2: Péndulo Físico
-├── lab03/             ← Informe 3: Ley de Hooke
-├── lab04/             ← Informe 4: Tensión Superficial
-│   ├── main.tex       (Documento principal)
-│   ├── sections/      (Secciones modulares del documento)
-│   ├── Figures/       (Gráficas y diagramas)
-│   └── scripts/       (Código Python para el tratamiento de datos)
-│
-├── template/          ← Plantilla LaTeX base para futuros informes
+```
+Physics-Reports/
+├── template/          ← Plantilla base para nuevos labs
+│   ├── main.tex
+│   ├── refs.bib
+│   ├── _latexmkrc     (renombrar a .latexmkrc al copiar)
+│   └── sections/      (13 archivos .tex)
+├── lab01/
+├── lab02/
+├── lab03/
+├── lab04/
+├── lab05/             ← Coeficiente de Dilatación Lineal
+│   ├── main.tex
+│   ├── refs.bib
+│   ├── sections/
+│   ├── Figures/
+│   └── scripts/
+├── AGENTS.md          ← convenciones para agentes de código
 └── README.md
+```
+
+Cada carpeta `labNN/` es autónoma: contiene su propio `main.tex`, `refs.bib`, secciones, figuras y scripts de Python.
+
+---
+
+## Compilación
+
+```powershell
+cd labNN
+latexmk        # compila con pdflatex + biber
+latexmk -c    # limpia auxiliares
+```
+
+Requiere **MiKTeX** (Windows) con `latexmk` y `biber` disponibles en el PATH.
+
+---
+
+## Stack técnico
+
+| Herramienta | Uso |
+| :--- | :--- |
+| LaTeX (`article`) + MiKTeX | Redacción y tipografía del informe |
+| `latexmk` + `biber` | Compilación automática |
+| `siunitx` | Unidades SI con coma decimal |
+| `biblatex` estilo IEEE | Referencias bibliográficas |
+| Python + NumPy + SciPy | Tratamiento de datos e incertidumbres |
+| Matplotlib | Gráficas exportadas a `Figures/` |
