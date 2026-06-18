@@ -1,0 +1,120 @@
+%% ============================================================
+%%  SECCIÓN 13 — Anexos
+%%  Responsable: Vera Vivanco, Jesús Rodolfo
+%% ============================================================
+
+\begin{appendices}
+
+\section{Demostración de la relación cinemática de rodadura doble}
+\label{sec:anexo_cinematica}
+
+El sistema mecánico empleado consiste en una aguja cilíndrica de radio $R$ colocada horizontalmente entre una superficie rígida fija (por abajo) y el tubo metálico sujeto a dilatación (por arriba). Al incrementarse la temperatura, el tubo experimenta una expansión longitudinal $\Delta L$, la cual actúa como una fuerza tangencial que induce el movimiento de la aguja.
+
+Asumiendo condiciones de rodadura pura sin deslizamiento en ambas superficies de contacto:
+\begin{enumerate}
+    \item \textbf{Contacto inferior (soporte-aguja):} Dado que el soporte es fijo, la velocidad instantánea del punto de contacto inferior de la aguja con el soporte es nula. Esto define dicho punto como el Centro Instantáneo de Rotación (CIR), es decir, $v_{\text{inf}} = 0$.
+    \item \textbf{Contacto superior (tubo-aguja):} El punto de contacto superior se desplaza solidariamente con el tubo a una velocidad instantánea $v_{\text{sup}} = v_{\text{tubo}}$, donde $v_{\text{tubo}} = \frac{d(\Delta L)}{dt}$ es la velocidad de dilatación.
+\end{enumerate}
+
+Para un cilindro rígido que gira con velocidad angular $\omega$ y cuyo centro de masa se traslada con velocidad $v_{\text{cm}}$:
+\begin{equation}
+    v_{\text{inf}} = v_{\text{cm}} - \omega R = 0 \implies v_{\text{cm}} = \omega R
+    \label{eq:v_cm_anexo}
+\end{equation}
+La velocidad del punto de contacto superior se determina mediante la composición de velocidades asociadas a la rodadura:
+\begin{equation}
+    v_{\text{sup}} = v_{\text{cm}} + \omega R = 2\omega R = 2v_{\text{cm}}
+    \label{eq:v_sup_anexo}
+\end{equation}
+
+Sustituyendo $v_{\text{sup}} = \frac{d(\Delta L)}{dt}$ e integrando ambas expresiones con respecto al tiempo desde el inicio del calentamiento ($t_0$) hasta el estado estacionario final ($t_f$):
+\begin{equation}
+    \Delta L = \int_{t_0}^{t_f} v_{\text{sup}}\,dt = \int_{t_0}^{t_f} 2R\,\omega\,dt = 2R \int_{\theta_0}^{\theta_f} d\theta = 2R\,\Delta\theta
+\end{equation}
+donde $\Delta\theta = \theta_f - \theta_0$ es el ángulo total barrido por la aguja en radianes.
+
+Dado que el diámetro de la aguja es $D = 2R$, se concluye finalmente la relación cinemática de trabajo:
+\begin{equation*}
+    \Delta L = 2R\,\Delta\theta = D\,\Delta\theta
+\end{equation*}
+Esta deducción física justifica rigurosamente el factor de amplificación geométrica utilizado.
+
+\section{Propagación de incertidumbre para el coeficiente de dilatación lineal}
+\label{sec:anexo_propagacion}
+
+La expresión para determinar el coeficiente de dilatación lineal es:
+\begin{equation}
+    \alpha = \frac{D\,\theta}{L_0\,\Delta T}
+    \label{eq:base_anexo}
+\end{equation}
+donde el diámetro de la aguja $D$, el ángulo de rotación $\theta$, la longitud inicial $L_0$ y la variación de temperatura $\Delta T$ son variables medidas de forma independiente.
+
+Aplicando el método diferencial para la propagación de errores y sumando en cuadratura los aportes de las incertidumbres absolutas de cada variable, la incertidumbre absoluta del coeficiente de dilatación $\delta\alpha$ se define como:
+\begin{equation}
+    \delta\alpha = \sqrt{
+        \left( \frac{\partial\alpha}{\partial D}\,\delta D \right)^2 +
+        \left( \frac{\partial\alpha}{\partial \theta}\,\delta\theta \right)^2 +
+        \left( \frac{\partial\alpha}{\partial L_0}\,\delta L_0 \right)^2 +
+        \left( \frac{\partial\alpha}{\partial (\Delta T)}\,\delta(\Delta T) \right)^2
+    }
+    \label{eq:cuadratura_derivadas}
+\end{equation}
+
+Calculando las derivadas parciales de la Ec.~\eqref{eq:base_anexo} con respecto a cada variable independiente:
+\begin{align}
+    \frac{\partial\alpha}{\partial D} &= \frac{\theta}{L_0\,\Delta T} = \frac{\alpha}{D} \\
+    \frac{\partial\alpha}{\partial \theta} &= \frac{D}{L_0\,\Delta T} = \frac{\alpha}{\theta} \\
+    \frac{\partial\alpha}{\partial L_0} &= -\frac{D\,\theta}{L_0^2\,\Delta T} = -\frac{\alpha}{L_0} \\
+    \frac{\partial\alpha}{\partial (\Delta T)} &= -\frac{D\,\theta}{L_0\,\Delta T^2} = -\frac{\alpha}{\Delta T}
+\end{align}
+
+Sustituyendo estas expresiones en la Ec.~\eqref{eq:cuadratura_derivadas}:
+\begin{equation}
+    \delta\alpha = \sqrt{
+        \left( \frac{\alpha}{D}\,\delta D \right)^2 +
+        \left( \frac{\alpha}{\theta}\,\delta\theta \right)^2 +
+        \left( -\frac{\alpha}{L_0}\,\delta L_0 \right)^2 +
+        \left( -\frac{\alpha}{\Delta T}\,\delta(\Delta T) \right)^2
+    }
+\end{equation}
+
+Factorizando $\alpha$, obtenemos la ecuación de propagación para la incertidumbre absoluta de $\alpha$:
+\begin{equation}
+    \delta\alpha = \alpha\,\sqrt{
+        \left( \frac{\delta D}{D} \right)^2 +
+        \left( \frac{\delta\theta}{\theta} \right)^2 +
+        \left( \frac{\delta L_0}{L_0} \right)^2 +
+        \left( \frac{\delta(\Delta T)}{\Delta T} \right)^2
+    }
+    \label{eq:ecuacion_propagacion_final}
+\end{equation} 
+
+A continuación, se reportan los coeficientes de dilatación lineal determinados experimentalmente para cada material con su respectiva incertidumbre absoluta propagada en el formato de encuadrado matemático solicitado:
+
+Para el aluminio:
+\begin{equation}
+    \boxed{\alpha_{\text{Al}} = (2{,}46 \pm 0{,}11) \times 10^{-5}\ ^\circ\text{C}^{-1}}
+\end{equation}
+
+Para el cobre:
+\begin{equation}
+    \boxed{\alpha_{\text{Cu}} = (1{,}60 \pm 0{,}07) \times 10^{-5}\ ^\circ\text{C}^{-1}}
+\end{equation}
+
+Para el vidrio borosilicato:
+\begin{equation}
+    \boxed{\alpha_{\text{vidrio}} = (2{,}43 \pm 0{,}14) \times 10^{-6}\ ^\circ\text{C}^{-1}}
+\end{equation}
+
+\section{Hoja de recolección de datos}
+
+En la Fig.~\ref{fig:hoja_datos} se adjunta la hoja de recolección de datos original firmada por el docente del laboratorio, la cual contiene las anotaciones y lecturas de los parámetros físicos registrados en el laboratorio.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\linewidth]{fig_hoja_datos}
+    \caption{Hoja de recolección de datos original del experimento.}
+    \label{fig:hoja_datos}
+\end{figure}
+ 
+\end{appendices}

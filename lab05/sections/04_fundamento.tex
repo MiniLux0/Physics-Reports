@@ -1,0 +1,45 @@
+%% ============================================================
+%%  SECCIÓN 4 — Fundamento Teórico
+%%  Responsable: Vera Vivanco, Jesús Rodolfo
+%% ============================================================
+
+\section{Fundamento Teórico}
+
+\subsection{Origen molecular de la dilatación térmica}
+
+En un sólido cristalino o vítreo, los átomos vibran constantemente alrededor de sus posiciones de equilibrio. A temperaturas ordinarias, la energía térmica se distribuye en modos de vibración interatómicos gobernados por un potencial de interacción. Si dicho potencial fuese perfectamente armónico (simétrico), el incremento en la amplitud de las vibraciones no alteraría la posición media de equilibrio de los átomos. Sin embargo, el potencial interatómico real es marcadamente asimétrico (anharmónico) \cite{serway}. Al aumentar la temperatura y elevarse la energía interna, los átomos oscilan con mayor amplitud, y debido a la asimetría del potencial, el valor medio de la distancia interatómica se incrementa de forma neta. Esta manifestación microscópica se acumula a lo largo de las dimensiones del sólido, dando origen a la dilatación térmica macroscópica.
+
+\subsection{Coeficiente de dilatación lineal}
+
+Cuando la geometría de un cuerpo sólido presenta una dimensión predominante sobre las otras dos (como en el caso de varillas, tubos o cables delgados), el estudio se simplifica al análisis de su comportamiento unidireccional. Definimos el coeficiente de dilatación lineal medio $\alpha$ como la fracción de cambio en la longitud por unidad de variación de temperatura \cite{halliday}:
+\begin{equation}
+    \alpha = \frac{\Delta L}{L_0\,\Delta T}
+    \label{eq:def_alfa}
+\end{equation}
+donde $L_0$ representa la longitud de la varilla a la temperatura inicial $T_0$, y $\Delta L = L - L_0$ es el alargamiento correspondiente a la variación de temperatura $\Delta T = T_f - T_0$. En el Sistema Internacional, sus unidades son \unit{\per\kelvin} o equivalentemente $^\circ\text{C}^{-1}$, siendo usual reportar valores en el orden de $10^{-5}$ o $10^{-6}\ ^\circ\text{C}^{-1}$ \cite{serway}.
+
+\subsection{Modelo del rodamiento de la aguja}
+
+Dado que los alargamientos térmicos en varillas de longitud ordinaria y diferencias de temperatura moderadas son extremadamente pequeños (del orden de décimas de milímetro), su medición directa requiere de sistemas de amplificación mecánica de alta precisión. En este experimento, se utiliza el método de la aguja giratoria, cuyo fundamento físico-matemático se basa en el rodamiento sin deslizamiento.
+
+El tubo bajo estudio se fija por un extremo mediante una pinza, mientras que su extremo libre se apoya sobre una aguja cilíndrica de radio $R$ (diámetro $D = 2R$), la cual a su vez descansa sobre una superficie de soporte estacionaria. Al calentarse el tubo, este experimenta una expansión longitudinal $\Delta L$, desplazando su extremo libre. Asumiendo condiciones de rodadura pura en las interfaces de contacto:
+\begin{enumerate}
+    \item El punto de contacto inferior entre la aguja y el soporte fijo actúa como el centro instantáneo de rotación (CIR) con velocidad lineal nula.
+    \item El punto de contacto superior entre la aguja y el tubo en expansión adquiere la velocidad de traslación del extremo libre de este último.
+\end{enumerate}
+Bajo estas condiciones de rodadura doble, el centro de masa de la aguja se desplaza horizontalmente una distancia $\Delta x_c = R\,\Delta\theta$, mientras que el punto de contacto superior experimenta un avance longitudinal correspondiente al doble de este valor, es decir, la dilatación total $\Delta L$. Así:
+\begin{equation}
+    \Delta L = 2\Delta x_c = 2R\,\Delta\theta = D\,\Delta\theta
+    \label{eq:modelo_rodamiento}
+\end{equation}
+donde $\Delta\theta$ representa el ángulo barrido por la aguja en radianes. Se destaca \textbf{el factor 2} que multiplica al radio en la Ec.~\eqref{eq:modelo_rodamiento}, el cual físicamente da cuenta del avance combinado por rotación y traslación de la aguja. La demostración matemática detallada de esta condición cinemática de rodadura doble se desarrolla en el Anexo~\ref{sec:anexo_cinematica}.
+
+Combinando las Ecs.~\eqref{eq:def_alfa} y \eqref{eq:modelo_rodamiento}, obtenemos la ecuación de trabajo empleada para determinar el coeficiente de dilatación lineal:
+\begin{equation}
+    \alpha = \frac{2R\,\Delta\theta}{L_0\,\Delta T} \qquad\text{o equivalentemente}\qquad \alpha = \frac{D\,\Delta\theta}{L_0\,\Delta T}
+    \label{eq:formula_trabajo}
+\end{equation}
+
+\subsection{Influencia de la estructura molecular y enlaces químicos}
+
+El coeficiente $\alpha$ no es una constante universal, sino que depende directamente de la naturaleza y fuerza de los enlaces del material. Metales como el aluminio y el cobre poseen enlaces metálicos relativamente flexibles con pozos de potencial de interacción poco profundos y más asimétricos, lo que resulta en valores altos de $\alpha$. En contraste, la estructura del vidrio (basada en redes covalentes de dióxido de silicio con enlaces polares fuertes) presenta un pozo de potencial profundo y marcadamente simétrico, por lo que su coeficiente de dilatación lineal es inherentemente menor en varios órdenes de magnitud que el de la mayoría de los metales \cite{serway}.

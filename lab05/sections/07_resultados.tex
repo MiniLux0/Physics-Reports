@@ -1,0 +1,45 @@
+    %% ============================================================
+    %%  SECCIÓN 7 — Resultados Experimentales
+    %%  Responsable: Vera Vivanco, Jesús Rodolfo
+    %% ============================================================
+
+    \section{Resultados Experimentales}
+    \label{sec:resultados}
+
+    En esta sección se presentan los datos experimentales crudos recolectados durante la sesión de laboratorio para cada uno de los materiales bajo estudio (cobre, aluminio y vidrio borosilicato), así como los parámetros instrumentales constantes del montaje de medición.
+
+    La Tabla~\ref{tab:parametros_sistema} detalla las especificaciones geométricas y térmicas que se mantuvieron constantes para todo el experimento, incluyendo las incertidumbres instrumentales correspondientes asociadas al vernier, termómetro y la propagación de temperatura.
+
+    \begin{table}[H]
+        \centering
+        \caption{Parámetros instrumentales y constantes del dilatómetro.}
+        \label{tab:parametros_sistema}
+        \begin{tabular}{lcc}
+            \toprule
+            \textbf{Magnitud} & \textbf{Símbolo} & \textbf{Valor} \\
+            \midrule
+            Diámetro de la aguja & $D$ & \qty{0,600 \pm 0,025}{\milli\meter} \\
+            Radio de la aguja & $R$ & \qty{0,300 \pm 0,013}{\milli\meter} \\
+            Temperatura ambiente inicial & $T_0$ & $(26,0 \pm 0,5)^\circ$C \\
+            Temperatura final (vapor) & $T_f$ & $(100,0 \pm 0,5)^\circ$C \\
+            Variación de temperatura & $\Delta T$ & $(74,0 \pm 0,7)\ ^\circ\text{C}$ \\
+            \bottomrule 
+        \end{tabular}
+    \end{table}
+
+    La Tabla~\ref{tab:datos_dilatacion} muestra las mediciones directas de la longitud inicial libre de las muestras ($L_0$), el ángulo de giro de la aguja indicadora en grados sexagesimales y radianes, así como el alargamiento lineal calculado ($\Delta L = 2R\,\Delta\theta$) con su incertidumbre de medición propagada para cada material.
+
+    \begin{table}[H]
+        \centering
+        \caption{Datos geométricos de las muestras y mediciones de alargamiento térmico.}
+        \label{tab:datos_dilatacion}
+        \begin{tabular}{lcccc}
+            \toprule
+            \textbf{Material} & $L_0$ (mm) & $\Delta\theta$ (°) & $\Delta\theta$ (rad) & $\Delta L$ (mm) \\
+            \midrule
+            Cobre & \num{769,00 \pm 0,05} & \num{87,0 \pm 0,5} & \num{1,5184 \pm 0,0087} & \num{0,911 \pm 0,038} \\
+            Aluminio & \num{743,00 \pm 0,05} & \num{129,0 \pm 0,5} & \num{2,2515 \pm 0,0087} & \num{1,351 \pm 0,057} \\
+            Vidrio borosilicato & \num{700,00 \pm 0,05} & \num{12,0 \pm 0,5} & \num{0,2094 \pm 0,0087} & \num{0,126 \pm 0,007} \\
+            \bottomrule
+        \end{tabular}
+    \end{table}

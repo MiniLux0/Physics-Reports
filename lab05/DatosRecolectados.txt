@@ -1,0 +1,47 @@
+Laboratorio N° 5: Coeficientes de Dilatación Lineal
+
+Integrantes de la mesa:
+1. Cauti Huachaca, Yordan
+2. Marín Quispe, Joel Gabriel
+3. Vera Vivanco, Jesús Rodolfo
+
+--------------------------------------------------
+1. TABLA DE DATOS
+--------------------------------------------------
+| N° | Material          | L0 (mm) | theta (°) | theta (rad) |
+|----|-------------------|---------|-----------|-------------|
+| 1  | Aluminio          | 743     | 129       | 2.2515      |
+| 2  | Cobre             | 769     | 87        | 1.5184      |
+| 3  | Vidrio borosilicato | 700   | 12        | 0.2094      |
+
+--------------------------------------------------
+2. PARÁMETROS CONSTANTES
+--------------------------------------------------
+* Temperatura ambiente: 26 °C
+* Temperatura final: 100 °C
+* Variación de temperatura (ΔT): 74 °C
+* Diámetro de la aguja (D): 0.60 mm
+
+--------------------------------------------------
+3. CÁLCULOS
+--------------------------------------------------
+Fórmula: ΔL = theta_rad × D
+         alfa = ΔL / (L0 × ΔT)
+
+A. ALUMINIO
+* ΔL = 2.2515 × 0.60 = 1.3509 mm
+* alfa = 1.3509 / (743 × 74) = 2.457 × 10^-5 °C^-1
+* Valor teórico: 2.30 × 10^-5 °C^-1
+* Error relativo: 6.8%
+
+B. COBRE
+* ΔL = 1.5184 × 0.60 = 0.9110 mm
+* alfa = 0.9110 / (769 × 74) = 1.601 × 10^-5 °C^-1
+* Valor teórico: 1.70 × 10^-5 °C^-1
+* Error relativo: 5.8%
+
+C. VIDRIO BOROSILICATO
+* ΔL = 0.2094 × 0.60 = 0.12564 mm
+* alfa = 0.12564 / (700 × 74) = 2.43 × 10^-6 °C^-1
+* Valor teórico: 2.40 × 10^-6 °C^-1
+* Error relativo: 1.25%

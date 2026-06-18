@@ -1,0 +1,156 @@
+%% ============================================================
+%%  SECCIÓN 9 — Tratamiento de Datos y Resultados
+%%  Responsable: Vera Vivanco, Jesús Rodolfo
+%% ============================================================
+
+\section{Tratamiento de Datos y Resultados}
+\label{sec:tratamiento}
+
+En esta sección se detallan los cálculos numéricos efectuados para determinar el coeficiente de dilatación lineal ($\alpha$) de cada una de las muestras, a partir de la ecuación de trabajo deducida en el fundamento teórico (Ec.~\eqref{eq:formula_trabajo}):
+\begin{equation}
+    \alpha = \frac{D\,\Delta\theta}{L_0\,\Delta T}
+    \label{eq:trabajo_calculo}
+\end{equation}
+
+La propagación de la incertidumbre para $\alpha$ se realiza por medio del método de suma en cuadratura para variables independientes. La incertidumbre absoluta $\delta\alpha$ se calcula mediante la relación:
+\begin{equation}
+    \delta\alpha = \alpha\,\sqrt{
+        \left(\frac{\delta D}{D}\right)^2 +
+        \left(\frac{\delta\theta}{\Delta\theta}\right)^2 +
+        \left(\frac{\delta L_0}{L_0}\right)^2 +
+        \left(\frac{\delta(\Delta T)}{\Delta T}\right)^2
+    }
+    \label{eq:propagacion_cuadratura}
+\end{equation} 
+donde $\delta D = \qty{0,025}{\milli\meter}$, $\delta\theta = \qty{0,00873}{\radian}$, $\delta L_0 = \qty{0,05}{\milli\meter}$, y la incertidumbre de la variación térmica es $\delta(\Delta T) = \sqrt{\delta T_0^2 + \delta T_f^2} = \sqrt{0{,}5^2 + 0{,}5^2} \approx 0{,}707\ ^\circ\text{C}$. La deducción matemática detallada de esta expresión se presenta en el Anexo~\ref{sec:anexo_propagacion}.
+
+El error relativo porcentual ($E_r$) se evalúa respecto a los valores teóricos de referencia mediante la fórmula:
+\begin{equation}
+    E_r = \frac{|\alpha - \alpha_{\text{ref}}|}{\alpha_{\text{ref}}} \times \qty{100}{\percent}
+    \label{eq:error_relativo}
+\end{equation}
+
+A continuación, se presenta la sustitución numérica de los datos experimentales obtenidos de la Tabla~\ref{tab:datos_dilatacion} para cada una de las muestras.
+
+\subsection{Aluminio}
+
+A partir de los datos experimentales para el aluminio:
+\begin{align*}
+    L_0 &= \qty{743,00}{\milli\meter} \\
+    D &= \qty{0,600}{\milli\meter} \\
+    \Delta\theta &= \qty{2,2515}{\radian} \\
+    \Delta T &= 74{,}0\ ^\circ\text{C}
+\end{align*}
+
+Sustituyendo estos valores en la Ec.~\eqref{eq:trabajo_calculo}:
+\begin{equation*}
+    \alpha_{\text{Al}} = \frac{0{,}600 \times 2{,}2515}{743{,}00 \times 74{,}0} = 2{,}4569 \times 10^{-5}\ ^\circ\text{C}^{-1}
+\end{equation*}
+
+Para calcular la incertidumbre absoluta, sustituimos en la Ec.~\eqref{eq:propagacion_cuadratura}:
+\begin{equation*}
+    \delta\alpha_{\text{Al}} = 2{,}4569 \times 10^{-5} \times \sqrt{
+        \left(\frac{0{,}025}{0{,}600}\right)^2 +
+        \left(\frac{0{,}00873}{2{,}2515}\right)^2 +
+        \left(\frac{0{,}05}{743{,}00}\right)^2 +
+        \left(\frac{0{,}707}{74{,}0}\right)^2
+    }
+\end{equation*}
+\begin{equation*}
+    \delta\alpha_{\text{Al}} = 2{,}4569 \times 10^{-5} \times \sqrt{
+        0{,}001736 + 0{,}000015 + 0{,}000000 + 0{,}000091
+    } = 0{,}1054 \times 10^{-5}\ ^\circ\text{C}^{-1}
+\end{equation*} 
+
+De este modo, el coeficiente de dilatación lineal del aluminio se reporta como:
+\begin{equation}
+    \alpha_{\text{Al}} = (2{,}46 \pm 0{,}11) \times 10^{-5}\ ^\circ\text{C}^{-1}
+    \label{eq:res_al}
+\end{equation}
+
+El error relativo en comparación con el valor de referencia $\alpha_{\text{ref, Al}} = 2{,}30 \times 10^{-5}\ ^\circ\text{C}^{-1}$ es:
+\begin{equation*}
+    E_r = \frac{|2{,}4569 \times 10^{-5} - 2{,}30 \times 10^{-5}|}{2{,}30 \times 10^{-5}} \times 100\% \approx 6{,}8\%
+\end{equation*}
+
+\subsection{Cobre}
+
+A partir de los datos experimentales para el cobre:
+\begin{align*}
+    L_0 &= \qty{769,00}{\milli\meter} \\
+    D &= \qty{0,600}{\milli\meter} \\
+    \Delta\theta &= \qty{1,5184}{\radian} \\
+    \Delta T &= 74{,}0\ ^\circ\text{C}
+\end{align*}
+
+Sustituyendo estos valores en la Ec.~\eqref{eq:trabajo_calculo}:
+\begin{equation*}
+    \alpha_{\text{Cu}} = \frac{0{,}600 \times 1{,}5184}{769{,}00 \times 74{,}0} = 1{,}6009 \times 10^{-5}\ ^\circ\text{C}^{-1}
+\end{equation*}
+
+Para calcular la incertidumbre absoluta, sustituimos en la Ec.~\eqref{eq:propagacion_cuadratura}:
+\begin{equation*}
+    \delta\alpha_{\text{Cu}} = 1{,}6009 \times 10^{-5} \times \sqrt{
+        \left(\frac{0{,}025}{0{,}600}\right)^2 +
+        \left(\frac{0{,}00873}{1{,}5184}\right)^2 +
+        \left(\frac{0{,}05}{769{,}00}\right)^2 +
+        \left(\frac{0{,}707}{74{,}0}\right)^2
+    }
+\end{equation*}
+\begin{equation*}
+    \delta\alpha_{\text{Cu}} = 1{,}6009 \times 10^{-5} \times \sqrt{
+        0{,}001736 + 0{,}000033 + 0{,}000000 + 0{,}000091
+    } = 0{,}0690 \times 10^{-5}\ ^\circ\text{C}^{-1}
+\end{equation*}
+
+De este modo, el coeficiente de dilatación lineal del cobre se reporta como:
+\begin{equation}
+    \alpha_{\text{Cu}} = (1{,}60 \pm 0{,}07) \times 10^{-5}\ ^\circ\text{C}^{-1}
+    \label{eq:res_cu}
+\end{equation}
+
+El error relativo en comparación con el valor de referencia $\alpha_{\text{ref, Cu}} = 1{,}70 \times 10^{-5}\ ^\circ\text{C}^{-1}$ es:
+\begin{equation*}
+    E_r = \frac{|1{,}6009 \times 10^{-5} - 1{,}70 \times 10^{-5}|}{1{,}70 \times 10^{-5}} \times 100\% \approx 5{,}8\%
+\end{equation*}
+
+\subsection{Vidrio}
+
+A partir de los datos experimentales para el vidrio:
+\begin{align*}
+    L_0 &= \qty{700,00}{\milli\meter} \\
+    D &= \qty{0,600}{\milli\meter} \\
+    \Delta\theta &= \qty{0,2094}{\radian} \\
+    \Delta T &= 74{,}0\ ^\circ\text{C}
+\end{align*}
+
+Sustituyendo estos valores en la Ec.~\eqref{eq:trabajo_calculo}:
+\begin{equation*}
+    \alpha_{\text{vidrio}} = \frac{0{,}600 \times 0{,}2094}{700{,}00 \times 74{,}0} = 2{,}425 \times 10^{-6}\ ^\circ\text{C}^{-1}
+\end{equation*}
+
+Para calcular la incertidumbre absoluta, sustituimos en la Ec.~\eqref{eq:propagacion_cuadratura}:
+\begin{equation*}
+    \delta\alpha_{\text{vidrio}} = 2{,}425 \times 10^{-6} \times \sqrt{
+        \left(\frac{0{,}025}{0{,}600}\right)^2 +
+        \left(\frac{0{,}00873}{0{,}2094}\right)^2 +
+        \left(\frac{0{,}05}{700{,}00}\right)^2 +
+        \left(\frac{0{,}707}{74{,}0}\right)^2
+    }
+\end{equation*}
+\begin{equation*}
+    \delta\alpha_{\text{vidrio}} = 2{,}425 \times 10^{-6} \times \sqrt{
+        0{,}001736 + 0{,}001737 + 0{,}000000 + 0{,}000091
+    } = 0{,}1448 \times 10^{-6}\ ^\circ\text{C}^{-1}
+\end{equation*}
+
+De este modo, el coeficiente de dilatación lineal del vidrio borosilicato se reporta como:
+\begin{equation}
+    \alpha_{\text{vidrio}} = (2{,}43 \pm 0{,}14) \times 10^{-6}\ ^\circ\text{C}^{-1}
+    \label{eq:res_vidrio}
+\end{equation}
+
+El error relativo en comparación con el valor teórico de referencia $\alpha_{\text{ref, vidrio}} = 2{,}40 \times 10^{-6}\ ^\circ\text{C}^{-1}$ es:
+\begin{equation*}
+    E_r = \frac{|2{,}43 \times 10^{-6} - 2{,}40 \times 10^{-6}|}{2{,}40 \times 10^{-6}} \times 100\% = 1{,}25\%
+\end{equation*}

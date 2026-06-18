@@ -1,0 +1,27 @@
+%% ============================================================
+%%  SECCIÓN 8 — Análisis Experimental
+%%  Responsable: Vera Vivanco, Jesús Rodolfo
+%% ============================================================
+
+\section{Análisis Experimental}
+\label{sec:analisis_exp}
+
+En esta sección se realiza una evaluación cualitativa y crítica del comportamiento de las muestras durante el experimento y de las magnitudes físicas medidas directamente. Se destaca de antemano que, siguiendo las directrices metodológicas, en esta sección no se efectúa el cálculo de las variables derivadas (los coeficientes de dilatación lineal $\alpha$), el cual se reserva de manera exclusiva para la Sección~\ref{sec:tratamiento}.
+
+\subsection{Comportamiento cualitativo de la dilatación por material --- Tabla~\ref{tab:datos_dilatacion}}
+
+Al inyectar vapor a 100$^\circ$C y calentar los tubos desde una temperatura ambiente de 26$^\circ$C, las respuestas mecánicas macroscópicas difirieron marcadamente entre los materiales. A pesar de que las muestras poseían longitudes iniciales $L_0$ muy similares dentro de un rango estrecho de \qtyrange{700,00}{769,00}{\milli\meter}, los ángulos de giro $\Delta\theta$ registrados en la escala graduada del transportador de ángulos mostraron una amplia variación en el rango de \qtyrange{12,0}{129,0}{\degree}. 
+
+El tubo de aluminio presentó la dilatación más pronunciada, provocando una rotación de la aguja de $129^\circ$. El tubo de cobre exhibió una dilatación intermedia con un giro de $87^\circ$, mientras que el tubo de vidrio mostró una respuesta térmica muy baja, registrando una variación angular de apenas $12^\circ$. Desde una perspectiva física, este ordenamiento (aluminio > cobre > vidrio) es consistente con la rigidez y la naturaleza de las uniones atómicas de cada sólido. En los metales, la mayor anharmonicidad del pozo de potencial interatómico facilita que la energía térmica introducida aumente el espaciamiento promedio entre átomos. Por el contrario, la red tridimensional rígida del vidrio con enlaces covalentes más fuertes y simétricos mantiene una configuración geométrica estable ante el incremento de vibraciones atómicas.
+
+\subsection{Sensibilidad del método de rodadura e incertidumbres dominantes}
+
+Al examinar la Ec.~\eqref{eq:modelo_rodamiento}, la dilatación lineal $\Delta L$ se infiere a partir del diámetro $D$ de la aguja cilíndrica y del ángulo de rotación $\Delta\theta$. Por lo tanto, cualquier error sistemático en estas variables afectará directamente el resultado de la dilatación. 
+
+En términos de sensibilidad a errores instrumentales, se identifica un comportamiento crítico en el caso del vidrio:
+\begin{itemize}
+    \item Para la muestra de vidrio, el ángulo medido de $12,0^\circ$ es pequeño en relación con la incertidumbre del transportador ($\delta\theta = 0{,}5^\circ$), lo que representa una incertidumbre relativa del \qty{4,17}{\percent} en esta variable. Esto convierte a la precisión del transportador angular en la fuente dominante de incertidumbre para este material.
+    \item En cambio, para el aluminio ($\Delta\theta = 129{,}0^\circ$) y el cobre ($\Delta\theta = 87{,}0^\circ$), la incertidumbre relativa de la medición angular es de solo \qty{0,39}{\percent} y \qty{0,57}{\percent}, respectivamente. Para estas muestras metálicas, la incertidumbre que domina la propagación no es el ángulo, sino la del diámetro de la aguja medido con el vernier ($\delta D / D = \qty{4,17}{\percent}$), debido a que el diámetro de la aguja es extremadamente pequeño ($D = \qty{0,600}{\milli\meter}$) y su medición es mecánicamente compleja.
+\end{itemize}
+
+Finalmente, una limitación experimental crucial del método es la posibilidad de deslizamiento entre el tubo en expansión y la aguja cilíndrica. Si el tubo resbala en lugar de rodar puramente, el ángulo $\Delta\theta$ registrado será menor al real, lo que subestimará el alargamiento real del material. Este fenómeno de pérdida cinemática, junto con sus consecuencias físicas, se analiza en detalle en la Sección~\ref{sec:conclusiones}.

@@ -1,0 +1,37 @@
+%% ============================================================
+%%  SECCIÓN 12 — Observaciones, Sugerencias y Conclusiones
+%%  Responsable: Vera Vivanco, Jesús Rodolfo
+%% ============================================================
+
+\section{Observaciones}
+
+\begin{enumerate}
+    \item El deslizamiento de la aguja de rodamiento es la principal fuente de error sistemático por defecto en este tipo de montajes. Si existe falta de rugosidad en las interfaces de contacto (entre el tubo de ensayo y la aguja, o entre la aguja y la base de apoyo), la aguja patina en lugar de rodar de forma pura. Como consecuencia, el indicador angular registra un giro angular $\Delta\theta$ inferior al real, subestimando la dilatación térmica ($\Delta L$).
+    \item Se identifican pérdidas de calor significativas hacia el entorno debido a la convección y radiación térmica en las paredes exteriores de los tubos expuestos. Esto genera que la temperatura promedio del tubo no alcance uniformemente los \qty{100}{\celsius} del vapor, provocando una contracción térmica relativa con respecto al valor teórico uniforme de $\Delta T$.
+    \item La incertidumbre instrumental en la medición del diámetro de la aguja cilíndrica con el vernier ($\delta D = \qty{0,025}{\milli\meter}$) tiene una gran influencia en la propagación de errores para los metales. Al ser la aguja muy delgada ($D = \qty{0,600}{\milli\meter}$), esta tolerancia representa un error relativo del \qty{4,17}{\percent}, fijando un límite inferior a la precisión de los coeficientes de dilatación lineal obtenidos.
+    \item En el caso de la muestra de vidrio borosilicato, el pequeño alargamiento térmico medido ($\Delta L \approx \qty{0,126}{\milli\meter}$) dio lugar a un desplazamiento angular de apenas \qty{12.0}{\degree}. Para esta muestra, la resolución del transportador ($\delta\theta = \qty{0.5}{\degree}$) constituyó la mayor fuente de incertidumbre de la medición.
+\end{enumerate}
+
+\section{Sugerencias}
+
+\begin{enumerate}
+    \item Colocar cintas adhesivas con textura rugosa (o bandas elastoméricas) en las zonas de contacto del tubo de ensayo y la base con la aguja de rodamiento, con el fin de maximizar la fricción estática e impedir deslizamientos mecánicos no deseados.
+    \item Revestir la pared exterior de los tubos de ensayo con una capa delgada de aislante térmico (como espuma elastomérica o fibra de vidrio) para reducir las pérdidas de calor por convección hacia el laboratorio, garantizando una temperatura homogénea de \qty{100}{\celsius} a lo largo de toda la muestra.
+    \item Reemplazar el calibrador vernier por un micrómetro de exteriores para determinar el diámetro $D$ de la aguja cilíndrica, disminuyendo la incertidumbre instrumental de la medición de $\qty{0,025}{\milli\meter}$ a $\qty{0,005}{\milli\meter}$.
+    \item Sustituir el dial indicador analógico por un sensor de posición digital de alta resolución (encoder óptico) acoplado a la aguja, eliminando por completo el error de paralaje y la incertidumbre de la lectura visual subjetiva en ángulos pequeños.
+\end{enumerate}
+
+\section{Conclusiones}
+\label{sec:conclusiones}
+
+\begin{enumerate}
+    \item Se determinaron de manera experimental los coeficientes de dilatación lineal ($\alpha$) de los tres materiales ensayados, obteniéndose los siguientes resultados cuantitativos:
+    \begin{itemize}
+        \item Aluminio: $\alpha_{\text{Al}} = (2{,}46 \pm 0{,}11) \times 10^{-5}\ ^\circ\text{C}^{-1}$ con un error relativo de \qty{6.8}{\percent}.
+        \item Cobre: $\alpha_{\text{Cu}} = (1{,}60 \pm 0{,}07) \times 10^{-5}\ ^\circ\text{C}^{-1}$ con un error relativo de \qty{5.8}{\percent}.
+        \item Vidrio borosilicato: $\alpha_{\text{vidrio}} = (2{,}43 \pm 0{,}14) \times 10^{-6}\ ^\circ\text{C}^{-1}$ con un error relativo de \qty{1.25}{\percent}.
+    \end{itemize}
+    \item El método mecánico de la aguja giratoria demostró ser un mecanismo de amplificación geométrica de alta efectividad, permitiendo convertir variaciones lineales de longitud del orden de décimas de milímetro en desplazamientos angulares fácilmente legibles en el rango de \qtyrange{12.0}{129.0}{\degree}.
+    \item Se validó la secuencia de susceptibilidad térmica de los materiales (aluminio > cobre > vidrio borosilicato). Se evidenció que el coeficiente del vidrio borosilicato ($10^{-6}\ ^\circ\text{C}^{-1}$) es un orden de magnitud inferior al de los metales ($10^{-5}\ ^\circ\text{C}^{-1}$), lo cual es físicamente consistente con la teoría molecular ya que su red tridimensional de enlaces covalentes fuertes posee un pozo de potencial mucho más simétrico que el de los enlaces metálicos.
+    \item La propagación de incertidumbres mediante el método de suma en cuadratura permitió discriminar las variables críticas para la optimización del diseño experimental, revelando que el diámetro de la aguja ($D$) es la variable dominante en la incertidumbre de los metales, mientras que la lectura angular ($\Delta\theta$) es la limitante en el caso del vidrio borosilicato.
+\end{enumerate}
