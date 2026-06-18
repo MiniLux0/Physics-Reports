@@ -58,10 +58,11 @@
 \definecolor{uni-blue}{RGB}{0, 56, 101}
 
 \usepackage[
-    colorlinks = true,
-    linkcolor  = uni-blue,
-    citecolor  = uni-blue,
-    urlcolor   = uni-blue
+    hypertexnames = false,
+    colorlinks    = true,
+    linkcolor     = uni-blue,
+    citecolor     = uni-blue,
+    urlcolor      = uni-blue
 ]{hyperref}
 
 %% ------------------------------------------------------------
@@ -79,6 +80,7 @@
 %%  ESTILO DE SECCIONES
 %% ------------------------------------------------------------
 \usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
 \usepackage{titletoc}
 
 \titleformat{\section}
@@ -175,13 +177,14 @@
     {\normalsize\labfecha}
 \end{titlepage}
 
-\setcounter{page}{1}
+\pagenumbering{roman}
 
 %% ------------------------------------------------------------
 %%  INDICE
 %% ------------------------------------------------------------
 \tableofcontents
 \newpage
+\pagenumbering{arabic}
 
 %% ============================================================
 %%  SECCIONES
