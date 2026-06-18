@@ -1,4 +1,13 @@
-# LaTeX - Archivos auxiliares comunes
+# ==========================================
+#  Physics-Reports .gitignore
+# ==========================================
+
+# --- Compilación de LaTeX (Auxiliares) ---
+# Ignorar la carpeta completa de salida auxiliar (out/)
+out/
+[Oo]ut/
+
+# Archivos auxiliares comunes
 *.aux
 *.log
 *.out
@@ -7,23 +16,68 @@
 *.fdb_latexmk
 *.synctex.gz
 *.pdfsync
-
-# Biber / Bibliografía
+*.auxlock
+*.lof
+*.lot
+*.maf
+*.mtc*
+*.nav
+*.snm
+*.vrb
 *.bbl
 *.blg
 *.bcf
 *.run.xml
 
-# Salida final (opcional: ignora los PDF generados para no inflar el repo)
+# --- PDFs (Salida final) ---
+# Se ignoran por defecto todos los PDFs generados para no sobrecargar el repositorio.
+# Nota: Si deseas forzar la subida de un PDF final de entrega, puedes usar: git add -f <archivo.pdf>
 *.pdf
 
-# Carpeta de salida de compilación (la que usas en tu configuración)
-out/
+# --- Python & Entornos Virtuales ---
+# Entornos virtuales locales de Python
+.venv/
+venv/
+env/
+ENV/
+dist/
+build/
+*.egg-info/
 
+# Caching de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# --- Configuración de Editores e IDEs ---
 # VS Code
 .vscode/
 *.code-workspace
+.history/
 
-# Sistema Operativo (Windows/Mac)
+# TeXstudio / Texmaker / MiKTeX
+*.bak
+*.sav
+*.tex.backup
+*.tex.bak
+*.pdf.bak
+.texstudio/
+
+# --- Archivos del Sistema Operativo ---
+# Windows
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.Spotlight-V100
+.Trashes
