@@ -13,6 +13,7 @@ Al evaluar las lecturas de voltaje continuo en la retícula del osciloscopio (Ta
     \item \textbf{Escalas no óptimas (\qty{5}{\volt\per\division}):} Para señales de bajo potencial (como la pila de \qty{1,5}{\volt}), la deflexión vertical ocupa apenas $0{,}3\,\text{divisiones}$. En esta condición, una pequeña incertidumbre de apreciación ocular ($\pm 0{,}1\,\text{div}$) representa una variación relativa considerable ($\pm\qty{0,5}{\volt}$ o un \qty{33}{\percent} de la magnitud medida), incrementando la dispersión aparente de los datos.
     \item \textbf{Escalas óptimas (\qty{0,2}{\volt\per\division} y \qty{0,5}{\volt\per\division}):} Al incrementar la ganancia vertical de modo que el trazo ocupe entre el \qty{60}{\percent} y el \qty{90}{\percent} de la altura disponible en la pantalla sin saturarse, la misma incertidumbre de $\pm 0{,}1\,\text{div}$ se traduce en un error absoluto mínimo ($\pm\qty{0,02}{\volt}$ a $\pm\qty{0,05}{\volt}$), logrando una coincidencia visual casi perfecta con la lectura del multímetro de referencia.
     \item \textbf{Saturación y fuera de escala:} Cuando la tensión de entrada supera el rango dinámico vertical disponible ($> 8\,\text{divisiones}$ útiles), el haz electrónico digitalizado sobrepasa los límites de la cuadrícula, provocando recorte de señal. Por ello, el operador debe seleccionar la menor escala vertical posible que mantenga la señal íntegramente visible.
+    \item \textbf{Comportamiento de la fuente en circuito abierto (en vacío):} Las tensiones medidas en las salidas fijas de la fuente continua resultaron sistemáticamente superiores a sus valores nominales de placa (\qty{5,220}{\volt} frente a \qty{4,50}{\volt}, \qty{8,030}{\volt} frente a \qty{7,50}{\volt} y \qty{11,150}{\volt} frente a \qty{10,50}{\volt}). Una explicación plausible es el comportamiento característico de fuentes de banco lineales en vacío (filtrado capacitivo sin caída óhmica de carga, $V_{\text{out}} \approx V_{\text{th}}$); sin embargo, dado que no se realizaron mediciones bajo distintas cargas resistivas durante la práctica, esto se formula como hipótesis tentativa y no como causa demostrada. Por tanto, la referencia rigurosa de contraste para la calibración del osciloscopio es el voltaje real registrado simultáneamente por el multímetro patrón ($V_{\text{mult}}$).
 \end{itemize}
 
 \subsection{Comportamiento de la Tensión Alterna del Transformador}
@@ -23,15 +24,15 @@ En el dominio temporal, al reducir la base de tiempo de \qty{5}{\milli\second\pe
 \subsection{Morfología de Señales Sintéticas del Generador OWON}
 Las tres funciones periódicas evaluadas a \qty{250}{\hertz} demostraron alta estabilidad temporal gracias al principio de síntesis digital directa (DDS) del generador:
 \begin{itemize}
-    \item La \textbf{onda senoidal} exhibe continuidad armónica suave sin distorsión armónica visible.
+    \item La \textbf{onda senoidal} no exhibe distorsiones apreciables visualmente en la escala empleada.
     \item La \textbf{onda triangular} presenta pendientes ascendentes y descendentes de igual magnitud absoluta, con inversión de signo abrupta en los vértices pico.
-    \item La \textbf{onda cuadrada} muestra transiciones de flanco de subida y bajada sumamente pronunciadas (tiempo de subida $t_r < \qty{15}{\nano\second}$), manteniendo niveles de tensión estacionarios de $+V_p$ y $-V_p$ durante semiperíodos exactamente iguales (ciclo de trabajo del \qty{50}{\percent}).
+    \item La \textbf{onda cuadrada} muestra transiciones de flanco de conmutación sumamente pronunciadas (tiempo de subida nominal $t_r < \qty{15}{\nano\second}$ especificado por el fabricante~\cite{owon_ags_spec}), manteniendo niveles de tensión estacionarios de $+V_p$ y $-V_p$ durante semiperíodos simétricos (ciclo de trabajo del \qty{50}{\percent}).
 \end{itemize}
 
 \subsection{Dinámica Geométrica en el Modo Graficador X-Y}
 En la modalidad $X$-$Y$, la combinación ortogonal de señales senoidales revela directamente la correlación de frecuencias y el desfase temporal:
 \begin{itemize}
-    \item Para la relación $1:1$ (\qty{60}{\hertz} : \qty{60}{\hertz}), la curva genera una elipse rotada. Al aplicar la función $\text{CH2 INVERT}$, la deflexión en el eje $Y$ se multiplica por $-1$, produciendo una reflexión especular instantánea que invierte la inclinación de la elipse.
+    \item Para la relación $1:1$ (\qty{60}{\hertz} : \qty{60}{\hertz}), la curva genera una elipse estacionaria. Al aplicar la función $\text{CH2 INVERT}$, la deflexión en el eje $Y$ se multiplica por $-1$, produciendo una reflexión especular respecto al eje horizontal $X$ que invierte la inclinación de la elipse.
     \item Al elevar la frecuencia del canal vertical a múltiplos enteros exactos ($120$, $180$ y \qty{240}{\hertz}), la trayectoria se pliega sobre sí misma originando figuras de Lissajous con $2$, $3$ y $4$ lóbulos verticales cerrados y estables.
     \item Para tensiones continuas constantes en ambos canales, al no existir componente armónica dependiente del tiempo, el barrido se reduce a un punto fijo estático en el plano cartesiano $(V_x, V_y)$, el cual migra al cuarto cuadrante $(V_x, -V_y)$ al invertir el canal $Y$.
 \end{itemize}

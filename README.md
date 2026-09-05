@@ -142,8 +142,8 @@ latexmk -C; latexmk
 *Docente Encargado (Semestre 03):* **Cortez R., Gregorio**
 
 * **Vera Vivanco, Jesús Rodolfo** — Código: `20252703K` *(Autor principal / Administrador del repositorio)*
-* **Casaño Ramírez, Gerald Giordano** — Código: `20250438H` *(Semestre 03)*
-* **Sánchez Feril, Piero Alejandro** — Código: `20200490F` *(Semestre 03)*
+* **Casañe Ramírez, Gerald Giordano** — Código: `20251368C` *(Semestre 03)*
+* **Sánchez Feril, Piero Alejandro** — Código: `20251629A` *(Semestre 03)*
 
 *Colaboradores Históricos (Semestre 02):*
 * **Cauti Huachaca, Yordan Orlando** — Código: `20222236E`

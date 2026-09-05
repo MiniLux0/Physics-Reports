@@ -10,14 +10,17 @@
     \item \textbf{Incertidumbre de Apreciación Visual ("Al Ojo"):}
     La estimación de divisiones en la retícula analógica/digital presenta una limitación intrínseca de resolución humana de aproximadamente $\pm 0{,}1\,\text{div}$. Cuando se opera en escalas grandes (\qty{5}{\volt\per\division}), este error de lectura se magnifica hasta representar un \qty{33}{\percent} de señales pequeñas (\qty{1,5}{\volt}), mientras que en escalas óptimas (\qty{0,2}{\volt\per\division}) su impacto decrece a menos del \qty{1,4}{\percent}.
     
-    \item \textbf{Rizado Residual de Fuentes Reguladas:}
-    Al conmutar el acoplamiento a modo $\text{AC}$ y aumentar la sensibilidad a \qty{5}{\milli\volt\per\division}, se constató que la tensión continua de la fuente regulada contiene un rizado de conmutación de alta frecuencia ($\Delta V_{\text{ripple}} < \qty{8}{\milli\volt}$) a \qty{100}{\hertz}/\qty{120}{\hertz}, originado por la rectificación de la red no completamente atenuada por los filtros capacitivos.
+    \item \textbf{Rizado de Rectificación en Fuentes Lineales:}
+    Al conmutar el acoplamiento a modo $\text{AC}$ y aumentar la sensibilidad a \qty{5}{\milli\volt\per\division}, se constató cualitativamente la presencia de un rizado de baja frecuencia a \qty{100}{\hertz}/\qty{120}{\hertz}, originado por la rectificación de onda completa de la red eléctrica que no es suprimida en su totalidad por los condensadores de filtrado.
 
-    \item \textbf{Efecto de Carga e Impedancia Interna:}
-    Las salidas de la fuente continua entregaron voltajes en circuito abierto ligeramente superiores a su valor nominal de placa (\qty{5,22}{\volt} frente a \qty{4,50}{\volt} nominal), comportamiento atribuible a la regulación en vacío y a la resistencia interna de salida $R_{\text{int}}$ de la fuente.
+    \item \textbf{Efecto de Carga e Impedancia Interna de Fuentes Reguladas:}
+    Las diferentes salidas fijas de la fuente continua entregaron voltajes en circuito abierto sistemáticamente superiores a los valores nominales serigrafiados (\qty{5,220}{\volt} frente a \qty{4,50}{\volt} nominal, \qty{8,030}{\volt} frente a \qty{7,50}{\volt} y \qty{11,150}{\volt} frente a \qty{10,50}{\volt}). Una explicación física plausible para esta elevación de potencial en vacío es el efecto de filtrado capacitivo en reguladores lineales no cargados ($I = 0$, donde $V_{\text{out}} \approx V_{\text{th}}$). No obstante, al no haberse ensayado el circuito con diversas cargas resistivas, esta causa permanece como una hipótesis tentativa bien fundamentada y no como un hecho verificado experimentalmente. Por ello, el contraste y la calibración del osciloscopio se fundamentaron rigurosamente en la medición simultánea del multímetro patrón ($V_{\text{mult}}$), frente al cual el error de lectura en escala óptima fue inferior al \qty{0,45}{\percent}.
 
     \item \textbf{Fidelidad del Generador DDS:}
-    El generador OWON AG 051F exhibió una precisión de frecuencia excepcional ($e_r = \qty{0,00}{\percent}$ frente al período medido en el osciloscopio a \qty{250}{\hertz}), confirmando la estabilidad del oscilador de cristal de cuarzo integrado ($\pm\qty{1}{\ppm}$).
+    El generador OWON AG 051F demostró que la frecuencia medida en retícula ($f = \qty{250,0 \pm 3,1}{\hertz}$) es plenamente compatible con el valor nominal de \qty{250,00}{\hertz}, confirmando la alta estabilidad temporal del oscilador de cristal de cuarzo integrado ($\pm\qty{1}{\ppm}$).
+
+    \item \textbf{Almacenamiento Digital y Trazabilidad en USB:}
+    El registro cuantitativo de los parámetros de retícula, factores de escala y formas de onda en memoria masiva USB (`USB Flash Drive') permitió preservar íntegramente la trazabilidad de los datos experimentales para su posterior procesamiento analítico y reconstrucción gráfica de alta fidelidad científica a 300 DPI, garantizando rigor metodológico y reproducibilidad.
 \end{enumerate}
 
 \subsection{Sugerencias}
@@ -37,13 +40,13 @@
 
 \subsection{Conclusiones}
 \begin{enumerate}
-    \item Se dominaron con éxito las funciones operativas del osciloscopio digital Rohde \& Schwarz HMO1202, logrando caracterizar con precisión señales continuas (DC), alternas periódicas (AC) y figuras bidimensionales paramétricas en modo $X$-$Y$.
+    \item Se comprobaron los principios de operación y calibración del osciloscopio digital Rohde \& Schwarz HMO1202, verificando que la resolución visual efectiva en la retícula se optimiza maximizando la ocupación vertical de la señal mediante el desplazamiento de la línea base ($\text{GND}$) y la elección de la menor escala de voltios por división sin saturación.
 
-    \item En la medición de tensiones continuas, la calibración vertical demostró un comportamiento lineal óptimo en todo el rango evaluado (\qtyrange{1,4}{11,2}{\volt}), con una pendiente de regresión $m = 1{,}0020 \pm 0{,}0042$, ordenada en el origen $b = -0{,}007 \pm 0{,}028\,\unit{\volt}$ y un coeficiente de determinación $R^2 = 0{,}99995$, con errores relativos inferiores al \qty{0,45}{\percent} en escalas óptimas.
+    \item En la medición de tensiones continuas, la calibración vertical demostró un comportamiento lineal en todo el rango evaluado (\qtyrange{1,4}{11,2}{\volt}), con una pendiente de regresión por mínimos cuadrados $m = 1{,}0036 \pm 0{,}0039$ (error estándar $s_m = 0{,}0039$), intercepto $b = -0{,}021 \pm 0{,}026\,\unit{\volt}$ (error estándar $s_b = \qty{0,026}{\volt}$) estadísticamente compatible con cero ($|b|/s_b < 1$) y coeficiente $R^2 = 0{,}99995$, con errores relativos inferiores al \qty{0,45}{\percent} en escalas óptimas.
 
-    \item Para la señal alterna del transformador de \qty{6}{\volt} a \qty{60}{\hertz}, se determinó un voltaje pico a pico de $V_{pp} = \qty{19,50 \pm 0,50}{\volt}$ ($e_r = \qty{0,93}{\percent}$ frente al teórico de \qty{19,32}{\volt}) y un voltaje eficaz calculado de $V_{\text{rms}} = \qty{6,79 \pm 0,14}{\volt}$ ($e_r = \qty{0,59}{\percent}$ frente al multímetro True-RMS). El período medido fue $T = \qty{16,60 \pm 0,20}{\milli\second}$ ($f = \qty{60,24 \pm 0,73}{\hertz}$, $e_r = \qty{0,40}{\percent}$).
+    \item Para la señal alterna del transformador reductor de \qty{6}{\volt} a \qty{60}{\hertz}, se determinó un voltaje pico a pico de $V_{pp} = \qty{19,50 \pm 0,50}{\volt}$ ($e_r = \qty{0,93}{\percent}$ frente al teórico de \qty{19,32}{\volt}) y un voltaje eficaz calculado de $V_{\text{rms}} = \qty{6,79 \pm 0,14}{\volt}$ ($e_r = \qty{0,61}{\percent}$ frente al multímetro True-RMS). El período medido fue $T = \qty{16,60 \pm 0,20}{\milli\second}$ ($f = \qty{60,24 \pm 0,73}{\hertz}$, $e_r = \qty{0,40}{\percent}$).
 
-    \item Para señales sintéticas del generador OWON AG 051F a \qty{250}{\hertz}, se verificó experimentalmente la relación matemática entre el voltaje pico ($V_p = \qty{4,80 \pm 0,20}{\volt}$) y los voltajes eficaces para ondas senoidal ($V_{\text{rms}} = \qty{3,42}{\volt}$), triangular ($V_{\text{rms}} = \qty{2,79}{\volt}$) y cuadrada ($V_{\text{rms}} = \qty{4,80}{\volt}$), con discrepancias relativas nulas en frecuencia ($e_r = \qty{0,00}{\percent}$).
+    \item Para señales periódicas sintéticas del generador OWON AG 051F a \qty{250}{\hertz}, se validaron experimentalmente las relaciones analíticas entre amplitud pico ($V_p = \qty{4,80 \pm 0,20}{\volt}$) y valor eficaz para onda senoidal ($V_{\text{rms}} = \qty{3,42}{\volt}$), triangular ($V_{\text{rms}} = \qty{2,79}{\volt}$) y cuadrada ($V_{\text{rms}} = \qty{4,80}{\volt}$), con discrepancias inferiores al \qty{0,8}{\percent} frente a la lectura True-RMS.
 
-    \item En el modo graficador $X$-$Y$, se validó el principio de las figuras de Lissajous para relaciones armónicas $1:1$, $1:2$, $1:3$ y $1:4$, comprobando la reflexión geométrica vertical bajo la inversión polar del canal 2 ($\text{CH2 INVERT}$) y la proyección estática puntual en $(+1{,}5\,\unit{\volt}, \pm 3{,}0\,\unit{\volt})$ para señales continuas.
+    \item En el modo graficador $X$-$Y$, se verificó el principio de las figuras de Lissajous para relaciones armónicas enteras $1:1$, $1:2$, $1:3$ y $1:4$, comprobando que la inversión del canal vertical ($\text{CH2 INVERT}$) produce una reflexión especular respecto al eje horizontal $(x, y) \to (x, -y)$, y que potenciales continuos constantes colapsan en puntos estáticos coordenados en el plano cartesiano.
 \end{enumerate}

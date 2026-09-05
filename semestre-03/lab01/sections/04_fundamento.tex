@@ -5,7 +5,7 @@
 \section{Fundamento Teórico}
 \label{sec:fundamento}
 
-El osciloscopio es un instrumento electrónico de adquisición y representación gráfica que permite visualizar diferencias de potencial eléctrico en función del tiempo o de otra tensión eléctrica~\cite{serway}.
+El osciloscopio es un instrumento electrónico de adquisición y representación gráfica que permite visualizar diferencias de potencial eléctrico en función del tiempo o de otra tensión eléctrica~\cite{serway}. En los instrumentos analógicos clásicos, un cañón de electrones proyecta un haz catódico que es acelerado y deflectado electrostáticamente por pares de placas ortogonales ($X$ e $Y$), impactando sobre una pantalla fosforescente con retícula graduada, tal como se esquematiza en la Figura~\ref{fig:trc_esquema}.
 
 \begin{figure}[H]
     \centering
@@ -19,8 +19,8 @@ En un osciloscopio digital moderno (DSO), la señal continua de entrada $V(t)$ e
 
 La señal procesada se proyecta en una retícula ortogonal dividida en divisiones verticales ($Y$) y horizontales ($X$), tal como se ilustra en la Figura~\ref{fig:parametros_onda}. La tensión instantánea $V(t)$ y el tiempo $t$ se determinan mediante las relaciones fundamentales:
 \begin{align}
-    V(t) &= N_y(t) \cdot S_v \label{eq:voltaje_escala} \\
-    t &= N_x \cdot S_t \label{eq:tiempo_escala}
+    V(t) &= N_y(t) \cdot S_v, \label{eq:voltaje_escala} \\
+    t &= N_x \cdot S_t, \label{eq:tiempo_escala}
 \end{align}
 donde $N_y$ es el número de divisiones verticales de deflexión desde la línea de referencia cero ($\text{GND}$), $S_v$ es la sensibilidad o factor de escala vertical (\unit{\volt\per\division}), $N_x$ es el número de divisiones horizontales a lo largo del eje temporal, y $S_t$ es la base de tiempo horizontal (\unit{\second\per\division}).
 
@@ -34,7 +34,7 @@ donde $N_y$ es el número de divisiones verticales de deflexión desde la línea
 \subsection{Magnitudes Caracterizadoras de Señales Periódicas}
 Una señal eléctrica periódica $V(t)$ satisface la condición $V(t + T) = V(t)$, donde $T$ es el período fundamental. La frecuencia $f$ representa el número de ciclos completos por segundo:
 \begin{equation}
-    f = \frac{1}{T} \label{eq:frecuencia}
+    f = \frac{1}{T}, \label{eq:frecuencia}
 \end{equation}
 cuya unidad en el Sistema Internacional es el Hertz (\unit{\hertz} o \unit{\per\second}).
 
@@ -42,32 +42,32 @@ Para caracterizar la magnitud de una tensión alterna se definen tres parámetro
 \begin{enumerate}
     \item \textbf{Voltaje Pico ($V_p$ o Amplitud $V_0$):} Valor máximo positivo alcanzado por la señal respecto a su nivel medio de continua ($V_{\text{DC}}$):
     \begin{equation}
-        V_p = \max[V(t)] - V_{\text{DC}} \label{eq:voltaje_pico}
+        V_p = \max[V(t)] - V_{\text{DC}}. \label{eq:voltaje_pico}
     \end{equation}
     \item \textbf{Voltaje Pico a Pico ($V_{pp}$):} Diferencia absoluta entre el valor máximo positivo y el valor mínimo negativo de la onda:
     \begin{equation}
-        V_{pp} = \max[V(t)] - \min[V(t)] = 2 V_p \label{eq:voltaje_pp}
+        V_{pp} = \max[V(t)] - \min[V(t)] = 2 V_p. \label{eq:voltaje_pp}
     \end{equation}
     \item \textbf{Voltaje Eficaz o RMS (\textit{Root Mean Square}):} Valor de tensión continua equivalente que disiparía la misma potencia térmica promedio sobre una resistencia pura $R$ en un período completo~\cite{halliday}:
     \begin{equation}
-        V_{\text{rms}} = \sqrt{\frac{1}{T} \int_0^T V^2(t)\,\mathrm{d}t} \label{eq:voltaje_rms_def}
+        V_{\text{rms}} = \sqrt{\frac{1}{T} \int_0^T V^2(t)\,\mathrm{d}t}. \label{eq:voltaje_rms_def}
     \end{equation}
 \end{enumerate}
 
 \subsubsection{Voltaje Eficaz para Formas de Onda Estándar}
-Evaluando la integral~\eqref{eq:voltaje_rms_def} para las distintas funciones periódicas utilizadas experimentalmente:
+Evaluando la integral~\eqref{eq:voltaje_rms_def} para las distintas funciones periódicas utilizadas experimentalmente (ver demostración analítica completa en el Anexo~\ref{anexo:deduccion_rms}):
 \begin{itemize}
     \item \textbf{Onda Senoidal Pura ($V(t) = V_p \sin(\omega t)$):}
     \begin{equation}
-        V_{\text{rms}} = \sqrt{\frac{V_p^2}{T} \int_0^T \sin^2(\omega t)\,\mathrm{d}t} = \frac{V_p}{\sqrt{2}} \approx 0{,}7071\,V_p \label{eq:rms_seno}
+        V_{\text{rms}} = \sqrt{\frac{V_p^2}{T} \int_0^T \sin^2(\omega t)\,\mathrm{d}t} = \frac{V_p}{\sqrt{2}} \approx 0{,}7071\,V_p. \label{eq:rms_seno}
     \end{equation}
-    \item \textbf{Onda Triangular Simétrica ($V(t)$ lineal por tramos):}
+    \item \textbf{Onda Triangular Simétrica ($V(t)$ lineal por tramos en cuartos de onda):}
     \begin{equation}
-        V_{\text{rms}} = \sqrt{\frac{1}{T} \int_0^T \left(\frac{4 V_p}{T} t - V_p\right)^2\,\mathrm{d}t} = \frac{V_p}{\sqrt{3}} \approx 0{,}5774\,V_p \label{eq:rms_triang}
+        V_{\text{rms}} = \sqrt{\frac{4}{T} \int_0^{T/4} \left(\frac{4 V_p}{T} t\right)^2\,\mathrm{d}t} = \frac{V_p}{\sqrt{3}} \approx 0{,}5774\,V_p. \label{eq:rms_triang}
     \end{equation}
     \item \textbf{Onda Cuadrada Simétrica ($V(t) = \pm V_p$ con ciclo de trabajo del \qty{50}{\percent}):}
     \begin{equation}
-        V_{\text{rms}} = \sqrt{\frac{1}{T} \int_0^T V_p^2\,\mathrm{d}t} = V_p \label{eq:rms_cuadrada}
+        V_{\text{rms}} = \sqrt{\frac{1}{T} \int_0^T V_p^2\,\mathrm{d}t} = V_p. \label{eq:rms_cuadrada}
     \end{equation}
 \end{itemize}
 

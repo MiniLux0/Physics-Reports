@@ -8,6 +8,8 @@
 En esta sección se desarrolla el procesamiento analítico y cuantitativo de los datos experimentales, aplicando las ecuaciones del fundamento teórico y las fórmulas de propagación de incertidumbres deducidas en el Anexo~\ref{anexo:propagacion_errores}.
 
 \subsection{Procesamiento de Tensiones Continuas (DC) y Regresión Lineal}
+Se reporta $\delta V_{\text{osc}} = S_v \cdot \delta N_y$ como la incertidumbre operativa dominante en el laboratorio, dado que el instrumento fue previamente calibrado en su alineación de nivel de cero ($\text{GND}$) y la componente de tolerancia de ganancia vertical del fabricante ($\pm\qty{3}{\percent}$ de fondo de escala) resulta subdominante frente al error de apreciación visual del operador en las escalas empleadas (ver Anexo~\ref{anexo:propagacion_errores} para el modelo completo de suma en cuadratura).
+
 A partir de las mediciones registradas en escala óptima (Tabla~\ref{tab:resultados_dc}), se calcula la tensión medida en el osciloscopio $V_{\text{osc}}$ y su incertidumbre asociada $\delta V_{\text{osc}}$:
 
 \begin{enumerate}
@@ -15,45 +17,55 @@ A partir de las mediciones registradas en escala óptima (Tabla~\ref{tab:resulta
     \begin{equation}
         V_{\text{osc}} = 7{,}2\,\text{div} \times \qty{0,2}{\volt\per\division} = \qty{1,440}{\volt}, \qquad \delta V_{\text{osc}} = 0{,}1\,\text{div} \times \qty{0,2}{\volt\per\division} = \qty{0,020}{\volt}
     \end{equation}
-    $$e_r = \frac{|1{,}440 - 1{,}442|}{1{,}442} \times 100\% = \qty{0,14}{\percent}$$
+    \[
+        e_r = \frac{|1{,}440 - 1{,}442|}{1{,}442} \times 100\% = \qty{0,14}{\percent}
+    \]
 
     \item \textbf{Fuente Salida 1 ($2{,}5\,\unit{\volt}$ nominal, $S_v = \qty{0,5}{\volt\per\division}$):}
     \begin{equation}
         V_{\text{osc}} = 4{,}9\,\text{div} \times \qty{0,5}{\volt\per\division} = \qty{2,450}{\volt}, \qquad \delta V_{\text{osc}} = 0{,}1\,\text{div} \times \qty{0,5}{\volt\per\division} = \qty{0,050}{\volt}
     \end{equation}
-    $$e_r = \frac{|2{,}450 - 2{,}453|}{2{,}453} \times 100\% = \qty{0,12}{\percent}$$
+    \[
+        e_r = \frac{|2{,}450 - 2{,}453|}{2{,}453} \times 100\% = \qty{0,12}{\percent}
+    \]
 
     \item \textbf{Fuente Salida 2 ($4{,}5\,\unit{\volt}$ nominal, $S_v = \qty{2}{\volt\per\division}$):}
     \begin{equation}
         V_{\text{osc}} = 2{,}6\,\text{div} \times \qty{2}{\volt\per\division} = \qty{5,200}{\volt}, \qquad \delta V_{\text{osc}} = 0{,}1\,\text{div} \times \qty{2}{\volt\per\division} = \qty{0,200}{\volt}
     \end{equation}
-    $$e_r = \frac{|5{,}200 - 5{,}220|}{5{,}220} \times 100\% = \qty{0,38}{\percent}$$
+    \[
+        e_r = \frac{|5{,}200 - 5{,}220|}{5{,}220} \times 100\% = \qty{0,38}{\percent}
+    \]
 
     \item \textbf{Fuente Salida 3 ($7{,}5\,\unit{\volt}$ nominal, $S_v = \qty{2}{\volt\per\division}$):}
     \begin{equation}
         V_{\text{osc}} = 4{,}0\,\text{div} \times \qty{2}{\volt\per\division} = \qty{8,000}{\volt}, \qquad \delta V_{\text{osc}} = 0{,}1\,\text{div} \times \qty{2}{\volt\per\division} = \qty{0,200}{\volt}
     \end{equation}
-    $$e_r = \frac{|8{,}000 - 8{,}030|}{8{,}030} \times 100\% = \qty{0,37}{\percent}$$
+    \[
+        e_r = \frac{|8{,}000 - 8{,}030|}{8{,}030} \times 100\% = \qty{0,37}{\percent}
+    \]
 
     \item \textbf{Fuente Salida 4 ($10{,}5\,\unit{\volt}$ nominal, $S_v = \qty{2}{\volt\per\division}$):}
     \begin{equation}
         V_{\text{osc}} = 5{,}6\,\text{div} \times \qty{2}{\volt\per\division} = \qty{11,200}{\volt}, \qquad \delta V_{\text{osc}} = 0{,}1\,\text{div} \times \qty{2}{\volt\per\division} = \qty{0,200}{\volt}
     \end{equation}
-    $$e_r = \frac{|11,200 - 11,150|}{11,150} \times 100\% = \qty{0,45}{\percent}$$
+    \[
+        e_r = \frac{|11{,}200 - 11{,}150|}{11{,}150} \times 100\% = \qty{0,45}{\percent}
+    \]
 \end{enumerate}
 
 \subsubsection{Ajuste Lineal por Mínimos Cuadrados}
-Para contrastar la relación entre $V_{\text{osc}}$ y $V_{\text{mult}}$, se realiza un ajuste por regresión lineal:
+Para contrastar la relación entre $V_{\text{osc}}$ y $V_{\text{mult}}$, se realiza un ajuste por regresión lineal mediante mínimos cuadrados ordinarios (OLS):
 \begin{equation}
     V_{\text{osc}} = m \cdot V_{\text{mult}} + b
 \end{equation}
-Aplicando el método de mínimos cuadrados mediante el script numérico~\cite{scipy, script_graficas}:
+Aplicando el método numérico mediante el script~\cite{scipy, script_graficas}, se obtienen los siguientes parámetros y errores estándar del ajuste ($s_m, s_b$):
 \begin{align}
-    m &= 1{,}0020 \pm 0{,}0042 \label{eq:pendiente_dc} \\
-    b &= -0{,}007 \pm 0{,}028\,\unit{\volt} \label{eq:intercepto_dc} \\
+    m &= 1{,}0036 \pm 0{,}0039 \quad (\text{error estándar del ajuste: } s_m = 0{,}0039) \label{eq:pendiente_dc} \\
+    b &= -0{,}021 \pm 0{,}026\,\unit{\volt} \quad (\text{error estándar del ajuste: } s_b = \qty{0,026}{\volt}) \label{eq:intercepto_dc} \\
     R^2 &= 0{,}99995 \label{eq:r2_dc}
 \end{align}
-La pendiente obtenida $m = 1{,}0020$ coincide con el valor teórico ideal $m_{\text{teo}} = 1{,}0000$ dentro de una discrepancia de apenas \qty{0,20}{\percent}, demostrando una calibración vertical lineal altamente exacta.
+La pendiente obtenida $m = 1{,}0036$ coincide con la unidad teórica ($m_{\text{teo}} = 1{,}0000$) dentro de una discrepancia de apenas \qty{0,36}{\percent}, respaldando un comportamiento lineal del sistema de deflexión vertical en el rango evaluado.
 
 \subsection{Tratamiento de la Tensión Alterna del Transformador}
 A partir de los datos de la Tabla~\ref{tab:resultados_transformador}:
@@ -72,7 +84,9 @@ El valor pico teórico derivado del multímetro patrón ($V_{\text{rms}} = \qty{
 \begin{equation}
     V_{\text{rms,calc}} = \frac{V_p}{\sqrt{2}} = \frac{9{,}60}{\sqrt{2}} = \qty{6,788 \pm 0,141}{\volt} \approx \qty{6,79 \pm 0,14}{\volt}
 \end{equation}
-$$e_r = \frac{|6{,}788 - 6{,}830|}{6{,}830} \times 100\% = \qty{0,59}{\percent}$$
+\[
+    e_r = \frac{|6{,}7882 - 6{,}830|}{6{,}830} \times 100\% = \qty{0,61}{\percent}
+\]
 
 \subsubsection{Período y Frecuencia de la Red}
 A una base de tiempo de \qty{2}{\milli\second\per\division}:
@@ -84,7 +98,9 @@ Propagando la incertidumbre de frecuencia mediante $\delta f = f^2 \delta T$:
 \begin{equation}
     \delta f = (60{,}24)^2 \times 0{,}00020 = \qty{0,73}{\hertz} \implies f = \qty{60,24 \pm 0,73}{\hertz}
 \end{equation}
-$$e_r = \frac{|60{,}24 - 60{,}00|}{60{,}00} \times 100\% = \qty{0,40}{\percent}$$
+\[
+    e_r = \frac{|60{,}241 - 60{,}00|}{60{,}00} \times 100\% = \qty{0,40}{\percent}
+\]
 
 \subsection{Tratamiento de Señales Periódicas del Generador OWON}
 Para una amplitud pico común de $V_p = \qty{4,80 \pm 0,20}{\volt}$ a $f = \qty{250}{\hertz}$:
@@ -100,8 +116,9 @@ Para una amplitud pico común de $V_p = \qty{4,80 \pm 0,20}{\volt}$ a $f = \qty{
     \end{equation}
     \item \textbf{Onda Cuadrada:}
     \begin{equation}
-        V_{\text{rms,teo}} = V_p = \qty{4,800 \pm 0,200}{\volt}, \quad V_{\text{mult}} = \qty{4,800 \pm 0,020}{\volt} \implies e_r = \qty{0,00}{\percent}
+        V_{\text{rms,teo}} = V_p = \qty{4,800 \pm 0,200}{\volt}, \quad V_{\text{mult}} = \qty{4,800 \pm 0,020}{\volt}
     \end{equation}
+    La diferencia entre el valor teórico y la lectura patrón es nula a la resolución del instrumento ($\Delta V = \qty{0,00}{\volt}$).
 \end{enumerate}
 
 Para el período temporal medido a $S_t = \qty{0,5}{\milli\second\per\division}$ ($N_x = 8{,}0 \pm 0{,}1\,\text{div}$):
@@ -109,4 +126,4 @@ Para el período temporal medido a $S_t = \qty{0,5}{\milli\second\per\division}$
     T &= 8{,}0\,\text{div} \times \qty{0,5}{\milli\second\per\division} = \qty{4,00 \pm 0,05}{\milli\second} = \qty{0,00400 \pm 0,00005}{\second} \\
     f &= \frac{1}{0{,}00400} = \qty{250,0}{\hertz}, \qquad \delta f = (250{,}0)^2 \times 0{,}00005 = \qty{3,1}{\hertz} \implies f = \qty{250,0 \pm 3,1}{\hertz}
 \end{align}
-$$e_r = \frac{|250{,}0 - 250{,}0|}{250{,}0} \times 100\% = \qty{0,00}{\percent}$$
+La frecuencia obtenida fue \qty{250,0 \pm 3,1}{\hertz}. La diferencia entre el valor central medido y el nominal es nula por redondeo a la cifra significativa reportada; en cualquier caso, el valor nominal de \qty{250}{\hertz} se encuentra plenamente contenido dentro del intervalo de incertidumbre experimental.

@@ -53,8 +53,8 @@ Para el desarrollo experimental de la práctica se utilizaron los siguientes equ
 \begin{itemize}
     \item \textbf{Multímetro Digital Portátil True-RMS:}
     \begin{itemize}
-        \item Escala de tensión continua ($\text{DCV}$): Resolución de \qty{0,001}{\volt}, incertidumbre de $\pm(\qty{0,5}{\percent} + 2\text{ dígitos}) = \qty{\pm 0,001}{\volt}$.
-        \item Escala de tensión alterna ($\text{ACV}$ True-RMS): Resolución de \qty{0,01}{\volt}, incertidumbre de $\pm(\qty{1,0}{\percent} + 3\text{ dígitos}) = \qty{\pm 0,01}{\volt}$.
+        \item Escala de tensión continua ($\text{DCV}$): Resolución de \qty{0,001}{\volt}, especificación de fabricante $\pm(\qty{0,5}{\percent} + 2\text{ dígitos})$, resultando en $\delta V_{\text{DC}} = \qty{\pm 0,001}{\volt}$ en el rango de medida evaluado.
+        \item Escala de tensión alterna ($\text{ACV}$ True-RMS): Resolución de \qty{0,01}{\volt}, especificación de fabricante $\pm(\qty{1,0}{\percent} + 3\text{ dígitos})$, resultando en $\delta V_{\text{AC}} = \qty{\pm 0,01}{\volt}$ para las lecturas de red.
         \item Ancho de banda de respuesta True-RMS en AC: \qty{40}{\hertz} a \qty{1}{\kilo\hertz}.
     \end{itemize}
 \end{itemize}
@@ -132,6 +132,8 @@ Para el desarrollo experimental de la práctica se utilizaron los siguientes equ
 
 \subsection{Tabla Resumen de Especificaciones de los Instrumentos}
 
+En la Tabla~\ref{tab:especificaciones_instrumentos} se sintetizan las especificaciones metrológicas fundamentales, rangos de operación e incertidumbres instrumentales declaradas para todos los equipos utilizados en la práctica.
+
 \begin{table}[H]
     \centering
     \caption{Especificaciones metrológicas de los equipos e instrumentos empleados.}
@@ -143,7 +145,7 @@ Para el desarrollo experimental de la práctica se utilizaron los siguientes equ
         \midrule
         Osciloscopio Digital & R\&S HMO1202 / RTC1002 & $\qty{0}{\mega\hertz}\text{ a }\qty{200}{\mega\hertz},\; \qty{1}{\milli\volt\per\division}\text{ a }\qty{10}{\volt\per\division}$ & $\delta N_{\text{div}} = \pm 0{,}1\,\text{div},\; \delta f/f = \pm\qty{0,05}{\percent}$ \\
         Generador de Señales & OWON AG 051F & $\qty{1}{\micro\hertz}\text{ a }\qty{5}{\mega\hertz},\; \qtyrange{0,02}{20}{\voltpp}$ & $\delta f/f = \pm\qty{1}{\ppm},\; \delta V_p = \pm\qty{0,05}{\volt}$ \\
-        Multímetro Digital   & Industrial True-RMS    & $\qtyrange{0}{600}{\volt}\; (\text{DC/AC})$ & $\delta V_{\text{DC}} = \pm\qty{0,001}{\volt},\; \delta V_{\text{AC}} = \pm\qty{0,01}{\volt}$ \\
+        Multímetro Digital   & Industrial True-RMS    & $\qtyrange{0}{600}{\volt}\; (\text{DC/AC})$ & $\pm(\qty{0,5}{\percent} + 2\,\text{dgt}) \to \pm\qty{0,001}{\volt},\; \pm(\qty{1,0}{\percent} + 3\,\text{dgt}) \to \pm\qty{0,01}{\volt}$ \\
         Transformador AC     & Reductor Monofásico    & $\qty{220}{\volt} \to \qty{6}{\volt},\; \qty{60}{\hertz}$ & $\delta f_{\text{red}} = \pm\qty{0,05}{\hertz}$ \\
         Fuente Regulada DC   & Multisalida de Banco   & $\qtyrange{2,5}{10,5}{\volt}$ & $\delta V_{\text{mult}} = \pm\qty{0,001}{\volt}$ \\
         Pila Alcalina        & Cilíndrica AA          & \qty{1,50}{\volt} nominal & $\delta V_{\text{mult}} = \pm\qty{0,001}{\volt}$ \\

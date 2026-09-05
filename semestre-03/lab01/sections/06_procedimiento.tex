@@ -25,9 +25,9 @@ El desarrollo experimental se estructuró en cinco fases cronológicas consecuti
 \begin{enumerate}
     \setcounter{enumi}{3}
     \item Se configuró el acoplamiento en $\text{DC}$ en el canal $\text{CH1}$.
-    \item Se conectó la pila de \qty{1,5}{\volt} al conector BNC de $\text{CH1}$ mediante un cable coaxial. Se varió la perilla de sensibilidad vertical pasando por las escalas de \qty{5}{\volt\per\division}, \qty{2}{\volt\per\division}, \qty{1}{\volt\per\division}, \qty{0,5}{\volt\per\division} y \qty{0,2}{\volt\per\division}, registrando el número de divisiones verticales de deflexión $N_{\text{div}}$ ("al ojo", con apreciación de $0{,}1\,\text{div}$) y determinando la escala óptima.
+    \item Se conectó la pila de \qty{1,5}{\volt} al conector BNC de $\text{CH1}$ mediante un cable coaxial. Para señales continuas unipolares de mayor deflexión, se utilizó el control de posición vertical ($\text{Position } Y$) para desplazar la línea de referencia cero ($\text{GND}$) hacia la retícula inferior ($y = -4\,\text{div}$), permitiendo aprovechar las 8 divisiones verticales útiles de la pantalla sin recorte. Se varió la sensibilidad vertical (\qty{5}{\volt\per\division}, \qty{2}{\volt\per\division}, \qty{1}{\volt\per\division}, \qty{0,5}{\volt\per\division} y \qty{0,2}{\volt\per\division}), registrando la deflexión $N_{\text{div}}$ ($\pm 0{,}1\,\text{div}$) y determinando la escala óptima.
     \item Se midió simultáneamente la diferencia de potencial de la pila con el multímetro digital patrón.
-    \item Se repitió el procedimiento con las distintas salidas fijas de la fuente de alimentación continua (\qty{2,5}{\volt}, \qty{4,5}{\volt}, \qty{7,5}{\volt} y \qty{10,5}{\volt}), registrando las deflexiones y anotando los casos de fuera de escala por saturación vertical.
+    \item Se repitió el procedimiento con las distintas salidas fijas de la fuente de alimentación continua (\qty{2,5}{\volt}, \qty{4,5}{\volt}, \qty{7,5}{\volt} y \qty{10,5}{\volt}), registrando las deflexiones y anotando los casos de fuera de escala por saturación vertical ($> 8\,\text{div}$).
 \end{enumerate}
 
 \subsection{Parte C: Medición de Tensión Alterna AC (Transformador 220 V / 6 V — 60 Hz)}
@@ -50,9 +50,12 @@ El desarrollo experimental se estructuró en cinco fases cronológicas consecuti
 
 \subsection{Parte E: Modo Graficador X-Y y Figuras de Lissajous}
 \begin{enumerate}
-    \setcounter{enumi}{16}
-    \item Se habilitó el modo $X$-$Y$ en el menú del osciloscopio, inyectando la señal de \qty{60}{\hertz} del transformador en $\text{CH1}$ (eje $X$) y la señal del generador en $\text{CH2}$ (eje $Y$).
-    \item Se ajustó la frecuencia del generador a \qty{60}{\hertz} (relación $1:1$), observando la elipse resultante. Se activó la función de inversión del canal 2 ($\text{CH2 INVERT}$) para registrar el cambio en la orientación espacial de la figura.
-    \item Se varió la frecuencia del generador a \qty{120}{\hertz} (relación $1:2$), \qty{180}{\hertz} (relación $1:3$) y \qty{240}{\hertz} (relación $1:4$), registrando la geometría y número de bucles cerrados.
-    \item Finalmente, se aplicaron señales continuas constantes (\qty{1,5}{\volt} en $\text{CH1}$ y \qty{3,0}{\volt} en $\text{CH2}$ en modo DC), observando la proyección de un punto estático y su traslación tras invertir el canal 2.
+    \setcounter{enumi}{15}
+    \item Se habilitó el modo $X$-$Y$ en el menú del osciloscopio, inyectando la señal de \qty{60}{\hertz} del transformador en $\text{CH1}$ (eje horizontal $X$) y la señal senoidal del generador fijada a \qty{60}{\hertz} en $\text{CH2}$ (eje vertical $Y$), registrando la elipse estacionaria resultante (relación armónica $1:1$).
+    \item Se activó la función de inversión del canal vertical ($\text{CH2 INVERT}$) para registrar la transformación afín por reflexión especular respecto al eje horizontal ($y \to -y$) y la consecuente inversión del signo de la pendiente de la figura.
+    \item Se varió secuencialmente la frecuencia del generador a múltiplos enteros: \qty{120}{\hertz} (relación $1:2$), \qty{180}{\hertz} (relación $1:3$) y \qty{240}{\hertz} (relación $1:4$), registrando la geometría, estabilidad y conteo de tangencias horizontales y verticales en las figuras de Lissajous.
+    \item Finalmente, se desconectaron las fuentes alternas y se aplicaron potenciales constantes DC (\qty{1,5}{\volt} en $\text{CH1}$ y \qty{3,0}{\volt} en $\text{CH2}$ en acoplamiento $\text{DC}$), registrando la posición del punto luminoso estático en el plano cartesiano y su traslación al aplicar $\text{CH2 INVERT}$.
 \end{enumerate}
+
+\subsection{Registro y Almacenamiento Digital de Parámetros}
+Conforme al protocolo de adquisición del osciloscopio digital, los datos cuantitativos de retícula, escalas por canal ($S_v, S_t$), posiciones de referencia ($\text{GND}$), valores de amplitud y medidas automáticas fueron tabulados en la hoja de toma de datos y guardados en dispositivo de memoria masiva USB (`USB Flash Drive') para su procesamiento numérico y graficado científico.
