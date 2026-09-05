@@ -1,0 +1,19 @@
+%% ============================================================
+%%  SECCIÓN 1 — Introducción
+%% ============================================================
+
+\section{Introducción}
+\label{sec:introduccion}
+
+El estudio cuantitativo de los fenómenos electromagnéticos en física experimental y aplicada requiere de instrumentos capaces de transformar perturbaciones de potencial en representaciones visuales dinámicas de alta fidelidad temporal. En este contexto, el osciloscopio se erige como el instrumento fundamental de medición bidimensional, permitiendo registrar la evolución temporal de diferencias de potencial eléctrico $\Delta V(t)$, amplitudes pico $V_p$, valores eficaces $V_{\text{rms}}$, frecuencias $f$, períodos $T$ y relaciones de fase $\Delta\phi$ entre múltiples señales periódicas~\cite{serway, halliday}.
+
+A nivel microscópico, cualquier señal eléctrica detectable en un circuito conductor surge del movimiento colectivo y aceleración de portadores de carga (electrones libres en metales o iones en electrolitos), los cuales originan campos eléctricos $\vec{E}$ y diferencias de potencial cuantificables en voltios (\unit{\volt}). Mientras que en los osciloscopios analógicos clásicos este potencial deflactaba directamente un haz de electrones mediante placas electrostáticas verticales sobre una pantalla fosforescente, la instrumentación digital moderna opera mediante conversión analógico-digital (ADC) a frecuencias de muestreo de hasta \qty{2}{\giga\sample\per\second}, digitalizando la forma de onda en memoria de alta velocidad~\cite{rs_rtc1000_specs}.
+
+En la presente práctica de laboratorio, se explora y valida el funcionamiento del osciloscopio digital en sus tres modalidades fundamentales:
+\begin{enumerate}
+    \item \textbf{Medición de Potenciales Continuos (DC):} Evaluación de fuentes de tensión constante frente a instrumentos de contraste patrón (multímetro digital True-RMS), analizando la influencia de la sensibilidad vertical (\unit{\volt\per\division}) en la incertidumbre de lectura.
+    \item \textbf{Caracterización de Señales Alternas (AC):} Medición de tensiones sinusoidales provenientes de transformadores reductores (\qty{220}{\volt} a \qty{6}{\volt} a \qty{60}{\hertz}) y señales periódicas sintéticas (senoidal, triangular y cuadrada a \qty{250}{\hertz}) generadas por síntesis digital directa (DDS)~\cite{owon_ags_spec}.
+    \item \textbf{Modo Graficador $X$-$Y$ y Figuras de Lissajous:} Representación de la trayectoria paramétrica generada por dos tensiones ortogonales simultáneas, deduciendo relaciones de frecuencia enteras y efectos de inversión de fase polar.
+\end{enumerate}
+
+El tratamiento experimental se complementa con un análisis riguroso de propagación de incertidumbres sistemáticas y aleatorias conforme al estándar internacional GUM~\cite{gum, taylor}, asegurando errores relativos controlados por debajo del \qty{5}{\percent}.

@@ -1,26 +1,38 @@
 %% ============================================================
 %%  SECCIÓN 7 — Resultados Experimentales
-%%  Responsable: [Nombre]
 %% ============================================================
 
 \section{Resultados Experimentales}
+\label{sec:resultados}
 
-% Presentar los datos crudos obtenidos en el laboratorio.
-% Todas las tablas deben tener caption, label, y ser referenciadas en el texto.
-% Incluir incertidumbres en todas las mediciones.
+En esta sección se presentan los datos crudos recolectados durante la sesión de laboratorio, así como los parámetros constantes del montaje experimental.
 
 \begin{table}[H]
     \centering
-    \caption{Nombre de la tabla.}
-    \label{tab:datos1}
-    \begin{tabular}{ccccc}
+    \caption{Parámetros instrumentales constantes del montaje.}
+    \label{tab:parametros_constantes}
+    \begin{tabular}{lcc}
         \toprule
-        Tramo & $t_1\ (\text{s})$ & $t_2\ (\text{s})$ & $t_3\ (\text{s})$ & Promedio (s) \\
+        \textbf{Magnitud} & \textbf{Símbolo} & \textbf{Valor} \\
         \midrule
-        $A_0 A_1$ & $7{,}95 \pm 0{,}15$ & $7{,}59 \pm 0{,}15$ & $7{,}16 \pm 0{,}15$ & $7{,}48 \pm 0{,}15$ \\
-        $A_1 A_2$ & $3{,}13 \pm 0{,}15$ & $3{,}16 \pm 0{,}15$ & $3{,}11 \pm 0{,}15$ & $3{,}14 \pm 0{,}15$ \\
+        Parámetro 1 & $P_1$ & \qty{10,00 \pm 0,05}{\milli\meter} \\
+        Parámetro 2 & $P_2$ & \qty{25,0 \pm 0,5}{\celsius} \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-En la Tabla~\ref{tab:datos1} se presentan los tiempos registrados por tramo.
+La Tabla~\ref{tab:datos_experimentales} resume las mediciones directas de las variables principales obtenidas para cada una de las condiciones de ensayo.
+
+\begin{table}[H]
+    \centering
+    \caption{Mediciones directas de las variables del experimento.}
+    \label{tab:datos_experimentales}
+    \begin{tabular}{cccc}
+        \toprule
+        \textbf{Muestra / Ensayo} & $X_1$ (\unit{\milli\meter}) & $X_2$ (\unit{\second}) & $X_3$ (\unit{\degree}) \\
+        \midrule
+        Ensayo 1 & \num{100,00 \pm 0,05} & \num{12,34 \pm 0,01} & \num{45,0 \pm 0,5} \\
+        Ensayo 2 & \num{150,00 \pm 0,05} & \num{18,52 \pm 0,01} & \num{60,0 \pm 0,5} \\
+        \bottomrule
+    \end{tabular}
+\end{table}

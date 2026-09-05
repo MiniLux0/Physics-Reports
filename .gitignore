@@ -29,10 +29,19 @@ out/
 *.bcf
 *.run.xml
 
-# --- PDFs (Salida final) ---
-# Se ignoran por defecto todos los PDFs generados para no sobrecargar el repositorio.
-# Nota: Si deseas forzar la subida de un PDF final de entrega, puedes usar: git add -f <archivo.pdf>
+# --- Entorno Local & Agentes de IA (Privado / No publicar) ---
+.agents/
+GEMINI.md
+AGENTS.md
+.agent/
+DATOS_A_CORREGIR.md
+
+# --- PDFs (Salida final compilada y guías oficiales) ---
+# Se ignoran por defecto todos los PDFs temporales e intermedios.
+# Se conservan únicamente los informes finales terminados (main.pdf) y las guías de laboratorio.
 *.pdf
+!semestre-*/lab*/main.pdf
+!semestre-*/guias/**
 
 # --- Python & Entornos Virtuales ---
 # Entornos virtuales locales de Python

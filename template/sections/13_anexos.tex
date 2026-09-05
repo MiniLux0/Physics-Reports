@@ -1,39 +1,44 @@
 %% ============================================================
-%%  ANEXOS
-%%  Responsable: todos
+%%  SECCIÓN 13 — Anexos
 %% ============================================================
 
 \begin{appendices}
 
-\section{Propagación de incertidumbre — ejemplo}
+\section{Deducción del modelo físico o relación cinemática}
+\label{sec:anexo_modelo}
 
-% Reemplazar con el cálculo real del lab.
-% Fórmula base, derivadas parciales, sustitución numérica, resultado final.
+Desarrollo analítico y matemático del modelo físico del experimento.
 
-Para $a_G = 2d/t^2$, aplicando suma en cuadratura:
+\section{Propagación de incertidumbre}
+\label{sec:anexo_propagacion}
 
+A partir de la ecuación de trabajo:
 \begin{equation}
-    \delta a_G = \sqrt{
-        \left(\frac{2}{t^2}\,\delta d\right)^2 +
-        \left(\frac{4d}{t^3}\,\delta t\right)^2
-    }
+    y = f(x_1, x_2, \dots, x_n)
 \end{equation}
 
-Resultado:
+Calculando las derivadas parciales analíticas:
+\begin{equation}
+    \frac{\partial y}{\partial x_i} = \dots
+\end{equation}
 
-\[
-    \boxed{a_G = (3{,}50 \pm 0{,}07) \times 10^{-3}\ \si{m/s^2}}
-\]
+Sustituyendo en la expresión de suma en cuadratura:
+\begin{equation}
+    \delta y = \sqrt{\sum_{i=1}^n \left( \frac{\partial f}{\partial x_i}\,\delta x_i \right)^2}
+\end{equation}
 
-%% --- Agregar más anexos según necesidad ---
-% \section{Anexo B — nombre}
+Resultados finales enmarcados:
+\begin{equation}
+    \boxed{y_1 = (12{,}34 \pm 0{,}56) \times 10^{-3}\ \text{unidad}}
+\end{equation}
 
 \section{Hoja de recolección de datos}
+\label{sec:anexo_hoja}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.80\linewidth]{fig_hoja_datos}
-    \caption{Hoja de recolección de datos original.}
+    \includegraphics[width=0.80\linewidth]{uni_logo}
+    \caption{Hoja de recolección de datos original firmada por el docente.}
     \label{fig:hoja_datos}
 \end{figure}
 

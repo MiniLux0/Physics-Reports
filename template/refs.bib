@@ -1,48 +1,70 @@
-% refs.bib — Bibliografía del informe
-% Formato: IEEE numeric (estilo UNI Ciencias)
-%
-% TIPOS COMUNES:
-%
-% Libro:
-% book{clave,
-%   author    = {Apellido, Nombre},
-%   title     = {Título del libro},
-%   edition   = {3},
-%   publisher = {Editorial},
-%   year      = {2020},
-% }
-%
-% Artículo:
-% article{clave,
-%   author  = {Apellido, Nombre and Apellido2, Nombre2},
-%   title   = {Título del artículo},
-%   journal = {Journal Name},
-%   volume  = {12},
-%   number  = {3},
-%   pages   = {100--115},
-%   year    = {2021},
-% }
-%
-% Sitio web:
-% online{clave,
-%   author  = {Apellido, Nombre},
-%   title   = {Título de la página},
-%   url     = {https://...},
-%   urldate = {2026-04-01},
-% }
+% ============================================================
+%  refs.bib — Bibliografía del informe (Plantilla base)
+%  Formato: BibLaTeX / Biber (estilo numérico)
+% ============================================================
 
 @book{serway,
     author    = {Serway, Raymond A. and Jewett, John W.},
-    title     = {Physics for Scientists and Engineers},
+    title     = {F\'isica para ciencias e ingenier\'ia},
     edition   = {10},
+    volume    = {2},
     publisher = {Cengage Learning},
     year      = {2018},
+    address   = {Ciudad de M\'exico}
 }
 
 @book{halliday,
-    author    = {Halliday, David and Resnick, Robert and Krane, Kenneth S.},
-    title     = {Physics},
-    edition   = {5},
+    author    = {Halliday, David and Resnick, Robert and Walker, Jearl},
+    title     = {Fundamentals of Physics},
+    edition   = {10},
     publisher = {Wiley},
-    year      = {2002},
+    year      = {2014},
+    address   = {Hoboken, NJ}
+}
+
+@book{taylor,
+    author    = {Taylor, John R.},
+    title     = {An Introduction to Error Analysis: The Study of Uncertainties in Physical Measurements},
+    edition   = {2},
+    publisher = {University Science Books},
+    year      = {1997},
+    address   = {Sausalito, California}
+}
+
+@article{numpy,
+    author  = {Harris, Charles R. and Millman, K. Jarrod and van der Walt, St{\'e}fan J. and others},
+    title   = {Array programming with {NumPy}},
+    journal = {Nature},
+    volume  = {585},
+    pages   = {357--362},
+    year    = {2020},
+    doi     = {10.1038/s41586-020-2649-2}
+}
+
+@article{matplotlib,
+    author  = {Hunter, John D.},
+    title   = {Matplotlib: A {2D} Graphics Environment},
+    journal = {Computing in Science \& Engineering},
+    volume  = {9},
+    number  = {3},
+    pages   = {90--95},
+    year    = {2007},
+    doi     = {10.1109/MCSE.2007.55}
+}
+
+@article{scipy,
+    author  = {Virtanen, Pauli and Gommers, Ralf and Oliphant, Travis E. and others},
+    title   = {{SciPy 1.0}: Fundamental Algorithms for Scientific Computing in {Python}},
+    journal = {Nature Methods},
+    volume  = {17},
+    pages   = {261--272},
+    year    = {2020},
+    doi     = {10.1038/s41592-019-0686-2}
+}
+
+@misc{script_graficas,
+    author = {Vera Vivanco, Jes{\'u}s Rodolfo},
+    title  = {Script de procesamiento num{\'e}rico y generaci{\'o}n de gr{\'a}ficas cient{\'i}ficas ({Python})},
+    year   = {2026},
+    note   = {Repositorio: Physics-Reports}
 }

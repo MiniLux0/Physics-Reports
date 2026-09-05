@@ -1,29 +1,40 @@
 %% ============================================================
-%%  SECCIÓN IX — Tratamiento de Datos y Resultados
-%%  Responsable: [Nombre]
+%%  SECCIÓN 9 — Tratamiento de Datos
 %% ============================================================
 
 \section{Tratamiento de Datos y Resultados}
+\label{sec:tratamiento}
 
-% Presentar todos los cálculos con fórmulas numeradas.
-% Sustituir valores con unidades en cada paso.
-% Presentar resultados con incertidumbre: (valor ± error) unidad.
-
-\subsection{Magnitud 1 — nombre}
-
-A partir de la relación:
+En esta sección se presentan los cálculos numéricos efectuados para determinar las magnitudes físicas derivadas a partir de la ecuación de trabajo (Ec.~\eqref{eq:modelo_general}):
 
 \begin{equation}
-    a_G = \frac{2d}{t^2}
-    \label{eq:aceleracion}
+    y = f(x_1, x_2, \dots, x_n)
+    \label{eq:trabajo_calculo}
 \end{equation}
 
-Sustituyendo $d = \qty{0,40}{m}$ y $t = \qty{15,12}{s}$:
+La propagación de la incertidumbre para variables independientes se realiza mediante el método de suma en cuadratura:
+\begin{equation}
+    \delta y = \sqrt{\sum_{i=1}^n \left( \frac{\partial f}{\partial x_i}\,\delta x_i \right)^2}
+    \label{eq:propagacion_cuadratura}
+\end{equation}
 
-\begin{equation*}
-    a_G = \frac{2 \times 0{,}40}{(15{,}12)^2} = \qty{3,51e-3}{m/s^2}
-\end{equation*}
+El error relativo porcentual respecto a los valores teóricos bibliográficos se evalúa mediante:
+\begin{equation}
+    E_r = \frac{|y - y_{\text{ref}}|}{y_{\text{ref}}} \times \qty{100}{\percent}
+    \label{eq:error_relativo}
+\end{equation}
 
-\subsection{Magnitud 2 — nombre}
+\subsection{Cálculo para la Condición 1}
 
-Texto del cálculo.
+Sustitución numérica paso a paso:
+\begin{align*}
+    x_1 &= \qty{10,00 \pm 0,05}{\milli\meter} \\
+    x_2 &= \qty{25,0 \pm 0,5}{\celsius}
+\end{align*}
+
+Resultado final:
+\begin{equation}
+    y_1 = (12{,}34 \pm 0{,}56) \times 10^{-3}\ \text{unidad}
+    \label{eq:res_1}
+\end{equation}
+con un error relativo de $E_r = \qty{2,5}{\percent}$.

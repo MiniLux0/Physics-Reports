@@ -1,0 +1,42 @@
+%% ============================================================
+%%  SECCIÓN 11 — Análisis de Gráficas
+%% ============================================================
+
+\section{Análisis de Gráficas}
+\label{sec:analisis_graficas}
+
+El análisis cuantitativo y físico de las representaciones gráficas de la Sección~\ref{sec:graficas} proporciona conclusiones fundamentales sobre el comportamiento del sistema de medición:
+
+\subsection{Análisis de la Curva de Calibración DC (Figura~\ref{fig:calibracion_dc})}
+La regresión lineal entre la tensión medida por el osciloscopio en escala óptima ($V_{\text{osc}}$) y la tensión de referencia del multímetro patrón ($V_{\text{mult}}$) demuestra una correlación lineal extraordinaria:
+\begin{enumerate}
+    \item \textbf{Pendiente del Ajuste ($m = 1{,}0020 \pm 0{,}0042$):}
+    La pendiente experimental concuerda con el valor teórico ideal unitario ($m_{\text{teo}} = 1{,}0000$) dentro de su intervalo de incertidumbre a un nivel de confianza del \qty{95}{\percent} ($k=2$). El error relativo en la ganancia es de apenas un \qty{0,20}{\percent}, ubicándose holgadamente por debajo de la tolerancia máxima de calibración vertical del fabricante ($\pm\qty{3}{\percent}$ de fondo de escala especificado en~\cite{rs_rtc1000_specs}).
+    
+    \item \textbf{Ordenada en el Origen ($b = -0{,}007 \pm 0{,}028\,\unit{\volt}$):}
+    El intercepto con el eje vertical es estadísticamente indistinguible de cero ($p > 0{,}80$), confirmando que el procedimiento de ajuste del nivel de tierra ($\text{GND}$) eliminó de manera efectiva cualquier tensión residual de \textit{offset} o desbalance en los amplificadores de entrada.
+
+    \item \textbf{Coeficiente de Determinación ($R^2 = 0{,}99995$):}
+    El valor de $R^2$ prácticamente unitario ratifica que más del \qty{99,99}{\percent} de la varianza observada es atribuible a la relación lineal estricta entre ambos instrumentos.
+
+    \item \textbf{Distribución de Residuos:}
+    En el panel inferior de la Figura~\ref{fig:calibracion_dc}, los residuos se distribuyen aleatoriamente alrededor del valor cero dentro de una banda estrecha inferior a $\pm\qty{0,05}{\volt}$, sin evidenciar patrones no lineales, histéresis ni deriva térmica sistemática en el rango evaluado (\qtyrange{1,4}{11,2}{\volt}).
+\end{enumerate}
+
+\subsection{Análisis de las Formas de Onda AC (Figura~\ref{fig:ondas_ac})}
+\begin{enumerate}
+    \item En la onda senoidal del transformador (Figura~\ref{fig:ondas_ac}a), la simetría entre el semiciclo positivo ($+V_p = \qty{9,60}{\volt}$) y el negativo ($-V_p = \qty{-9,60}{\volt}$) arroja un factor de forma $k_f = V_{\text{rms}} / V_{\text{prom}} \approx 1{,}11$, característico de una oscilación armónica pura de la red eléctrica comercial.
+    \item En las señales generadas por síntesis digital (Figuras~\ref{fig:ondas_ac}b y~\ref{fig:ondas_ac}c), los valores eficaces calculados ($V_{\text{rms}} = \qty{3,39}{\volt}$ para seno, \qty{2,77}{\volt} para triángulo y \qty{4,80}{\volt} para cuadrada) reproducen con exactitud matemática las relaciones teóricas $1/\sqrt{2}$, $1/\sqrt{3}$ y $1$, con discrepancias inferiores al \qty{0,8}{\percent} respecto a la medición de True-RMS.
+\end{enumerate}
+
+\subsection{Análisis del Modo Graficador X-Y y Figuras de Lissajous (Figura~\ref{fig:lissajous_xy})}
+\begin{enumerate}
+    \item La correspondencia entre el número de lóbulos verticales y la relación de frecuencias satisface rigurosamente la ecuación~\eqref{eq:lissajous_ratio}:
+    \begin{align}
+        \frac{f_y}{f_x} &= \frac{\qty{120}{\hertz}}{\qty{60}{\hertz}} = 2 \implies 2\text{ tangencias horizontales},\; 1\text{ vertical} \\
+        \frac{f_y}{f_x} &= \frac{\qty{180}{\hertz}}{\qty{60}{\hertz}} = 3 \implies 3\text{ tangencias horizontales},\; 1\text{ vertical} \\
+        \frac{f_y}{f_x} &= \frac{\qty{240}{\hertz}}{\qty{60}{\hertz}} = 4 \implies 4\text{ tangencias horizontales},\; 1\text{ vertical}
+    \end{align}
+    \item La inversión del canal vertical ($\text{CH2 INVERT}$) produce una transformación afín $(x, y) \to (x, -y)$, rotando la orientación de la elipse sin alterar su excentricidad ni el área encerrada.
+    \item En señales DC, la proyección de un punto estático demuestra que el osciloscopio en modo $X$-$Y$ funciona como un trazador de coordenadas cartesianas analógicas directas.
+\end{enumerate}

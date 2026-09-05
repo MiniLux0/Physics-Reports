@@ -38,6 +38,13 @@
     separate-uncertainty  = true,
     per-mode              = symbol,
 }
+\DeclareSIUnit{\sample}{Sa}
+\DeclareSIUnit{\division}{div}
+\DeclareSIUnit{\ppm}{ppm}
+\DeclareSIUnit{\inch}{in}
+\DeclareSIUnit{\voltpp}{V_{pp}}
+\DeclareSIUnit{\voltrms}{V_{rms}}
+\DeclareSIUnit{\millivoltpp}{mV_{pp}}
 
 %% ------------------------------------------------------------
 %%  FIGURAS Y TABLAS
@@ -139,17 +146,15 @@
 %%  DATOS DEL INFORME  <-- EDITAR SOLO ESTE BLOQUE POR LAB
 %% ============================================================
 
-\newcommand{\labcurso}{Fisica II (CF1B2) --- Seccion A}
-\newcommand{\labnumero}{2}
-\newcommand{\labtitulo}{Titulo del laboratorio}
+\newcommand{\labcurso}{Física II (CF1B2) --- Sección A}
+\newcommand{\labnumero}{1}
+\newcommand{\labtitulo}{Título del Laboratorio}
 \newcommand{\labfecha}{Lima, DD de mes de 2026}
 \newcommand{\labdocente}{Apellido, Nombre}
 
 \newcommand{\labintegrantes}{%
     \begin{enumerate}
-        \item Vera Vivanco, Jesus Rodolfo \quad (20252703K)
-        \item Bustos Ttito, Jose Fabricio \quad (20200490F)
-        \item Cauti Huachaca, Yordan Orlando \quad (20222236E)
+        \item Vera Vivanco, Jesús Rodolfo \quad (20252703K)
     \end{enumerate}
 }
 
@@ -188,10 +193,6 @@
 
 %% ============================================================
 %%  SECCIONES
-%%  Persona 1: 01, 02, 03, 04
-%%  Persona 2: 05, 06, 07
-%%  Persona 3: 08, 09, 10, 11, 12
-%%  Todos:     13 (anexos)
 %% ============================================================
 
 \input{sections/01_introduccion}
@@ -216,6 +217,7 @@
 %% ------------------------------------------------------------
 %%  ANEXOS
 %% ------------------------------------------------------------
+\clearpage
 \input{sections/13_anexos}
 
 \end{document}

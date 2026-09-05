@@ -1,0 +1,76 @@
+%% ============================================================
+%%  SECCIÓN 7 — Resultados Experimentales
+%% ============================================================
+
+\section{Resultados Experimentales}
+\label{sec:resultados}
+
+A continuación se presentan las tablas de datos experimentales recopilados directamente en el laboratorio, con indicación explícita de las escalas instrumentales y las incertidumbres asociadas a la estimación visual en la retícula del osciloscopio ($\delta N_{\text{div}} = \pm 0{,}1\,\text{div}$) y a los instrumentos patrones.
+
+\subsection{Medidas de Voltajes Constantes DC}
+En la Tabla~\ref{tab:resultados_dc} se consignan las lecturas de deflexión vertical ($N_{\text{div}}$) obtenidas para la pila y las cuatro salidas de la fuente continua al variar la escala vertical ($S_v$), contrastadas con la lectura patrón del multímetro digital ($\delta V_{\text{mult}} = \qty{\pm 0,001}{\volt}$).
+
+\begin{table}[H]
+    \centering
+    \caption{Mediciones de deflexión vertical ($N_{\text{div}}$) y voltajes calculados en diferentes escalas para fuentes de corriente continua (DC).}
+    \label{tab:resultados_dc}
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{@{}lccccccc@{}}
+        \toprule
+        \textbf{Fuente} & \textbf{$V_{\text{nom}}$ (\unit{\volt})} & \textbf{$V_{\text{mult}}$ (\unit{\volt})} & \multicolumn{5}{c}{\textbf{Deflexión Vertical $N_{\text{div}} \pm 0{,}1\,\text{div}$ $\to$ $V_{\text{osc}} \pm \delta V$ (\unit{\volt})}} \\
+        \cmidrule(lr){4-8}
+        & & \small{($\pm\qty{0,001}{\volt}$)} & \qty{5}{\volt\per\division} & \qty{2}{\volt\per\division} & \qty{1}{\volt\per\division} & \qty{0,5}{\volt\per\division} & \qty{0,2}{\volt\per\division} \\
+        \midrule
+        Pila AA  & $1{,}5$  & $1{,}442$ & $0{,}3 \to 1{,}5 \pm 0{,}5$ & $0{,}7 \to 1{,}4 \pm 0{,}2$ & $1{,}4 \to 1{,}4 \pm 0{,}1$ & $2{,}9 \to 1{,}45 \pm 0{,}05$ & $\mathbf{7{,}2 \to 1{,}44 \pm 0{,}02}$ \\
+        Fuente 1 & $2{,}5$  & $2{,}453$ & $0{,}5 \to 2{,}5 \pm 0{,}5$ & $1{,}2 \to 2{,}4 \pm 0{,}2$ & $2{,}5 \to 2{,}5 \pm 0{,}1$ & $\mathbf{4{,}9 \to 2{,}45 \pm 0{,}05}$ & \textit{Fuera Escala} \\
+        Fuente 2 & $4{,}5$  & $5{,}220$ & $1{,}0 \to 5{,}0 \pm 0{,}5$ & $\mathbf{2{,}6 \to 5{,}2 \pm 0{,}2}$ & \textit{Fuera Escala} & \textit{Fuera Escala} & \textit{Fuera Escala} \\
+        Fuente 3 & $7{,}5$  & $8{,}030$ & $1{,}6 \to 8{,}0 \pm 0{,}5$ & $\mathbf{4{,}0 \to 8{,}0 \pm 0{,}2}$ & \textit{Fuera Escala} & \textit{Fuera Escala} & \textit{Fuera Escala} \\
+        Fuente 4 & $10{,}5$ & $11{,}150$& $2{,}2 \to 11{,}0 \pm 0{,}5$& $\mathbf{5{,}6 \to 11{,}2 \pm 0{,}2}$& \textit{Fuera Escala} & \textit{Fuera Escala} & \textit{Fuera Escala} \\
+        \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+
+\subsection{Medidas de Voltaje Alterno AC (Transformador 220 V / 6 V — 60 Hz)}
+En la Tabla~\ref{tab:resultados_transformador} se presentan los valores de amplitud vertical, período y frecuencia registrados para la tensión alterna del secundario del transformador, junto con las lecturas digitales automáticas.
+
+\begin{table}[H]
+    \centering
+    \caption{Parámetros experimentales de la señal senoidal del transformador reductor de \qty{6}{\volt} a \qty{60}{\hertz}.}
+    \label{tab:resultados_transformador}
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{@{}llcc@{}}
+        \toprule
+        \textbf{Parámetro Físico} & \textbf{Condición / Escala} & \textbf{Lectura en Retícula} & \textbf{Magnitud Experimental ($\pm \delta$)} \\
+        \midrule
+        Voltaje Eficaz Multímetro ($V_{\text{rms}}$) & True-RMS directo            & Pantalla digital             & $\qty{6,830 \pm 0,010}{\volt}$ \\
+        Voltaje Pico a Pico ($V_{pp}$)               & Escala \qty{5}{\volt\per\division} & $N_{y,pp} = 3{,}9 \pm 0{,}1\,\text{div}$ & $\qty{19,50 \pm 0,50}{\volt}$ \\
+        Amplitud Pico ($V_p$)                        & Escala \qty{2}{\volt\per\division} & $N_{y,p} = 4{,}8 \pm 0{,}1\,\text{div}$  & $\qty{9,60 \pm 0,20}{\volt}$ \\
+        Período ($T$) a \qty{5}{\milli\second\per\division} & Base \qty{5}{\milli\second\per\division} & $N_x = 3{,}3 \pm 0{,}1\,\text{div}$ & $\qty{16,50 \pm 0,50}{\milli\second}$ \\
+        Período ($T$) a \qty{2}{\milli\second\per\division} & Base \qty{2}{\milli\second\per\division} & $N_x = 8{,}3 \pm 0{,}1\,\text{div}$ & $\qty{16,60 \pm 0,20}{\milli\second}$ \\
+        Frecuencia por Retícula ($f$)                & De $T$ a \qty{2}{\milli\second\per\division} & $f = 1/T$                    & $\qty{60,24 \pm 0,73}{\hertz}$ \\
+        Frecuencímetro por Hardware                  & Función \textit{Quick View} & Conteo digital               & $\qty{60,30 \pm 0,10}{\hertz}$ \\
+        \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+
+\subsection{Medidas de Voltajes Variables AC (Generador OWON AG 051F)}
+En la Tabla~\ref{tab:resultados_generador} se detallan las amplitudes, períodos y frecuencias medidas para las tres formas de onda generadas a la frecuencia patrón de \qty{250}{\hertz} y amplitud nominal $V_p = \qty{4,80}{\volt}$.
+
+\begin{table}[H]
+    \centering
+    \caption{Mediciones experimentales para ondas senoidal, triangular y cuadrada generadas a \qty{250}{\hertz}.}
+    \label{tab:resultados_generador}
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{@{}lcccccc@{}}
+        \toprule
+        \textbf{Función de Onda} & \textbf{$V_{\text{mult}}$ (\unit{\volt})} & \textbf{Escala $S_v$} & \textbf{Amplitud $V_p$ (\unit{\volt})} & \textbf{Base $S_t$} & \textbf{Período $N_x$} & \textbf{Período $T$ (\unit{\milli\second})} \\
+        \midrule
+        Senoidal   & $3{,}420 \pm 0{,}010$ & \qty{2}{\volt\per\division} & $4{,}80 \pm 0{,}20$ & \qty{0,5}{\milli\second\per\division} & $8{,}0 \pm 0{,}1\,\text{div}$ & $4{,}00 \pm 0{,}05$ \\
+        Triangular & $2{,}790 \pm 0{,}010$ & \qty{2}{\volt\per\division} & $4{,}80 \pm 0{,}20$ & \qty{1,0}{\milli\second\per\division} & $4{,}0 \pm 0{,}1\,\text{div}$ & $4{,}00 \pm 0{,}10$ \\
+        Cuadrada   & $4{,}800 \pm 0{,}020$ & \qty{2}{\volt\per\division} & $4{,}80 \pm 0{,}20$ & \qty{0,5}{\milli\second\per\division} & $8{,}0 \pm 0{,}1\,\text{div}$ & $4{,}00 \pm 0{,}05$ \\
+        \bottomrule
+    \end{tabular}%
+    }
+\end{table}
