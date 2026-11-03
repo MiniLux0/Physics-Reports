@@ -1,0 +1,351 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb}
+\usepackage[margin=1.0cm, top=0.8cm, bottom=0.8cm]{geometry}
+\usepackage{graphicx}
+\graphicspath{{Figures/}}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, positioning, decorations.pathreplacing, shapes}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{siunitx}
+
+\sisetup{
+    output-decimal-marker = {,},
+    separate-uncertainty  = true,
+    per-mode              = symbol,
+}
+\DeclareSIUnit{\division}{div}
+
+\pagestyle{empty}
+
+\definecolor{grid-gray}{RGB}{210, 215, 220}
+\definecolor{signal-blue}{RGB}{0, 102, 204}
+\definecolor{lissajous-red}{RGB}{204, 0, 51}
+\definecolor{uni-blue}{RGB}{0, 56, 101}
+\definecolor{uni-red}{RGB}{166, 25, 46}
+\definecolor{box-green}{RGB}{24, 134, 75}
+\definecolor{box-purple}{RGB}{112, 48, 160}
+
+%% Macro limpia para figura centrada en 1 columna
+\newcommand{\stickersingle}[2]{%
+    \begin{center}
+        {\footnotesize\bfseries\color{uni-blue} #1}\\[1.2mm]
+        \begin{tikzpicture}
+            \node[draw=gray!60, dashed, line width=0.5pt, inner sep=1.2mm, fill=white] {
+                #2
+            };
+        \end{tikzpicture}
+    \end{center}%
+}
+
+\begin{document}
+
+%% ============================================================
+%% PÁGINA 1: JESÚS VERA (PORTADA Y FUNDAMENTO TEÓRICO)
+%% ============================================================
+\noindent
+\begin{minipage}{\linewidth}
+    \centering
+    {\large\bfseries\color{uni-blue} GUÍA DE FIGURAS Y GRÁFICAS PARA IMPRESIÓN}\\[0.5mm]
+    {\footnotesize\textbf{Página 1 de 7: Portada y Sección 4 --- Fundamento Teórico (Jesús Vera)}}\\[0.8mm]
+    \hrule height 0.8pt
+\end{minipage}
+
+\vspace{3mm}
+
+\stickersingle{Escudo Oficial UNI (Portada)}{%
+    \includegraphics[width=3.5cm, height=4.4cm, keepaspectratio=true]{uni_logo.jpg}%
+}
+
+\vspace{3mm}
+
+\stickersingle{Figura 1: Esquema del Tubo de Rayos Catódicos (TRC)}{%
+    \includegraphics[width=13.0cm, height=6.23cm, keepaspectratio=true]{fig_trc_esquema.png}%
+}
+
+\vspace{3mm}
+
+\stickersingle{Figura 2: Anatomía de la Señal Senoidal y Parámetros de Onda}{%
+    \includegraphics[width=13.0cm, height=7.89cm, keepaspectratio=true]{fig_parametros_onda.png}%
+}
+
+\newpage
+
+%% ============================================================
+%% PÁGINA 2: JESÚS VERA (SECCIÓN 5: MATERIALES Y EQUIPOS)
+%% ============================================================
+\noindent
+\begin{minipage}{\linewidth}
+    \centering
+    {\large\bfseries\color{uni-blue} GUÍA DE FIGURAS Y GRÁFICAS PARA IMPRESIÓN}\\[0.5mm]
+    {\footnotesize\textbf{Página 2 de 7: Sección 5 --- Materiales y Equipos (8 Figuras) (Jesús Vera)}}\\[0.8mm]
+    \hrule height 0.8pt
+\end{minipage}
+
+\vspace{3mm}
+
+%% Fila 1: Osciloscopio y Panel Frontal
+\noindent
+\begin{minipage}[t]{0.48\linewidth}
+    \centering
+    {\footnotesize\bfseries\color{uni-blue} Figura 3: Osciloscopio Digital}\\[1.2mm]
+    \begin{tikzpicture}
+        \node[draw=gray!60, dashed, line width=0.5pt, inner sep=1.2mm, fill=white] {
+            \includegraphics[width=6.5cm, height=4.34cm, keepaspectratio=true]{fig_osciloscopio.png}
+        };
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+    \centering
+    {\footnotesize\bfseries\color{uni-blue} Figura 4: Panel Frontal DSO}\\[1.2mm]
+    \begin{tikzpicture}
+        \node[draw=gray!60, dashed, line width=0.5pt, inner sep=1.2mm, fill=white] {
+            \includegraphics[width=6.5cm, height=5.25cm, keepaspectratio=true]{fig_osciloscopio_guia.png}
+        };
+    \end{tikzpicture}
+\end{minipage}
+
+\vspace{3.5mm}
+
+%% Fila 2: Generador y Multímetro
+\noindent
+\begin{minipage}[t]{0.48\linewidth}
+    \centering
+    {\footnotesize\bfseries\color{uni-blue} Figura 5: Generador OWON AG 051F}\\[1.2mm]
+    \begin{tikzpicture}
+        \node[draw=gray!60, dashed, line width=0.5pt, inner sep=1.2mm, fill=white] {
+            \includegraphics[width=6.5cm, height=4.74cm, keepaspectratio=true]{fig_generador.png}
+        };
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+    \centering
+    {\footnotesize\bfseries\color{uni-blue} Figura 6: Multímetro True-RMS}\\[1.2mm]
+    \begin{tikzpicture}
+        \node[draw=gray!60, dashed, line width=0.5pt, inner sep=1.2mm, fill=white] {
+            \includegraphics[width=5.0cm, height=5.0cm, keepaspectratio=true]{fig_multimetro.png}
+        };
+    \end{tikzpicture}
+\end{minipage}
+
+\vspace{3.5mm}
+
+%% Fila 3: Transformador y Fuente DC
+\noindent
+\begin{minipage}[t]{0.48\linewidth}
+    \centering
+    {\footnotesize\bfseries\color{uni-blue} Figura 7: Transformador 220V / 6V}\\[1.2mm]
+    \begin{tikzpicture}
+        \node[draw=gray!60, dashed, line width=0.5pt, inner sep=1.2mm, fill=white] {
+            \includegraphics[width=5.0cm, height=5.0cm, keepaspectratio=true]{fig_transformador.png}
+        };
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+    \centering
+    {\footnotesize\bfseries\color{uni-blue} Figura 8: Fuente DC Regulada}\\[1.2mm]
+    \begin{tikzpicture}
+        \node[draw=gray!60, dashed, line width=0.5pt, inner sep=1.2mm, fill=white] {
+            \includegraphics[width=5.0cm, height=5.0cm, keepaspectratio=true]{fig_fuente_dc.png}
+        };
+    \end{tikzpicture}
+\end{minipage}
+
+\vspace{3.5mm}
+
+%% Fila 4: Pila AA y Cables BNC
+\noindent
+\begin{minipage}[t]{0.48\linewidth}
+    \centering
+    {\footnotesize\bfseries\color{uni-blue} Figura 9: Pila Alcalina AA}\\[1.2mm]
+    \begin{tikzpicture}
+        \node[draw=gray!60, dashed, line width=0.5pt, inner sep=1.2mm, fill=white] {
+            \includegraphics[width=5.0cm, height=5.0cm, keepaspectratio=true]{fig_pila_aa.jpg}
+        };
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+    \centering
+    {\footnotesize\bfseries\color{uni-blue} Figura 10: Cables BNC y Sondas}\\[1.2mm]
+    \begin{tikzpicture}
+        \node[draw=gray!60, dashed, line width=0.5pt, inner sep=1.2mm, fill=white] {
+            \includegraphics[width=5.0cm, height=5.0cm, keepaspectratio=true]{fig_cables_sondas.jpg}
+        };
+    \end{tikzpicture}
+\end{minipage}
+
+\newpage
+
+%% ============================================================
+%% PÁGINA 3: GERALD CASAÑE (PROCEDIMIENTO EXPERIMENTAL)
+%% ============================================================
+\noindent
+\begin{minipage}{\linewidth}
+    \centering
+    {\large\bfseries\color{uni-blue} GUÍA DE FIGURAS Y GRÁFICAS PARA IMPRESIÓN}\\[0.5mm]
+    {\footnotesize\textbf{Página 3 de 7: Sección 6 --- Montajes Circuitales (Gerald Casañe)}}\\[0.8mm]
+    \hrule height 0.8pt
+\end{minipage}
+
+\vspace{4mm}
+
+\stickersingle{Figura 11: Esquemas de Montaje Circuital (a: DC, b: AC, c: Lissajous XY)}{%
+    \includegraphics[width=15.0cm, height=4.66cm, keepaspectratio=true]{fig_circuitos_montaje.png}%
+}
+
+\vspace{5mm}
+
+\noindent
+\begin{tcolorbox}[sharp corners, boxrule=0.6pt, colback=gray!5, colframe=uni-blue, center, width=0.95\linewidth]
+    \footnotesize
+    \textbf{Instrucciones de Montaje para Gerald Casañe (Bloque 2):}
+    \begin{itemize}[leftmargin=1.2em, itemsep=2pt]
+        \item Pegar la \textbf{Figura 11} centrada en la Sección 6 (Procedimiento Experimental) antes de detallar los pasos de las 5 partes (A, B, C, D y E).
+        \item Trazar las \textbf{Tablas 2 a 7} de Resultados con regla milimetrada respetando el formato formal (solo 3 líneas horizontales, sin líneas verticales).
+        \item Desarrollar paso a paso las fórmulas $(12)$ a $(34)$ del Tratamiento de Datos y la deducción analítica integral de $V_{\text{rms}}$ en el \textbf{Anexo A}.
+    \end{itemize}
+\end{tcolorbox}
+
+\newpage
+
+%% ============================================================
+%% PÁGINA 4: PIERO SÁNCHEZ (GRÁFICAS CIENTÍFICAS PYTHON)
+%% ============================================================
+\noindent
+\begin{minipage}{\linewidth}
+    \centering
+    {\large\bfseries\color{uni-blue} GUÍA DE FIGURAS Y GRÁFICAS PARA IMPRESIÓN}\\[0.5mm]
+    {\footnotesize\textbf{Página 4 de 7: Sección 10 --- Calibración DC y Lissajous (Piero Sánchez)}}\\[0.8mm]
+    \hrule height 0.8pt
+\end{minipage}
+
+\vspace{3mm}
+
+\stickersingle{Figura 12: Gráfica de Calibración DC y Residuos OLS}{%
+    \includegraphics[width=13.0cm, height=10.35cm, keepaspectratio=true]{grafica_calibracion_dc.png}%
+}
+
+\vspace{4mm}
+
+\stickersingle{Figura 14: Figuras de Lissajous en Modo X-Y ($1:1, 1:2, 1:3, 1:4$)}{%
+    \includegraphics[width=13.5cm, height=8.73cm, keepaspectratio=true]{grafica_lissajous_xy.png}%
+}
+
+\newpage
+
+%% ============================================================
+%% PÁGINA 5: PIERO SÁNCHEZ (FORMAS DE ONDA AC)
+%% ============================================================
+\noindent
+\begin{minipage}{\linewidth}
+    \centering
+    {\large\bfseries\color{uni-blue} GUÍA DE FIGURAS Y GRÁFICAS PARA IMPRESIÓN}\\[0.5mm]
+    {\footnotesize\textbf{Página 5 de 7: Sección 10 --- Formas de Onda AC (Piero Sánchez)}}\\[0.8mm]
+    \hrule height 0.8pt
+\end{minipage}
+
+\vspace{5mm}
+
+\stickersingle{Figura 13: Formas de Onda AC (Senoidal, Triangular y Cuadrada a 250 Hz)}{%
+    \includegraphics[width=13.0cm, height=13.83cm, keepaspectratio=true]{grafica_ondas_ac.png}%
+}
+
+\newpage
+
+%% ============================================================
+%% PÁGINA 6: HOJA DE TOMA DE DATOS ORIGINAL FIRMADA (ANEXO D)
+%% ============================================================
+\noindent
+\begin{minipage}{\linewidth}
+    \centering
+    {\large\bfseries\color{uni-blue} GUÍA DE FIGURAS Y GRÁFICAS PARA IMPRESIÓN}\\[0.5mm]
+    {\footnotesize\textbf{Página 6 de 7: Anexo D --- Hoja de Toma de Datos Firmada (Piero Sánchez)}}\\[0.8mm]
+    \hrule height 0.8pt
+\end{minipage}
+
+\vspace{4mm}
+
+\stickersingle{Figura 15: Hoja de Toma de Datos Original Firmada}{%
+    \includegraphics[width=14.0cm, height=19.76cm, keepaspectratio=true]{fig_hoja_datos.png}%
+}
+
+\newpage
+
+%% ============================================================
+%% PÁGINA 7: DIAGRAMAS VECTORIALES PARA TEST 5T1 Y CUESTIONARIO
+%% ============================================================
+\noindent
+\begin{minipage}{\linewidth}
+    \centering
+    {\large\bfseries\color{uni-blue} GUÍA DE FIGURAS Y GRÁFICAS PARA IMPRESIÓN}\\[0.5mm]
+    {\footnotesize\textbf{Página 7 de 7: Diagramas para Test 5T1 y Anexo C (Cuestionario)}}\\[0.8mm]
+    \hrule height 0.8pt
+\end{minipage}
+
+\vspace{3mm}
+
+\stickersingle{Diagrama Test 5T1 (Preg. 3): Medición de Período y Voltaje en Retícula}{%
+    \begin{tikzpicture}[scale=0.88]
+        \draw[step=1cm, color=grid-gray, line width=0.4pt] (0,0) grid (10,6);
+        \draw[color=gray!70, line width=0.8pt] (0,3) -- (10,3);
+        \draw[color=gray!70, line width=0.8pt] (5,0) -- (5,6);
+        
+        \foreach \x in {0.2,0.4,...,9.8} \draw[color=gray!80, line width=0.3pt] (\x,2.9) -- (\x,3.1);
+        \foreach \y in {0.2,0.4,...,5.8} \draw[color=gray!80, line width=0.3pt] (4.9,\y) -- (5.1,\y);
+
+        \draw[domain=0:10, samples=200, smooth, variable=\x, signal-blue, line width=1.4pt] 
+            plot ({\x}, {3 + 2.0*sin((\x-2)*60)});
+        
+        \draw[{Stealth[length=5pt]}-{Stealth[length=5pt]}, uni-red, line width=1.1pt] (2,1.2) -- (8,1.2);
+        \draw[dashed, uni-red, line width=0.6pt] (2,3) -- (2,1.0);
+        \draw[dashed, uni-red, line width=0.6pt] (8,3) -- (8,1.0);
+        \node[below, fill=white, inner sep=1.5pt] at (5,1.2) {\scriptsize\bfseries Período: $N_x = \qty{6,0}{\division} \implies T = N_x \cdot S_x$};
+
+        \filldraw[uni-red] (2,3) circle (2.5pt) node[above left, text=uni-blue]{\scriptsize Cruce $t_1$};
+        \filldraw[uni-red] (8,3) circle (2.5pt) node[above right, text=uni-blue]{\scriptsize Cruce $t_2$};
+
+        \draw[{Stealth[length=4pt]}-{Stealth[length=4pt]}, box-green, line width=1.0pt] (9.3,1.0) -- (9.3,5.0);
+        \node[right, fill=white, inner sep=1pt] at (9.3,3.0) {\scriptsize $V_{pp} = N_y \cdot S_y$};
+    \end{tikzpicture}
+}
+
+\vspace{3mm}
+
+\stickersingle{Diagrama Test 5T1 (Preg. 4): Parámetros de Elipse de Lissajous $X$-$Y$}{%
+    \begin{tikzpicture}[scale=0.88]
+        \draw[step=1cm, color=grid-gray, line width=0.4pt] (-4,-3) grid (4,3);
+        \draw[color=gray!70, line width=0.8pt] (-4,0) -- (4,0) node[right] {\scriptsize $X$ (CH1)};
+        \draw[color=gray!70, line width=0.8pt] (0,-3) -- (0,3) node[above] {\scriptsize $Y$ (CH2)};
+        
+        \foreach \x in {-3.8,-3.6,...,3.8} \draw[color=gray!80, line width=0.3pt] (\x,-0.1) -- (\x,0.1);
+        \foreach \y in {-2.8,-2.6,...,2.8} \draw[color=gray!80, line width=0.3pt] (-0.1,\y) -- (0.1,\y);
+
+        \draw[domain=0:360, samples=150, smooth, variable=\t, lissajous-red, line width=1.4pt]
+            plot ({3.0*sin(\t)}, {2.2*sin(\t + 45)});
+
+        \filldraw[uni-blue] (0, 1.555) circle (2.5pt);
+        \filldraw[uni-blue] (0, -1.555) circle (2.5pt);
+        \draw[{Stealth[length=4pt]}-{Stealth[length=4pt]}, uni-blue, line width=1.0pt] (0.2, 0) -- (0.2, 1.555);
+        \node[right, text=uni-blue, fill=white, inner sep=1pt] at (0.25, 0.77) {\scriptsize $y_0 = Y_{\max}\sin(\Delta\phi)$};
+
+        \draw[dashed, color=box-green, line width=0.8pt] (-3.5, 2.2) -- (3.5, 2.2);
+        \draw[{Stealth[length=4pt]}-{Stealth[length=4pt]}, box-green, line width=1.0pt] (-3.2, 0) -- (-3.2, 2.2);
+        \node[left, text=box-green, fill=white, inner sep=1pt] at (-3.25, 1.1) {\scriptsize $Y_{\max}$};
+
+        \draw[dashed, color=box-purple, line width=0.8pt] (3.0, -2.5) -- (3.0, 2.5);
+        \draw[{Stealth[length=4pt]}-{Stealth[length=4pt]}, box-purple, line width=1.0pt] (0, -2.5) -- (3.0, -2.5);
+        \node[below, text=box-purple, fill=white, inner sep=1pt] at (1.5, -2.5) {\scriptsize $X_{\max}$};
+    \end{tikzpicture}
+}
+
+\end{document}

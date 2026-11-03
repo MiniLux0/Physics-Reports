@@ -1,0 +1,24 @@
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.9cm and 1.0cm, caja/.append style={text width=4.6cm, font=\footnotesize}]
+  \node[caja] (h) {\textbf{2. Hilbert y Dirac}\\ kets, bras, $\hat A^\dagger=\hat A$,\\ $\langle\hat A\rangle$, $\Delta\hat A$};
+  \node[caja,right=of h] (u) {\textbf{3. Incertidumbre}\\ Cauchy--Schwarz,\\ Robertson--Schr\"odinger};
+  \node[caja,below=of h] (b) {\textbf{4.4--4.5 BCH}\\ $\eu^{\hat A}\hat B\eu^{-\hat A}$,\\ traslaciones};
+  \node[caja,right=of b] (n) {\textbf{4.7 Simetr\'ias y Noether}\\ $[\hat G,\hat H]=0$\\ $\Rightarrow$ conservaci\'on};
+  \node[caja,below=of b] (l) {\textbf{5. Momento angular}\\ $\varepsilon_{ijk}$, $\mathfrak{so}(3)$,\\ $\hat{\vec L}\times\hat{\vec L}=\iu\hbar\hat{\vec L}$};
+  \node[caja,right=of l,fill=unired!10,draw=unired] (c) {\textbf{CCOC}\\ $\{\hat H,\hat L^2,\hat L_z\}$\\ $\ket{n,\ell,m_\ell}$ (sin esp\'in)};
+  \node[caja,below=of l,text width=9.6cm] (p) {\textbf{6. Problemas y ejercicios}\; (rotaciones finitas, operadores vectoriales, $\Delta L_x\Delta L_y$)};
+
+  \draw[flecha] (h) -- (u);
+  \draw[flecha] (h) -- (b);
+  \draw[flecha] (u.east) -- ++(0.6,0) |- node[pos=0.25,right,font=\scriptsize,align=left] {incompati-\\bilidad} (c.east);
+  \draw[flecha] (b) -- (n);
+  \draw[flecha] (b) -- (l);
+  \draw[flecha] (n) -- (l);
+  \draw[flecha] (l) -- (c);
+  \draw[flecha] (l) -- (p);
+  \draw[flecha] (c.south) |- ($(p.east)+(0.2,0)$);
+\end{tikzpicture}
+\caption{Hoja de ruta: dependencia l\'ogica entre las secciones.}
+\label{fig:mapa_dependencias}
+\end{figure}

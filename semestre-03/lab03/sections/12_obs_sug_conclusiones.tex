@@ -1,0 +1,49 @@
+%% ============================================================
+%%  SECCIÓN 12 — Observaciones, Sugerencias y Conclusiones
+%% ============================================================
+
+\section{Observaciones, Sugerencias y Conclusiones}
+\label{sec:conclusiones}
+
+\subsection{Observaciones}
+\label{sec:observaciones}
+
+\begin{enumerate}
+    \item \textbf{Fuente a \qty{7{,}5}{\volt} vs. \qty{6}{\volt} de la guía:} Se utilizó una tensión de alimentación de \qty{7{,}5}{\volt} en lugar de los \qty{6}{\volt} indicados en el protocolo oficial, lo cual no afecta la validez de los resultados pero desplaza el rango máximo de barrido de tensión en cada elemento.
+
+    \item \textbf{Punto atípico del diodo (\texorpdfstring{N.\textsuperscript{o}\,4}{Nro. 4}: \qty{0{,}70}{\volt}; \qty{0{,}230}{\ampere}):} El residuo calculado respecto al ajuste de Shockley es de $\Delta I = -\qty{0{,}098}{\ampere}$ ($98\,\delta I$). El factor limitante es la resolución del voltímetro ($\delta V = \qty{0{,}01}{\volt}$), que en la zona exponencial del diodo produce variaciones de corriente de hasta $\approx \qty{0{,}1}{\ampere}$ por escalón de \qty{10}{\milli\volt}.
+
+    \item \textbf{Calentamiento del diodo:} A corrientes superiores a \qty{0{,}5}{\ampere}, la potencia disipada en el volumen submilimétrico de la juntura supera \qty{0{,}3}{\watt}, generando un autocalentamiento que modifica localmente $I_S$ y $n$ durante la medición. Esto contribuye parcialmente al factor de idealidad experimental $n = 1{,}87 \approx 2$.
+
+    \item \textbf{Resistencias de contacto y cables:} Las resistencias parásitas de los conductores ($R_{\text{cable}} \le \qty{0{,}03}{\ohm}$) son despreciables para la resistencia de carbón (\qty{100}{\ohm}) y el foquito, pero representan entre el \qtyrange{3}{30}{\percent} de la resistencia dinámica del diodo en plena conducción ($R_{\text{din}} \sim \qty{0{,}1}{\ohm}$).
+
+    \item \textbf{Nicrón (Elemento E4) no medido:} Por indisponibilidad de la muestra en el módulo de laboratorio, no se realizó la Parte D. Los resultados de las Partes A--C son suficientes para responder todos los objetivos evaluables.
+\end{enumerate}
+
+\subsection{Sugerencias}
+\label{sec:sugerencias}
+
+\begin{enumerate}
+    \item Utilizar un multímetro con resolución de \qty{1}{\milli\volt} (cuatro cifras significativas en voltaje) para mejorar la toma de datos en la zona exponencial del diodo (\qtyrange{0{,}60}{0{,}75}{\volt}), reduciendo la ambigüedad en el codo de conducción.
+
+    \item Emplear una resistencia limitadora de serie (\qty{10}{\ohm} a \qty{50}{\ohm}) al medir el diodo para estabilizar las lecturas y proteger la juntura frente a fluctuaciones transitorias del cursor del reóstato.
+
+    \item Registrar el valor de temperatura de la sala al inicio y al final de la sesión, e incluirlo en la hoja de datos, pues $V_T$ y $I_S$ del diodo son fuertemente dependientes de $T$.
+
+    \item Implementar el protocolo de medición del diodo por pasos fijos de corriente (0,1\,A; 0,2\,A; \ldots; 0,8\,A), tal como prescribe la guía, para garantizar una cobertura uniforme de la curva exponencial.
+\end{enumerate}
+
+\subsection{Conclusiones Cuantitativas}
+\label{subsec:conclusiones}
+
+\begin{enumerate}
+    \item \textbf{Ley de Ohm verificada en la resistencia de carbón:} Se determinó experimentalmente $R_{\text{exp}} = \qty{100{,}02 \pm 2{,}55}{\ohm}$ con $R^2 = 0{,}99985$ y un error relativo de apenas $\qty{0{,}02}{\percent}$ respecto al valor nominal de \qty{100}{\ohm}, confirmando el comportamiento estrictamente óhmico en el rango de \qtyrange{0{,}00}{6{,}49}{\volt}.
+
+    \item \textbf{Comportamiento termorresistivo del foquito cuantificado:} El ajuste por ley de potencias $I = (0{,}146 \pm 0{,}003)\,V^{0{,}573 \pm 0{,}014}$ ($R^2 = 0{,}9987$) muestra un exponente experimental \qty{4{,}5}{\percent} inferior al teórico de Stefan-Boltzmann ($n_{\text{teo}} = 0{,}600$), coherente con las pérdidas conductivas a bajas temperaturas. La resistencia estática creció un \qty{120}{\percent} entre \qty{1}{\volt} y \qty{6{,}43}{\volt}.
+
+    \item \textbf{Conducción exponencial del diodo y tensión de umbral:} Los parámetros de Shockley obtenidos ($n = 1{,}871 \pm 0{,}123$, $I_S = \qty{1{,}51e-7}{\ampere}$) son compatibles con la teoría de junturas $p$-$n$ de silicio a temperatura ambiente. La tensión de umbral experimental $V_u = \qty{0{,}66 \pm 0{,}06}{\volt}$ coincide con el intervalo teórico de \qtyrange{0{,}60}{0{,}70}{\volt}~\cite{boylestad}.
+
+    \item \textbf{Resistencias estáticas a \qty{0{,}80}{\volt}:} La resistencia de carbón conserva \qty{100}{\ohm}; el foquito, extrapolado por ley de potencias, presenta \qty{6{,}22}{\ohm}; el diodo, en conducción activa, exhibe $R < \qty{0{,}70}{\ohm}$, evidenciando el colapso resistivo en la zona de polarización directa.
+
+    \item \textbf{Clasificación formal de los tres elementos:} La resistencia de carbón es óhmica ($\mathrm{d}R/\mathrm{d}I \approx 0$); la lámpara de tungsteno es un PTC ($\mathrm{d}R/\mathrm{d}I > 0$) y el diodo de silicio es un elemento exponencial unidireccional ($\mathrm{d}R/\mathrm{d}I < 0$), respondiendo cuantitativamente todos los objetivos planteados en la Sección~\ref{sec:objetivos}.
+\end{enumerate}

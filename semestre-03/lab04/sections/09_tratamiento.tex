@@ -1,0 +1,121 @@
+%% ============================================================
+%%  SECCIÓN 9 — Tratamiento de Datos
+%% ============================================================
+
+\section{Tratamiento de Datos y Resultados}
+\label{sec:tratamiento}
+
+En esta sección se desarrolla el procesamiento matemático y estadístico riguroso de los datos experimentales para determinar las capacitancias efectivas del banco, propagar sus incertidumbres metrológicas según la guía GUM \cite{gum} y verificar la validez del modelo físico $\tau = RC$ mediante regresiones por mínimos cuadrados ordinarios (MCO) y pruebas de hipótesis sobre el intercepto nulo \cite{taylor}.
+
+\subsection{Ecuación de trabajo y propagación analítica de incertidumbres (GUM)}
+
+A partir de la definición fundamental de la constante de tiempo capacitiva $\tau = R \cdot C$, la capacitancia derivada se evalúa mediante la ecuación de trabajo:
+\begin{equation}
+    C = \frac{\tau}{R}
+    \label{eq:trabajo_c}
+\end{equation}
+Dado que el tiempo $\tau$ medido en el osciloscopio y la resistencia $R$ medida en el multímetro digital son variables físicas independientes no correlacionadas ($r(\tau, R) \approx 0$), la incertidumbre estándar combinada $u_c(C)$ se determina según la ley de propagación de la Guía para la Expresión de la Incertidumbre en la Medición (GUM) \cite{gum}:
+\begin{equation}
+    u_c(C) = \sqrt{\left( \frac{\partial C}{\partial \tau} \, u(\tau) \right)^2 + \left( \frac{\partial C}{\partial R} \, u(R) \right)^2}
+    \label{eq:gum_propagacion_general}
+\end{equation}
+Calculando analíticamente las derivadas parciales de primer orden:
+\begin{align}
+    \frac{\partial C}{\partial \tau} &= \frac{1}{R} \label{eq:derivada_tau} \\
+    \frac{\partial C}{\partial R} &= -\frac{\tau}{R^2} = -\frac{C}{R} \label{eq:derivada_r}
+\end{align}
+Sustituyendo las ecuaciones~\eqref{eq:derivada_tau} y \eqref{eq:derivada_r} en la expresión~\eqref{eq:gum_propagacion_general}:
+\begin{equation}
+    u_c(C) = \sqrt{\left( \frac{u(\tau)}{R} \right)^2 + \left( \frac{\tau \cdot u(R)}{R^2} \right)^2} = C \sqrt{\left(\frac{u(\tau)}{\tau}\right)^2 + \left(\frac{u(R)}{R}\right)^2}
+    \label{eq:incertidumbre_relativa_c}
+\end{equation}
+Para reportar un intervalo de confianza metrológico representativo de aproximadamente el \qty{95,45}{\percent}, calculamos la incertidumbre expandida $U(C)$ empleando un factor de cobertura $k = 2$:
+\begin{equation}
+    U(C) = 2 \cdot u_c(C)
+    \label{eq:incertidumbre_expandida_c}
+\end{equation}
+El error relativo porcentual respecto a la capacitancia nominal rotulada por el fabricante ($C_{\text{nom}}$) se define algebraicamente mediante:
+\begin{equation}
+    E_r = \frac{C_{\text{exp}} - C_{\text{nom}}}{C_{\text{nom}}} \times \qty{100}{\percent}
+    \label{eq:error_relativo_c}
+\end{equation}
+donde el signo positivo o negativo explicita si la capacitancia efectiva supera o subestima la tolerancia nominal de catálogo.
+
+\subsubsection{Ejemplo de cálculo paso a paso --- Fila 1 (\texorpdfstring{$R_1 \times C_1$}{R1 x C1})}
+Consideremos los datos de la primera fila medida directamente en el laboratorio:
+\begin{align*}
+    R_1 &= \qty{9980,0 \pm 57,6}{\ohm} \implies \frac{u(R_1)}{R_1} = \frac{57{,}6}{9980} \approx 5{,}77 \times 10^{-3} \quad (\qty{0,577}{\percent}) \\
+    \tau_1 &= \qty{107,8 \pm 0,14}{\micro\second} \implies \frac{u(\tau_1)}{\tau_1} = \frac{0{,}14}{107{,}8} \approx 1{,}30 \times 10^{-3} \quad (\qty{0,130}{\percent})
+\end{align*}
+1. \textbf{Capacitancia experimental:}
+\begin{equation*}
+    C_{\text{exp},1} = \frac{\qty{107,8e-6}{\second}}{\qty{9980}{\ohm}} = 1{,}08016 \times 10^{-8}\ \unit{\farad} = \qty{10,80}{\nano\farad}
+\end{equation*}
+2. \textbf{Incertidumbre estándar combinada:}
+\begin{align*}
+    u_c(C_1) &= \qty{10,80}{\nano\farad} \times \sqrt{(1{,}30 \times 10^{-3})^2 + (5{,}77 \times 10^{-3})^2} \\
+    &= \qty{10,80}{\nano\farad} \times \sqrt{1{,}69 \times 10^{-6} + 33{,}29 \times 10^{-6}} = \qty{10,80}{\nano\farad} \times 5{,}91 \times 10^{-3} = \qty{0,064}{\nano\farad}
+\end{align*}
+3. \textbf{Incertidumbre expandida ($k=2$):}
+\begin{equation*}
+    U(C_1) = 2 \times \qty{0,064}{\nano\farad} = \qty{0,13}{\nano\farad} \implies C_1 = \qty{10,80 \pm 0,13}{\nano\farad}
+\end{equation*}
+4. \textbf{Error relativo porcentual frente al valor nominal ($C_{\text{nom}} = \qty{10,0}{\nano\farad}$):}
+\begin{equation*}
+    E_r = \frac{10{,}80 - 10{,}00}{10{,}00} \times \qty{100}{\percent} = \qty{+8,02}{\percent}
+\end{equation*}
+Este mismo procedimiento algorítmico se aplicó rigurosamente a las 9 combinaciones reportadas en la Tabla~\ref{tab:datos_experimentales}.
+
+\subsection{Regresión lineal por mínimos cuadrados ordinarios (MCO) y prueba de hipótesis}
+
+Para validar formalmente la ley lineal $\tau(R) = m R + b$, agrupamos las mediciones por cada condensador ensayado frente a los tres valores de resistencia disponibles ($R_1 = \qty{9980}{\ohm}$, $R_2 = \qty{6832}{\ohm}$, $R_3 = \qty{2250}{\ohm}$). De acuerdo con el modelo teórico de la física, la pendiente representa la capacitancia equivalente ($m \equiv C_{\text{OLS}}$) y el intercepto debe ser estrictamente cero ($b \equiv 0$).
+
+Las fórmulas clásicas de la regresión lineal por mínimos cuadrados para $N = 3$ puntos $(R_i, \tau_i)$ son \cite{taylor}:
+\begin{equation}
+    m = \frac{N \sum (R_i \tau_i) - (\sum R_i)(\sum \tau_i)}{N \sum R_i^2 - (\sum R_i)^2}, \qquad b = \frac{\sum \tau_i - m \sum R_i}{N}
+    \label{eq:formulas_mco}
+\end{equation}
+con desviaciones estándar de los estimadores dadas por:
+\begin{equation}
+    s_m = \sqrt{\frac{N \cdot s_y^2}{\Delta}}, \qquad s_b = \sqrt{\frac{s_y^2 \sum R_i^2}{\Delta}}
+\end{equation}
+donde $\Delta = N \sum R_i^2 - (\sum R_i)^2$ y $s_y^2 = \frac{1}{N-2} \sum (\tau_i - (m R_i + b))^2$ es la varianza residual con $\nu = N - 2 = 1$ grado de libertad residual.
+
+\subsubsection{Pruebas de compatibilidad del intercepto nulo}
+Para dictaminar si el término independiente $b$ obtenido empíricamente difiere significativamente de cero o si es compatible con el modelo físico, se aplican dos contrastes estadísticos:
+\begin{enumerate}
+    \item \textbf{Criterio de dos sigmas ($2\sigma$):} Comprueba que el cociente entre el intercepto y su desviación estándar satisfaga $|b| / s_b < 2{,}0$, lo cual asegura que el cero se encuentre holgadamente dentro del intervalo de confianza del \qty{95}{\percent}.
+    \item \textbf{Contraste formal $t$ de Student:} Se evalúa el estadístico muestral $t_{\text{stat}} = |b| / s_b$ frente al valor crítico bilateral de la distribución $t$ de Student para $\nu = 1$ grado de libertad y nivel de significancia $\alpha = 0{,}05$:
+    \begin{equation}
+        t_{\text{crit}} = t_{\alpha/2;\, \nu} = t_{0{,}025;\, 1} = 12{,}706
+    \end{equation}
+    Si $t_{\text{stat}} < t_{\text{crit}}$, la hipótesis nula $H_0: b = 0$ no puede rechazarse, confirmando que el término residual se debe enteramente a fluctuaciones experimentales aleatorias.
+\end{enumerate}
+
+\subsubsection{Resultados de la regresión para los tres condensadores}
+
+En la Tabla~\ref{tab:resumen_ols} se condensan los resultados obtenidos del ajuste por mínimos cuadrados ordinarios para cada condensador (representados gráficamente en la Fig.~\ref{fig:linealizacion_tau}).
+
+\begin{table}[H]
+    \centering
+    \caption{Parámetros de regresión lineal por MCO, evaluación de interceptos y capacitancias efectivas.}
+    \label{tab:resumen_ols}
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{ccccccccc}
+        \toprule
+        \textbf{Condensador} & $C_{\text{OLS}} \pm s_C$ & $b \pm s_b$ & $R^2$ & $t_{\text{stat}} = \frac{|b|}{s_b}$ & \textbf{Criterio $2\sigma$} & \textbf{Test $t$ Student} & $C_{\text{nom}}$ & \textbf{Error Rel.} \\
+         & (\unit{\nano\farad}) & (\unit{\micro\second}) & & & ($< 2{,}0$) & ($< 12{,}71$) & (\unit{\nano\farad}) & (\unit{\percent}) \\
+        \midrule
+        $C_1$ & \num{10,79 \pm 0,05} & \num{0,21 \pm 0,38} & \num{0,99998} & \num{0,55} & Aceptado & Aceptado ($H_0$) & \num{10,00} & $+7{,}95$ \\
+        $C_2$ & \num{27,44 \pm 0,03} & \num{-0,29 \pm 0,23} & \num{0,99999} & \num{1,23} & Aceptado & Aceptado ($H_0$) & \num{22,40} & $+22{,}48$ \\
+        $C_3$ & \num{34,61 \pm 0,29} & \num{0,15 \pm 2,05} & \num{0,99993} & \num{0,07} & Aceptado & Aceptado ($H_0$) & \num{33,23} & $+4{,}15$ \\
+        \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+
+Tal como se evidencia en la Tabla~\ref{tab:resumen_ols}:
+\begin{itemize}
+    \item Los coeficientes de determinación lineal satisfacen holgadamente $R^2 \ge 0{,}99993$, lo que demuestra que más del \qty{99,99}{\percent} de la variación de la constante de tiempo $\tau$ queda explicada de manera estrictamente univariable por la resistencia de malla $R$.
+    \item Los estadísticos de Student resultan $t_{\text{stat}} \in [0{,}07;\ 1{,}23]$, valores órdenes de magnitud menores que el umbral crítico $t_{\text{crit}} = 12{,}71$. En consecuencia, se confirma que el intercepto físico es nulo y la proporcionalidad $\tau \propto R$ es exacta dentro del margen de error experimental.
+\end{itemize}

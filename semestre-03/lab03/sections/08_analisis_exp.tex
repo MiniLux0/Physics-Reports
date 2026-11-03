@@ -1,0 +1,58 @@
+%% ============================================================
+%%  SECCIÓN 8 — Análisis Experimental
+%% ============================================================
+
+\section{Análisis Experimental}
+\label{sec:analisis_exp}
+
+En esta sección se realiza una evaluación estrictamente cualitativa y fenomenológica de los resultados experimentales obtenidos, analizando las tendencias físicas observadas, la morfología de las curvas de conducción y los mecanismos microscópicos dominantes en cada componente. El tratamiento matemático formal, los ajustes estadísticos por mínimos cuadrados ordinarios y la propagación analítica de incertidumbres se desarrollan en la Sección~\ref{sec:tratamiento}.
+
+\subsection{Comportamiento de la Resistencia de Carbón: Verificación de la Linealidad Óhmica}
+El examen cualitativo de los pares experimentales $(V, I)$ para la resistencia de composición de carbón (Tabla~\ref{tab:datos_resistencia}) evidencia una estricta proporcionalidad directa entre la diferencia de potencial aplicada y la intensidad de corriente resultante a lo largo de todo el intervalo medido (\qtyrange{0,00}{6,49}{\volt}). 
+
+Al duplicar la tensión (por ejemplo, de \qty{1,00}{\volt} a \qty{2,00}{\volt}, o de \qty{3,05}{\volt} a \qty{6,02}{\volt}), la intensidad de corriente se duplica de manera exacta de \qty{0,010}{\ampere} a \qty{0,020}{\ampere}, y de \qty{0,031}{\ampere} a \qty{0,060}{\ampere}, respectivamente. Las ligeras fluctuaciones aparentes de la resistencia calculada punto a punto (oscilando entre \qty{98,39}{\ohm} y \qty{100,75}{\ohm}) quedan perfectamente contenidas dentro de las franjas de incertidumbre experimental de lectura ($\delta R \approx \pm\qty{10,05}{\ohm}$ a \qty{1}{\volt} y $\pm\qty{1,54}{\ohm}$ a \qty{6,5}{\volt}).
+
+Físicamente, este comportamiento demuestra que en el resistor de carbón:
+\begin{enumerate}
+    \item La densidad de portadores libres $n$ y el tiempo medio de relajación colisional $\tau$ permanecen invariantes frente a la magnitud del campo eléctrico aplicado.
+    \item La potencia eléctrica máxima disipada es de apenas \qty{0,42}{\watt}, distribuida en el volumen cerámico del resistor, lo que previene un sobrecalentamiento apreciable de la matriz resistiva y preserva constante la resistividad del material.
+\end{enumerate}
+
+\subsection{Comportamiento de la Lámpara Incandescente: Régimen Termorresistivo No Lineal}
+En contraste radical con la resistencia de carbón, la característica $I$ vs $V$ de la lámpara de tungsteno (Tabla~\ref{tab:datos_foquito}) describe una curva fuertemente sublineal y cóncava respecto al eje de corriente. A medida que la tensión aplicada se incrementa, la tasa de aumento de la corriente ($\Delta I / \Delta V$) disminuye de manera monótona.
+
+Desde el punto de vista macroscópico, este fenómeno se traduce en un incremento drástico de la resistencia estática aparente $R = V/I$, la cual pasa de \qty{6,76}{\ohm} a \qty{1,00}{\volt} hasta \qty{14,88}{\ohm} a \qty{6,43}{\volt}, multiplicándose por un factor superior a $2{,}2$ ($+120\%$).
+
+El origen físico de esta respuesta reside en el acoplamiento termoeléctrico por efecto Joule:
+\begin{itemize}
+    \item A bajas tensiones ($V \le \qty{1}{\volt}$), la disipación térmica es mínima ($P \approx \qty{0,15}{\watt}$); el filamento se encuentra a temperatura relativamente baja y no emite radiación visible apreciable, operando en su resistencia en frío ($R_0 \approx \qty{6,8}{\ohm}$).
+    \item Al elevar la tensión hacia \qty{6}{\volt}, la potencia disipada escala hasta casi \qty{2,8}{\watt}. Debido a la pequeñísima masa térmica del filamento suspendido al vacío, su temperatura se eleva hasta la incandescencia visible (emisión de luz amarilla y blanca brillante).
+    \item De acuerdo con la física del estado sólido, este incremento térmico intensifica dramáticamente las vibraciones de la red cristalina de tungsteno (amplitud cuadrática media de los fonones acústicos), reduciendo el camino libre medio de los electrones de conducción y su tiempo de relajación $\tau$, lo que incrementa la resistividad $\rho(T)$ y frena el crecimiento de la corriente.
+\end{itemize}
+
+\subsection{Comportamiento del Diodo Semiconductor: Rectificación y Conducción Exponencial}
+La curva característica del diodo semiconductor de silicio (Tabla~\ref{tab:datos_diodo}) presenta un comportamiento no lineal superlineal y fuertemente asimétrico, distinguiéndose con nitidez dos regímenes operativos:
+\begin{enumerate}
+    \item \textbf{Zona de corte o bloqueo práctico ($V < \qty{0,60}{\volt}$):} La corriente a través del dispositivo es prácticamente imperceptible en la escala del miliamperio ($I < \qty{1}{\milli\ampere}$), debido a que la barrera de potencial interno de la juntura $p$-$n$ ($V_0 \approx \qty{0,7}{\volt}$) impide el paso de la mayoría de portadores mayoritarios.
+    \item \textbf{Zona de conducción directa activa ($V \ge \qty{0,61}{\volt}$):} Al aproximarse la tensión externa a la altura de la barrera de difusión, la recombinación y el flujo de portadores se disparan de forma exponencial según la ley de Shockley. La corriente pasa de \qty{0,050}{\ampere} a \qty{0,61}{\volt} hasta alcanzar \qty{0,783}{\ampere} a \qty{0,75}{\volt} en un rango estrechísimo de apenas \qty{0,14}{\volt}.
+\end{enumerate}
+
+Como resultado de esta conducción exponencial, la resistencia estática aparente se desploma de \qty{12,2}{\ohm} a \qty{0,61}{\volt} hasta situarse por debajo de \qty{1}{\ohm} (\qty{0,96}{\ohm} a \qty{0,75}{\volt}), reflejando una resistencia dinámica diferencial extraordinariamente baja en el régimen de saturación directa.
+
+\subsubsection{Análisis de la Discrepancia Instrumental en el Punto \texorpdfstring{$N^\circ 4$}{N. 4}}
+El dato correspondiente a $V = \qty{0,70}{\volt}$ con $I = \qty{0,230}{\ampere}$ presenta una pendiente incremental local $\Delta I / \Delta V \approx \qty{1,5}{\ampere\per\volt}$, mientras que los tramos adyacentes (\qty{0,61}{\volt} a \qty{0,69}{\volt} y \qty{0,70}{\volt} a \qty{0,71}{\volt}) presentan tasas de \qty{2,1}{\ampere\per\volt} y \qty{18,1}{\ampere\per\volt}, respectivamente. 
+
+Esta anomalía se atribuye a dos factores experimentales concurrentes:
+\begin{itemize}
+    \item \textit{Apreciación y estabilidad en el codo de conducción:} En la región hiperbólica del diodo, la conductancia dinámica local supera los $\qty{15}{\siemens}$, lo que significa que una variación residual de apenas $\pm\qty{5}{\milli\volt}$ en la posición del cursor del reóstato o en el rizado de la fuente altera la corriente en casi $\qty{0,1}{\ampere}$. La resolución instrumental de $\pm\qty{0,01}{\volt}$ en el voltímetro resulta por tanto el factor limitante dominante en este punto de transición crítica.
+    \item \textit{Régimen transitorio en la maniobra del cursor:} Durante el ajuste manual del potenciómetro, una leve inestabilidad transitoria de contacto entre el cursor y el hilo resistivo al fijar el punto puede haber introducido una variación instantánea en la corriente registrada, reforzando la conveniencia de tratar dicho punto como lectura atípica sin alterar los datos brutos.
+\end{itemize}
+
+\subsection{Comparación de Potencias Disipadas y Densidades Térmicas}
+El análisis cualitativo de la potencia $P = V I$ ilustra el régimen térmico de cada componente:
+\begin{itemize}
+    \item A una tensión de $\approx\qty{6}{\volt}$, la potencia en el foquito alcanza $\qty{2,48}{\watt}$, mientras que en la resistencia de carbón es de apenas $\qty{0,36}{\watt}$ (casi 7 veces menor), lo que confirma por qué el filamento metálico se torna incandescente mientras la resistencia opera fría.
+    \item En el diodo semiconductor, a su máxima corriente registrada ($\qty{0,783}{\ampere}$ a $\qty{0,75}{\volt}$), la potencia es de $\qty{0,59}{\watt}$. Si bien este valor absoluto parece moderado, dicha potencia se disipa en un volumen microscópico de juntura de semiconductor de orden submilimétrico ($< \qty{1}{\milli\meter\cubed}$), alcanzando densidades volumétricas de potencia extremadamente altas que justifican plenamente la directriz de seguridad de no exceder los $\qty{0,9}{\ampere}$.
+\end{itemize}
+
+Los modelos analíticos, cálculos de conductancia y propagación formal de errores se abordan en detalle en la Sección~\ref{sec:tratamiento}.

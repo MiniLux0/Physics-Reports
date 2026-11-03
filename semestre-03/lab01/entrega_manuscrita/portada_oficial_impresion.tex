@@ -1,0 +1,62 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{lmodern}
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{graphicx}
+\graphicspath{{Figures/}}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype}
+
+\definecolor{uni-blue}{RGB}{0, 56, 101}
+\definecolor{uni-red}{RGB}{166, 25, 46}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{0.4cm}
+    
+    %% ENCABEZADO INSTITUCIONAL
+    {\Large\bfseries UNIVERSIDAD NACIONAL DE INGENIER\'IA}\\[0.35cm]
+    {\large\bfseries FACULTAD DE CIENCIAS}\\[0.2cm]
+    {\large Escuela de F\'isica}\\[1.0cm]
+    
+    %% ESCUDO OFICIAL UNI
+    \includegraphics[width=4.3cm, keepaspectratio=true]{uni_logo.jpg}\\[1.0cm]
+    
+    %% CURSO Y MESA
+    {\large\bfseries Física General / Física III (CF1B2) --- Sección A}\\[0.25cm]
+    {\normalsize\textbf{Semestre Académico 2026-II \quad $\vert$ \quad Mesa de Trabajo N.° 3}}\\[0.8cm]
+    
+    %% TÍTULO DEL LABORATORIO
+    {\large\textbf{LABORATORIO N.° 1:}}\\[0.35cm]
+    {\LARGE\bfseries El osciloscopio como instrumento de medida\par}\vspace{0.9cm}
+    
+    %% INTEGRANTES
+    \begin{minipage}{0.85\linewidth}
+        \textbf{\large INTEGRANTES:}\\[0.35cm]
+        \begin{tabular}{@{\hspace{0.5cm}}ll}
+            \textbf{1. Vera Vivanco, Jesús Rodolfo} & (Código: \textbf{20252703K}) \\[0.25cm]
+            \textbf{2. Casañe Ramírez, Gerald Giordano} & (Código: \textbf{20251368C}) \\[0.25cm]
+            \textbf{3. Sánchez Feril, Piero Alejandro} & (Código: \textbf{20251629A})
+        \end{tabular}
+    \end{minipage}
+    
+    \vfill
+    
+    %% DOCENTE Y FECHA
+    \begin{minipage}{0.85\linewidth}
+        \centering
+        \textbf{\normalsize Docente:} Prof. Cortez R., Gregorio\\[0.25cm]
+        \textbf{\normalsize Fecha de Entrega:} Lima, 11 de septiembre de 2026
+    \end{minipage}
+    \vspace*{0.4cm}
+
+\end{titlepage}
+
+\end{document}

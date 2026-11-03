@@ -1,0 +1,189 @@
+\documentclass[a4paper, 10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{lmodern}
+\usepackage[top=1.5cm, bottom=1.5cm, left=1.8cm, right=1.8cm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs, tabularx, multirow}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+\definecolor{uni-blue}{RGB}{0, 56, 101}
+\definecolor{uni-red}{RGB}{166, 25, 46}
+\definecolor{card-bg}{RGB}{250, 251, 252}
+\definecolor{box-green}{RGB}{24, 134, 75}
+\definecolor{box-purple}{RGB}{112, 48, 160}
+
+\usepackage[
+    colorlinks=true,
+    linkcolor=uni-blue,
+    urlcolor=uni-blue,
+    citecolor=uni-blue
+]{hyperref}
+
+\pagestyle{empty}
+
+\tcbset{
+    sharp corners,
+    boxrule=0.8pt,
+    colback=card-bg,
+    colframe=uni-blue,
+    fonttitle=\small\bfseries\color{white},
+    colbacktitle=uni-blue,
+    enhanced,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={sharp corners, boxrule=0pt, colback=uni-blue},
+    top=2.5mm, bottom=2mm, left=3mm, right=3mm
+}
+
+\begin{document}
+
+%% ============================================================
+%% ENCABEZADO OFICIAL
+%% ============================================================
+\begin{center}
+    {\large\bfseries UNIVERSIDAD NACIONAL DE INGENIERÍA}\\[0.08cm]
+    {\normalsize\bfseries FACULTAD DE CIENCIAS --- ESCUELA PROFESIONAL DE FÍSICA}\\[0.08cm]
+    {\footnotesize\textbf{Física General / Física III (CF2B1) --- Sección A \quad $\vert$ \quad Semestre 2026-II}}\\[0.15cm]
+    \rule{\linewidth}{1.0pt}\\[0.12cm]
+    {\Large\bfseries\color{uni-blue} GUÍA MAESTRA DE TRANSCRIPCIÓN MANUSCRITA Y DISTRIBUCIÓN}\\[0.08cm]
+    {\large\bfseries Laboratorio N.° 3: Curvas Características Voltaje--Corriente}\\[0.12cm]
+    \rule{\linewidth}{1.0pt}
+\end{center}
+
+\vspace{-0.25cm}
+
+\begin{tcolorbox}[title=Ficha Técnica Oficial del Informe, colframe=uni-blue]
+    \footnotesize
+    \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}ll@{}}
+        \textbf{Docente a Cargo:} Prof. Cortez R., Gregorio & \textbf{Fecha Límite:} \textbf{Jueves, 08 de octubre de 2026, 11:59 pm} \\
+        \textbf{Mesa de Trabajo:} Mesa N.° 3 & \textbf{Canal de Envío:} Correo \texttt{gcortezc@uni.edu.pe} y Delegado (NO al Aula Virtual) \\
+        \textbf{Semestre Académico:} 2026-2 (Física III, Sec. A) & \textbf{Modalidad:} Manuscrito en Hoja Bond/Cuadriculada + Escaneo PDF \\
+        \multicolumn{2}{@{}l}{\textbf{Integrantes:} Vera Vivanco, Jesús (20252703K) $\cdot$ Casañe Ramírez, Gerald (20251368C) $\cdot$ Sánchez Feril, Piero (20251629A)}
+    \end{tabular*}
+\end{tcolorbox}
+
+\vspace{0.05cm}
+
+%% ============================================================
+%% 1. REPARTO EQUITATIVO DE CARGA DE TRABAJO
+%% ============================================================
+\subsection*{\color{uni-blue}1. Reparto Equitativo de la Transcripción (3 Integrantes)}
+Para garantizar una \textbf{distribución justa y perfectamente equilibrada}, las 42 páginas del documento maestro (\texttt{main.pdf}) se han dividido en 3 bloques correlativos de trabajo:
+
+\vspace{0.05cm}
+
+\begin{tcolorbox}[title=BLOQUE 1 — Asignado a: Jesús Rodolfo Vera Vivanco, colframe=uni-blue]
+    \footnotesize
+    \textbf{Páginas asignadas en \texttt{main.pdf}:} Páginas 1 a 14 \hfill \textbf{Extensión:} 14 páginas del PDF maestro
+    \begin{itemize}[leftmargin=1.5em, itemsep=1.2pt, topsep=1pt]
+        \item \textbf{Portada e Índice General:} Carátula institucional formal con escudo UNI e Índice de contenidos numerado.
+        \item \textbf{Sección 1. Introducción, Sección 2. Resumen y Sección 3. Objetivos:} Contexto físico, síntesis de resultados y objetivos generales/específicos.
+        \item \textbf{Sección 4. Fundamento Teórico:} Transporte de carga, modelo de Drude, no linealidad de tungsteno por radiación, juntura $p$-$n$, ecuación de Shockley e incertidumbre en resistencia (Ecs. 1 a 6).
+        \item \textbf{Sección 5. Materiales y Equipos:} Descripción de los 5 equipos (fuente DC, multímetro, reóstato, caja de elementos, cables) con sus fotos pegadas y la \textbf{Tabla 1} Metrológica completa.
+        \item \textbf{Rol Logístico Especial:} Impresión en papel adhesivo (300 DPI), recorte y entrega de todas las figuras del grupo.
+    \end{itemize}
+\end{tcolorbox}
+
+\vspace{0.05cm}
+
+\begin{tcolorbox}[title=BLOQUE 2 — Asignado a: Gerald Giordano Casañe Ramírez, colframe=box-green]
+    \footnotesize
+    \textbf{Páginas asignadas en \texttt{main.pdf}:} Páginas 15 a 24 y Pág. 36 \hfill \textbf{Extensión:} 11 páginas del PDF maestro
+    \begin{itemize}[leftmargin=1.5em, itemsep=1.2pt, topsep=1pt]
+        \item \textbf{Sección 6. Procedimiento Experimental:} Montaje del circuito potenciométrico (pegar Figura 6), Parte A (foquito), Parte B (resistencia), Parte C (diodo) y Parte D (nicrón no medido).
+        \item \textbf{Sección 7. Resultados Experimentales:} \textbf{Tablas 2, 3, 4 y 5} completas trazadas con regla y datos crudos de mesa.
+        \item \textbf{Sección 8. Análisis Experimental:} Discusión cualitativa de linealidad de carbón, respuesta termorresistiva del filamento, conducción exponencial del diodo y densidades térmicas de potencia.
+        \item \textbf{Sección 9. Tratamiento de Datos y Resultados:} Regresión MCO de resistencia ($R = 100{,}02\,\Omega$), ajuste logarítmico del foquito ($n = 0{,}573$), ajuste de Shockley ($n = 1{,}871$), diagnóstico de $3\sigma$ del punto atípico y evaluación a \qty{0{,}80}{\volt}.
+        \item \textbf{Anexo A (Deducciones Analíticas):} Modelo de Drude ($\vec{J} = \sigma \vec{E}$) y deducción analítica de la ley de potencias por radiación de Stefan-Boltzmann ($I \propto V^{0{,}600}$).
+    \end{itemize}
+\end{tcolorbox}
+
+\vspace{0.05cm}
+
+\begin{tcolorbox}[title=BLOQUE 3 — Asignado a: Piero Alejandro Sánchez Feril, colframe=box-purple]
+    \footnotesize
+    \textbf{Páginas asignadas en \texttt{main.pdf}:} Páginas 25 a 35 y Págs. 37 a 42 \hfill \textbf{Extensión:} 17 páginas del PDF maestro
+    \begin{itemize}[leftmargin=1.5em, itemsep=1.2pt, topsep=1pt]
+        \item \textbf{Sección 10. Gráficas:} Espacios para pegar las 5 gráficas científicas a color (Figuras 7, 8, 9, 10 y 11) con sus respectivos epígrafes explicativos.
+        \item \textbf{Sección 11. Análisis de Gráficas:} Análisis cuantitativo de pendientes, residuos OLS, exponente de radiación, tensión de umbral ($V_u = \qty{0{,}66}{\volt}$) y evolución de $R(I)$.
+        \item \textbf{Sección 12. Observaciones, Sugerencias y Conclusiones:} 5 observaciones analíticas, 4 sugerencias metrológicas y 5 conclusiones cuantitativas con intervalos de confianza.
+        \item \textbf{Sección 13. Bibliografía:} Transcripción de las 8 referencias bibliográficas formales completas con su formato estándar.
+        \item \textbf{Anexo B (Incertidumbres):} Fórmulas de propagación por derivadas parciales GUM para $R = V/I$, $P = VI$ y pendiente OLS $s_R = R^2 s_G$.
+        \item \textbf{Anexo C (Cuestionario Oficial):} Respuestas desarrolladas a las Preguntas 1 a 5 de la guía.
+        \item \textbf{Anexo D (Hoja de Datos):} Pegar el facsímil de la hoja de toma de datos original firmada por el docente (Figura 12).
+    \end{itemize}
+\end{tcolorbox}
+
+\newpage
+
+%% ============================================================
+%% 2. TÉCNICA DE LA HOJA TRASLÚCIDA («FALSA GUÍA»)
+%% ============================================================
+\subsection*{\color{uni-blue}2. Técnica Obligatoria: Plantilla de «Falsa Guía» con Hoja Cuadriculada}
+
+Para garantizar que el informe manuscrito tenga una presentación \textbf{100\,\% recta, alineada y profesional} sobre \textbf{hojas bond blancas A4} (sin que el texto se tuerza, sin salirse de los márgenes y sin rayar la hoja con lápiz):
+
+\vspace{0.05cm}
+
+\begin{tcolorbox}[title=Paso a Paso: Fabricación y Uso de la Plantilla Traslúcida, colframe=uni-red]
+    \footnotesize
+    \begin{enumerate}[leftmargin=1.5em, itemsep=3pt]
+        \item \textbf{Arrancar una Hoja Cuadriculada:} Sacar una hoja cuadriculada A4 (o tamaño carta/cuaderno A4) limpia.
+        \item \textbf{Delinear el Recuadro Perimetral con Plumón Negro Grueso:} Con regla y plumón negro (Sharpie o plumón escolar grueso), trazar el recuadro que delimita la caja de escritura respetando estrictamente estas distancias:
+        \begin{itemize}[leftmargin=1.3em, itemsep=1.5pt]
+            \item \textbf{Margen Izquierdo:} $\mathbf{3{,}0\text{ cm}}$ $\longrightarrow$ \textbf{¡Obligatorio!} Garantiza que el texto, fórmulas y tablas no queden perforados ni tapados por el engrapador, fastener o fólder.
+            \item \textbf{Margen Derecho:} $\mathbf{2{,}0\text{ cm}}$ $\longrightarrow$ Límite estricto para no desbordar el texto al borde de la hoja.
+            \item \textbf{Margen Superior:} $\mathbf{2{,}0\text{ cm}}$ $\longrightarrow$ Espacio reservado para encabezado y foliación de página.
+            \item \textbf{Margen Inferior:} $\mathbf{2{,}0\text{ cm}}$ $\longrightarrow$ Margen de seguridad para pie de página.
+        \end{itemize}
+        \item \textbf{Delinear los Renglones Horizontales:} Dentro del recuadro, repasar con plumón negro una línea horizontal cada \textbf{2 cuadritos ($\approx 8\text{ mm}$ a $10\text{ mm}$)} para tener los renglones de escritura perfectamente espaciados.
+        \item \textbf{Uso al Escribir:} Colocar la hoja plantilla negra \textbf{debajo de la hoja bond blanca A4}. 
+        \item \textbf{Sujeción con Clips:} Colocar \textbf{dos clips metálicos} o cinta adhesiva suave en las esquinas superiores para fijar la hoja bond a la plantilla y evitar que se mueva mientras escriben. El contraste del plumón negro se verá claramente \textbf{traslúcido}, permitiendo escribir recto de principio a fin.
+    \end{enumerate}
+\end{tcolorbox}
+
+\vspace{0.15cm}
+
+%% ============================================================
+%% 3. REGLAS DE ORO DE ESCRITURA Y PEGADO
+%% ============================================================
+\subsection*{\color{uni-blue}3. Reglas de Oro de Escritura y Pegado de Stickers}
+
+\begin{tcolorbox}[title=Normas de Formato y Presentación de Cátedra, colframe=uni-blue]
+    \footnotesize
+    \begin{itemize}[leftmargin=1.5em, itemsep=2.5pt]
+        \item \textbf{Tinta y Lapicero:} Escribir todo el texto con \textbf{lapicero azul o negro} (tinta seca o gel). Reservar el lapicero rojo únicamente para títulos principales o subrayados de ecuaciones destacadas.
+        \item \textbf{Tablas Científicas:} Trazar las tablas estrictamente con regla. Respetar el estándar \textbf{booktabs}: \textbf{línea superior (\textit{toprule}), línea bajo cabeceras (\textit{midrule}) y línea inferior (\textit{bottomrule})}. \textbf{¡PROHIBIDO trazar líneas verticales!}
+        \item \textbf{Fórmulas Matemáticas:} Escribir las ecuaciones en renglón independiente, centradas y con su numeración entre paréntesis a la derecha: $(1), (2), \dots$, tal como aparecen en el PDF maestro.
+        \item \textbf{Pegado de Figuras / Stickers:} Dejar el espacio exacto reservado para cada figura o gráfica. Aplicar pegamento en barra (tipo UHU o Pritt) de manera uniforme para evitar arrugas en el papel bond.
+        \item \textbf{Foliación Continua:} Cada integrante numerará sus páginas en la esquina inferior derecha. Al final, se unificarán todas en un único correlativo (Páginas 1 a $N$).
+    \end{itemize}
+\end{tcolorbox}
+
+\vspace{0.15cm}
+
+%% ============================================================
+%% 4. PROTOCOLO DE DIGITALIZACIÓN Y ESCANEO
+%% ============================================================
+\subsection*{\color{uni-blue}4. Protocolo de Digitalización y Entrega}
+
+\begin{tcolorbox}[title=Procedimiento de Digitalización para Envío Oficial, colframe=box-green]
+    \footnotesize
+    \begin{enumerate}[leftmargin=1.5em, itemsep=2.5pt]
+        \item \textbf{Escaneo en Alta Resolución:} Cada integrante escaneará sus páginas utilizando una aplicación de escaneo profesional (CamScanner, Adobe Scan o escáner plano de cama) a \textbf{300 DPI} con buena iluminación cenital natural o blanca.
+        \item \textbf{Filtro de Procesamiento:} Aplicar filtro \textit{Realce Mágico (Magic Color)} o \textit{Blanco y Negro Nítido} para asegurar fondo blanco puro sin sombras grises, bordes torcidos ni reflejos.
+        \item \textbf{Unificación PDF:} Se fusionarán los tres bloques escaneados junto con la portada oficial y el facsímil de la hoja de datos en un único archivo denominado:
+        \begin{center}
+            \texttt{CF2B1\_SecA\_Lab03\_Mesa03\_Informe\_Manuscrito.pdf}
+        \end{center}
+        \item \textbf{Revisión Final:} Verificar que ninguna fórmula quede borrosa o ilegible antes del envío al correo \texttt{gcortezc@uni.edu.pe} y al delegado del curso.
+    \end{enumerate}
+\end{tcolorbox}
+
+\end{document}

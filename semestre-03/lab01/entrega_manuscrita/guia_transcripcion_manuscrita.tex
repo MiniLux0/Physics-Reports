@@ -1,0 +1,268 @@
+\documentclass[a4paper, 10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{lmodern}
+\usepackage[top=1.5cm, bottom=1.5cm, left=1.8cm, right=1.8cm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs, tabularx, multirow}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+\definecolor{uni-blue}{RGB}{0, 56, 101}
+\definecolor{uni-red}{RGB}{166, 25, 46}
+\definecolor{card-bg}{RGB}{250, 251, 252}
+\definecolor{box-green}{RGB}{24, 134, 75}
+\definecolor{box-purple}{RGB}{112, 48, 160}
+
+\usepackage[
+    colorlinks=true,
+    linkcolor=uni-blue,
+    urlcolor=uni-blue,
+    citecolor=uni-blue
+]{hyperref}
+
+\pagestyle{empty}
+
+\tcbset{
+    sharp corners,
+    boxrule=0.8pt,
+    colback=card-bg,
+    colframe=uni-blue,
+    fonttitle=\small\bfseries\color{white},
+    colbacktitle=uni-blue,
+    enhanced,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={sharp corners, boxrule=0pt, colback=uni-blue},
+    top=2.5mm, bottom=2mm, left=3mm, right=3mm
+}
+
+\begin{document}
+
+%% ============================================================
+%% ENCABEZADO OFICIAL
+%% ============================================================
+\begin{center}
+    {\large\bfseries UNIVERSIDAD NACIONAL DE INGENIERÍA}\\[0.08cm]
+    {\normalsize\bfseries FACULTAD DE CIENCIAS --- ESCUELA PROFESIONAL DE FÍSICA}\\[0.08cm]
+    {\footnotesize\textbf{Física General / Física III (CF1B2) --- Sección A \quad $\vert$ \quad Semestre 2026-I}}\\[0.15cm]
+    \rule{\linewidth}{1.0pt}\\[0.12cm]
+    {\Large\bfseries\color{uni-blue} GUÍA MAESTRA DE TRANSCRIPCIÓN MANUSCRITA Y DISTRIBUCIÓN}\\[0.08cm]
+    {\large\bfseries Laboratorio N.° 1: El Osciloscopio como Instrumento de Medida}\\[0.12cm]
+    \rule{\linewidth}{1.0pt}
+\end{center}
+
+\vspace{-0.25cm}
+
+\begin{tcolorbox}[title=Ficha Técnica Oficial del Informe, colframe=uni-blue]
+    \footnotesize
+    \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}ll@{}}
+        \textbf{Docente a Cargo:} Prof. Cortez R., Gregorio & \textbf{Fecha Límite:} \textbf{Lunes, 14 de septiembre de 2026, 11:59 pm} \\
+        \textbf{Mesa de Trabajo:} Mesa N.° 3 & \textbf{Canal de Envío:} Correo \texttt{gcortezc@uni.edu.pe} y Delegado (NO al Aula Virtual) \\
+        \textbf{Semestre Académico:} 2026-2 (Física III, Sec. A) & \textbf{Modalidad:} Manuscrito en Hoja Bond/Cuadriculada + Escaneo PDF \\
+        \multicolumn{2}{@{}l}{\textbf{Integrantes:} Vera Vivanco, Jesús (20252703K) $\cdot$ Casañe Ramírez, Gerald (20251368C) $\cdot$ Sánchez Feril, Piero (20251629A)}
+    \end{tabular*}
+\end{tcolorbox}
+
+\vspace{0.05cm}
+
+%% ============================================================
+%% 1. REPARTO EQUITATIVO DE CARGA DE TRABAJO
+%% ============================================================
+\subsection*{\color{uni-blue}1. Reparto Equitativo de la Transcripción (3 Integrantes)}
+Para garantizar una \textbf{distribución justa y perfectamente equilibrada}, las 38 páginas del documento maestro (\texttt{main.pdf}) se han dividido en 3 bloques correlativos de trabajo:
+
+\vspace{0.05cm}
+
+\begin{tcolorbox}[title=BLOQUE 1 — Asignado a: Jesús Rodolfo Vera Vivanco, colframe=uni-blue]
+    \footnotesize
+    \textbf{Páginas asignadas en \texttt{main.pdf}:} Páginas 1 a 14 \hfill \textbf{Extensión:} 14 páginas del PDF maestro
+    \begin{itemize}[leftmargin=1.5em, itemsep=1.2pt, topsep=1pt]
+        \item \textbf{Portada e Índice General:} Carátula institucional formal con escudo UNI e Índice de contenidos numerado.
+        \item \textbf{Sección 1. Introducción, Sección 2. Resumen y Sección 3. Objetivos:} Texto introductorio y síntesis de valores.
+        \item \textbf{Sección 4. Fundamento Teórico:} Modelo del TRC, deflexión electrostática y fórmulas teóricas (Ecs. 1 a 11).
+        \item \textbf{Sección 5. Materiales y Equipos:} Descripción de los 8 instrumentos de laboratorio y \textbf{Tabla 1} (metrología).
+        \item \textbf{Rol Logístico Especial:} Impresión en papel adhesivo (300 DPI), recorte y entrega de todas las figuras del grupo.
+    \end{itemize}
+\end{tcolorbox}
+
+\vspace{0.05cm}
+
+\begin{tcolorbox}[title=BLOQUE 2 — Asignado a: Gerald Giordano Casañe Ramírez, colframe=box-green]
+    \footnotesize
+    \textbf{Páginas asignadas en \texttt{main.pdf}:} Páginas 15 a 24 y Pág. 33 \hfill \textbf{Extensión:} 11 páginas del PDF maestro
+    \begin{itemize}[leftmargin=1.5em, itemsep=1.2pt, topsep=1pt]
+        \item \textbf{Sección 6. Procedimiento Experimental:} Protocolo de las 5 partes (A, B, C, D y E) y pasos numerados.
+        \item \textbf{Sección 7. Resultados Experimentales:} \textbf{Tablas 2, 3, 4, 5, 6 y 7} completas con datos crudos de retícula.
+        \item \textbf{Sección 8. Análisis Experimental:} Discusión cualitativa de linealidad, saturación vertical y escalas.
+        \item \textbf{Sección 9. Tratamiento de Datos y Resultados:} Cálculos analíticos, regresión lineal OLS y errores \% (Ecs. 12 a 34).
+        \item \textbf{Anexo A (Deducción RMS):} Demostración analítica por cálculo integral del $V_{\text{rms}}$ para onda senoidal, triangular y cuadrada.
+    \end{itemize}
+\end{tcolorbox}
+
+\vspace{0.05cm}
+
+\begin{tcolorbox}[title=BLOQUE 3 — Asignado a: Piero Alejandro Sánchez Feril, colframe=box-purple]
+    \footnotesize
+    \textbf{Páginas asignadas en \texttt{main.pdf}:} Páginas 25 a 32 y Págs. 34 a 38 \hfill \textbf{Extensión:} 13 páginas del PDF maestro
+    \begin{itemize}[leftmargin=1.5em, itemsep=1.2pt, topsep=1pt]
+        \item \textbf{Sección 10. Gráficas:} Espacios para pegar las 3 gráficas a color con sus respectivos epígrafes explicativos.
+        \item \textbf{Sección 11. Análisis de Gráficas:} Análisis cuantitativo de calibración DC, morfología AC y figuras de Lissajous $X$-$Y$.
+        \item \textbf{Sección 12. Observaciones, Sugerencias y Conclusiones:} 4 observaciones, 4 sugerencias y 7 conclusiones formales.
+        \item \textbf{Bibliografía:} Transcripción de las 10 referencias bibliográficas formales completas con su formato estándar.
+        \item \textbf{Anexo B (Incertidumbres):} Fórmulas de propagación por derivadas parciales de $u(V_{\text{osc}})$, $u(T)$, $u(f)$, etc.
+        \item \textbf{Anexo C (Cuestionario de la Guía):} Respuestas desarrolladas a las Preguntas 1 a 6 de Resultados Mínimos.
+        \item \textbf{Anexo D (Hoja de Datos):} Adjuntar o pegar la hoja de toma de datos original firmada por el docente.
+    \end{itemize}
+\end{tcolorbox}
+
+\newpage
+
+%% ============================================================
+%% 2. TÉCNICA DE LA HOJA TRASLÚCIDA («FALSA GUÍA»)
+%% ============================================================
+\subsection*{\color{uni-blue}2. Técnica Obligatoria: Plantilla de «Falsa Guía» con Hoja Cuadriculada}
+
+Para garantizar que el informe manuscrito tenga una presentación **100\,\% recta, alineada y profesional** sobre **hojas bond blancas A4** (sin que el texto se tuerza, sin salirse de los márgenes y sin rayar la hoja con lápiz):
+
+\vspace{0.05cm}
+
+\begin{tcolorbox}[title=Paso a Paso: Fabricación y Uso de la Plantilla Traslúcida, colframe=uni-red]
+    \footnotesize
+    \begin{enumerate}[leftmargin=1.5em, itemsep=3pt]
+        \item \textbf{Arrancar una Hoja Cuadriculada:} Sacar una hoja cuadriculada A4 (o tamaño carta/cuaderno A4) limpia.
+        \item \textbf{Delinear el Recuadro Perimetral con Plumón Negro Grueso:} Con regla y plumón negro (Sharpie o plumón escolar grueso), trazar el recuadro que delimita la caja de escritura respetando estrictamente estas distancias:
+        \begin{itemize}[leftmargin=1.3em, itemsep=1.5pt]
+            \item \textbf{Margen Izquierdo:} $\mathbf{3{,}0\text{ cm}}$ $\longrightarrow$ \textbf{¡Obligatorio!} Garantiza que el texto, fórmulas y tablas no queden perforados ni tapados por el engrapador, fastener o fólder.
+            \item \textbf{Margen Derecho:} $\mathbf{2{,}0\text{ cm}}$ $\longrightarrow$ Límite estricto para no desbordar el texto al borde de la hoja.
+            \item \textbf{Margen Superior:} $\mathbf{2{,}0\text{ cm}}$ $\longrightarrow$ Espacio reservado para encabezado y foliación de página.
+            \item \textbf{Margen Inferior:} $\mathbf{2{,}0\text{ cm}}$ $\longrightarrow$ Margen de seguridad para pie de página.
+        \end{itemize}
+        \item \textbf{Delinear los Renglones Horizontales:} Dentro del recuadro, repasar con plumón negro una línea horizontal cada \textbf{2 cuadritos ($\approx 8\text{ mm}$ a $10\text{ mm}$)} para tener los renglones de escritura perfectamente espaciados.
+        \item \textbf{Uso al Escribir:} Colocar la hoja plantilla negra \textbf{debajo de la hoja bond blanca A4}. 
+        \item \textbf{Sujeción con Clips:} Colocar \textbf{dos clips metálicos} o cinta adhesiva suave en las esquinas superiores para fijar la hoja bond a la plantilla y evitar que se mueva mientras escriben. El contraste del plumón negro se verá claramente \textbf{traslúcido}, permitiendo escribir recto de principio a fin.
+    \end{enumerate}
+\end{tcolorbox}
+
+\vspace{0.1cm}
+
+%% ============================================================
+%% 3. CATÁLOGO Y MEDIDAS DE STICKERS
+%% ============================================================
+\subsection*{\color{uni-blue}3. Catálogo y Dimensiones de Figuras y Gráficas en Papel Sticker (Jesús)}
+\textbf{Jesús} entregará a cada uno los stickers de sus figuras recortados a medida exacta. Antes de escribir el texto que sigue a una figura, \textbf{deben medir con regla el espacio vertical en blanco} para pegar el sticker y escribir debajo el epígrafe formal (\textit{Figura N: [Texto]}).
+
+\vspace{0.05cm}
+
+\begin{center}
+    \footnotesize
+    \begin{tabularx}{\linewidth}{@{}clll>{\centering\arraybackslash}c@{}}
+        \toprule
+        \textbf{N.°} & \textbf{Denominación / Archivo en \texttt{Figures/}} & \textbf{Sección} & \textbf{Responsable} & \textbf{Medida ($W \times H$)} \\
+        \midrule
+        0 & Escudo Oficial UNI (\texttt{uni\_logo.jpg}) & Portada & Jesús & $3{,}5\text{ cm} \times 4{,}4\text{ cm}$ \\
+        1 & Fig. 1: Esquema del Tubo de Rayos Catódicos (TRC) & Sec. 04 & Jesús & $12{,}0\text{ cm} \times 5{,}8\text{ cm}$ \\
+        2 & Fig. 2: Anatomía de la Señal Senoidal y Parámetros & Sec. 04 & Jesús & $12{,}0\text{ cm} \times 7{,}3\text{ cm}$ \\
+        3--10 & Figs. 3 a 10: 8 Fotos de Equipos e Instrumentos & Sec. 05 & Jesús & $6{,}5\text{ cm} \times 5{,}0\text{ cm}$ c/u \\
+        11 & Fig. 11: Esquemas de Montaje Circuital (a, b y c) & Sec. 06 & Gerald & $14{,}0\text{ cm} \times 4{,}3\text{ cm}$ \\
+        12 & Fig. 12: Gráfica de Calibración DC y Residuos OLS & Sec. 10 & Piero & $13{,}0\text{ cm} \times 10{,}4\text{ cm}$ \\
+        13 & Fig. 13: Formas de Onda AC (Seno, Triángulo, Cuadrada) & Sec. 10 & Piero & $13{,}0\text{ cm} \times 13{,}8\text{ cm}$ \\
+        14 & Fig. 14: Figuras de Lissajous en Modo $X$-$Y$ & Sec. 10 & Piero & $13{,}5\text{ cm} \times 8{,}7\text{ cm}$ \\
+        15 & Fig. 15: Hoja de Toma de Datos Original Firmada & Anexo D & Piero & $15{,}0\text{ cm} \times 21{,}0\text{ cm}$ \\
+        \bottomrule
+    \end{tabularx}
+\end{center}
+
+\vspace{0.1cm}
+
+%% ============================================================
+%% 4. NORMAS DE UNIFORMIDAD Y ESTÁNDARES CIENTÍFICOS
+%% ============================================================
+\subsection*{\color{uni-blue}4. Normas de Uniformidad y Estándares de Redacción}
+
+\begin{enumerate}[leftmargin=1.8em, itemsep=2.5pt]
+    \item \textbf{Lapiceros y Colores de Tinta (Cero Rojo, Solo Azul y Negro):}
+    \begin{itemize}[leftmargin=1.2em, itemsep=1pt]
+        \item \textbf{Texto General y Desarrollo:} Lapicero de tinta **azul** (para toda la redacción y cálculos).
+        \item \textbf{Títulos, Subtítulos y Números de Ecuación:} Lapicero de tinta **negra** (da formalidad y contraste sobrio sin usar rojo).
+        \item \textbf{Resultados Clave y Recuadros:} Encerrar en recuadro a regla con tinta **negra**: $\boxed{V_{\text{rms}} = (6{,}830 \pm 0{,}010)\,\text{V}}$.
+        \item \textbf{Regla de Oro:} Todo el equipo debe usar la misma combinación (cuerpo en azul y jerarquías en negro) para mantener uniformidad total.
+    \end{itemize}
+    \item \textbf{Tablas de Datos con Regla (Estilo Formal):} Trazar estrictamente con **regla milimetrada**. Respetar la convención formal `booktabs`: **solo líneas horizontales** (superior doble/gruesa, intermedia de cabecera y cierre inferior), **sin ninguna línea vertical**.
+    \item \textbf{Ecuaciones Matemáticas:} Escribir centradas en su propia línea, con el número de ecuación $(1), (2), (3)\dots$ alineado a la derecha. Respetar la notación con coma decimal para magnitudes SI (ej. $19{,}50\pm 0{,}50\,\text{V}$, $60{,}00\,\text{Hz}$).
+    \item \textbf{Conservación de la Numeración:} Mantener exactamente los mismos números de ecuación, tablas y figuras que en el PDF maestro para que todas las referencias cruzadas sigan siendo perfectamente válidas.
+\end{enumerate}
+
+\newpage
+
+%% ============================================================
+%% 5. PROTOCOLO DE ENSAMBLADO, ESCANEO Y ENVÍO OFICIAL
+%% ============================================================
+\subsection*{\color{uni-blue}5. Protocolo de Ensamblado, Escaneo y Envío Oficial}
+
+\begin{tcolorbox}[title=Regla de Paginación y Ensamblado Físico, colframe=uni-blue]
+    \footnotesize
+    \begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
+        \item \textbf{Durante la Transcripción:} \textbf{¡NO ESCRIBIR NÚMERO DE PÁGINA!} Dejar la esquina superior derecha vacía.
+        \item \textbf{Reunión de Ensamblado:} Ordenar físicamente: \textbf{BLOQUE 1 (Jesús)} $\longrightarrow$ \textbf{BLOQUE 2 (Gerald)} $\longrightarrow$ \textbf{BLOQUE 3 (Piero)}.
+        \item \textbf{Foliación Correlativa:} Una sola persona foliará todas las hojas correlativamente ($1, 2, 3\dots N$) con el mismo lapicero y letra uniforme. Completar luego los números en el Índice.
+    \end{enumerate}
+\end{tcolorbox}
+
+\vspace{0.05cm}
+
+\begin{tcolorbox}[title=Indicaciones Oficiales del Docente y Formato de Envío, colframe=uni-red]
+    \footnotesize
+    \begin{itemize}[leftmargin=1.5em, itemsep=2.5pt]
+        \item \textbf{Fecha y Hora Límite Improrrogable:} \textbf{Lunes, 14 de septiembre de 2026, hasta las 11:59 pm}.
+        \item \textbf{Destino Oficial de Envío:} Enviar por correo electrónico a: \texttt{\textbf{gcortezc@uni.edu.pe}} y enviar copia al delegado Enrique Isaac (\texttt{@enrique.ih}). \textbf{¡NO subir al aula virtual!}
+        \item \textbf{Digitalización / Escaneo:} Escanear todo el informe físico ensamblado en un único archivo PDF nítido a color (300 DPI con escáner plano o CamScanner en alta calidad, con orientación vertical recta y bordes recortados).
+        \item \textbf{Test Grupal:} Resolver el test grupal y anexarlo obligatoriamente al final del informe (tras los anexos).
+        \item \textbf{Nomenclatura Oficial del Archivo PDF (Formato Estricto):}
+        \begin{center}
+            \texttt{\textbf{L1\_Física\_III\_SECCIÓN\_A\_26-2\_Vera\_Casañe\_Sánchez.pdf}}
+        \end{center}
+        \textit{Variante aceptada:} \texttt{\textbf{L1\_Física\_III\_SECCIÓN\_A\_SEPTIEMBRE03\_Vera\_Casañe\_Sánchez\_2026-2.pdf}}
+    \end{itemize}
+\end{tcolorbox}
+
+\vspace{0.1cm}
+
+%% ============================================================
+%% 6. CHECKLIST DE VERIFICACIÓN ANTES DE ENTREGAR
+%% ============================================================
+\subsection*{\color{uni-blue}6. Checklist de Verificación Rápida por Integrante}
+
+\begin{center}
+    \footnotesize
+    \begin{tabularx}{\linewidth}{@{}lcX@{}}
+        \toprule
+        \textbf{Integrante} & \textbf{Estado} & \textbf{Ítems Críticos a Verificar antes de la Reunión Final} \\
+        \midrule
+        \multirow{4}{*}{\textbf{Jesús Vera}} 
+        & [ ] & Portada con escudo UNI pegado, datos correctos del docente y grupo. \\
+        & [ ] & Fundamento Teórico con las 11 fórmulas teóricas y Figs. 1 y 2 pegadas. \\
+        & [ ] & Materiales con las 8 fotos de equipos pegadas y Tabla 1 trazada a regla. \\
+        & [ ] & Todos los stickers de imágenes recortados y listos para entregar a Gerald y Piero. \\
+        \midrule
+        \multirow{4}{*}{\textbf{Gerald Casañe}} 
+        & [ ] & Procedimiento con Fig. 11 (Circuitos) pegada en el centro. \\
+        & [ ] & Tablas 2, 3, 4, 5, 6 y 7 de Resultados trazadas con regla sin líneas verticales. \\
+        & [ ] & Tratamiento de Datos con desarrollo de Ecs. 12 a 34 y regresión lineal OLS. \\
+        & [ ] & Anexo A completo con las integrales de $V_{\text{rms}}$ para las 3 ondas. \\
+        \midrule
+        \multirow{5}{*}{\textbf{Piero Sánchez}} 
+        & [ ] & Sección 10 con las Figs. 12, 13 y 14 (Gráficas Python 300 DPI) pegadas y con epígrafe. \\
+        & [ ] & Observaciones (4), Sugerencias (4) y Conclusiones (7) completas. \\
+        & [ ] & Bibliografía con las 10 citas formales completas. \\
+        & [ ] & Anexos B (derivadas), C (Cuestionario) y D (Hoja de datos original firmada). \\
+        & [ ] & Test Grupal de laboratorio resuelto anexado al final del documento. \\
+        \bottomrule
+    \end{tabularx}
+\end{center}
+
+\end{document}

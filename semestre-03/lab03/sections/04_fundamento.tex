@@ -1,0 +1,62 @@
+%% ============================================================
+%%  SECCIÓN 4 — Fundamento Teórico
+%% ============================================================
+
+\section{Fundamento Teórico}
+\label{sec:fundamento}
+
+\subsection{Transporte de Carga y Ley de Ohm Microscópica}
+
+A nivel microscópico, la conducción eléctrica en metales se describe mediante el modelo clásico de Drude: los electrones libres de conducción adquieren una velocidad de deriva estacionaria $\vec{v}_d$ bajo la acción del campo eléctrico $\vec{E}$, interrumpida periódicamente por colisiones inelásticas con la red cristalina. La densidad de corriente volumétrica resultante es~\cite{serway, halliday}:
+\begin{equation}
+    \vec{J} = nq\vec{v}_d = \sigma\vec{E}, \qquad \sigma = \frac{ne^2\tau}{m_e},
+    \label{eq:conductividad_drude}
+\end{equation}
+donde $n$ es la densidad de portadores, $\tau$ el tiempo medio de relajación entre colisiones y $m_e$ la masa del electrón. Integrando sobre la geometría del conductor (longitud $L$, sección transversal $A$) se obtiene la ley de Ohm macroscópica:
+\begin{equation}
+    V = R\,I, \qquad R = \frac{\rho\,L}{A}, \qquad \rho = \frac{1}{\sigma}.
+    \label{eq:ohm_macro}
+\end{equation}
+Un elemento se denomina \textbf{óhmico} si $R$ es independiente de $V$ e $I$. En ese caso, la característica $I$--$V$ es una recta que pasa por el origen con pendiente igual a la conductancia $G = 1/R$.
+
+\subsection{Conductores No Lineales: Efecto Joule y Resistividad Térmica}
+
+En filamentos metálicos sometidos a elevadas densidades de corriente, la potencia eléctrica disipada por efecto Joule ($P = VI$) eleva la temperatura $T$ del conductor. La resistividad del tungsteno aumenta con la temperatura según:
+\begin{equation}
+    \rho(T) \approx \rho_0 \left(\frac{T}{T_0}\right)^{1{,}2}, \qquad \alpha_W \approx \qty{4{,}5e-3}{\per\kelvin},
+    \label{eq:resistividad_tungsteno}
+\end{equation}
+originando que $R = V/I$ crezca con la corriente (coeficiente térmico positivo, PTC). En régimen estacionario, la potencia eléctrica se equilibra con la radiación térmica según la ley de Stefan-Boltzmann ($P_{\text{rad}} \propto T^4$), lo que conduce a la relación de ley de potencias demostrada en el Anexo~A:
+\begin{equation}
+    \boxed{I(V) = k\,V^{3/5}, \qquad n_{\text{teo}} = 0{,}600.}
+    \label{eq:ley_potencias_foquito}
+\end{equation}
+
+\subsection{Juntura \texorpdfstring{$p$-$n$}{p-n} y Ecuación de Shockley}
+
+En un diodo semiconductor de silicio, la unión de regiones $p$ (exceso de huecos) y $n$ (exceso de electrones) genera una barrera de potencial electrostático interna $V_0 \approx \qty{0{,}65}{\volt}$ en la zona de agotamiento. En polarización directa ($V > 0$), la corriente de difusión de portadores mayoritarios sigue la ecuación de Shockley~\cite{boylestad}:
+\begin{equation}
+    \boxed{I = I_S\left(e^{V/(nV_T)} - 1\right),}
+    \label{eq:shockley}
+\end{equation}
+donde:
+\begin{itemize}
+    \item $I_S \sim \qty{e-12}{}$--$\qty{e-6}{\ampere}$: corriente de saturación inversa (depende del dopaje y la temperatura).
+    \item $n \in [1{,}0;\,2{,}0]$: factor de idealidad ($n = 1$ difusión pura; $n = 2$ recombinación dominante).
+    \item $V_T = kT/q \approx \qty{25{,}7}{\milli\volt}$ a $T = \qty{25}{\celsius}$: tensión térmica.
+\end{itemize}
+
+A voltajes inferiores al codo de conducción ($V < V_u \approx \qty{0{,}65}{\volt}$), el dispositivo se mantiene en corte práctico ($I \approx 0$). Para $V > V_u$, la corriente crece exponencialmente y la resistencia estática $R = V/I$ cae drásticamente.
+
+\subsection{Incertidumbre de la Resistencia y Propagación de Errores}
+
+La resistencia estática calculada indirectamente a partir de pares $(V, I)$ propaga las incertidumbres instrumentales $\delta V$ y $\delta I$ mediante derivadas parciales en cuadratura (método GUM~\cite{gum, taylor}):
+\begin{equation}
+    \frac{\delta R}{R} = \sqrt{\left(\frac{\delta V}{V}\right)^2 + \left(\frac{\delta I}{I}\right)^2}.
+    \label{eq:prop_errores_R}
+\end{equation}
+El error relativo porcentual respecto a un valor de referencia $R_{\text{ref}}$ se evalúa como:
+\begin{equation}
+    E_r = \frac{|R_{\text{exp}} - R_{\text{ref}}|}{R_{\text{ref}}} \times \qty{100}{\percent}.
+    \label{eq:error_relativo}
+\end{equation}

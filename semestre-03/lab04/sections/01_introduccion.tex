@@ -1,0 +1,21 @@
+%% ============================================================
+%%  SECCIÓN 1 — Introducción
+%% ============================================================
+
+\section{Introducción}
+\label{sec:introduccion}
+
+El estudio de los fenómenos dependientes del tiempo en circuitos eléctricos constituye uno de los pilares formativos más importantes en nuestra formación como estudiantes de ciencias e ingeniería en la Universidad Nacional de Ingeniería. Mientras que en las sesiones iniciales de laboratorio analizamos redes puramente resistivas gobernadas por relaciones algebraicas instantáneas (Ley de Ohm y leyes de Kirchhoff estacionarias), el comportamiento dinámico de los circuitos con elementos almacenadores de energía introduce una rica dependencia temporal descrita por ecuaciones diferenciales ordinarias \cite{serway,halliday}.
+
+A nivel microscópico, un condensador o capacitor está compuesto por dos armaduras conductoras separadas por un medio dieléctrico o aislante. Cuando aplicamos una diferencia de potencial entre sus terminales, el campo eléctrico induce el desplazamiento transitorio de electrones libres desde una placa hacia la otra a través del conductor externo, acumulando una carga neta $+Q$ en una armadura y $-Q$ en la opuesta. Este transporte de portadores de carga no ocurre de forma instantánea: la presencia de un elemento resistivo limita la tasa de transferencia temporal de carga eléctrica, dando origen a una intensidad de corriente $I(t) = dq/dt$ que decrece gradualmente a medida que la diferencia de potencial acumulada en el dieléctrico contrarresta la fuerza electromotriz externa \cite{boylestad}.
+
+Macroscópicamente, esta respuesta transitoria define la llamada constante de tiempo capacitiva:
+\begin{equation}
+    \tau = R \cdot C
+    \label{eq:intro_tau}
+\end{equation}
+cuya magnitud física posee dimensiones de tiempo y se expresa en segundos (\unit{\second}) o microsegundos (\unit{\micro\second}) dentro del Sistema Internacional de Unidades (SI). El parámetro $\tau$ cuantifica la inercia temporal del circuito: representa el lapso exacto necesario para que la tensión en bornes del condensador alcance el \qty{63,2}{\percent} de su valor asintótico de saturación durante el proceso de carga, o para que decaiga hasta el \qty{36,8}{\percent} de su valor inicial durante la descarga libre \cite{alexander}.
+
+En el ámbito tecnológico e industrial, este comportamiento transitorio de primer orden es el fundamento operativo de multitud de dispositivos cotidianos: desde redes temporizadoras y osciladores de relajación, hasta filtros pasa-bajos y pasa-altos empleados para la eliminación de ruido e interferencias en sistemas de comunicaciones, acondicionamiento de señales biomédicas y acoplamiento en etapas de instrumentación electrónica \cite{boylestad}.
+
+En la presente práctica de laboratorio, implementamos y caracterizamos experimentalmente circuitos RC excitados por una onda periódica cuadrada generada por un sintetizador digital directo OWON AG 051F (\qty{250}{\hertz}, \qty{10,0}{\voltpp}), monitorizando simultáneamente en tiempo real la tensión del condensador y la caída en la resistencia mediante un osciloscopio digital de fósforo Rohde \& Schwarz HMO1202. A partir de las mediciones directas realizadas en nuestra Mesa C7 y el posterior análisis estocástico de las curvas transitorias, nos propusimos verificar la validez de la relación $\tau = RC$, determinar con rigor metrológico las capacitancias efectivas del banco de ensayo, comprobar la Segunda Ley de Kirchhoff en régimen dinámico mediante operaciones matemáticas de canales y modelar circuitos mixtos aplicando el Teorema de Thévenin.

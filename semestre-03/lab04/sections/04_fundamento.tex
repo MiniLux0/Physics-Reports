@@ -1,0 +1,158 @@
+%% ============================================================
+%%  SECCIÓN 4 — Fundamento Teórico
+%% ============================================================
+
+\section{Fundamento Teórico}
+\label{sec:fundamento}
+
+\subsection{Ecuación diferencial y dinámica de carga del condensador}
+
+Consideremos un circuito eléctrico elemental de primer orden constituido por una fuente ideal de fuerza electromotriz continua $V_0$, un resistor lineal de resistencia constante $R$, un condensador ideal de capacitancia $C$ y un interruptor ideal $S$, conectados en serie. Supongamos que el condensador se encuentra inicialmente descargado, de modo que en el instante inicial $t = 0^-$ la carga electrostática en sus armaduras satisface la condición de reposo $q(0^-) = 0$.
+
+Al cerrar el interruptor en $t = 0$, la Segunda Ley de Kirchhoff (Ley de Mallas), que expresa el principio de conservación de la energía en una trayectoria cerrada, establece que en todo instante temporal $t \ge 0$ la suma de las diferencias de potencial debe anularse \cite{serway}:
+\begin{equation}
+    V_0 - V_R(t) - V_C(t) = 0
+    \label{eq:malla_carga}
+\end{equation}
+Sustituyendo la relación constitutiva de la resistencia según la Ley de Ohm, $V_R(t) = R \cdot I(t)$, y la definición electrostática del potencial en el dieléctrico, $V_C(t) = q(t)/C$, obtenemos:
+\begin{equation}
+    V_0 = R\,I(t) + \frac{q(t)}{C}
+    \label{eq:malla_carga_q}
+\end{equation}
+Dado que la intensidad de corriente instantánea $I(t)$ que ingresa a la armadura positiva equivale a la tasa temporal de acumulación de carga ($I(t) = dq/dt$), la ecuación~\eqref{eq:malla_carga_q} se convierte en una ecuación diferencial ordinaria lineal de primer orden con coeficientes constantes:
+\begin{equation}
+    R\,\frac{dq}{dt} + \frac{q(t)}{C} = V_0
+    \label{eq:edo_carga}
+\end{equation}
+Reordenando los términos algebraicos para integrar por separación de variables:
+\begin{equation}
+    \frac{dq}{C V_0 - q} = \frac{dt}{R C}
+\end{equation}
+Integrando ambos miembros desde la condición inicial $q(0) = 0$ hasta un instante genérico $t$:
+\begin{equation}
+    \int_{0}^{q(t)} \frac{dq}{C V_0 - q} = \int_{0}^{t} \frac{dt}{R C} \implies -\ln\left(\frac{C V_0 - q(t)}{C V_0}\right) = \frac{t}{R C}
+\end{equation}
+Aplicando la función exponencial en ambos extremos y despejando la carga electrostática instantánea $q(t)$:
+\begin{equation}
+    q(t) = C V_0 \left( 1 - e^{-t / RC} \right)
+    \label{eq:q_carga}
+\end{equation}
+A partir de la ecuación~\eqref{eq:q_carga}, deducimos de manera directa las expresiones para la tensión en bornes del condensador $V_C(t)$ y la corriente transitoria de carga $I(t)$:
+\begin{equation}
+    V_C(t) = \frac{q(t)}{C} = V_0 \left( 1 - e^{-t / \tau} \right)
+    \label{eq:vc_carga}
+\end{equation}
+\begin{equation}
+    I(t) = \frac{dq}{dt} = \frac{V_0}{R}\,e^{-t / \tau}
+    \label{eq:i_carga}
+\end{equation}
+donde se ha introducido la constante de tiempo característica del circuito:
+\begin{equation}
+    \tau = R \cdot C
+    \label{eq:def_tau}
+\end{equation}
+Asimismo, la diferencia de potencial instantánea en bornes de la resistencia queda determinada por:
+\begin{equation}
+    V_R(t) = R\,I(t) = V_0\,e^{-t / \tau}
+    \label{eq:vr_carga}
+\end{equation}
+
+\subsection{Dinámica del proceso de descarga del condensador}
+
+Supongamos ahora que el condensador ha permanecido conectado durante un tiempo suficientemente prolongado ($t \ge 5\tau$), habiendo alcanzado la tensión de régimen permanente $V_C(t_1) = V_0$. Si en el instante $t = t_1$ conmutamos el interruptor para desconectar la fuente de alimentación $V_0$ y cortocircuitar los extremos de la malla RC serie, la ecuación diferencial gobernante deviene en:
+\begin{equation}
+    R\,\frac{dq}{dt} + \frac{q(t)}{C} = 0
+    \label{eq:edo_descarga}
+\end{equation}
+Integrando entre $t_1$ y $t$ bajo la condición inicial $q(t_1) = C V_0$:
+\begin{equation}
+    q(t) = C V_0\,e^{-(t - t_1) / \tau}
+    \label{eq:q_descarga}
+\end{equation}
+Por consiguiente, la tensión de descarga en el condensador evoluciona de acuerdo con:
+\begin{equation}
+    V_C(t) = V_0\,e^{-(t - t_1) / \tau}
+    \label{eq:vc_descarga}
+\end{equation}
+mientras que la corriente eléctrica experimenta una inversión de sentido, disipando la energía almacenada en el campo electrostático ($U_E = \frac{1}{2} C V_0^2$) en forma de calor por efecto Joule en la resistencia:
+\begin{equation}
+    I(t) = -\frac{V_0}{R}\,e^{-(t - t_1) / \tau} \implies V_R(t) = -V_0\,e^{-(t - t_1) / \tau}
+    \label{eq:vr_descarga}
+\end{equation}
+
+\subsection{Significado físico de la constante de tiempo y criterio de régimen estacionario}
+
+La constante de tiempo $\tau = RC$ posee dimensiones fundamentales de tiempo ($[\text{Tiempo}] = [\Omega] \cdot [\text{F}] = \frac{[\text{V}]}{[\text{A}]} \cdot \frac{[\text{A}\cdot\text{s}]}{[\text{V}]} = [\text{s}]$) y constituye la escala natural de respuesta del sistema transitorio \cite{halliday}:
+\begin{enumerate}
+    \item \textbf{Criterio del \qty{63,2}{\percent} en carga:} Evaluando la ecuación~\eqref{eq:vc_carga} exactamente en $t = \tau$:
+    \begin{equation}
+        V_C(\tau) = V_0 \left( 1 - e^{-1} \right) = V_0 \left( 1 - \frac{1}{2{,}71828\dots} \right) \approx 0{,}63212\,V_0
+        \label{eq:criterio_carga_tau}
+    \end{equation}
+    Es decir, tras transcurrir un lapso de duración $\tau$, el condensador ha adquirido exactamente el \qty{63,2}{\percent} de la diferencia de potencial total suministrada por la fuente.
+    \item \textbf{Criterio del \qty{36,8}{\percent} en descarga:} Evaluando la ecuación~\eqref{eq:vc_descarga} en $t - t_1 = \tau$:
+    \begin{equation}
+        V_C(t_1 + \tau) = V_0\,e^{-1} \approx 0{,}36788\,V_0
+        \label{eq:criterio_descarga_tau}
+    \end{equation}
+    La tensión ha decaído al \qty{36,8}{\percent} de su valor inicial.
+    \item \textbf{Criterio del régimen permanente ($5\tau$):} En $t = 5\tau$:
+    \begin{equation}
+        V_C(5\tau) = V_0 \left( 1 - e^{-5} \right) \approx V_0 (1 - 0{,}00674) = 0{,}99326\,V_0 \approx \qty{99,3}{\percent}\,V_0
+    \end{equation}
+    En la práctica experimental y en la ingeniería de control, se considera que para $t \ge 5\tau$ el régimen transitorio se ha extinguido y el circuito se encuentra en estado estacionario cuasi-permanente \cite{boylestad}.
+\end{enumerate}
+
+\subsection{Régimen periódico con excitación de onda cuadrada}
+
+En el laboratorio resulta poco práctico utilizar un interruptor mecánico de conmutación manual para estudiar transitorios que duran apenas cientos de microsegundos. En su lugar, recurrimos a un generador de funciones configurado en onda cuadrada periódica simétrica de frecuencia $f = \qty{250}{\hertz}$ con amplitud pico a pico $V_0 = \qty{10,0}{\voltpp}$ \cite{owon_ag}.
+
+Durante el primer semiperíodo ($0 \le t < T/2$, con $T/2 = 1/(2f) = \qty{2,00}{\milli\second} = \qty{2000}{\micro\second}$), la fuente entrega un nivel constante de tensión de $+V_0$, simulando el cierre del interruptor hacia la fuente. Durante el segundo semiperíodo ($T/2 \le t < T$), la tensión cae bruscamente a \qty{0}{\volt}, conectando la entrada a potencial de tierra y desencadenando la descarga libre del condensador a través de la resistencia. Para que las curvas observadas en la pantalla del osciloscopio presenten mesetas planas horizontales bien definidas, es condición física estricta que:
+\begin{equation}
+    \frac{T}{2} \ge 5\tau \implies \tau \le \frac{T}{10} = \qty{400}{\micro\second}
+    \label{eq:condicion_semiperiodo}
+\end{equation}
+En nuestro banco de trabajo (Mesa C7), las constantes de tiempo registradas oscilaron entre \qty{24,4}{\micro\second} y \qty{344,8}{\micro\second}, cumpliendo holgadamente con esta condición metrológica ($T/2 \ge 5{,}8\tau_{\max}$).
+
+\subsection{Conservación instantánea de la energía y validación de KVL}
+
+Sumando punto a punto las ecuaciones de tensión transitoria en bornes del condensador (Ec.~\eqref{eq:vc_carga}) y del resistor (Ec.~\eqref{eq:vr_carga}):
+\begin{equation}
+    V_C(t) + V_R(t) = V_0\left(1 - e^{-t/\tau}\right) + V_0\,e^{-t/\tau} = V_0 \equiv V_{\text{gen}}(t)
+    \label{eq:kvl_suma_teorica}
+\end{equation}
+Se comprueba que los términos exponenciales decrecientes se anulan mutuamente en cualquier instante de tiempo $t$. En el osciloscopio digital, al capturar $V_C(t)$ en el Canal 1 y $V_R(t)$ en el Canal 2, la función matemática interna \texttt{MATH ADD} ($V_1 + V_2$) debe reconstruir con total fidelidad la onda cuadrada emitida por el generador. Cualquier desviación representa efectos parásitos, limitaciones de ancho de banda o desajustes de tierra \cite{hmo1202}.
+
+\subsection{Teorema de Thévenin aplicado a circuitos RC con divisor resistivo (Paso 20)}
+
+En la etapa final del experimento (montaje del paso 20 / Figuras 9 y 10 de la guía), se intercala una resistencia adicional $R_2$ en paralelo directo con el condensador $C$, mientras que la resistencia $R_1$ permanece en serie con la entrada del generador.
+
+Para determinar la respuesta dinámica de este circuito mixto sin necesidad de formular sistemas acoplados de ecuaciones nodales, aplicamos el \textbf{Teorema de Thévenin} aislando el condensador $C$ como elemento de carga entre los nodos terminales $a$ y $b$ \cite{alexander,boylestad}:
+\begin{enumerate}
+    \item \textbf{Tensión equivalente de Thévenin ($V_{\text{th}}$):} Corresponde a la tensión en circuito abierto entre bornes del condensador (al desconectar el condensador de la malla, $Z_C \to \infty$). Al no circular corriente hacia la rama abierta, $R_1$ y $R_2$ forman un divisor de tensión simple alimentado por la fuente $V_0$:
+    \begin{equation}
+        V_{\text{th}} = V_0 \cdot \left( \frac{R_2}{R_1 + R_2} \right)
+        \label{eq:v_thevenin}
+    \end{equation}
+    \item \textbf{Resistencia equivalente de Thévenin ($R_{\text{th}}$):} Pasivando la fuente ideal de tensión independiente ($V_0 = 0 \to$ cortocircuito a tierra), la impedancia resistiva vista desde los bornes del condensador es la combinación en paralelo de $R_1$ y $R_2$:
+    \begin{equation}
+        R_{\text{th}} = R_1 \parallel R_2 = \frac{R_1 \cdot R_2}{R_1 + R_2}
+        \label{eq:r_thevenin}
+    \end{equation}
+\end{enumerate}
+El circuito equivalente resultante es una malla simple de primer orden regida por:
+\begin{equation}
+    V_{\text{th}} = R_{\text{th}}\,\frac{dq}{dt} + \frac{q}{C}
+    \label{eq:edo_thevenin}
+\end{equation}
+cuya constante de tiempo equivalente de carga y descarga es:
+\begin{equation}
+    \tau_{\text{th}} = R_{\text{th}} \cdot C = \left( \frac{R_1 R_2}{R_1 + R_2} \right) \cdot C
+    \label{eq:tau_thevenin}
+\end{equation}
+La tensión transitoria en bornes del condensador evoluciona según:
+\begin{equation}
+    V_C(t) = V_{\text{th}} \left( 1 - e^{-t / \tau_{\text{th}}} \right) = V_0 \left( \frac{R_2}{R_1 + R_2} \right) \left( 1 - e^{-t / \tau_{\text{th}}} \right)
+    \label{eq:vc_thevenin}
+\end{equation}
+Nótese que la constante de tiempo $\tau_{\text{th}}$ es estrictamente inferior a la constante serie simple $\tau_1 = R_1 C$, ya que $R_{\text{th}} < R_1$, lo cual acelera la velocidad de carga aunque reduce el voltaje máximo alcanzable a una fracción de $V_0$.

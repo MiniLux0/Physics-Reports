@@ -29,11 +29,10 @@ out/
 *.bcf
 *.run.xml
 
-# --- Entorno Local & Agentes de IA (Privado / No publicar) ---
-.agents/
-GEMINI.md
-AGENTS.md
+# --- Entorno Local & Archivos Temporales de Trabajo ---
 .agent/
+.agents/teamwork/
+.gemini/
 DATOS_A_CORREGIR.md
 
 # --- PDFs (Salida final compilada y guías oficiales) ---

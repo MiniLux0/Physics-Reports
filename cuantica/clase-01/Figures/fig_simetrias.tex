@@ -1,0 +1,44 @@
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \node[font=\small\bfseries] at (1.0,0.9) {Simetr\'ia};
+  \node[font=\small\bfseries] at (5.2,0.9) {Generador};
+  \node[font=\small\bfseries] at (9.0,0.9) {Magnitud conservada};
+  \draw[uniblue,thick] (-0.8,0.55) -- (11,0.55);
+  \begin{scope}[shift={(0,-0.6)}]
+    \draw[thick,uniblue] (0,0) circle (0.45);
+    \draw[thick,uniblue] (0,0) -- (0,0.3);
+    \draw[thick,uniblue] (0,0) -- (0.22,-0.1);
+    \draw[-{Stealth},thick,unired] (0.7,0.1) -- (1.2,0.1) node[right,font=\small,text=black,xshift=2pt] {$t\to t+\Delta t$};
+    \node at (5.2,0) {$\hat H$};
+    \node at (9.0,0) {Energ\'ia $E$};
+  \end{scope}
+  \draw[gray!50] (-0.8,-1.3) -- (11,-1.3);
+  \begin{scope}[shift={(0,-2.1)}]
+    \draw[thick,uniblue,fill=uniblue!15] (-0.3,-0.2) rectangle (0.1,0.2);
+    \draw[thick,uniblue,dashed] (0.5,-0.2) rectangle (0.9,0.2);
+    \draw[-{Stealth},thick,unired] (0.15,0.38) -- (0.85,0.38);
+    \node[font=\small,right] at (1.3,0) {$\vec r\to\vec r+\vec a$};
+    \node at (5.2,0) {$\hat{\vec p}$};
+    \node at (9.0,0) {Momento lineal $\vec p$};
+  \end{scope}
+  \draw[gray!50] (-0.8,-2.8) -- (11,-2.8);
+  \begin{scope}[shift={(0,-3.6)}]
+    \draw[thick,uniblue] (0,0) circle (0.4);
+    \fill[uniblue] (0.4,0) circle (0.05);
+    \draw[-{Stealth},thick,unired] (0.55,0.1) arc (10:110:0.55);
+    \node[font=\small,right] at (1.3,0) {$\theta\to\theta+\Delta\theta$};
+    \node at (5.2,0) {$\hat{\vec L}$};
+    \node at (9.0,0) {Momento angular $\vec L$};
+  \end{scope}
+  \draw[uniblue,thick] (-0.8,-4.3) -- (11,-4.3);
+  \foreach \y in {-0.6,-2.1,-3.6}{
+    \draw[-{Stealth},gray] (3.3,\y) -- (4.3,\y);
+    \draw[-{Stealth},gray] (6.2,\y) -- (7.0,\y);
+  }
+  \node[font=\scriptsize,unigray,align=center] at (5.1,-4.8)
+    {Homogeneidad del tiempo $\;\cdot\;$ homogeneidad del espacio $\;\cdot\;$ isotrop\'ia del espacio};
+\end{tikzpicture}
+\caption{Simetr\'ias continuas, generadores herm\'iticos y magnitudes conservadas (Teorema de Noether cu\'antico).}
+\label{fig:simetrias}
+\end{figure}

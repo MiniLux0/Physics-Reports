@@ -1,0 +1,104 @@
+%% ============================================================
+%%  SECCIÓN 7 — Resultados Experimentales
+%% ============================================================
+
+\section{Resultados Experimentales}
+\label{sec:resultados}
+
+En esta sección se presentan los datos crudos recolectados durante la sesión de laboratorio del 01 de octubre de 2026, así como los parámetros metrológicos constantes del montaje experimental (Cuadro~\ref{tab:parametros_constantes}).
+
+\subsection{Parámetros Instrumentales Constantes}
+
+\begin{table}[H]
+    \centering
+    \caption{Parámetros fijos del montaje experimental durante toda la sesión.}
+    \label{tab:parametros_constantes}
+    \begin{tabular}{@{}llc@{}}
+        \toprule
+        \textbf{Magnitud} & \textbf{Símbolo} & \textbf{Valor} \\
+        \midrule
+        Tensión de alimentación de la fuente DC & $V_s$ & \qty{7{,}50 \pm 0{,}05}{\volt} \\
+        Incertidumbre del voltímetro digital & $\delta V$ & \qty{\pm 0{,}01}{\volt} \\
+        Incertidumbre del amperímetro digital & $\delta I$ & \qty{\pm 0{,}001}{\ampere} \\
+        Temperatura ambiente (estimada) & $T_{\text{amb}}$ & \qty{25 \pm 2}{\celsius} \\
+        Valor nominal de la resistencia E2 & $R_{\text{nom}}$ & \qty{100}{\ohm} $\pm$ 5\,\% \\
+        Límite de seguridad del diodo E3 & $I_{\text{max}}$ & \qty{0{,}900}{\ampere} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Tabla 1 --- Lámpara Incandescente de Tungsteno (Elemento E1)}
+
+\begin{table}[H]
+    \centering
+    \caption{Mediciones directas $V$--$I$ de la lámpara incandescente (filamento de tungsteno). Se incluyen la resistencia estática $R = V/I$ y la potencia disipada $P = VI$ calculadas punto a punto.}
+    \label{tab:datos_foquito}
+    \resizebox{0.62\linewidth}{!}{%
+    \begin{tabular}{ccccc}
+        \toprule
+        \textbf{Nro.} & \textbf{$V$ (\unit{\volt})} & \textbf{$I$ (\unit{\ampere})} & \textbf{$R = V/I$ (\unit{\ohm})} & \textbf{$P = VI$ (\unit{\watt})} \\
+        \midrule
+        1 & \num{0{,}00} & \num{0{,}000} & ---    & \num{0{,}000} \\
+        2 & \num{1{,}00} & \num{0{,}148} & \num{6{,}76}  & \num{0{,}148} \\
+        3 & \num{2{,}02} & \num{0{,}218} & \num{9{,}27}  & \num{0{,}440} \\
+        4 & \num{3{,}04} & \num{0{,}272} & \num{11{,}18} & \num{0{,}827} \\
+        5 & \num{4{,}01} & \num{0{,}318} & \num{12{,}61} & \num{1{,}275} \\
+        6 & \num{5{,}01} & \num{0{,}366} & \num{13{,}69} & \num{1{,}834} \\
+        7 & \num{6{,}01} & \num{0{,}412} & \num{14{,}59} & \num{2{,}476} \\
+        8 & \num{6{,}43} & \num{0{,}432} & \num{14{,}88} & \num{2{,}778} \\
+        \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+
+\subsection{Tabla 2 --- Resistencia de Composición de Carbón (Elemento E2)}
+
+\begin{table}[H]
+    \centering
+    \caption{Mediciones directas $V$--$I$ de la resistencia de composición de carbón de \qty{100}{\ohm}. Se incluyen $R = V/I$ y su incertidumbre propagada $\delta R$ (Ec.~\eqref{eq:prop_errores_R}).}
+    \label{tab:datos_resistencia}
+    \resizebox{0.75\linewidth}{!}{%
+    \begin{tabular}{cccccc}
+        \toprule
+        \textbf{Nro.} & \textbf{$V$ (\unit{\volt})} & \textbf{$I$ (\unit{\ampere})} & \textbf{$R = V/I$ (\unit{\ohm})} & \textbf{$\delta R$ (\unit{\ohm})} & \textbf{$E_r$ (\unit{\percent})} \\
+        \midrule
+        1 & \num{0{,}00} & \num{0{,}000} & --- & ---   & ---  \\
+        2 & \num{1{,}00} & \num{0{,}010} & \num{100{,}0} & \num{\pm 11{,}0} & \num{0{,}0} \\
+        3 & \num{2{,}00} & \num{0{,}020} & \num{100{,}0} & \num{\pm 5{,}5}  & \num{0{,}0} \\
+        4 & \num{3{,}05} & \num{0{,}031} & \num{98{,}4}  & \num{\pm 3{,}5}  & \num{1{,}6} \\
+        5 & \num{4{,}03} & \num{0{,}040} & \num{100{,}8} & \num{\pm 2{,}8}  & \num{0{,}8} \\
+        6 & \num{5{,}00} & \num{0{,}050} & \num{100{,}0} & \num{\pm 2{,}2}  & \num{0{,}0} \\
+        7 & \num{6{,}02} & \num{0{,}060} & \num{100{,}3} & \num{\pm 1{,}8}  & \num{0{,}3} \\
+        8 & \num{6{,}49} & \num{0{,}065} & \num{99{,}8}  & \num{\pm 1{,}7}  & \num{0{,}2} \\
+        \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+
+Todos los valores individuales de $R = V/I$ son compatibles con el valor nominal de \qty{100}{\ohm} dentro de su incertidumbre instrumental $\delta R$.
+
+\subsection{Tabla 3 --- Diodo Semiconductor de Silicio (Elemento E3)}
+
+\begin{table}[H]
+    \centering
+    \caption{Mediciones directas $V$--$I$ del diodo de silicio en polarización directa. Se incluyen $R = V/I$ y $P = VI$. El punto \texorpdfstring{N.\textsuperscript{o}\,4}{Nro. 4} (\qty{0{,}70}{\volt}; \qty{0{,}230}{\ampere}) se identifica como punto atípico (*) por el análisis residual.}
+    \label{tab:datos_diodo}
+    \resizebox{0.62\linewidth}{!}{%
+    \begin{tabular}{ccccc}
+        \toprule
+        \textbf{Nro.} & \textbf{$V$ (\unit{\volt})} & \textbf{$I$ (\unit{\ampere})} & \textbf{$R = V/I$ (\unit{\ohm})} & \textbf{$P = VI$ (\unit{\watt})} \\
+        \midrule
+        1 & \num{0{,}00} & \num{0{,}000} & ---          & \num{0{,}000} \\
+        2 & \num{0{,}61} & \num{0{,}050} & \num{12{,}2} & \num{0{,}031} \\
+        3 & \num{0{,}69} & \num{0{,}215} & \num{3{,}21} & \num{0{,}148} \\
+        4* & \num{0{,}70} & \num{0{,}230} & \num{3{,}04} & \num{0{,}161} \\
+        5 & \num{0{,}71} & \num{0{,}411} & \num{1{,}73} & \num{0{,}292} \\
+        6 & \num{0{,}72} & \num{0{,}537} & \num{1{,}34} & \num{0{,}387} \\
+        7 & \num{0{,}73} & \num{0{,}690} & \num{1{,}06} & \num{0{,}504} \\
+        8 & \num{0{,}75} & \num{0{,}783} & \num{0{,}96} & \num{0{,}587} \\
+        \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+
+(*) Punto identificado como atípico mediante el análisis de residuos respecto al modelo exponencial de Shockley. Se reporta tal como se midió; su diagnóstico cuantitativo se desarrolla en la Sección~\ref{sec:analisis_exp} y en la Sección~\ref{sec:tratamiento}.

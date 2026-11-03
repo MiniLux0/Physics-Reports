@@ -1,0 +1,21 @@
+% Fig. 1: paquete gaussiano en x y en p (hbar = 1)
+\begin{tikzpicture}
+\begin{groupplot}[
+  group style={group size=2 by 1, horizontal sep=1.8cm},
+  width=0.48\linewidth, height=5.2cm, domain=-4:4, samples=200,
+  axis lines=left, xlabel near ticks, ylabel near ticks,
+  legend style={font=\scriptsize, draw=none, fill=none},
+  every axis plot/.append style={thick}]
+\nextgroupplot[xlabel={$x$ (unidades arbitrarias de longitud, $\hbar=1$)}, ylabel={$|\psi(x)|^2$},
+  xlabel style={font=\scriptsize}, title={\small Espacio de posiciones}, ymin=0, ymax=1.35,
+  legend pos=north east]
+  \addplot[uni-blue]{exp(-x^2/0.5^2)/(sqrt(pi)*0.5)};
+  \addplot[alert-border]{exp(-x^2/1.5^2)/(sqrt(pi)*1.5)};
+  \legend{$\sigma=0.5$, $\sigma=1.5$}
+\nextgroupplot[xlabel={$p$ (unidades arbitrarias de momento, $\hbar=1$)}, ylabel={$|\tilde\psi(p)|^2$},
+  xlabel style={font=\scriptsize}, title={\small Espacio de momentos}, ymin=0, ymax=1.35, legend pos=north east]
+  \addplot[uni-blue]{0.5*exp(-0.5^2*x^2)/sqrt(pi)};
+  \addplot[alert-border]{1.5*exp(-1.5^2*x^2)/sqrt(pi)};
+  \legend{$\sigma=0.5$, $\sigma=1.5$}
+\end{groupplot}
+\end{tikzpicture}

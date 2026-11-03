@@ -1,0 +1,21 @@
+%% ============================================================
+%%  SECCIÓN 1 — Introducción
+%% ============================================================
+
+\section{Introducción}
+\label{sec:introduccion}
+
+El transporte de carga eléctrica a través de la materia constituye uno de los pilares fundamentales del electromagnetismo clásico y de la física del estado sólido. A nivel microscópico, cuando se establece un campo eléctrico $\vec{E}$ en el interior de un medio conductor, los portadores de carga libres (electrones de conducción en redes cristalinas metálicas o pares electrón-hueco en redes semiconductoras) experimentan una aceleración continua interrumpida por colisiones inelásticas contra los iones de la red térmica o impurezas del material~\cite{serway, halliday}. Esta dinámica difusiva, modelada clásicamente por Paul Drude, da lugar a una velocidad media estacionaria denominada velocidad de deriva $\vec{v}_d$, la cual engendra una densidad de corriente volumétrica $\vec{J} = n q \vec{v}_d = \sigma \vec{E}$, donde $n$ representa la densidad volumétrica de portadores, $q$ la carga elemental y $\sigma$ la conductividad eléctrica intrínseca del medio~\cite{sears}.
+
+Al integrar estas magnitudes microscópicas sobre la geometría macroscópica de un dispositivo físico de longitud $L$ y área transversal constante $A$, surge la relación operativa entre la diferencia de potencial aplicada $V = \int \vec{E}\cdot\mathrm{d}\vec{l}$ y la intensidad de corriente macroscópica resultante $I = \int \vec{J}\cdot\mathrm{d}\vec{A}$. La proporcionalidad directa $V \propto I$, postulada empíricamente por Georg Simon Ohm en 1827, define el régimen óhmico ideal, caracterizado por una resistencia eléctrica macroscópica $R = V/I$ invariante frente a variaciones de tensión, corriente o polaridad~\cite{guia_lab_uni, serway}.
+
+No obstante, en la práctica experimental contemporánea, una vasta familia de componentes pasivos y activos exhibe desviaciones sustanciales de la linealidad óhmica. En conductores metálicos sujetos a densidades de corriente apreciables, la disipación de potencia por efecto Joule ($P = I^2 R$) incrementa la temperatura de la red cristalina, intensificando la amplitud de las oscilaciones fonónicas y, por consiguiente, elevando la resistividad eléctrica del material ($\mathrm{d}R/\mathrm{d}T > 0$), tal como sucede en filamentos de tungsteno incandescentes. Por otro lado, en junturas semiconductoras bipolares ($p$-$n$), el transporte de carga se encuentra gobernado por barreras de potencial electrostático en la región de agotamiento espacial, conduciendo a una respuesta fuertemente asimétrica y exponencial según el modelo de William Shockley, donde la conducción requiere superar una tensión umbral intrínseca~\cite{boylestad}.
+
+En la presente práctica de laboratorio se evalúa y caracteriza de manera comparativa la curva voltaje--corriente ($V$--$I$) de tres elementos resistivos fundamentales:
+\begin{enumerate}
+    \item \textbf{Resistencia de Carbón de Composición:} Elemento lineal patrón con valor nominal de \qty{100}{\ohm}, utilizado para verificar la validez estricta de la ley de Ohm en el rango de \qtyrange{0,00}{6,49}{\volt}.
+    \item \textbf{Lámpara Incandescente de Filamento Metálico:} Elemento no lineal con coeficiente térmico positivo ($\alpha > 0$), donde se investiga la resistencia dinámica creciente como consecuencia del equilibrio térmico radiativo gobernado por la ley de Stefan-Boltzmann.
+    \item \textbf{Diodo Semiconductor de Silicio:} Elemento rectificador no lineal en polarización directa, determinando experimentalmente la tensión de umbral o codo de conducción ($V_u \approx \qty{0,65}{\volt}$ a \qty{0,70}{\volt}) y su régimen de baja resistencia dinámica.
+\end{enumerate}
+
+Para alcanzar una resolución milimétrica continua en la variación de potencial, el esquema experimental implementa un reóstato de laboratorio configurado como potenciómetro o divisor de tensión alimentado a \qty{7,5}{\volt} DC, registrando simultáneamente la diferencia de potencial en bornes del componente y la corriente resultante. El análisis cuantitativo incorpora regresión por mínimos cuadrados ordinarios (MCO), ajustes potenciales y exponenciales, y propagación analítica de incertidumbres conforme a la norma GUM~\cite{gum, taylor}.

@@ -1,0 +1,54 @@
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[>=Stealth, font=\small, lev/.style={thick}]
+  \def\h{1.15}   % separación vertical entre niveles
+
+  % ---------------- l = 1 ----------------
+  \begin{scope}[xshift=0cm]
+    \node[font=\normalsize] at (0,3.75) {$\ell=1$};
+    \foreach \m in {-1,0,1}{
+      \draw[lev] (-1.05,\m*\h)--(1.05,\m*\h);
+      \node[anchor=east] at (-1.1,\m*\h) {$m=\m$};
+    }
+    \foreach \m/\c in {-1/{\hbar\sqrt2},0/{\hbar\sqrt2}}{
+      \draw[->,thick,azulUNI]   (-0.4,\m*\h+0.06)--(-0.4,\m*\h+\h-0.06);
+      \draw[->,thick,naranjaUNI](0.4,\m*\h+\h-0.06)--(0.4,\m*\h+0.06);
+      \node[azulUNI,anchor=east,font=\scriptsize] at (-0.48,\m*\h+0.5*\h) {$\c$};
+    }
+    \node[azulUNI,font=\scriptsize,align=center] at (0,1*\h+0.75)
+         {$\hat L_+|1,1\rangle=0$};
+    \node[naranjaUNI,font=\scriptsize,align=center] at (0,-1*\h-0.75)
+         {$\hat L_-|1,-1\rangle=0$};
+  \end{scope}
+
+  % ---------------- l = 2 ----------------
+  \begin{scope}[xshift=6.8cm]
+    \node[font=\normalsize] at (0,3.75) {$\ell=2$};
+    \foreach \m in {-2,-1,0,1,2}{
+      \draw[lev] (-1.05,\m*\h)--(1.05,\m*\h);
+      \node[anchor=east] at (-1.1,\m*\h) {$m=\m$};
+    }
+    \foreach \m/\c in {-2/{2\hbar},-1/{\hbar\sqrt6},0/{\hbar\sqrt6},1/{2\hbar}}{
+      \draw[->,thick,azulUNI]   (-0.4,\m*\h+0.06)--(-0.4,\m*\h+\h-0.06);
+      \draw[->,thick,naranjaUNI](0.4,\m*\h+\h-0.06)--(0.4,\m*\h+0.06);
+      \node[azulUNI,anchor=east,font=\scriptsize] at (-0.48,\m*\h+0.5*\h) {$\c$};
+    }
+    \node[azulUNI,font=\scriptsize] at (0,2*\h+0.35)
+         {$\hat L_+|2,2\rangle=0$};
+    \node[naranjaUNI,font=\scriptsize] at (0,-2*\h-0.35)
+         {$\hat L_-|2,-2\rangle=0$};
+  \end{scope}
+
+  % leyenda
+  \draw[->,thick,azulUNI]    (2.7,-3.55)--(3.3,-3.55);
+  \node[anchor=west,font=\scriptsize] at (3.35,-3.55) {$\hat L_+$ (sube)};
+  \draw[->,thick,naranjaUNI] (5.1,-3.55)--(5.7,-3.55);
+  \node[anchor=west,font=\scriptsize] at (5.75,-3.55) {$\hat L_-$ (baja)};
+\end{tikzpicture}
+\caption{Operadores escalera. Cada flecha sube o baja una unidad de $m$ sin
+cambiar $\ell$. El coeficiente sobre la flecha es
+$\hbar\sqrt{\ell(\ell+1)-m(m\pm1)}$ y es el mismo para $\hat L_+$ (de $m$ a
+$m+1$) y para $\hat L_-$ (de $m+1$ a $m$). Para $\ell=1$ son las entradas
+$\hbar\sqrt2$ de las matrices~\eqref{eq:matrix_ladder_1}.}
+\label{fig:escalera}
+\end{figure}

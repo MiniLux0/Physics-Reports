@@ -1,0 +1,402 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{lmodern}
+\usepackage[top=1.8cm, bottom=1.8cm, left=2.0cm, right=2.0cm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs, tabularx, multirow}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{tikz}
+
+\usepackage{siunitx}
+\sisetup{
+    output-decimal-marker = {,},
+    separate-uncertainty  = true,
+    per-mode              = symbol,
+}
+\DeclareSIUnit{\sample}{Sa}
+\DeclareSIUnit{\division}{div}
+\DeclareSIUnit{\ppm}{ppm}
+\DeclareSIUnit{\inch}{in}
+\DeclareSIUnit{\voltpp}{V_{pp}}
+\DeclareSIUnit{\voltrms}{V_{rms}}
+\DeclareSIUnit{\millivoltpp}{mV_{pp}}
+
+\definecolor{uni-blue}{RGB}{0, 56, 101}
+\definecolor{uni-red}{RGB}{166, 25, 46}
+\definecolor{card-bg}{RGB}{250, 251, 252}
+
+\usepackage[
+    colorlinks=true,
+    linkcolor=uni-blue,
+    urlcolor=uni-blue,
+    citecolor=uni-blue
+]{hyperref}
+
+\tcbset{
+    sharp corners,
+    boxrule=0.7pt,
+    colback=card-bg,
+    colframe=uni-blue,
+    fonttitle=\small\bfseries\color{white},
+    colbacktitle=uni-blue,
+    enhanced,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={sharp corners, boxrule=0pt, colback=uni-blue},
+    top=2.5mm, bottom=2.5mm, left=3mm, right=3mm
+}
+
+\usepackage{pifont}
+
+\begin{document}
+
+%% ============================================================
+%% ENCABEZADO Y GUÍA DE TRANSCRIPCIÓN
+%% ============================================================
+\begin{center}
+    {\large\bfseries UNIVERSIDAD NACIONAL DE INGENIERÍA}\\[0.08cm]
+    {\normalsize\bfseries FACULTAD DE CIENCIAS --- ESCUELA PROFESIONAL DE FÍSICA}\\[0.08cm]
+    {\footnotesize\textbf{Física III (CF1B2) --- Sección A \quad $\vert$ \quad Semestre 2026-II}}\\[0.15cm]
+    \rule{\linewidth}{1.0pt}\\[0.12cm]
+    {\Large\bfseries\color{uni-blue} GUÍA DE TRANSCRIPCIÓN MANUSCRITA RESUMIDA (1 A 1)}\\[0.08cm]
+    {\large\bfseries BLOQUE 1: Portada, Índice, Secciones 01 a 05 (Jesús Rodolfo Vera Vivanco)}\\[0.12cm]
+    \rule{\linewidth}{1.0pt}
+\end{center}
+
+\vspace{-0.2cm}
+
+\begin{tcolorbox}[title=Estructura y Reglas Clave para la Escritura a Mano, colframe=uni-blue]
+    \footnotesize
+    \begin{itemize}[leftmargin=1.3em, itemsep=2pt]
+        \item \textbf{Portada Impresa Oficial:} Imprimir directamente el archivo \textbf{\texttt{portada\_oficial\_impresion.pdf}} (1 sola hoja bond A4). ¡No se escribe a mano la portada!
+        \item \textbf{Sección 5 (Materiales Individuales):} Cada material va en su propio bloque numerado (5.1 a 5.7) con su descripción y su espacio individual para pegar el sticker correspondiente.
+        \item \textbf{Colores de Tinta:} Títulos, subtítulos, nombres de materiales y números de ecuación en tinta \textbf{NEGRA}; textos, descripciones y tablas en tinta \textbf{AZUL}.
+        \item \textbf{Falsa Guía:} Colocar debajo de la hoja bond A4 la plantilla cuadriculada con márgenes de $3{,}0\text{ cm}$ (izq.) y $2{,}0\text{ cm}$ (der., sup., inf.) fijada con 2 clips.
+        \item \textbf{Paginación:} \textbf{¡NO numerar las páginas aún!} Se foliarán correlativamente al ensamblar con Gerald y Piero.
+    \end{itemize}
+\end{tcolorbox}
+
+\vspace{0.3cm}
+
+%% ============================================================
+%% HOJA 1: PORTADA (IMPRESIÓN OFICIAL DIRECTA)
+%% ============================================================
+\subsection*{\color{uni-blue}\ding{45} HOJA 1: Portada Formal del Informe (IMPRESIÓN DIRECTA)}
+\begin{tcolorbox}[title=Instrucción de Portada: Imprimir directamente portada\_oficial\_impresion.pdf, colframe=black]
+    \small
+    \textbf{¡No necesitas escribir la portada a mano!} \\
+    Se ha generado el documento oficial listo para imprimir en una sola hoja bond A4:
+    \begin{center}
+        \textbf{\large\color{uni-blue} \texttt{portada\_oficial\_impresion.pdf}}
+    \end{center}
+    Contiene el escudo oficial UNI en alta resolución, tipografía institucional, datos del curso (Física III, Sec. A, Mesa 3), título oficial del Lab 1, nombres de los 3 integrantes con sus códigos UNI, docente y fecha. \\
+    \textbf{Tu escritura a mano comienza directamente en la HOJA 2 (Índice de Contenidos).}
+\end{tcolorbox}
+
+\newpage
+
+%% ============================================================
+%% HOJA 2: ÍNDICE GENERAL
+%% ============================================================
+\subsection*{\color{uni-blue}\ding{45} HOJA 2: Índice de Contenidos}
+\begin{tcolorbox}[title=Texto a Escribir en el Índice (Trazar líneas punteadas con regla), colframe=black]
+    \small
+    \begin{center}
+        {\large\bfseries ÍNDICE DE CONTENIDOS}\\[0.3cm]
+    \end{center}
+    \begin{tabbing}
+        \hspace{0.5cm} \= \hspace{12.0cm} \= \kill
+        \textbf{1.} \> \textbf{Introducción} \dotfill \> [ \quad ] \\
+        \textbf{2.} \> \textbf{Resumen} \dotfill \> [ \quad ] \\
+        \textbf{3.} \> \textbf{Objetivos} \dotfill \> [ \quad ] \\
+        \> 3.1 Objetivo General \dotfill \> [ \quad ] \\
+        \> 3.2 Objetivos Específicos \dotfill \> [ \quad ] \\
+        \textbf{4.} \> \textbf{Fundamento Teórico} \dotfill \> [ \quad ] \\
+        \> 4.1 Principio de Adquisición y Escalas en Osciloscopios Digitales \dotfill \> [ \quad ] \\
+        \> 4.2 Magnitudes Caracterizadoras de Señales Periódicas \dotfill \> [ \quad ] \\
+        \> 4.3 Modo Graficador $X$-$Y$ y Figuras de Lissajous \dotfill \> [ \quad ] \\
+        \textbf{5.} \> \textbf{Materiales y Equipos} \dotfill \> [ \quad ] \\
+        \> 5.1 Osciloscopio Digital R\&S HMO1202 \dotfill \> [ \quad ] \\
+        \> 5.2 Generador de Funciones Arbitrarias OWON AG 051F \dotfill \> [ \quad ] \\
+        \> 5.3 Multímetro Digital Portátil True-RMS \dotfill \> [ \quad ] \\
+        \> 5.4 Transformador Reductor Monofásico $220\,\text{V}/6\,\text{V}$ \dotfill \> [ \quad ] \\
+        \> 5.5 Fuente Regulada de Tensión Continua (DC) \dotfill \> [ \quad ] \\
+        \> 5.6 Pila Cilíndrica Alcalina (AA) \dotfill \> [ \quad ] \\
+        \> 5.7 Cables Coaxiales BNC y Puntas de Prueba \dotfill \> [ \quad ] \\
+        \> 5.8 Tabla Resumen de Especificaciones Metrológicas \dotfill \> [ \quad ] \\
+        \textbf{6.} \> \textbf{Procedimiento Experimental} \dotfill \> [ \quad ] \\
+        \textbf{7.} \> \textbf{Resultados Experimentales} \dotfill \> [ \quad ] \\
+        \textbf{8.} \> \textbf{Análisis Experimental} \dotfill \> [ \quad ] \\
+        \textbf{9.} \> \textbf{Tratamiento de Datos y Resultados} \dotfill \> [ \quad ] \\
+        \textbf{10.} \> \textbf{Gráficas} \dotfill \> [ \quad ] \\
+        \textbf{11.} \> \textbf{Análisis de Gráficas} \dotfill \> [ \quad ] \\
+        \textbf{12.} \> \textbf{Observaciones, Sugerencias y Conclusiones} \dotfill \> [ \quad ] \\
+        \textbf{13.} \> \textbf{Bibliografía} \dotfill \> [ \quad ] \\
+        \textbf{Anexos} \dotfill \> [ \quad ] \\
+        \> Anexo A: Deducción Analítica del Voltaje Eficaz ($V_{\text{rms}}$) \dotfill \> [ \quad ] \\
+        \> Anexo B: Propagación de Incertidumbres \dotfill \> [ \quad ] \\
+        \> Anexo C: Cuestionario de la Guía \dotfill \> [ \quad ] \\
+        \> Anexo D: Hoja de Toma de Datos Original Firmada \dotfill \> [ \quad ]
+    \end{tabbing}
+    \textit{\footnotesize Nota: Los números de página se completarán con lapicero azul una vez ensambladas todas las partes.}
+\end{tcolorbox}
+
+\newpage
+
+%% ============================================================
+%% HOJA 3: SECCIONES 1, 2 Y 3 (RESUMIDAS)
+%% ============================================================
+\subsection*{\color{uni-blue}\ding{45} HOJA 3: Secciones 1, 2 y 3 (Introducción, Resumen y Objetivos)}
+\begin{tcolorbox}[title=Texto a Escribir: Sección 1 (Introducción), colframe=black]
+    \small
+    \textbf{\large 1. Introducción}\\[0.15cm]
+    El osciloscopio es el instrumento fundamental de medición electrónica bidimensional, diseñado para visualizar la evolución temporal de diferencias de potencial eléctrico $\Delta V(t)$, amplitudes pico $V_p$, valores eficaces $V_{\text{rms}}$, frecuencias $f$, períodos $T$ y desfases $\Delta\phi$ en señales periódicas y transitorias.\\[0.15cm]
+    En la instrumentación moderna, la señal se digitaliza mediante convertidores analógico-digitales (ADC) a tasas de muestreo de hasta $\qty{2}{\giga\sample\per\second}$, permitiendo mediciones de alta fidelidad. En esta práctica se evalúa el osciloscopio digital en tres regímenes: (1) medición de potenciales continuos (DC) y criterio de escala vertical óptima frente a un multímetro patrón True-RMS, (2) caracterización temporal de ondas alternas (AC) senoidales, triangulares y cuadradas, y (3) operación como graficador paramétrico $X$-$Y$ para el análisis de figuras de Lissajous.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Texto a Escribir: Sección 2 (Resumen), colframe=black]
+    \small
+    \textbf{\large 2. Resumen}\\[0.15cm]
+    En esta práctica se evaluaron las capacidades metrológicas del osciloscopio digital Rohde \& Schwarz HMO1202 ($\qty{200}{\mega\hertz}$). En corriente continua (DC), la regresión lineal OLS frente al multímetro patrón arrojó $V_{\text{osc}} = (1{,}0036 \pm 0{,}0039)\,V_{\text{mult}} - (0{,}021 \pm 0{,}026)\,\unit{\volt}$ con $R^2 = 0{,}99995$ y errores relativos del $\qty{0,12}{\percent}$ al $\qty{0,45}{\percent}$, demostrando que la máxima deflexión vertical minimiza el error de apreciación.\\[0.15cm]
+    Para la señal alterna de un transformador ($\qty{6}{\volt}, \qty{60}{\hertz}$), se obtuvo $V_{pp} = (19{,}50 \pm 0{,}50)\,\unit{\volt}$ ($e_r = \qty{0,93}{\percent}$), $V_{\text{rms}} = (6{,}79 \pm 0{,}14)\,\unit{\volt}$ ($e_r = \qty{0,61}{\percent}$ frente a $\qty{6,83}{\volt}$ en multímetro True-RMS) y frecuencia $f = (60{,}24 \pm 0{,}73)\,\unit{\hertz}$ ($e_r = \qty{0,40}{\percent}$). Con el generador de funciones ($\qty{250}{\hertz}$, $V_p = \qty{4,80 \pm 0,20}{\volt}$), se corroboró la concordancia de período y frecuencia para ondas senoidales, triangulares y cuadradas. Finalmente, en modo $X$-$Y$ se obtuvieron figuras de Lissajous estables para razones de frecuencia $1:1, 1:2, 1:3$ y $1:4$, verificando la reflexión vertical ante inversión polar de $\text{CH2}$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Texto a Escribir: Sección 3 (Objetivos), colframe=black]
+    \small
+    \textbf{\large 3. Objetivos}\\[0.15cm]
+    \textbf{3.1 Objetivo General:}\\
+    Familiarizarse con los principios de operación, calibración y medición con el osciloscopio digital para tensiones continuas (DC), alternas periódicas (AC) y modo graficador paramétrico $X$-$Y$.\\[0.15cm]
+    \textbf{3.2 Objetivos Específicos:}
+    \begin{enumerate}[leftmargin=1.5em, itemsep=1.5pt]
+        \item Operar los controles del panel frontal (acoplamientos $\text{GND}$, $\text{DC}$, $\text{AC}$, escala vertical $\unit{\volt\per\division}$ y base de tiempo $\unit{\second\per\division}$).
+        \item Medir voltajes continuos (DC) evaluando el criterio de escala óptima para minimizar la incertidumbre.
+        \item Medir y contrastar $V_p, V_{pp}, T$ y $f$ de una señal sinusoidal de transformador ($\qty{6}{\volt}, \qty{60}{\hertz}$).
+        \item Caracterizar ondas senoidales, triangulares y cuadradas a $\qty{250}{\hertz}$, verificando sus voltajes eficaces $V_{\text{rms}}$.
+        \item Sintetizar y analizar figuras de Lissajous en modo $X$-$Y$ para razones de frecuencia $1:1, 1:2, 1:3$ y $1:4$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\newpage
+
+%% ============================================================
+%% HOJA 4: SECCIÓN 4 (FUNDAMENTO TEÓRICO - PARTE 1)
+%% ============================================================
+\subsection*{\color{uni-blue}\ding{45} HOJA 4: Sección 4 (Fundamento Teórico --- Parte 1)}
+\begin{tcolorbox}[title=Texto a Escribir: Sección 4 (Fundamento Teórico), colframe=black]
+    \small
+    \textbf{\large 4. Fundamento Teórico}\\[0.15cm]
+    El osciloscopio representa gráficamente diferencias de potencial eléctrico en función del tiempo o de otra tensión. En tubos analógicos (TRC), un cañón emite electrones deflectados por placas electrostáticas $X$ e $Y$ sobre una pantalla fosforescente graduada.\\[0.15cm]
+    
+    \begin{center}
+        \fbox{\parbox[c][5.8cm][c]{13.0cm}{\centering\footnotesize\color{gray} \textbf{[PEGAR STICKER FIG. 1: Esquema del TRC]}\\[1mm] Medidas: $13{,}0\text{ cm} \times 6{,}2\text{ cm}$}}
+    \end{center}
+    {\scriptsize\textit{Figura 1: Diagrama esquemático del Tubo de Rayos Catódicos (TRC) y placas deflectoras.}}\\[0.2cm]
+    
+    \textbf{4.1 Principio de Adquisición y Escalas en Osciloscopios Digitales}\\[0.1cm]
+    En osciloscopios digitales (DSO), la señal $V(t)$ se acondiciona ($R_{\text{in}} = \qty{1}{\mega\ohm}, C_{\text{in}} \approx \qty{14}{\pico\farad}$) y se muestrea mediante un ADC. Las magnitudes en pantalla se determinan mediante:
+    \begin{align}
+        V(t) &= N_y(t) \cdot S_v \tag{1} \\
+        t &= N_x \cdot S_t \tag{2}
+    \end{align}
+    donde $N_y, N_x$ son las divisiones verticales y horizontales, $S_v$ es la escala vertical ($\unit{\volt\per\division}$) y $S_t$ es la base de tiempo ($\unit{\second\per\division}$).\\[0.2cm]
+    
+    \begin{center}
+        \fbox{\parbox[c][7.4cm][c]{13.0cm}{\centering\footnotesize\color{gray} \textbf{[PEGAR STICKER FIG. 2: Anatomía de la Onda Senoidal]}\\[1mm] Medidas: $13{,}0\text{ cm} \times 7{,}8\text{ cm}$}}
+    \end{center}
+    {\scriptsize\textit{Figura 2: Anatomía de una señal periódica senoidal en la retícula del osciloscopio.}}
+\end{tcolorbox}
+
+\newpage
+
+%% ============================================================
+%% HOJA 5: SECCIÓN 4 (FUNDAMENTO TEÓRICO - PARTE 2)
+%% ============================================================
+\subsection*{\color{uni-blue}\ding{45} HOJA 5: Sección 4 (Fundamento Teórico --- Parte 2)}
+\begin{tcolorbox}[title=Texto a Escribir: Sección 4 (Continuación), colframe=black]
+    \small
+    \textbf{4.2 Magnitudes Caracterizadoras de Señales Periódicas}\\[0.15cm]
+    Para una señal periódica $V(t + T) = V(t)$, la frecuencia es el inverso del período fundamental:
+    \begin{equation}
+        f = \frac{1}{T} \tag{3}
+    \end{equation}
+    Las tensiones características fundamentales son:
+    \begin{align}
+        V_p &= \max[V(t)] - V_{\text{DC}} \tag{4} \\
+        V_{pp} &= \max[V(t)] - \min[V(t)] = 2 V_p \tag{5} \\
+        V_{\text{rms}} &= \sqrt{\frac{1}{T} \int_0^T V^2(t)\,\mathrm{d}t} \tag{6}
+    \end{align}
+    \textbf{Voltaje eficaz para formas de onda estándar:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+        \item \textbf{Onda Senoidal Pura:}
+        \begin{equation}
+            V_{\text{rms}} = \frac{V_p}{\sqrt{2}} \approx 0{,}7071\,V_p \tag{7}
+        \end{equation}
+        \item \textbf{Onda Triangular Simétrica:}
+        \begin{equation}
+            V_{\text{rms}} = \frac{V_p}{\sqrt{3}} \approx 0{,}5774\,V_p \tag{8}
+        \end{equation}
+        \item \textbf{Onda Cuadrada Simétrica (\qty{50}{\percent} ciclo de trabajo):}
+        \begin{equation}
+            V_{\text{rms}} = V_p \tag{9}
+        \end{equation}
+    \end{itemize}
+    
+    \textbf{4.3 Modo Graficador $X$-$Y$ y Figuras de Lissajous}\\[0.1cm]
+    Al desacoplar la base de tiempo y aplicar dos señales armónicas en $\text{CH1}$ ($x$) y $\text{CH2}$ ($y$):
+    \begin{equation}
+        \begin{cases}
+            x(t) = A_x \sin(2\pi f_x t) \\
+            y(t) = A_y \sin(2\pi f_y t + \phi)
+        \end{cases} \tag{10}
+    \end{equation}
+    Si la razón $f_y/f_x$ es racional, la trayectoria es una curva cerrada estacionaria cuya razón de frecuencias se determina por el conteo de tangencias:
+    \begin{equation}
+        \frac{f_y}{f_x} = \frac{N_{\text{tang,horizontal}}}{N_{\text{tang,vertical}}} \tag{11}
+    \end{equation}
+    Para $f_x = f_y$ ($1:1$), la curva es una elipse de ecuación:
+    \begin{equation*}
+        \left(\frac{x}{A_x}\right)^2 + \left(\frac{y}{A_y}\right)^2 - 2\left(\frac{x}{A_x}\right)\left(\frac{y}{A_y}\right)\cos\phi = \sin^2\phi
+    \end{equation*}
+    La función $\text{CH2 INVERT}$ ($y \to -y$) invierte la orientación y la pendiente de la figura respecto al eje horizontal.
+\end{tcolorbox}
+
+\newpage
+
+%% ============================================================
+%% HOJA 6: SECCIÓN 5 (MATERIAL 5.1: OSCILOSCOPIO DIGITAL)
+%% ============================================================
+\subsection*{\color{uni-blue}\ding{45} HOJA 6: Sección 5 (Material 5.1: Osciloscopio Digital)}
+\begin{tcolorbox}[title=Texto a Escribir: Sección 5 (Material 5.1), colframe=black]
+    \small
+    \textbf{\large 5. Materiales y Equipos}\\[0.2cm]
+    \textbf{5.1 Osciloscopio Digital Rohde \& Schwarz HMO1202 / RTC1002:}\\[0.15cm]
+    Instrumento de adquisición digital con ancho de banda analógico de $\qty{200}{\mega\hertz}$, tasa de muestreo en tiempo real de hasta $\qty{2}{\giga\sample\per\second}$, sensibilidad vertical ajustable de $\qty{1}{\milli\volt\per\division}\text{ a }\qty{10}{\volt\per\division}$, base de tiempo horizontal de $\qty{1}{\nano\second\per\division}\text{ a }\qty{100}{\second\per\division}$ y pantalla LCD con retícula graduada de $8\text{ divisiones verticales} \times 12\text{ divisiones horizontales}$.\\[0.3cm]
+    
+    \begin{center}
+        \begin{tabular}{cc}
+            \fbox{\parbox[c][4.34cm][c]{6.5cm}{\centering\scriptsize\color{gray}\textbf{[PEGAR FIG. 3: Osciloscopio]}\\[1mm] Medidas exactas: $6{,}5\text{ cm} \times 4{,}3\text{ cm}$}} &
+            \fbox{\parbox[c][5.25cm][c]{6.5cm}{\centering\scriptsize\color{gray}\textbf{[PEGAR FIG. 4: Panel Frontal DSO]}\\[1mm] Medidas exactas: $6{,}5\text{ cm} \times 5{,}3\text{ cm}$}} \\
+            {\scriptsize\textit{Figura 3: Osciloscopio R\&S HMO1202.}} & {\scriptsize\textit{Figura 4: Panel frontal del osciloscopio.}}
+        \end{tabular}
+    \end{center}
+\end{tcolorbox}
+
+\newpage
+
+%% ============================================================
+%% HOJA 7: SECCIÓN 5 (MATERIALES 5.2 Y 5.3: GENERADOR Y MULTÍMETRO)
+%% ============================================================
+\subsection*{\color{uni-blue}\ding{45} HOJA 7: Sección 5 (Materiales 5.2 y 5.3)}
+\begin{tcolorbox}[title=Texto a Escribir: Material 5.2 (Generador OWON), colframe=black]
+    \small
+    \textbf{5.2 Generador de Funciones Arbitrarias OWON AG 051F (DDS):}\\[0.15cm]
+    Generador basado en síntesis digital directa (DDS) con rango de frecuencia de $\qty{1}{\micro\hertz}\text{ a }\qty{5}{\mega\hertz}$ ($\pm\qty{1}{\ppm}$), resolución vertical DAC de $14\text{ bits}$, tasa de muestreo de $\qty{125}{\mega\sample\per\second}$ y rango de amplitud de $\qty{20}{\millivoltpp}\text{ a }\qty{20}{\voltpp}$ ($\text{High-Z}$). Genera ondas senoidales, triangulares y cuadradas.\\[0.2cm]
+    \begin{center}
+        \fbox{\parbox[c][4.74cm][c]{6.5cm}{\centering\scriptsize\color{gray}\textbf{[PEGAR FIG. 5: Generador OWON AG 051F]}\\[1mm] Medidas exactas: $6{,}5\text{ cm} \times 4{,}7\text{ cm}$}}\\[0.1cm]
+        {\scriptsize\textit{Figura 5: Generador de funciones arbitrarias OWON AG 051F.}}
+    \end{center}
+\end{tcolorbox}
+
+\vspace{0.2cm}
+
+\begin{tcolorbox}[title=Texto a Escribir: Material 5.3 (Multímetro Digital), colframe=black]
+    \small
+    \textbf{5.3 Multímetro Digital Portátil True-RMS:}\\[0.15cm]
+    Instrumento patrón con escala continua DC ($\pm\qty{0,001}{\volt}$) y alterna AC True-RMS ($\pm\qty{0,01}{\volt}$ en el rango de $\qty{40}{\hertz}\text{ a }\qty{1}{\kilo\hertz}$), empleado para calibración y contraste de tensiones.\\[0.2cm]
+    \begin{center}
+        \fbox{\parbox[c][5.0cm][c]{5.0cm}{\centering\scriptsize\color{gray}\textbf{[PEGAR FIG. 6: Multímetro]}\\[1mm] Medidas exactas: $5{,}0\text{ cm} \times 5{,}0\text{ cm}$}}\\[0.1cm]
+        {\scriptsize\textit{Figura 6: Multímetro patrón digital True-RMS.}}
+    \end{center}
+\end{tcolorbox}
+
+\newpage
+
+%% ============================================================
+%% HOJA 8: SECCIÓN 5 (MATERIALES 5.4 Y 5.5: TRANSFORMADOR Y FUENTE DC)
+%% ============================================================
+\subsection*{\color{uni-blue}\ding{45} HOJA 8: Sección 5 (Materiales 5.4 y 5.5)}
+\begin{tcolorbox}[title=Texto a Escribir: Material 5.4 (Transformador Reductor), colframe=black]
+    \small
+    \textbf{5.4 Transformador Reductor AC ($220\,\unit{\volt} \to 6\,\unit{\volt}$):}\\[0.15cm]
+    Transformador reductor monofásico con tensión primaria de $\qty{220}{\voltrms}$ a $\qty{60}{\hertz}$ y salida secundaria nominal de $\qty{6,0}{\voltrms}$ a $\qty{60}{\hertz}$, con aislamiento galvánico de núcleo laminado.\\[0.2cm]
+    \begin{center}
+        \fbox{\parbox[c][5.0cm][c]{5.0cm}{\centering\scriptsize\color{gray}\textbf{[PEGAR FIG. 7: Transformador]}\\[1mm] Medidas exactas: $5{,}0\text{ cm} \times 5{,}0\text{ cm}$}}\\[0.1cm]
+        {\scriptsize\textit{Figura 7: Transformador reductor monofásico $220\,\text{V}/6\,\text{V}$.}}
+    \end{center}
+\end{tcolorbox}
+
+\vspace{0.2cm}
+
+\begin{tcolorbox}[title=Texto a Escribir: Material 5.5 (Fuente DC Regulada), colframe=black]
+    \small
+    \textbf{5.5 Fuente Regulada de Tensión Continua (DC):}\\[0.15cm]
+    Fuente de banco con salidas fijas conmutables de $\qty{2,5}{\volt}, \qty{4,5}{\volt}, \qty{7,5}{\volt}$ y $\qty{10,5}{\volt}$, rizado $\Delta V < \qty{8}{\milli\volt}$, regulación de $\pm\qty{0,5}{\percent}$ y protección contra cortocircuito.\\[0.2cm]
+    \begin{center}
+        \fbox{\parbox[c][5.0cm][c]{5.0cm}{\centering\scriptsize\color{gray}\textbf{[PEGAR FIG. 8: Fuente DC]}\\[1mm] Medidas exactas: $5{,}0\text{ cm} \times 5{,}0\text{ cm}$}}\\[0.1cm]
+        {\scriptsize\textit{Figura 8: Fuente regulada lineal de tensión continua.}}
+    \end{center}
+\end{tcolorbox}
+
+\newpage
+
+%% ============================================================
+%% HOJA 9: SECCIÓN 5 (MATERIALES 5.6 Y 5.7: PILA AA Y CABLES BNC)
+%% ============================================================
+\subsection*{\color{uni-blue}\ding{45} HOJA 9: Sección 5 (Materiales 5.6 y 5.7)}
+\begin{tcolorbox}[title=Texto a Escribir: Material 5.6 (Pila Alcalina AA), colframe=black]
+    \small
+    \textbf{5.6 Pila Cilíndrica Alcalina (AA):}\\[0.15cm]
+    Celda electroquímica $\text{Zn}/\text{MnO}_2$ de $\qty{1,50}{\volt}$ nominal, baja resistencia interna ($r_i \approx \qty{0,15}{\ohm}$) y libre de componentes de rizado, ideal como patrón DC.\\[0.2cm]
+    \begin{center}
+        \fbox{\parbox[c][5.0cm][c]{5.0cm}{\centering\scriptsize\color{gray}\textbf{[PEGAR FIG. 9: Pila AA]}\\[1mm] Medidas exactas: $5{,}0\text{ cm} \times 5{,}0\text{ cm}$}}\\[0.1cm]
+        {\scriptsize\textit{Figura 9: Pila cilíndrica alcalina estándar tipo AA $1{,}50\,\text{V}$.}}
+    \end{center}
+\end{tcolorbox}
+
+\vspace{0.2cm}
+
+\begin{tcolorbox}[title=Texto a Escribir: Material 5.7 (Cables Coaxiales BNC y Sondas), colframe=black]
+    \small
+    \textbf{5.7 Cables Coaxiales BNC y Líneas Banana-Cocodrilo:}\\[0.15cm]
+    Líneas de conexión apantalladas de $\qty{50}{\ohm}$ con conectores BNC macho a cocodrilo y cables banana de $\qty{4}{\milli\meter}$ aislados hasta $\qty{600}{\voltrms}$, asegurando mínima captación de ruido.\\[0.2cm]
+    \begin{center}
+        \fbox{\parbox[c][5.0cm][c]{5.0cm}{\centering\scriptsize\color{gray}\textbf{[PEGAR FIG. 10: Cables BNC / Sondas]}\\[1mm] Medidas exactas: $5{,}0\text{ cm} \times 5{,}0\text{ cm}$}}\\[0.1cm]
+        {\scriptsize\textit{Figura 10: Cables coaxiales BNC y líneas de prueba con pinzas.}}
+    \end{center}
+\end{tcolorbox}
+
+\newpage
+
+%% ============================================================
+%% HOJA 10: SECCIÓN 5 (5.8 TABLA RESUMEN METROLÓGICA)
+%% ============================================================
+\subsection*{\color{uni-blue}\ding{45} HOJA 10: Sección 5 (5.8 Tabla Resumen de Especificaciones Metrológicas)}
+\begin{tcolorbox}[title=Texto a Escribir: 5.8 Tabla Resumen Metrológica (Trazar a Regla), colframe=black]
+    \small
+    \textbf{5.8 Tabla Resumen de Especificaciones de los Instrumentos}\\[0.2cm]
+    {\footnotesize\textbf{Tabla 1:} Especificaciones metrológicas de los equipos e instrumentos empleados.}\\[0.2cm]
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{@{}llll@{}}
+        \toprule
+        \textbf{Instrumento} & \textbf{Modelo / Marca} & \textbf{Rango de Medida} & \textbf{Incertidumbre Instrumental ($\delta x$)} \\
+        \midrule
+        Osciloscopio Digital & R\&S HMO1202 & $\qtyrange{0}{200}{\mega\hertz},\; \qty{1}{\milli\volt\per\division}\text{ a }\qty{10}{\volt\per\division}$ & $\delta N = \pm 0{,}1\,\text{div},\; \delta f/f = \pm\qty{0,05}{\percent}$ \\
+        Generador Señales    & OWON AG 051F & $\qty{1}{\micro\hertz}\text{ a }\qty{5}{\mega\hertz},\; \qtyrange{0,02}{20}{\voltpp}$ & $\delta f/f = \pm\qty{1}{\ppm},\; \delta V_p = \pm\qty{0,05}{\volt}$ \\
+        Multímetro Digital   & Industrial True-RMS & $\qtyrange{0}{600}{\volt}\; (\text{DC/AC})$ & $\delta V_{\text{DC}} = \pm\qty{0,001}{\volt},\; \delta V_{\text{AC}} = \pm\qty{0,01}{\volt}$ \\
+        Transformador AC     & Reductor Monofásico & $\qty{220}{\volt} \to \qty{6}{\volt},\; \qty{60}{\hertz}$ & $\delta f_{\text{red}} = \pm\qty{0,05}{\hertz}$ \\
+        Fuente Regulada DC   & Multisalida Banco & $\qtyrange{2,5}{10,5}{\volt}$ & $\delta V_{\text{mult}} = \pm\qty{0,001}{\volt}$ \\
+        Pila Alcalina        & Cilíndrica AA & $\qty{1,50}{\volt}$ nominal & $\delta V_{\text{mult}} = \pm\qty{0,001}{\volt}$ \\
+        Cables y Sondas      & BNC / Banana & $\qty{50}{\ohm},\; \qty{600}{\voltrms}\text{ máx.}$ & Atenuación despreciable en LF \\
+        \bottomrule
+    \end{tabular}%
+    }\\[0.4cm]
+    \textit{\footnotesize Regla de trazado: Utilizar estrictamente regla milimetrada. Dibujar solo 3 líneas horizontales (superior, intermedia de cabecera y cierre inferior), sin ninguna línea vertical.}
+\end{tcolorbox}
+
+\end{document}

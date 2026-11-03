@@ -1,0 +1,459 @@
+%% ============================================================
+%%  SECCIÓN 4 — Funciones de Operadores, Hadamard y Teorema BCH
+%% ============================================================
+
+\section{Funciones Analíticas de Operadores, Álgebra de Lie y Lemas BCH}
+\label{sec:funciones_operadores}
+
+\subsection{Definición de Funciones de Operadores Mediante Series de Potencias}
+
+En mecánica cuántica avanzada, es sumamente frecuente encontrar expresiones donde un operador figura como argumento de una función trascendente, tal como la exponencial de un operador de evolución temporal $\eu^{-\iu\hat{H}t/\hbar}$ o de traslación espacial $\eu^{-\iu a\hat{p}/\hbar}$ \cite{dirac, sakurai}.
+
+\begin{teoremabox}[Definición: Función Analítica de un Operador]
+    Sea $f(z)$ una función analítica de variable compleja con desarrollo en serie de Taylor alrededor del origen con radio de convergencia $R$:
+    \begin{equation}
+        f(z) = \sum_{n=0}^\infty c_n z^n, \quad c_n = \frac{f^{(n)}(0)}{n!}.
+    \end{equation}
+    Para un operador lineal continuo $\hat{A}$ actuando sobre $\mathcal{H}$ cuyo radio espectral sea menor que $R$, la función del operador $f(\hat{A})$ se define formalmente por la serie de potencias operacionales:
+    \begin{equation}
+        f(\hat{A}) \equiv \sum_{n=0}^\infty c_n \hat{A}^n = c_0 \hat{I} + c_1 \hat{A} + c_2 \hat{A}^2 + \dots
+        \label{eq:operator_function_def}
+    \end{equation}
+\end{teoremabox}
+
+En particular, la \textbf{exponencial de un operador} es una función entera (convergente en norma para cualquier operador lineal acotado\footnote{En rigor del análisis funcional, observables cuánticos fundamentales como la posición $\hat{x}$, el momento $\hat{p}$ o el Hamiltoniano $\hat{H}$ son operadores \textit{no acotados} en $\mathcal{L}^2(\mathbb{R})$, de modo que sus series de potencias no convergen en norma sobre la totalidad del espacio. Para tales operadores autoadjuntos, la exponencial unitaria $\eu^{-\iu t\hat{A}/\hbar}$ (como $\eu^{-\iu a\hat{p}/\hbar}$ o $\eu^{-\iu t\hat{H}/\hbar}$) queda rigurosamente definida sobre todo el espacio de Hilbert $\mathcal{H}$ mediante el cálculo funcional espectral y el célebre \textbf{Teorema de Stone} sobre grupos uniparamétricos fuertemente continuos de operadores unitarios \cite{ballentine}. La expansión formal en serie de Taylor es válida en dominios densos de vectores analíticos. En este cuaderno mantendremos el tratamiento operacional estándar utilizado en la física teórica \cite{sakurai, zettili}.}):
+\begin{equation}
+    \boxed{\eu^{\hat{A}} \equiv \sum_{n=0}^\infty \frac{1}{n!} \hat{A}^n = \hat{I} + \hat{A} + \frac{1}{2!}\hat{A}^2 + \frac{1}{3!}\hat{A}^3 + \dots}
+    \label{eq:operator_exponential}
+\end{equation}
+
+\begin{alertabox}[Propiedades Críticas de la Exponencial de Operadores]
+    \begin{enumerate}
+        \item Si $\hat{A}$ y $\hat{B}$ \textbf{conmutan} ($[\hat{A}, \hat{B}] = 0$), entonces se comportan como escalares y se cumple la propiedad exponencial usual:
+        \begin{equation}
+            \eu^{\hat{A}}\eu^{\hat{B}} = \eu^{\hat{A}+\hat{B}} = \eu^{\hat{B}}\eu^{\hat{A}}.
+        \end{equation}
+        En particular, $\eu^{\hat{A}}\eu^{-\hat{A}} = \eu^{\hat{A}-\hat{A}} = \eu^{\hat{0}} = \hat{I}$, lo que demuestra que:
+        \begin{equation}
+            (\eu^{\hat{A}})^{-1} = \eu^{-\hat{A}}.
+        \end{equation}
+        \item Si $\hat{A}$ y $\hat{B}$ \textbf{NO conmutan} ($[\hat{A}, \hat{B}] \neq 0$), entonces:
+        \begin{equation}
+            \boxed{\eu^{\hat{A}}\eu^{\hat{B}} \neq \eu^{\hat{A}+\hat{B}}}.
+        \end{equation}
+        El orden de los factores altera el resultado. Para calcular el producto en este caso general, es indispensable recurrir al Álgebra de Lie y al Teorema de Baker--Campbell--Hausdorff.
+        \item Si $\hat{A}$ es hermítico ($\hat{A}\adj = \hat{A}$), el operador $\hat{U} = \eu^{\iu\hat{A}}$ es \textbf{unitario}:
+        \begin{equation}
+            \hat{U}\adj = \left(\sum_{n=0}^\infty \frac{\iu^n}{n!}\hat{A}^n\right)\adj = \sum_{n=0}^\infty \frac{(-\iu)^n}{n!}(\hat{A}\adj)^n = \sum_{n=0}^\infty \frac{(-\iu)^n}{n!}\hat{A}^n = \eu^{-\iu\hat{A}} = \hat{U}^{-1}.
+        \end{equation}
+    \end{enumerate}
+\end{alertabox}
+
+\subsection{El Adjunto de un Operador Función y la Conmutación Cuántica}
+\label{subsec:adjunto_operador_funcion}
+
+En el manejo algebraico de funciones de operadores, surgen dos interrogantes cruciales para la formulación cuántica: ¿cómo se calcula el conjugado hermítico de $F(\hat{A})$ y qué sucede cuando un operador $\hat{B}$ conmuta o no con $\hat{A}$?
+
+\begin{teoremabox}[Propiedades del Adjunto de un Operador Función]
+    Sea $F(z) = \sum_{n=0}^\infty c_n z^n$ una función analítica de variable compleja con coeficientes $c_n \in \mathbb{C}$, y sea $\hat{A}$ un operador lineal continuo. Entonces:
+    \begin{enumerate}
+        \item \textbf{Adjunto General:} El adjunto hermítico del operador función $F(\hat{A})$ está dado por:
+        \begin{equation}
+            \boxed{\left[ F(\hat{A}) \right]\adj = F^*(\hat{A}\adj) \equiv \sum_{n=0}^\infty c_n^* (\hat{A}\adj)^n}.
+            \label{eq:adjunto_funcion_general}
+        \end{equation}
+        donde $F^*(z) \equiv \sum_{n=0}^\infty c_n^* z^n$ es la función con los coeficientes complejos conjugados.
+        \item \textbf{Caso de Operador Hermítico:} Si $\hat{A}$ es autoadjunto ($\hat{A}\adj = \hat{A}$):
+        \begin{equation}
+            \left[ F(\hat{A}) \right]\adj = F^*(\hat{A}).
+        \end{equation}
+        En particular, si además los coeficientes $c_n$ son números reales ($F^*(z) = F(z)$), entonces $F(\hat{A})$ es un operador estrictamente \textbf{hermítico}:
+        \begin{equation}
+            \left[ F(\hat{A}) \right]\adj = F(\hat{A}).
+        \end{equation}
+        \item \textbf{Funciones Exponenciales Complejas:} Para cualquier parámetro escalar $\alpha \in \mathbb{C}$:
+        \begin{equation}
+            \boxed{\left( \eu^{\iu\alpha\hat{A}} \right)\adj = \eu^{-\iu\alpha^*\hat{A}\adj}}.
+            \label{eq:adjunto_exponencial}
+        \end{equation}
+        Si $\alpha \in \mathbb{R}$ y $\hat{A}$ es hermítico ($\hat{A}\adj = \hat{A}$), entonces:
+        \begin{equation}
+            \left( \eu^{\iu\alpha\hat{A}} \right)\adj = \eu^{-\iu\alpha\hat{A}} = \left( \eu^{\iu\alpha\hat{A}} \right)^{-1},
+        \end{equation}
+        lo que demuestra rigurosamente que $\hat{U} \equiv \eu^{\iu\alpha\hat{A}}$ es un \textbf{operador unitario}.
+    \end{enumerate}
+\end{teoremabox}
+
+\subsubsection{No Conmutatividad con Funciones de Operadores}
+
+Si dos observables conmutan ($[\hat{A}, \hat{B}] = 0$), entonces $\hat{B}$ conmuta con cualquier potencia entera $\hat{A}^n$, y por ende conmuta con cualquier función analítica:
+\begin{equation}
+    [\hat{A}, \hat{B}] = 0 \implies [\hat{B}, F(\hat{A})] = 0.
+\end{equation}
+Por el contrario, si los operadores \textbf{no conmutan} ($[\hat{A}, \hat{B}] \neq 0$), entonces en general $\hat{B}$ \textbf{no conmuta con la función del operador}:
+\begin{equation}
+    [\hat{B}, F(\hat{A})] \neq 0 \quad (\text{en general}).
+\end{equation}
+(Cabe advertir que la implicación estricta $[\hat{A}, \hat{B}] \neq 0 \implies [\hat{B}, F(\hat{A})] \neq 0$ no es universal: por ejemplo, tomando las matrices de Pauli con $\hat{A} = \sigma_x$, $\hat{B} = \sigma_z$ y la función $F(z) = z^2$, se tiene $[\sigma_x, \sigma_z] = -2\iu\sigma_y \neq 0$, pero $F(\sigma_x) = \sigma_x^2 = \hat{I}$ conmuta idénticamente con $\sigma_z$).
+Para cuantificar este conmutador de forma analítica, observemos la acción de $\hat{B}$ sobre una potencia monomial $\hat{A}^n$:
+\begin{equation}
+    [\hat{B}, \hat{A}^n] = \sum_{k=0}^{n-1} \hat{A}^k [\hat{B}, \hat{A}] \hat{A}^{n-1-k}.
+\end{equation}
+En el caso físicamente fundamental en que el conmutador básico conmuta con $\hat{A}$ (es decir, $[\hat{A}, [\hat{A}, \hat{B}]] = 0$, como ocurre para el par canónico de posición y momento $[\hat{x}, \hat{p}_x] = \iu\hbar\hat{I}$), el término $[\hat{B}, \hat{A}]$ sale como constante de la sumatoria:
+\begin{equation}
+    [\hat{B}, \hat{A}^n] = [\hat{B}, \hat{A}] \sum_{k=0}^{n-1} \hat{A}^{n-1} = n\hat{A}^{n-1}[\hat{B}, \hat{A}] = -n\hat{A}^{n-1}[\hat{A}, \hat{B}].
+\end{equation}
+Multiplicando por los coeficientes de Taylor $c_n$ y sumando sobre $n$:
+\begin{equation}
+    [\hat{B}, F(\hat{A})] = \sum_{n=1}^\infty c_n [\hat{B}, \hat{A}^n] = -[\hat{A}, \hat{B}] \sum_{n=1}^\infty n c_n \hat{A}^{n-1} = \boxed{-[\hat{A}, \hat{B}]\,F'(\hat{A})},
+    \label{eq:comm_b_f_a}
+\end{equation}
+donde $F'(z) = \frac{\dif F}{\dif z}$ es la derivada compleja ordinaria de la función. Esta elegante identidad operativa permite calcular de un solo vistazo conmutadores que de otra manera requerirían cálculos matriciales interminables.
+
+\subsection{El Lema de Hadamard (Fórmula de Trenzado de Operadores)}
+
+Consideremos la transformación de un operador $\hat{B}$ mediante una conjugación unitaria o transformación de semejanza exponencial generada por $\hat{A}$:
+\begin{equation}
+    \hat{F}(\lambda) \equiv \eu^{\lambda\hat{A}}\hat{B}\eu^{-\lambda\hat{A}},
+    \label{eq:hadamard_ansatz}
+\end{equation}
+donde $\lambda$ es un parámetro escalar continuo (real o complejo, independiente de las coordenadas espaciales).
+
+\begin{teoremabox}[Lema de Hadamard]
+    Para dos operadores lineales cualesquiera $\hat{A}$ y $\hat{B}$:
+    \begin{align}
+        \eu^{\lambda\hat{A}}\hat{B}\eu^{-\lambda\hat{A}} &= \hat{B} + \lambda[\hat{A}, \hat{B}] + \frac{\lambda^2}{2!}[\hat{A}, [\hat{A}, \hat{B}]] + \frac{\lambda^3}{3!}[\hat{A}, [\hat{A}, [\hat{A}, \hat{B}]]] + \dots \nonumber\\
+        &= \sum_{n=0}^\infty \frac{\lambda^n}{n!} \mathrm{ad}_{\hat{A}}^n(\hat{B}),
+        \label{eq:hadamard_lemma}
+    \end{align}
+    donde el operador de la representación adjunta $\mathrm{ad}_{\hat{A}}$ se define recursivamente por:
+    \begin{equation}
+        \mathrm{ad}_{\hat{A}}^0(\hat{B}) = \hat{B}, \quad \mathrm{ad}_{\hat{A}}^1(\hat{B}) = [\hat{A}, \hat{B}], \quad \mathrm{ad}_{\hat{A}}^n(\hat{B}) = [\hat{A}, \mathrm{ad}_{\hat{A}}^{n-1}(\hat{B})].
+    \end{equation}
+    En particular, evaluando en el valor unitario del parámetro $\lambda=1$:
+    \begin{equation}
+        \boxed{\eu^{\hat{A}}\hat{B}\eu^{-\hat{A}} = \hat{B} + [\hat{A}, \hat{B}] + \frac{1}{2!}[\hat{A}, [\hat{A}, \hat{B}]] + \frac{1}{3!}[\hat{A}, [\hat{A}, [\hat{A}, \hat{B}]]] + \dots}
+    \end{equation}
+\end{teoremabox}
+
+\textbf{Demostración Rigurosa (Método de la Función Generatriz Paramétrica):}\\
+Puesto que $\hat{F}(\lambda)$ depende analíticamente del escalar $\lambda$, podemos expandirla en una serie de Maclaurin ordinaria alrededor de $\lambda = 0$:
+\begin{equation}
+    \hat{F}(\lambda) = \hat{F}(0) + \lambda\left.\frac{\dif\hat{F}}{\dif \lambda}\right|_{\lambda=0} + \frac{\lambda^2}{2!}\left.\frac{\dif^2\hat{F}}{\dif \lambda^2}\right|_{\lambda=0} + \dots = \sum_{n=0}^\infty \frac{\lambda^n}{n!} \left.\frac{\dif^n\hat{F}}{\dif \lambda^n}\right|_{\lambda=0}.
+    \label{eq:hadamard_maclaurin}
+\end{equation}
+Evaluemos el término de orden cero en $\lambda = 0$:
+\begin{equation}
+    \hat{F}(0) = \eu^{0\hat{A}}\hat{B}\eu^{-0\hat{A}} = \hat{I}\hat{B}\hat{I} = \hat{B}.
+\end{equation}
+Calculemos ahora la primera derivada de $\hat{F}(\lambda)$ respecto a $\lambda$ empleando la regla del producto de Leibniz para operadores:
+\begin{align}
+    \frac{\dif\hat{F}}{\dif \lambda} &= \frac{\dif}{\dif \lambda}\left( \eu^{\lambda\hat{A}}\hat{B}\eu^{-\lambda\hat{A}} \right) \nonumber\\
+    &= \left(\frac{\dif}{\dif \lambda}\eu^{\lambda\hat{A}}\right)\hat{B}\eu^{-\lambda\hat{A}} + \eu^{\lambda\hat{A}}\hat{B}\left(\frac{\dif}{\dif \lambda}\eu^{-\lambda\hat{A}}\right).
+\end{align}
+Derivando término a término la serie de la exponencial escalar-operador:
+\begin{equation}
+    \frac{\dif}{\dif \lambda}\eu^{\lambda\hat{A}} = \frac{\dif}{\dif \lambda}\sum_{n=0}^\infty \frac{\lambda^n}{n!}\hat{A}^n = \sum_{n=1}^\infty \frac{n \lambda^{n-1}}{n!}\hat{A}^n = \hat{A}\sum_{m=0}^\infty \frac{\lambda^m}{m!}\hat{A}^m = \hat{A}\eu^{\lambda\hat{A}} = \eu^{\lambda\hat{A}}\hat{A}.
+\end{equation}
+Análogamente, para la exponencial negativa:
+\begin{equation}
+    \frac{\dif}{\dif \lambda}\eu^{-\lambda\hat{A}} = -\hat{A}\eu^{-\lambda\hat{A}} = -\eu^{-\lambda\hat{A}}\hat{A}.
+\end{equation}
+Sustituyendo estas derivadas:
+\begin{align}
+    \frac{\dif\hat{F}}{\dif \lambda} &= \hat{A}\left(\eu^{\lambda\hat{A}}\hat{B}\eu^{-\lambda\hat{A}}\right) - \left(\eu^{\lambda\hat{A}}\hat{B}\eu^{-\lambda\hat{A}}\right)\hat{A} \nonumber\\
+    &= \hat{A}\hat{F}(\lambda) - \hat{F}(\lambda)\hat{A} = [\hat{A}, \hat{F}(\lambda)].
+    \label{eq:hadamard_first_diff}
+\end{align}
+Evaluando la primera derivada en $\lambda = 0$:
+\begin{equation}
+    \left.\frac{\dif\hat{F}}{\dif \lambda}\right|_{\lambda=0} = [\hat{A}, \hat{F}(0)] = [\hat{A}, \hat{B}].
+\end{equation}
+Derivemos nuevamente respecto a $\lambda$ para obtener el término de segundo orden:
+\begin{equation}
+    \frac{\dif^2\hat{F}}{\dif \lambda^2} = \frac{\dif}{\dif \lambda}\left( \frac{\dif\hat{F}}{\dif \lambda} \right) = \frac{\dif}{\dif \lambda}[\hat{A}, \hat{F}(\lambda)] = \left[\hat{A}, \frac{\dif\hat{F}}{\dif \lambda}\right].
+\end{equation}
+Evaluando en $\lambda = 0$:
+\begin{equation}
+    \left.\frac{\dif^2\hat{F}}{\dif \lambda^2}\right|_{\lambda=0} = \left[\hat{A}, \left.\frac{\dif\hat{F}}{\dif \lambda}\right|_{\lambda=0}\right] = [\hat{A}, [\hat{A}, \hat{B}]].
+\end{equation}
+Por inducción matemática inmediata, la $n$-ésima derivada evaluada en el origen es:
+\begin{equation}
+    \left.\frac{\dif^n\hat{F}}{\dif \lambda^n}\right|_{\lambda=0} = \mathrm{ad}_{\hat{A}}^n(\hat{B}) = \underbrace{[\hat{A}, [\hat{A}, \dots, [\hat{A}, \hat{B}]] \dots ]}_{n \text{ conmutadores anidados}}.
+\end{equation}
+Sustituyendo estos coeficientes en la serie de Taylor \eqref{eq:hadamard_maclaurin}, queda demostrado formalmente el Lema de Hadamard \cite{zettili}.
+
+\subsection{El Teorema de Baker--Campbell--Hausdorff (BCH) Simplificado}
+
+¿Cómo podemos calcular el producto de dos exponenciales $\eu^{\hat{A}}\eu^{\hat{B}}$ cuando los operadores no conmutan? El teorema general de Baker, Campbell y Hausdorff establece que existe un operador $\hat{C}$ tal que $\eu^{\hat{A}}\eu^{\hat{B}} = \eu^{\hat{C}}$, donde $\hat{C} = \hat{A} + \hat{B} + \frac{1}{2}[\hat{A}, \hat{B}] + \frac{1}{12}[\hat{A}, [\hat{A}, \hat{B}]] - \frac{1}{12}[\hat{B}, [\hat{A}, \hat{B}]] + \dots$
+
+En física cuántica, existe un caso extraordinariamente frecuente y de vital importancia (llamado el \textbf{caso c-número}): aquel donde el conmutador $[\hat{A}, \hat{B}]$ conmuta tanto con $\hat{A}$ como con $\hat{B}$, es decir:
+\begin{equation}
+    [[\hat{A}, \hat{B}], \hat{A}] = 0 \quad \text{y} \quad [[\hat{A}, \hat{B}], \hat{B}] = 0.
+    \label{eq:bch_hypothesis}
+\end{equation}
+Esto ocurre siempre que $[\hat{A}, \hat{B}] = c\hat{I}$ es un escalar (por ejemplo, el conmutador canónico de posición y momento $[\hat{x}, \hat{p}_x] = \iu\hbar\hat{I}$, o los operadores de creación y aniquilación $[\hat{a}, \hat{a}\adj] = \hat{I}$).
+
+\begin{teoremabox}[Teorema de Baker--Campbell--Hausdorff Simplificado (Fórmula de Weyl)]
+    Si dos operadores lineales $\hat{A}$ y $\hat{B}$ satisfacen la condición \eqref{eq:bch_hypothesis}, entonces:
+    \begin{equation}
+        \boxed{\eu^{\hat{A}}\eu^{\hat{B}} = \eu^{\hat{A}+\hat{B}}\eu^{\frac{1}{2}[\hat{A}, \hat{B}]}}.
+        \label{eq:bch_simplified}
+    \end{equation}
+\end{teoremabox}
+
+\textbf{Demostración Paso a Paso:}\\
+Para demostrar esta relación, introducimos un operador dependiente de un parámetro continuo $t \in [0, 1]$:
+\begin{equation}
+    \hat{G}(t) \equiv \eu^{t\hat{A}}\eu^{t\hat{B}}.
+    \label{eq:g_ansatz}
+\end{equation}
+Notemos que para $t = 0$: $\hat{G}(0) = \eu^{\hat{0}}\eu^{\hat{0}} = \hat{I}$, y para $t = 1$: $\hat{G}(1) = \eu^{\hat{A}}\eu^{\hat{B}}$ (que es la magnitud deseada).
+
+Derivemos $\hat{G}(t)$ respecto al parámetro escalar $t$:
+\begin{equation}
+    \frac{\dif\hat{G}}{\dif t} = \left(\frac{\dif}{\dif t}\eu^{t\hat{A}}\right)\eu^{t\hat{B}} + \eu^{t\hat{A}}\left(\frac{\dif}{\dif t}\eu^{t\hat{B}}\right) = \hat{A}\eu^{t\hat{A}}\eu^{t\hat{B}} + \eu^{t\hat{A}}\hat{B}\eu^{t\hat{B}}.
+\end{equation}
+
+\begin{alertabox}[¿Por qué insertamos la identidad en la forma $\eu^{-t\hat{A}}\eu^{t\hat{A}}$?]
+    En el primer término, $\eu^{t\hat{A}}\eu^{t\hat{B}} = \hat{G}(t)$, de modo que queda $\hat{A}\hat{G}(t)$.\\
+    Sin embargo, en el segundo término, el operador $\hat{B}$ se encuentra \enquote{atrapado} en medio de las exponenciales: $\eu^{t\hat{A}}\hat{B}\eu^{t\hat{B}}$.\\
+    \textbf{¡NO podemos simplemente sacar $\hat{B}$ hacia la izquierda ni hacia la derecha porque $\hat{B}$ no conmuta con $\eu^{t\hat{A}}$!}
+    
+    Para poder factorizar $\hat{G}(t) = \eu^{t\hat{A}}\eu^{t\hat{B}}$ por la derecha de toda la ecuación, insertamos estratégicamente el operador identidad $\hat{I} = \eu^{-t\hat{A}}\eu^{t\hat{A}}$ justo entre $\hat{B}$ y $\eu^{t\hat{B}}$:
+    \begin{equation}
+        \eu^{t\hat{A}}\hat{B}\eu^{t\hat{B}} = \eu^{t\hat{A}}\hat{B}\underbrace{(\eu^{-t\hat{A}}\eu^{t\hat{A}})}_{\hat{I}}\eu^{t\hat{B}} = \left(\eu^{t\hat{A}}\hat{B}\eu^{-t\hat{A}}\right)\left(\eu^{t\hat{A}}\eu^{t\hat{B}}\right) = \left(\eu^{t\hat{A}}\hat{B}\eu^{-t\hat{A}}\right)\hat{G}(t).
+    \end{equation}
+    ¡Observemos la genialidad de este paso algebraico! La expresión entre paréntesis es exactamente la estructura del \textbf{Lema de Hadamard} con parámetro $t$.
+\end{alertabox}
+
+Aplicando el Lema de Hadamard \eqref{eq:hadamard_lemma} a la cantidad $\eu^{t\hat{A}}\hat{B}\eu^{-t\hat{A}}$:
+\begin{equation}
+    \eu^{t\hat{A}}\hat{B}\eu^{-t\hat{A}} = \hat{B} + t[\hat{A}, \hat{B}] + \frac{t^2}{2!}[\hat{A}, [\hat{A}, \hat{B}]] + \dots
+\end{equation}
+Pero según nuestra hipótesis fundamental de trabajo \eqref{eq:bch_hypothesis}, el segundo conmutador y todos los superiores se anulan idénticamente: $[\hat{A}, [\hat{A}, \hat{B}]] = 0$. Por lo tanto, la serie infinita \textbf{se trunca exactamente en el segundo término}:
+\begin{equation}
+    \eu^{t\hat{A}}\hat{B}\eu^{-t\hat{A}} = \hat{B} + t[\hat{A}, \hat{B}].
+\end{equation}
+Sustituyendo esto en la derivada de $\hat{G}(t)$:
+\begin{align}
+    \frac{\dif\hat{G}}{\dif t} &= \hat{A}\hat{G}(t) + (\hat{B} + t[\hat{A}, \hat{B}])\hat{G}(t) \nonumber\\
+    &= \left( \hat{A} + \hat{B} + t[\hat{A}, \hat{B}] \right)\hat{G}(t).
+    \label{eq:diff_eq_g}
+\end{align}
+Denotemos al operador entre paréntesis por $\hat{M}(t) \equiv \hat{A} + \hat{B} + t[\hat{A}, \hat{B}]$. Como $[\hat{A}+\hat{B}, [\hat{A}, \hat{B}]] = 0$, el operador $\hat{M}(t)$ conmuta consigo mismo a diferentes instantes $t$ y $t'$:
+\begin{equation}
+    [\hat{M}(t), \hat{M}(t')] = [\hat{A}+\hat{B} + t[\hat{A},\hat{B}], \, \hat{A}+\hat{B} + t'[\hat{A},\hat{B}]] = 0.
+\end{equation}
+Debido a esta conmutación, la ecuación diferencial de operadores \eqref{eq:diff_eq_g} se integra exactamente como una ecuación diferencial escalar por separación de variables:
+\begin{equation}
+    \hat{G}(t) = \exp\left( \int_0^t \hat{M}(t')\,\dif t' \right)\hat{G}(0).
+\end{equation}
+Evaluemos la integral en el argumento de la exponencial:
+\begin{equation}
+    \int_0^t \left( \hat{A} + \hat{B} + t'[\hat{A}, \hat{B}] \right)\,\dif t' = t(\hat{A} + \hat{B}) + \frac{t^2}{2}[\hat{A}, \hat{B}].
+\end{equation}
+Puesto que $\hat{G}(0) = \hat{I}$:
+\begin{equation}
+    \hat{G}(t) = \exp\left( t(\hat{A} + \hat{B}) + \frac{1}{2}t^2[\hat{A}, \hat{B}] \right).
+\end{equation}
+Nuevamente, como el operador $[\hat{A}, \hat{B}]$ conmuta con $(\hat{A}+\hat{B})$, podemos separar la exponencial de la suma en el producto de exponenciales:
+\begin{equation}
+    \hat{G}(t) = \eu^{t(\hat{A}+\hat{B})}\eu^{\frac{1}{2}t^2[\hat{A}, \hat{B}]}.
+\end{equation}
+Evaluando finalmente en $t = 1$:
+\begin{equation}
+    \hat{G}(1) = \eu^{\hat{A}}\eu^{\hat{B}} = \eu^{\hat{A}+\hat{B}}\eu^{\frac{1}{2}[\hat{A}, \hat{B}]}.
+\end{equation}
+La demostración queda enteramente completada y justificada.
+
+\subsection{BCH Simplificado (c-Número) frente a la Serie BCH General de Momento Angular}
+\label{subsec:bch_simplificado_vs_general}
+
+Un error pedagógico extraordinariamente común en los primeros cursos de física cuántica es asumir que la fórmula:
+\begin{equation}
+    \eu^{\hat{A}}\eu^{\hat{B}} = \eu^{\hat{A}+\hat{B} + \frac{1}{2}[\hat{A}, \hat{B}]}
+    \label{eq:bch_simplificada_recap}
+\end{equation}
+es válida universalmente para cualquier par de operadores cuánticos. \textbf{Esto es falso}: la Ec.~\eqref{eq:bch_simplificada_recap} es un caso particular que depende de una condición sumamente restrictiva.
+
+\begin{alertabox}[¿Cuándo es válida la fórmula simplificada de Baker--Campbell--Hausdorff?]
+    La fórmula cerrada \eqref{eq:bch_simplificada_recap} exige estrictamente que el conmutador $[\hat{A}, \hat{B}]$ sea un \textbf{c-número} (un múltiplo escalar de la identidad $\alpha\hat{I}$), o al menos que conmute con ambos operadores:
+    \begin{equation}
+        [\hat{A}, [\hat{A}, \hat{B}]] = 0 \quad \text{y} \quad [\hat{B}, [\hat{A}, \hat{B}]] = 0.
+    \end{equation}
+    \begin{itemize}
+        \item \textbf{El caso canónico de posición y momento $(\hat{x}, \hat{p}_x)$:}
+        Aquí $[\hat{x}, \hat{p}_x] = \iu\hbar\hat{I}$. Dado que $\iu\hbar\hat{I}$ es proporcional al operador identidad, conmuta absolutamente con cualquier operador del universo:
+        \begin{equation}
+            [\hat{x}, \, \iu\hbar\hat{I}] = 0, \qquad [\hat{p}_x, \, \iu\hbar\hat{I}] = 0.
+        \end{equation}
+        Por lo tanto, todos los conmutadores anidados de segundo orden en adelante se anulan idénticamente, y la fórmula simplificada \eqref{eq:bch_simplificada_recap} es \textbf{rigurosamente exacta}.
+        \item \textbf{El caso de momento angular $(\hat{L}_x, \hat{L}_y)$:}
+        Consideremos ahora dos generadores de rotaciones espaciales. Su conmutador básico es el álgebra de Lie $\mathfrak{so}(3)$:
+        \begin{equation}
+            [\hat{L}_x, \hat{L}_y] = \iu\hbar\hat{L}_z.
+        \end{equation}
+        ¡El resultado no es un número; \textbf{es otro operador cuántico hermítico ($\hat{L}_z$)}!\\
+        Evaluemos el siguiente conmutador anidado de la serie:
+        \begin{equation}
+            [\hat{L}_x, [\hat{L}_x, \hat{L}_y]] = [\hat{L}_x, \, \iu\hbar\hat{L}_z] = \iu\hbar[\hat{L}_x, \hat{L}_z] = \iu\hbar(-\iu\hbar\hat{L}_y) = +\hbar^2\hat{L}_y \neq 0.
+        \end{equation}
+        Análogamente, para el segundo operador:
+        \begin{equation}
+            [\hat{L}_y, [\hat{L}_x, \hat{L}_y]] = [\hat{L}_y, \, \iu\hbar\hat{L}_z] = \iu\hbar[\hat{L}_y, \hat{L}_z] = \iu\hbar(\iu\hbar\hat{L}_x) = -\hbar^2\hat{L}_x \neq 0.
+        \end{equation}
+        ¡Los conmutadores anidados nunca se anulan; se reproducen infinitamente rotando entre $\hat{L}_x$, $\hat{L}_y$ y $\hat{L}_z$!\\
+        Por consiguiente, \textbf{la fórmula exponencial simplificada falla por completo para el momento angular}:
+        \begin{equation}
+            \eu^{-\frac{\iu}{\hbar}\alpha\hat{L}_x}\eu^{-\frac{\iu}{\hbar}\beta\hat{L}_y} \neq \eu^{-\frac{\iu}{\hbar}(\alpha\hat{L}_x + \beta\hat{L}_y) + \frac{1}{2}\left[-\frac{\iu}{\hbar}\alpha\hat{L}_x, -\frac{\iu}{\hbar}\beta\hat{L}_y\right]}.
+            \label{eq:bch_falla_L}
+        \end{equation}
+    \end{itemize}
+\end{alertabox}
+
+\begin{teoremabox}[La Serie General de Baker--Campbell--Hausdorff (BCH)]
+    Para dos operadores genéricos $\hat{A}$ y $\hat{B}$ que no satisfacen la hipótesis de truncamiento a primer orden, el logaritmo del producto exponencial viene dado por la serie infinita completa de conmutadores anidados:
+    \begin{equation}
+        \ln\left( \eu^{\hat{A}}\eu^{\hat{B}} \right) = \hat{A} + \hat{B} + \frac{1}{2}[\hat{A}, \hat{B}] + \frac{1}{12}[\hat{A}, [\hat{A}, \hat{B}]] - \frac{1}{12}[\hat{B}, [\hat{A}, \hat{B}]] - \frac{1}{24}[\hat{B}, [\hat{A}, [\hat{A}, \hat{B}]]] + \dots
+        \label{eq:bch_general_series}
+    \end{equation}
+    En la teoría de grupos de Lie, esta serie describe la composición de dos rotaciones espaciales en el grupo $\mathrm{SO}(3)$: una rotación de ángulo $\alpha$ alrededor de $x$ seguida de una rotación $\beta$ alrededor de $y$ no es una simple suma vectorial de rotaciones, sino una nueva rotación alrededor de un eje oblicuo resultante de la no conmutatividad geométrica de las rotaciones en $\mathbb{R}^3$.
+\end{teoremabox}
+
+\input{Figures/fig_rot_no_conmutan}
+
+\subsection{Ejemplo Resuelto 3: El Operador de Traslación Espacial y Serie de Taylor}
+
+\begin{ejemplobox}[Ejemplo Resuelto 3: Generador Infinitesimal de Traslaciones]
+    \textbf{Enunciado:} El operador de traslación espacial finita por una distancia $a \in \mathbb{R}$ se define como:
+    \begin{equation}
+        \hat{T}(a) \equiv \exp\left(-\frac{\iu}{\hbar}a\hat{p}_x\right).
+    \end{equation}
+    \begin{enumerate}
+        \item Utilice el Lema de Hadamard para demostrar que el operador posición transformado es $\hat{T}\adj(a)\hat{x}\hat{T}(a) = \hat{x} + a\hat{I}$.
+        \item Aplique la definición en serie de potencias de $\hat{T}(a)$ sobre una función de onda arbitraria diferenciable $\psi(x)$ en la representación de coordenadas y demuestre que genera una traslación rígida: $\hat{T}(a)\psi(x) = \psi(x - a)$.
+    \end{enumerate}
+
+    \textbf{Solución Paso a Paso:}
+
+    \textit{Paso 1: Aplicación del Lema de Hadamard:}
+    Como $\hat{p}_x$ es hermítico, $\hat{T}\adj(a) = \exp\left(\frac{\iu}{\hbar}a\hat{p}_x\right)$. Queremos calcular:
+    \begin{equation}
+        \hat{x}' \equiv \hat{T}\adj(a)\hat{x}\hat{T}(a) = \exp\left(\frac{\iu}{\hbar}a\hat{p}_x\right)\hat{x}\exp\left(-\frac{\iu}{\hbar}a\hat{p}_x\right).
+    \end{equation}
+    Identificamos en la fórmula de Hadamard \eqref{eq:hadamard_lemma}: el operador conjugante es $\hat{A} = \frac{\iu}{\hbar}a\hat{p}_x$, el operador a transformar es $\hat{B} = \hat{x}$, y el parámetro auxiliar es $\lambda = 1$.
+    Calculamos el primer conmutador:
+    \begin{equation}
+        [\hat{A}, \hat{B}] = \left[\frac{\iu}{\hbar}a\hat{p}_x, \, \hat{x}\right] = \frac{\iu a}{\hbar}[\hat{p}_x, \hat{x}].
+    \end{equation}
+    Recordando que el conmutador fundamental es $[\hat{x}, \hat{p}_x] = \iu\hbar\hat{I}$, su opuesto es $[\hat{p}_x, \hat{x}] = -\iu\hbar\hat{I}$. Por lo tanto:
+    \begin{equation}
+        [\hat{A}, \hat{B}] = \frac{\iu a}{\hbar}(-\iu\hbar\hat{I}) = -\iu^2 a \hat{I} = a\hat{I}.
+    \end{equation}
+    Calculamos el segundo conmutador de la serie de Hadamard:
+    \begin{equation}
+        [\hat{A}, [\hat{A}, \hat{B}]] = \left[\frac{\iu}{\hbar}a\hat{p}_x, \, a\hat{I}\right] = 0,
+    \end{equation}
+    puesto que $a\hat{I}$ es un múltiplo escalar de la identidad y conmuta con cualquier operador. Por consiguiente, \textbf{todos los conmutadores de orden dos y superior se anulan}. Sustituyendo en Hadamard:
+    \begin{equation}
+        \hat{T}\adj(a)\hat{x}\hat{T}(a) = \hat{x} + [\hat{A}, \hat{B}] + 0 = \hat{x} + a\hat{I}.
+    \end{equation}
+    Esto demuestra de manera puramente operacional que el operador momento $\hat{p}_x$ es el generador infinitesimal de traslaciones espaciales en la posición.
+
+    \textit{Paso 2: Acción sobre la Función de Onda:}
+    En la representación de posiciones, el operador momento actúa como la derivada espacial $\hat{p}_x \to -\iu\hbar\frac{\dif}{\dif x}$. Sustituyendo esto en el operador exponencial:
+    \begin{equation}
+        \hat{T}(a) = \exp\left(-\frac{\iu a}{\hbar}\left(-\iu\hbar\frac{\dif}{\dif x}\right)\right) = \exp\left(\iu^2 a\frac{\dif}{\dif x}\right) = \exp\left(-a\frac{\dif}{\dif x}\right).
+    \end{equation}
+    Expandiendo en su serie de Taylor operacional:
+    \begin{equation}
+        \hat{T}(a)\psi(x) = \sum_{n=0}^\infty \frac{1}{n!}\left(-a\frac{\dif}{\dif x}\right)^n \psi(x) = \sum_{n=0}^\infty \frac{(-a)^n}{n!}\frac{\dif^n\psi(x)}{\dif x^n}.
+    \end{equation}
+    Esta suma infinita es precisamente la \textbf{serie de Taylor} de la función $\psi(x)$ desplazada en una distancia $-a$:
+    \begin{equation}
+        \hat{T}(a)\psi(x) = \psi(x - a)\footnote{Esta expansión en serie de Taylor asume rigurosamente que la función de onda $\psi(x)$ es analítica (por ejemplo, funciones gaussianas multiplicadas por polinomios), garantizando que su serie de potencias converge a $\psi(x-a)$. Por el Teorema de Stone, el operador traslación $\hat{T}(a) = \eu^{-\iu a\hat{p}_x/\hbar}$ queda unívocamente definido como unitario sobre la totalidad de $\mathcal{L}^2(\mathbb{R})$, aplicándose válidamente incluso sobre funciones no analíticas.}.
+    \end{equation}
+    ¡El resultado conecta de manera deslumbrante el cálculo diferencial clásico con el álgebra de operadores cuánticos!
+\end{ejemplobox}
+
+\input{Figures/fig_traslacion}
+
+\subsection{Simetrías Continuas, Leyes de Conservación y el Teorema de Noether Cuántico}
+\label{subsec:noether_cuantico}
+
+El concepto de operador exponencial desarrollado en esta sección constituye la piedra angular de la física teórica moderna: \textbf{conecta directamente las simetrías geométricas del espacio-tiempo con las leyes de conservación de magnitudes físicas} \cite{zettili, sakurai}.
+
+\subsubsection{Transformaciones Unitarias Infinitesimales}
+Consideremos una transformación continua parametrizada por un escalar infinitesimal $\epsilon \ll 1$. Dicha transformación se implementa mediante un operador unitario $\hat{U}_\epsilon$ cercano a la identidad:
+\begin{equation}
+    \hat{U}_\epsilon = \hat{I} - \frac{\iu}{\hbar}\epsilon\,\hat{G},
+    \label{eq:infinitesimal_unitary}
+\end{equation}
+donde $\hat{G}$ es un operador \textbf{hermítico} ($\hat{G}\adj = \hat{G}$), denominado el \textbf{generador de la transformación}. El factor $-\iu/\hbar$ se introduce por convención para que $\hat{G}$ posea las dimensiones físicas de la magnitud observable correspondiente y para garantizar la unitariedad:
+\begin{equation}
+    \hat{U}_\epsilon\adj \hat{U}_\epsilon = \left(\hat{I} + \frac{\iu}{\hbar}\epsilon\,\hat{G}\right)\left(\hat{I} - \frac{\iu}{\hbar}\epsilon\,\hat{G}\right) = \hat{I} + \mathcal{O}(\epsilon^2).
+\end{equation}
+
+Bajo esta transformación, un estado $\ket{\psi}$ y un observable $\hat{A}$ se modifican infinitesimalmente de acuerdo a:
+\begin{align}
+    \ket{\psi'} &= \hat{U}_\epsilon \ket{\psi} = \ket{\psi} - \frac{\iu}{\hbar}\epsilon\,\hat{G}\ket{\psi}, \\
+    \hat{A}' &= \hat{U}_\epsilon\adj \hat{A} \hat{U}_\epsilon = \left(\hat{I} + \frac{\iu}{\hbar}\epsilon\,\hat{G}\right)\hat{A}\left(\hat{I} - \frac{\iu}{\hbar}\epsilon\,\hat{G}\right) \nonumber\\
+    &= \hat{A} + \frac{\iu}{\hbar}\epsilon\left(\hat{G}\hat{A} - \hat{A}\hat{G}\right) + \mathcal{O}(\epsilon^2) = \hat{A} + \frac{\iu}{\hbar}\epsilon\,[\hat{G}, \hat{A}] + \mathcal{O}(\epsilon^2).
+\end{align}
+La variación infinitesimal del observable $\delta\hat{A} \equiv \hat{A}' - \hat{A}$ viene dada estrictamente por:
+\begin{equation}
+    \boxed{\delta\hat{A} = +\frac{\iu}{\hbar}\epsilon\,[\hat{G}, \hat{A}]}.
+    \label{eq:infinitesimal_variation}
+\end{equation}
+(Nótese que para una traslación espacial con $\hat{G} = \hat{p}_x$ y $\epsilon = a$, tenemos $[\hat{p}_x, \hat{x}] = -\iu\hbar\hat{I}$, lo cual conduce de forma plenamente consistente a $\delta\hat{x} = +\frac{\iu}{\hbar}a(-\iu\hbar\hat{I}) = +a\hat{I}$, recuperando $\hat{x}' = \hat{x} + a\hat{I}$).
+
+\subsubsection{Imagen de Heisenberg, Invariancia del Hamiltoniano y Constantes de Movimiento}
+Supongamos que la dinámica de un sistema aislado está gobernada por un Hamiltoniano $\hat{H}$ independiente del tiempo. Existen dos formas equivalentes de describir la evolución temporal cuántica:
+\begin{itemize}
+    \item \textbf{Imagen de Schrödinger:} Los estados evolucionan en el tiempo mediante el operador unitario $\hat{U}(t) = \eu^{-\iu\hat{H}t/\hbar}$ ($\ket{\psi_S(t)} = \hat{U}(t)\ket{\psi(0)}$), mientras que los operadores observables $\hat{A}_S$ permanecen fijos.
+    \item \textbf{Imagen de Heisenberg:} Los estados permanecen fijos ($\ket{\psi_H} = \ket{\psi(0)}$) y la dependencia temporal se traslada a los operadores observables mediante la transformación de semejanza unitaria:
+    \begin{equation}
+        \hat{A}_H(t) \equiv \hat{U}\adj(t)\hat{A}_S\hat{U}(t) = \eu^{+\frac{\iu}{\hbar}\hat{H}t}\,\hat{A}_S\,\eu^{-\frac{\iu}{\hbar}\hat{H}t},
+    \end{equation}
+    de modo que el valor esperado físico es idéntico en ambas imágenes: $\matrixel{\psi_S(t)}{\hat{A}_S}{\psi_S(t)} = \matrixel{\psi(0)}{\hat{A}_H(t)}{\psi(0)} = \ev{\hat{A}(t)}$.
+\end{itemize}
+Observemos que $\hat{A}_H(t) = \eu^{+\frac{\iu}{\hbar}\hat{H}t}\hat{A}_S\eu^{-\frac{\iu}{\hbar}\hat{H}t}$ posee exactamente la estructura del \textbf{Lema de Hadamard} \eqref{eq:hadamard_ansatz} con $\lambda = t$ y $\hat{A} \to \frac{\iu}{\hbar}\hat{H}$. Derivando respecto al tiempo $t$ mediante la Ec.~\eqref{eq:hadamard_first_diff} (e incluyendo cualquier dependencia temporal explícita $\partial\hat{A}_S/\partial t$):
+\begin{equation}
+    \frac{\dif\hat{A}_H(t)}{\dif t} = \left[\frac{\iu}{\hbar}\hat{H}, \, \hat{A}_H(t)\right] + \left(\frac{\partial\hat{A}_S}{\partial t}\right)_H \implies \boxed{\frac{\dif\hat{A}_H}{\dif t} = \frac{1}{\iu\hbar}[\hat{A}_H, \hat{H}] + \left(\frac{\partial\hat{A}}{\partial t}\right)_H}.
+    \label{eq:heisenberg_eq_motion}
+\end{equation}
+Esta es la célebre \textbf{Ecuación de Movimiento de Heisenberg} (que aplicaremos en el Problema Resuelto 4 para deducir la precesión de Larmor).
+
+Se dice que una transformación unitaria $\hat{U}$ generada por $\hat{G}$ representa una \textbf{simetría del sistema} si el Hamiltoniano es invariante ante la transformación:
+\begin{equation}
+    \hat{H}' = \hat{U}\adj \hat{H} \hat{U} = \hat{H} \iff [\hat{G}, \hat{H}] = 0.
+    \label{eq:hamiltonian_invariance}
+\end{equation}
+Tomando el valor esperado de la Ec.~\eqref{eq:heisenberg_eq_motion} para el generador $\hat{G}$ en un estado arbitrario $\ket{\psi}$, obtenemos el \textbf{Teorema de Ehrenfest}:
+\begin{equation}
+    \frac{\dif}{\dif t}\ev{\hat{G}} = \frac{1}{\iu\hbar}\ev{[\hat{G}, \hat{H}]} + \left\langle \frac{\partial\hat{G}}{\partial t} \right\rangle.
+    \label{eq:ehrenfest_theorem}
+\end{equation}
+Si el generador $\hat{G}$ no depende explícitamente del tiempo ($\partial\hat{G}/\partial t = 0$) y conmuta con el Hamiltoniano ($[\hat{G}, \hat{H}] = 0$), se deduce de forma inmediata:
+\begin{equation}
+    \frac{\dif}{\dif t}\ev{\hat{G}} = 0 \implies \boxed{\ev{\hat{G}} = \text{Constante en el tiempo}}.
+\end{equation}
+
+\begin{teoremabox}[Teorema de Noether Cuántico]
+    A toda simetría continua del Hamiltoniano le corresponde un observable físico hermítico cuya media estadística es estrictamente constante en el tiempo (una \textbf{constante de movimiento}).
+\end{teoremabox}
+
+\subsubsection{El Puente Clásico-Cuántico: De los Corchetes de Poisson a los Conmutadores}
+En la formulación hamiltoniana de la mecánica clásica, el estado de una partícula se describe en el \textbf{espacio de fase} de coordenadas y momentos $(x_i, p_i)$ (formalizado geométricamente como una variedad simpléctica dotada de la 2-forma $\omega = \dif x_i \wedge \dif p_i$; no es necesario conocer geometría diferencial para seguir este curso, basta con recordar las derivadas parciales ordinarias respecto a $x_i$ y $p_i$). La evolución temporal de una magnitud clásica $A(x, p)$ está gobernada por los \textbf{Corchetes de Poisson}:
+\begin{equation}
+    \frac{\dif A}{\dif t} = \{A, H\}_{\text{clásico}} + \frac{\partial A}{\partial t}, \qquad \{A, B\}_{\text{clásico}} \equiv \sum_{i=1}^3 \left( \frac{\partial A}{\partial x_i}\frac{\partial B}{\partial p_i} - \frac{\partial A}{\partial p_i}\frac{\partial B}{\partial x_i} \right).
+\end{equation}
+El célebre \textbf{Postulado de Cuantización Canónica de Dirac} establece que la estructura geométrica simpléctica clásica se traduce en la estructura algebraica de conmutadores en el espacio de Hilbert mediante el mapeo universal:
+\begin{equation}
+    \boxed{\{A, B\}_{\text{clásico}} \quad \xrightarrow{\quad \text{Cuantización Canónica} \quad} \quad \frac{1}{\iu\hbar}[\hat{A}, \hat{B}]}.
+    \label{eq:dirac_canonical_quantization}
+\end{equation}
+Toda magnitud conservada en la mecánica clásica ($\{G, H\} = 0$) se transforma en cuántica en un observable compatible con la energía ($[\hat{G}, \hat{H}] = 0$), tal como se ilustra sintéticamente en la Figura~\ref{fig:simetrias}.
+
+\input{Figures/fig_simetrias}

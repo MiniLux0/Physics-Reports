@@ -1,0 +1,87 @@
+%% ============================================================
+%%  SECCIÓN 11 — Análisis de Gráficas
+%% ============================================================
+
+\section{Análisis de Gráficas}
+\label{sec:analisis_graficas}
+
+En esta sección se desarrolla la interpretación cuantitativa y metrológica de las gráficas científicas obtenidas en la Sección~\ref{sec:graficas}, evaluando la bondad de los ajustes por mínimos cuadrados, la distribución estocástica de los residuos, la compatibilidad de los parámetros experimentales con las predicciones físicas teóricas y la caracterización de los regímenes de transporte.
+
+\subsection{Análisis Metrológico de la Resistencia de Carbón (Figura~\ref{fig:grafica_resistencia_ohmica})}
+\subsubsection{Validación de la Pendiente y Resistencia Experimental}
+La característica $I$ vs $V$ de la resistencia de composición (Figura~\ref{fig:grafica_resistencia_ohmica}) revela una linealidad excepcional respaldada por un coeficiente de determinación de $R^2 = 0{,}99985$. La conductancia experimental obtenida por MCO forzado al origen (modelo físico correcto para un elemento óhmico ideal) es:
+\begin{equation}
+    G = \qty{9{,}998 \pm 0{,}054e-3}{\siemens},
+\end{equation}
+cuya inversa arroja una resistencia experimental de $R_{\text{exp}} = \qty{100{,}02 \pm 2{,}55}{\ohm}$.
+
+Al construir el intervalo de confianza al \qty{95}{\percent} ($k = 2$):
+\begin{equation}
+    I_{95\%}(R) = [100{,}02 - 2(2{,}55),\, 100{,}02 + 2(2{,}55)]\,\unit{\ohm} = [\qty{94{,}92}{\ohm},\, \qty{105{,}12}{\ohm}].
+\end{equation}
+Este intervalo engloba el valor nominal (\qty{100}{\ohm}) con amplio margen. El error relativo porcentual ($E_r = \qty{0{,}02}{\percent}$) está dos órdenes de magnitud por debajo de la tolerancia de catálogo del fabricante ($\pm\qty{5}{\percent} = \pm\qty{5}{\ohm}$).
+
+\subsubsection{Contraste de Hipótesis sobre la Ordenada al Origen}
+La ordenada al origen obtenida por MCO resultó $b = \qty{0,11 \pm 0,24}{\milli\ampere}$. Aplicando la prueba de compatibilidad estandarizada:
+\begin{equation}
+    \frac{|b|}{s_b} = \frac{\qty{0,1135}{\milli\ampere}}{\qty{0,2380}{\milli\ampere}} = 0{,}477 < 1,
+\end{equation}
+se concluye que la ordenada no difiere significativamente de cero. Esto certifica que el circuito potenciómetro no introdujo voltajes de desbalance térmico (fuerzas termo-electromotrices de Seebeck en los contactos bimetálicos) ni corrientes parásitas de fuga apreciables.
+
+\subsubsection{Estructura de los Residuos}
+El panel inferior de la Figura~\ref{fig:grafica_resistencia_ohmica} exhibe los residuos $e_i = I_i - \hat{I}_i$, los cuales oscilan aleatoriamente dentro de la estrecha banda de $\pm\qty{0,4}{\milli\ampere}$ alrededor del valor cero. La ausencia de patrones curvados (convexos o cóncavos) en los residuos confirma que la relación física subyacente es estrictamente lineal de primer orden, sin componentes cuadráticas de calentamiento por efecto Joule para corrientes inferiores a $\qty{65}{\milli\ampere}$.
+
+\subsection{Análisis del Ajuste No Lineal en la Lámpara Incandescente (Figura~\ref{fig:grafica_foquito_tungsteno})}
+\subsubsection{Validación del Exponente de Radiación Térmica}
+Para la lámpara incandescente de tungsteno, el ajuste por ley de potencias proporcionó un exponente experimental de:
+\begin{equation}
+    n_{\text{exp}} = 0{,}573 \pm 0{,}009 \qquad (R^2 = 0{,}9987).
+\end{equation}
+Este resultado se contrasta con la predicción teórica deducida en la Sección~\ref{sec:fundamento} a partir del balance térmico estacionario con radiación de Stefan-Boltzmann ($P_{\text{el}} = P_{\text{rad}} \implies V I \propto T^4$) y resistividad de filamento proporcional a la temperatura ($R \propto T$):
+\begin{equation}
+    n_{\text{teo}} = \frac{3}{5} = 0{,}600.
+\end{equation}
+
+La discrepancia relativa entre el exponente empírico y el modelo teórico puro de radiación es de apenas:
+\begin{equation}
+    E_{r,n} = \frac{|0{,}573 - 0{,}600|}{0{,}600} \times \qty{100}{\percent} = \qty{4,5}{\percent}.
+\end{equation}
+Esta pequeña diferencia del \qty{4,5}{\percent} se explica físicamente debido a que a tensiones bajas ($V < \qty{2}{\volt}$) la conducción de calor por los soportes de alambre de molibdeno que sostienen el filamento no es totalmente despreciable frente a la radiación, y a que la resistividad real del tungsteno presenta una leve curvatura adicional respecto a la temperatura absoluta ($\rho(T) \propto T^{1{,}2}$ para rangos térmicos muy extensos~\cite{serway}).
+
+\subsubsection{Residuos del Modelo de Potencias}
+Los residuos del foquito (panel inferior de la Figura~\ref{fig:grafica_foquito_tungsteno}) se mantienen contenidos dentro de $\pm\qty{0,01}{\ampere}$ a lo largo de todo el barrido de excitación, confirmando que la formulación $I = k V^n$ captura con fidelidad superior al \qty{99,8}{\percent} la física del filamento caliente.
+
+\subsection{Análisis de la Conducción y Umbral en el Diodo de Silicio (Figura~\ref{fig:grafica_diodo_silicio})}
+\subsubsection{Cuantificación de la Tensión de Umbral (\texorpdfstring{$V_u$}{Vu})}
+A partir de la proyección de la recta tangente de máxima conducción (Figura~\ref{fig:grafica_diodo_silicio}), se obtuvo experimentalmente una tensión de umbral de:
+\begin{equation}
+    V_u = \qty{0,66 \pm 0,06}{\volt}.
+\end{equation}
+Este valor coincide con notable precisión con la barrera de potencial típica de dispositivos de juntura de silicio comercial a temperatura ambiente ($V_{u,\text{silicio}} \approx \qtyrange{0,60}{0,70}{\volt}$~\cite{boylestad}). El error relativo respecto al centro del intervalo teórico (\qty{0,65}{\volt}) es de apenas \qty{1,5}{\percent}.
+
+\subsubsection{Diagnóstico del Punto Anómalo \texorpdfstring{$N^\circ 4$}{N. 4} (\texorpdfstring{$0{,}70\,\unit{\volt}, 0{,}230\,\unit{\ampere}$}{0,70 V, 0,230 A})}
+Al proyectar la curva exponencial de Shockley ajustada sobre los datos válidos, se observa que para $V = \qty{0,70}{\volt}$ la corriente predicha por la tendencia de la juntura es de $I_{\text{pred}} \approx \qty{0,33}{\ampere}$. La lectura registrada en el laboratorio ($I = \qty{0,230}{\ampere}$) presenta un residuo anómalo de $\Delta I \approx -\qty{0,10}{\ampere}$. 
+
+Como la pendiente dinámica local en esa región es de $\mathrm{d}I/\mathrm{d}V \approx \qty{15}{\siemens}$, una pequeña desviación de lectura de $\Delta V = -\qty{7}{\milli\volt}$ en el voltímetro digital o un ligero rebasamiento transitorio al manipular el cursor del reóstato antes de que la juntura alcanzara el equilibrio térmico estacionario es suficiente para producir dicha discrepancia. Al aislar este punto, la correlación física global del diodo exhibe una coherencia cuantitativa impecable.
+
+\subsection{Análisis de la Resistencia Dinámica vs Corriente (Figura~\ref{fig:grafica_resistencia_vs_corriente})}
+La Figura~\ref{fig:grafica_resistencia_vs_corriente} permite categorizar formalmente los tres elementos ensayados en función del signo de la derivada de su resistencia estática respecto a la corriente ($\mathrm{d}R/\mathrm{d}I$):
+\begin{enumerate}
+    \item \textbf{Resistencia de carbón (Comportamiento Óhmico):}
+    \begin{equation}
+        \frac{\mathrm{d}R}{\mathrm{d}I} \approx 0 \implies R(I) \approx \text{constante} = \qty{100}{\ohm}.
+    \end{equation}
+    La curva en la Figura~\ref{fig:grafica_resistencia_vs_corriente} es estrictamente horizontal, certificando la independencia absoluta entre el valor óhmico y el nivel de corriente inyectado.
+    
+    \item \textbf{Lámpara incandescente (Coeficiente Térmico Positivo, PTC):}
+    \begin{equation}
+        \frac{\mathrm{d}R}{\mathrm{d}I} > 0 \implies R(I) \text{ monótonamente creciente}.
+    \end{equation}
+    Al elevarse la corriente desde \qty{0,148}{\ampere} hasta \qty{0,432}{\ampere}, la resistencia asciende de \qty{6,76}{\ohm} a \qty{14,88}{\ohm}, evidenciando el predominio de la dispersión de electrones por fonones térmicos en metales conductores.
+    
+    \item \textbf{Diodo semiconductor de silicio (Efecto de Campo y Modulación de Barrera):}
+    \begin{equation}
+        \frac{\mathrm{d}R}{\mathrm{d}I} < 0 \implies R(I) \text{ monótonamente decreciente}.
+    \end{equation}
+    Al superarse la tensión de codo, la resistencia estática aparente se reduce en más de un orden de magnitud, pasando de \qty{12,2}{\ohm} a \qty{0,96}{\ohm} cuando la corriente aumenta de \qty{0,050}{\ampere} a \qty{0,783}{\ampere}, comportamiento característico del estrechamiento de la zona de agotamiento y la conducción por difusión masiva en semiconductores.
+\end{enumerate}

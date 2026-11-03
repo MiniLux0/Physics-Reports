@@ -1,0 +1,70 @@
+%% ============================================================
+%%  SECCIÓN 11 — Análisis de Gráficas
+%% ============================================================
+
+\section{Análisis de Gráficas}
+\label{sec:analisis_graficas}
+
+En esta sección se desarrolla la interpretación analítica, física y estadística de las cuatro figuras presentadas en la Sección~\ref{sec:graficas}, evaluando la bondad del ajuste del modelo lineal, la aleatoriedad de los residuos y la concordancia de las formas de onda frente a las leyes de conservación.
+
+\subsection{Dinámica transitoria de carga y descarga en el dominio temporal (Fig.~\ref{fig:carga_descarga})}
+
+La Fig.~\ref{fig:carga_descarga} ilustra la respuesta temporal simultánea de la tensión en el condensador $V_C(t)$ (curva en trazo continuo, Canal 1) y en la resistencia $V_R(t)$ (curva en trazo discontinuo, Canal 2) bajo una excitación cuadrada simétrica de \qty{250}{\hertz} y \qty{10,0}{\voltpp}.
+
+Al analizar los puntos característicos señalados en la gráfica:
+\begin{enumerate}
+    \item \textbf{Respuesta en $t = \tau$:} Para la combinación representativa ilustrada en la figura ($R_1 \times C_2$, con $\tau = \qty{273,6}{\micro\second}$), la tensión en el condensador alcanza exactamente $V_C(\tau) = \qty{6,32}{\volt}$, lo que equivale rigurosamente al \qty{63,2}{\percent} de la tensión asintótica de \qty{10,0}{\volt}. Simultáneamente, la caída de tensión en la resistencia decae hasta $V_R(\tau) = \qty{3,68}{\volt}$ (\qty{36,8}{\percent} del valor de pico inicial), corroborando la perfecta complementariedad dinámica entre ambos componentes pasivos.
+    \item \textbf{Respuesta en $t = 5\tau$:} Al transcurrir $t = 5\tau \approx \qty{1368}{\micro\second}$ ($5 \times \qty{273,6}{\micro\second}$), la tensión en el condensador alcanza $V_C(5\tau) = \qty{9,93}{\volt}$ (\qty{99,3}{\percent} del valor final), mientras que la tensión en la resistencia se ha extinguido prácticamente por completo ($V_R(5\tau) \le \qty{0,07}{\volt}$). Dado que el semiperíodo dura $T/2 = \qty{2000}{\micro\second}$, el circuito dispone de más de \qty{630}{\micro\second} adicionales en estado de reposo cuasiestacionario antes de que ocurra la siguiente conmutación. Cabe resaltar que para las combinaciones más rápidas, como $R_1 \times C_1$ ($\tau = \qty{107,8}{\micro\second}$), el lapso de $5\tau = \qty{539,0}{\micro\second}$ deja un margen estacionario aún más amplio (superior a \qty{1460}{\micro\second}).
+    \item \textbf{Proceso de descarga ($t \ge T/2$):} En el flanco descendente ($t = \qty{2,00}{\milli\second} = \qty{2000}{\micro\second}$), la curva de $V_C(t)$ decae suavemente hacia cero, alcanzando en $t = T/2 + \tau = \qty{2273,6}{\micro\second}$ el nivel de $V_C = \qty{3,68}{\volt}$ (\qty{36,8}{\percent} de $V_0$), sin oscilaciones subamortiguadas ni sobrepicos, lo que confirma que las inductancias parásitas del módulo y del cableado son absolutamente despreciables y el circuito opera en régimen aperiódico puro (sobreamortiguado).
+\end{enumerate}
+
+\subsection{Linealidad de la constante de tiempo y estructura de residuos (Fig.~\ref{fig:linealizacion_tau})}
+
+La Fig.~\ref{fig:linealizacion_tau} sintetiza el contraste fundamental entre el modelo teórico $\tau = RC$ y los datos experimentales para los tres condensadores ensayados ($C_1, C_2, C_3$) en función de la resistencia $R$.
+
+\begin{enumerate}
+    \item \textbf{Ajuste y pendientes experimentales:} Las tres familias de puntos experimentales presentan una correlación lineal extraordinaria con la resistencia de malla, obteniéndose coeficientes de determinación $R^2 = 0{,}99998$ para $C_1$, $R^2 = 0{,}99999$ para $C_2$ y $R^2 = 0{,}99993$ para $C_3$. Las pendientes de las rectas representan directamente las capacitancias efectivas del banco: $C_{1,\text{OLS}} = \qty{10,79 \pm 0,05}{\nano\farad}$, $C_{2,\text{OLS}} = \qty{27,44 \pm 0,03}{\nano\farad}$ y $C_{3,\text{OLS}} = \qty{34,61 \pm 0,29}{\nano\farad}$.
+    \item \textbf{Análisis de residuos (Panel inferior):} El panel inferior de la Fig.~\ref{fig:linealizacion_tau} grafica los residuos individuales $e_i = \tau_{\text{exp},i} - \tau_{\text{fit},i}$ junto a sus barras de incertidumbre instrumental. Se observa que los residuos se distribuyen de forma estrictamente aleatoria alrededor del eje cero dentro de una banda estrecha inferior a $\pm\qty{0,4}{\micro\second}$. La ausencia de patrones curvos sistemáticos (forma parabólica o sesgo monótono) confirma que no existen efectos no lineales de saturación en el dieléctrico ni calentamiento resistivo apreciable en el rango de corrientes ensayado ($I \le \qty{4,4}{\milli\ampere}$).
+    \item \textbf{Interpretación de la discrepancia en $C_2$:} Mientras que los condensadores $C_1$ y $C_3$ exhiben desviaciones moderadas del \qty{+7,95}{\percent} y \qty{+4,15}{\percent} frente a sus valores rotulados, el condensador $C_2$ arroja un error relativo del \qty{+22,48}{\percent} frente al valor nominal de \qty{22,40}{\nano\farad}. Esta discrepancia no representa una falla del método experimental, sino la tolerancia de fabricación comercial típica de los capacitores cerámicos y de poliéster metalizado empleados en docencia universitaria (clase comercial $\pm\qty{20}{\percent}$), agravada por la absorción dieléctrica y el envejecimiento de los componentes pasivos tras múltiples ciclos de trabajo.
+\end{enumerate}
+
+\subsection{Comprobación en tiempo real de la Ley de Mallas de Kirchhoff (Fig.~\ref{fig:suma_kvl})}
+
+En la Fig.~\ref{fig:suma_kvl} se presenta la suma punto a punto calculada mediante el canal matemático del osciloscopio (\texttt{MATH ADD}: CH1 + CH2) para el ensayo representativo con $R_1 \times C_1$ ($\tau = \qty{107,8}{\micro\second}$), comparada directamente con la onda cuadrada de excitación generada por el sintetizador OWON.
+
+El resultado es categórico: en todo instante de tiempo $t$, la suma $V_C(t) + V_R(t)$ se mantiene rigurosamente horizontal en \qty{10,00}{\volt} durante la fase de carga y en \qty{0,00}{\volt} durante la descarga. Las variaciones exponenciales individuales, caracterizadas por derivadas de signo contrario:
+\begin{equation*}
+    \frac{dV_C}{dt} = +\frac{V_0}{\tau}\,e^{-t/\tau}, \qquad \frac{dV_R}{dt} = -\frac{V_0}{\tau}\,e^{-t/\tau}
+\end{equation*}
+se anulan algebraicamente de forma exacta e instantánea:
+\begin{equation*}
+    \frac{d}{dt}\left(V_C(t) + V_R(t)\right) = 0 \implies V_C(t) + V_R(t) = \text{constante} = V_0
+\end{equation*}
+El panel inferior de la Fig.~\ref{fig:suma_kvl} revela que la fluctuación residual $|\Delta V_{\text{KVL}}| = |(V_C + V_R) - V_{\text{gen}}|$ es inferior a \qty{0,05}{\volt} (un error relativo menor al $\qty{0,5}{\percent}$ frente al fondo de escala). Esta concordancia convalida experimentalmente el principio de conservación de la energía en circuitos dinámicos de primer orden.
+
+\subsection{Respuesta transitoria del circuito con divisor resistivo de Thévenin (Fig.~\ref{fig:paso20_thevenin})}
+
+La Fig.~\ref{fig:paso20_thevenin} ilustra la dinámica transitoria del montaje mixto del paso 20 (Figura 9 y 10 de la guía), donde la presencia de la resistencia $R_2 = \qty{6,832}{\kilo\ohm}$ en paralelo con el condensador $C_3 = \qty{33,23}{\nano\farad}$ modifica drásticamente las condiciones de frontera:
+
+\begin{enumerate}
+    \item \textbf{Atenuación de la tensión de saturación ($V_{\text{th}}$):} En el panel superior se observa que la curva de tensión en el condensador $V_C(t)$ ya no converge hacia \qty{10,0}{\volt}, sino que se satura en una asíntota horizontal significativamente menor:
+    \begin{equation*}
+        V_{C,\max} = V_{\text{th}} = \qty{10,0}{\volt} \times \left( \frac{6832}{9980 + 6832} \right) = \qty{4,064}{\volt} \approx \qty{4,06}{\volt}
+    \end{equation*}
+    coincidiendo plenamente con la predicción del divisor de tensión resistivo en circuito abierto.
+    \item \textbf{Aceleración del transitorio ($\tau_{\text{th}}$):} La constante de tiempo observada se reduce drásticamente desde $\tau_{\text{serie}} = R_1 C_3 \approx \qty{344,8}{\micro\second}$ hasta el valor de Thévenin:
+    \begin{equation*}
+        \tau_{\text{th}} = R_{\text{th}} \cdot C_{3,\text{exp}} = \left( \frac{9980 \times 6832}{9980 + 6832} \right) \times \qty{34,55e-9}{\farad} = \qty{4055}{\ohm} \times \qty{34,55e-9}{\farad} \approx \qty{140,1}{\micro\second}
+    \end{equation*}
+    lo que significa que el condensador se carga más de dos veces más rápido que en la configuración serie simple.
+    \item \textbf{Corrientes asintóticas y de conmutación (Panel inferior):} En el panel inferior se aprecia que la corriente suministrada por la fuente a través de $R_1$ parte en $t = 0^+$ desde su valor máximo:
+    \begin{equation*}
+        I_{\max} = \frac{V_0}{R_1} = \frac{\qty{10,0}{\volt}}{\qty{9980}{\ohm}} = \qty{1,002}{\milli\ampere}
+    \end{equation*}
+    y decae exponencialmente no hacia cero, sino hacia un nivel estacionario permanente no nulo:
+    \begin{equation*}
+        I_{\min} = \frac{V_0}{R_1 + R_2} = \frac{\qty{10,0}{\volt}}{\qty{16812}{\ohm}} = \qty{0,595}{\milli\ampere}
+    \end{equation*}
+    debido a la corriente continua de polarización que circula de manera permanente a través del divisor resistivo $R_1 + R_2$. Asimismo, en el instante de conmutación de bajada ($t = T/2 = \qty{2,00}{\milli\second}$), se observa en la traza de $I_{R1}(t)$ un pulso negativo abrupto de descarga de $I_{R1,\text{descarga}}^{\max} = -V_{\text{th}}/R_1 \approx -\qty{0,41}{\milli\ampere}$, el cual decae suavemente hacia cero a medida que el condensador evacúa su carga remanente.
+\end{enumerate}
+En síntesis, las cuatro representaciones gráficas demuestran la completa concordancia cualitativa y cuantitativa entre el modelado analítico de circuitos de primer orden y los fenómenos físicos medidos en el laboratorio.

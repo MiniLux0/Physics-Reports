@@ -1,0 +1,101 @@
+%% ============================================================
+%%  SECCIÓN 9 — Tratamiento de Datos y Resultados
+%% ============================================================
+
+\section{Tratamiento de Datos y Resultados}
+\label{sec:tratamiento}
+
+\subsection{Resistencia de Carbón --- Ajuste Lineal por el Origen (MCO)}
+
+Se ajustó la relación $I = G\,V$ (conductancia forzada por el origen) mediante mínimos cuadrados ordinarios sobre los 7 pares $(V_i, I_i)$ con $V > 0$:
+\begin{equation}
+    G = \frac{\sum V_i I_i}{\sum V_i^2} = \frac{\qty{1{,}3388}{\ampere\volt}}{\qty{133{,}90}{\volt^2}} = \qty{9{,}998e-3}{\siemens}.
+\end{equation}
+La resistencia experimental y su incertidumbre propagada son:
+\begin{equation}
+    R_{\text{exp}} = \frac{1}{G} = \qty{100{,}02 \pm 2{,}55}{\ohm}, \qquad R^2 = 0{,}99985.
+\end{equation}
+El error relativo respecto al valor nominal de \qty{100}{\ohm}:
+\begin{equation}
+    E_r = \frac{|100{,}02 - 100{,}00|}{100{,}00} \times \qty{100}{\percent} = \qty{0{,}02}{\percent} \ll \qty{5}{\percent}\ (\text{tolerancia E24}).
+\end{equation}
+La ordenada al origen en el modelo no restringido resultó $b = \qty{0{,}11 \pm 0{,}24}{\milli\ampere}$, estadísticamente nula ($|b|/s_b = 0{,}47 < 1$), confirmando la ausencia de tensiones parásitas en el circuito.
+
+\subsection{Lámpara Incandescente --- Ajuste por Ley de Potencias}
+
+Linealizando $I = k\,V^n$ en escala logarítmica ($\ln I = \ln k + n \ln V$) y aplicando regresión lineal sobre los 7 pares con $V > 0$:
+\begin{align}
+    n_{\text{exp}} &= \num{0{,}573 \pm 0{,}014}, \\
+    k               &= \qty{0{,}1461 \pm 0{,}0030}{\ampere\per\volt^n}, \\
+    R^2             &= 0{,}9987.
+\end{align}
+
+La discrepancia respecto al exponente teórico deducido en el Anexo~A ($n_{\text{teo}} = 0{,}600$) es de:
+\begin{equation}
+    E_{r,n} = \frac{|0{,}573 - 0{,}600|}{0{,}600} \times \qty{100}{\percent} = \qty{4{,}5}{\percent},
+\end{equation}
+atribuible a las pérdidas térmicas por conducción en los soportes de molibdeno a bajas tensiones y a la curvatura real de $\rho(T)$ del tungsteno a altas temperaturas.
+
+La resistencia estática varía monótonamente:
+\begin{equation}
+    R(\qty{1{,}00}{\volt}) = \qty{6{,}76}{\ohm} \longrightarrow R(\qty{6{,}43}{\volt}) = \qty{14{,}88}{\ohm} \quad (+\qty{120}{\percent}).
+\end{equation}
+
+\subsection{Diodo de Silicio --- Ajuste Ecuación de Shockley}
+
+Se ajustó la ecuación de Shockley (Ec.~\eqref{eq:shockley}) mediante regresión lineal de $\ln I$ vs $V$ sobre los 6 puntos válidos (excluyendo el atípico N.\textsuperscript{o}\,4):
+\begin{equation}
+    \ln I = \underbrace{-15{,}71}_{\ln I_S} + \underbrace{20{,}81}_{1/(n\,V_T)} \cdot V.
+\end{equation}
+
+Los parámetros de Shockley experimentales se resumen en el Cuadro~\ref{tab:parametros_shockley}:
+
+\begin{table}[H]
+    \centering
+    \caption{Parámetros de la ecuación de Shockley obtenidos experimentalmente versus rango teórico para diodos de silicio a \qty{25}{\celsius}.}
+    \label{tab:parametros_shockley}
+    \resizebox{0.78\linewidth}{!}{%
+    \begin{tabular}{lccl}
+        \toprule
+        \textbf{Parámetro} & \textbf{Valor experimental} & \textbf{Rango teórico (Si, \qty{25}{\celsius})} & \textbf{Concordancia} \\
+        \midrule
+        Factor de idealidad $n$       & $1{,}871 \pm 0{,}123$ & $1{,}0$--$2{,}0$ & $\checkmark$ \\
+        Corriente de saturación $I_S$ & $\qty{1{,}51e-7}{\ampere}$ & $10^{-12}$--$10^{-6}$ A & $\checkmark$ \\
+        Coef. de determinación $R^2$  & $0{,}9831$ & --- & --- \\
+        \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+
+La tensión de umbral extrapolada a partir de la tangente de la zona de alta conducción ($V \in [0{,}71;\,0{,}75]\,\unit{\volt}$) es:
+\begin{equation}
+    V_u = \qty{0{,}66 \pm 0{,}06}{\volt},
+\end{equation}
+plenamente concordante con el intervalo teórico de \qtyrange{0{,}60}{0{,}70}{\volt} para diodos de silicio~\cite{boylestad}.
+
+\subsubsection{Diagnóstico cuantitativo del punto \texorpdfstring{N.\textsuperscript{o}\,4}{Nro. 4}}
+La corriente predicha por Shockley a $V = \qty{0{,}70}{\volt}$ es $I_{\text{pred}} = \qty{0{,}328}{\ampere}$. El residuo observado es:
+\begin{equation}
+    \Delta I = \qty{0{,}230}{\ampere} - \qty{0{,}328}{\ampere} = \qty{-0{,}098}{\ampere} \equiv 98\,\delta I,
+\end{equation}
+lo que supera en más de 32 veces el umbral de 3$\sigma$ y confirma estadísticamente el carácter atípico del punto. Su exclusión del ajuste de Shockley está plenamente justificada.
+
+\subsection{Resistencia Aparente a \texorpdfstring{0{,}80 V}{0,80 V} (Pregunta de Guía)}
+En el Cuadro~\ref{tab:resistencia_08V} se sintetizan las corrientes predichas y las resistencias estáticas aparentes calculadas a \qty{0{,}80}{\volt} para los tres elementos ensayados:
+
+\begin{table}[H]
+    \centering
+    \caption{Corriente y resistencia estática aparente evaluadas a \qty{0{,}80}{\volt} para los tres elementos.}
+    \label{tab:resistencia_08V}
+    \resizebox{0.82\linewidth}{!}{%
+    \begin{tabular}{lccl}
+        \toprule
+        \textbf{Elemento} & $I\,(\qty{0{,}80}{\volt})$ & $R = V/I$ & \textbf{Método} \\
+        \midrule
+        Resistencia carbón (E2) & \qty{8{,}00 \pm 0{,}10}{\milli\ampere} & \qty{100{,}02 \pm 0{,}18}{\ohm} & Ley de Ohm ($R = \text{cte}$) \\
+        Lámpara tungsteno (E1)  & \qty{128{,}6 \pm 1{,}8}{\milli\ampere} & \qty{6{,}22 \pm 0{,}10}{\ohm}  & Extrapolación $I = 0{,}1461\,V^{0{,}573}$ \\
+        Diodo silicio (E3)      & $>\qty{1{,}0}{\ampere}$ (inadmisible)   & $<\qty{0{,}70}{\ohm}$           & Proyección tangente ($V > V_u$) \\
+        \bottomrule
+    \end{tabular}%
+    }
+\end{table}

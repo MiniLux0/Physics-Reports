@@ -1,0 +1,80 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{lmodern}
+\usepackage[top=2.0cm, bottom=2.0cm, left=2.0cm, right=2.0cm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{siunitx}
+
+\sisetup{
+    output-decimal-marker = {,},
+    separate-uncertainty  = true,
+    per-mode              = symbol,
+}
+
+\DeclareSIUnit{\division}{div}
+\DeclareSIUnit{\ppm}{ppm}
+\DeclareSIUnit{\voltpp}{V_{pp}}
+\DeclareSIUnit{\voltrms}{V_{rms}}
+
+\definecolor{uni-blue}{RGB}{0, 56, 101}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+    {\Large\bfseries\color{uni-blue} FORMATO OFICIAL PARA RECORTE O COPIA}\\[1.5mm]
+    {\normalsize\textbf{Sección 5.8: Tabla Resumen de Especificaciones Metrológicas}}\\[1mm]
+    {\footnotesize\textit{Física III (CF1B2) --- Informe de Laboratorio N.° 1 (El Osciloscopio)}}\\[3mm]
+    \rule{0.9\linewidth}{0.8pt}
+\end{center}
+
+\vspace{0.8cm}
+
+%% CAJA DE RECORTE CON LA TABLA EXACTA
+\begin{center}
+\begin{tikzpicture}
+    \node[draw=gray!70, dashed, line width=0.6pt, inner sep=4mm, fill=white] {
+        \begin{minipage}{16.0cm}
+            \textbf{\large 5.8. Tabla Resumen de Especificaciones de los Instrumentos}\\[0.25cm]
+            {\small En la Tabla~1 se sintetizan las especificaciones metrológicas fundamentales, rangos de operación e incertidumbres instrumentales declaradas para todos los equipos empleados en la experiencia.}\\[0.35cm]
+            
+            \begin{center}
+                \textbf{\normalsize Tabla 1:} \textit{\normalsize Especificaciones metrológicas de los equipos e instrumentos empleados.}
+            \end{center}
+            \vspace{-0.2cm}
+            
+            \resizebox{\linewidth}{!}{%
+            \begin{tabular}{@{}llll@{}}
+                \toprule
+                \textbf{Instrumento} & \textbf{Modelo / Marca} & \textbf{Rango de Medida} & \textbf{Incertidumbre Instrumental ($\delta x$)} \\
+                \midrule
+                Osciloscopio Digital & R\&S HMO1202 / RTC1002 & $\qty{0}{\mega\hertz}\text{ a }\qty{200}{\mega\hertz},\; \qty{1}{\milli\volt\per\division}\text{ a }\qty{10}{\volt\per\division}$ & $\delta N_{\text{div}} = \pm 0{,}1\,\text{div},\; \delta f/f = \pm\qty{0,05}{\percent}$ \\[0.15cm]
+                Generador de Señales & OWON AG 051F & $\qty{1}{\micro\hertz}\text{ a }\qty{5}{\mega\hertz},\; \qtyrange{0,02}{20}{\voltpp}$ & $\delta f/f = \pm\qty{1}{\ppm},\; \delta V_p = \pm\qty{0,05}{\volt}$ \\[0.15cm]
+                Multímetro Digital   & Industrial True-RMS    & $\qtyrange{0}{600}{\volt}\; (\text{DC/AC})$ & $\delta V_{\text{DC}} = \pm\qty{0,001}{\volt},\; \delta V_{\text{AC}} = \pm\qty{0,01}{\volt}$ \\[0.15cm]
+                Transformador AC     & Reductor Monofásico    & $\qty{220}{\volt} \to \qty{6}{\volt},\; \qty{60}{\hertz}$ & $\delta f_{\text{red}} = \pm\qty{0,05}{\hertz}$ \\[0.15cm]
+                Fuente Regulada DC   & Multisalida de Banco   & $\qtyrange{2,5}{10,5}{\volt}$ & $\delta V_{\text{mult}} = \pm\qty{0,001}{\volt}$ \\[0.15cm]
+                Pila Alcalina        & Cilíndrica AA          & \qty{1,50}{\volt} nominal & $\delta V_{\text{mult}} = \pm\qty{0,001}{\volt}$ \\[0.15cm]
+                Cables y Sondas      & Coaxial BNC / Banana   & $\qty{50}{\ohm},\; \qty{600}{\voltrms}\text{ máx.}$ & Atenuación despreciable en baja frecuencia \\
+                \bottomrule
+            \end{tabular}%
+            }
+        \end{minipage}
+    };
+\end{tikzpicture}
+\end{center}
+
+\vspace{1.0cm}
+
+\begin{center}
+    {\footnotesize\color{gray} \textit{Instrucciones: Recortar por la línea punteada para pegar en la Hoja 10 (Sección 5.8) o fotocopiar directamente.}}
+\end{center}
+
+\end{document}

@@ -1,0 +1,35 @@
+%% ============================================================
+%%  SECCIÓN 8 — Análisis Experimental
+%% ============================================================
+
+\section{Análisis Experimental}
+\label{sec:analisis_exp}
+
+En esta sección desarrollamos una evaluación estrictamente fenomenológica y cualitativa de las señales registradas en el osciloscopio y de las tendencias observadas en la matriz de datos crudos (Tabla~\ref{tab:datos_experimentales}). Siguiendo las directrices metodológicas del curso, el procesamiento matemático formal de regresión y propagación metrológica de errores se presenta de manera exclusiva en la Sección~\ref{sec:tratamiento}.
+
+\subsection{Morfología fenomenológica de las señales transitorias en pantalla}
+
+Al conectar el osciloscopio digital HMO1202 en modo de barrido continuo con base de tiempo en \qty{500}{\micro\second\per\division} (como se documenta en la Fig.~\ref{fig:carga_descarga}), apreciamos con total nitidez las marcadas diferencias cualitativas entre las formas de onda de ambos canales:
+
+\begin{itemize}
+    \item \textbf{Canal 1 --- Voltaje en el condensador $V_C(t)$ (Respuesta integradora):} La traza amarilla de CH1 exhibe una curva suave, continua y sin discontinuidades de salto en ningún instante temporal. En el flanco ascendente del generador ($t = 0$), la señal arranca desde el origen con una pendiente inicial pronunciada dada por $(dV_C/dt)_{0^+} = V_0 / (RC)$, y se dobla de forma progresiva hasta alcanzar una meseta horizontal asintótica rigurosamente plana en $V_C = \qty{10,0}{\volt}$. Esta continuidad matemática refleja la ley física fundamental de conservación de la carga: la energía electrostática $U = \frac{1}{2} C V^2$ almacenada en el dieléctrico no puede cambiar instantáneamente porque ello requeriría una potencia disipada infinita. Durante el flanco descendente del generador ($t = T/2 = \qty{2,0}{\milli\second}$), la curva desciende suavemente describiendo una exponencial decreciente que converge asintóticamente hacia el nivel de potencial cero.
+    
+    \item \textbf{Canal 2 --- Voltaje en la resistencia $V_R(t)$ (Respuesta derivativa):} En contraste absoluto con CH1, la traza azul de CH2 muestra discontinuidades abruptas de salto instantáneo. En el instante exacto en que el escalón de excitación conmuta a \qty{10,0}{\volt}, el condensador inicialmente descargado actúa como un cortocircuito perfecto ($Z_C \to 0$), de modo que toda la tensión del generador cae de forma instantánea sobre los bornes de la resistencia: $V_R(0^+) = \qty{10,0}{\volt}$. A partir de ese pico, la señal decae rápidamente hacia cero a medida que el condensador se satura. Más revelador aún fue observar el comportamiento en el flanco de bajada ($t = T/2$): cuando el generador cae a \qty{0}{\volt}, la tensión en la resistencia sufre un salto vertical negativo de \qty{-10,0}{\volt}, lo que pone de manifiesto la inversión física en el sentido del flujo de corriente durante la fase de descarga.
+\end{itemize}
+
+\subsection{Comportamiento cualitativo y tendencias frente a la variación de parámetros}
+
+Al recorrer las distintas combinaciones de la Tabla~\ref{tab:datos_experimentales}, observamos regularidades físicas muy definidas:
+\begin{enumerate}
+    \item \textbf{Efecto del incremento de resistencia a capacitancia fija:} Al mantener fijado el condensador $C_1 = \qty{10,0}{\nano\farad}$ y transicionar desde $R_3 = \qty{2,250}{\kilo\ohm}$ hacia $R_1 = \qty{9,980}{\kilo\ohm}$ (un factor de multiplicación resistivo de $9980/2250 \approx 4{,}44$), la pendiente inicial de la curva $V_C(t)$ se aplanó notablemente y el transitorio se estiró en el eje temporal en una proporción idéntica: $\tau$ creció desde \qty{24,4}{\micro\second} hasta \qty{107,8}{\micro\second} ($107{,}8 / 24{,}4 \approx 4{,}42$).
+    \item \textbf{Efecto del incremento de capacitancia a resistencia fija:} De igual forma, al fijar la resistencia $R_1 = \qty{9,980}{\kilo\ohm}$ y sustituir los capacitores en el orden $C_1 \to C_2 \to C_3$, las constantes de tiempo se dilataron secuencialmente (\qty{107,8}{\micro\second} $\to$ \qty{273,6}{\micro\second} $\to$ \qty{344,8}{\micro\second}), confirmando que la capacidad de almacenamiento dieléctrico impone mayor retardo a la corriente de carga.
+    \item \textbf{Ausencia de corte o truncamiento transitorio:} En todos los casos registrados, las curvas alcanzaron de manera completa y estable su meseta horizontal antes del flanco de conmutación. En la combinación más lenta ($R_1 \times C_3$, con $\tau = \qty{344,8}{\micro\second}$), el lapso de medio período de $T/2 = \qty{2000}{\micro\second}$ representó $\approx 5{,}8\tau$, margen suficiente para asegurar que el transitorio alcanzó más del \qty{99,7}{\percent} de saturación antes de invertirse la polaridad.
+\end{enumerate}
+
+\subsection{Sensibilidad metrológica e incertidumbres dominantes}
+
+Al examinar las fuentes de dispersión durante las mediciones en el laboratorio:
+\begin{itemize}
+    \item La lectura de la constante de tiempo $\tau$ con los cursores del osciloscopio digital presentó una resolución de pantalla de $\delta t = \qty{0,1}{\micro\second}$. En los transitorios largos ($\tau > \qty{100}{\micro\second}$), esta resolución representa una incertidumbre relativa minúscula ($< \qty{0,15}{\percent}$). Sin embargo, para la combinación más rápida ($R_3 \times C_1$, con $\tau \approx \qty{24,4}{\micro\second}$), la resolución del cursor representa aproximadamente un $\qty{0,57}{\percent}$, convirtiéndose en la fuente dominante de error temporal.
+    \item Por su parte, la medición ohmimétrica de las resistencias con el multímetro digital aportó incertidumbres relativas uniformes de entre $\pm\qty{0,5}{\percent}$ y $\pm\qty{0,6}{\percent}$ ($u(R)/R \approx 58/9980 \approx \qty{0,58}{\percent}$). En consecuencia, para transitorios moderados y lentos, la incertidumbre en la determinación de la capacitancia $C_{\text{exp}} = \tau / R$ se encuentra enteramente dominada por la tolerancia metrológica del óhmetro digital, mientras que la base de tiempo de cuarzo del osciloscopio (\qty{50}{\ppm}) aporta un error despreciable.
+\end{itemize}

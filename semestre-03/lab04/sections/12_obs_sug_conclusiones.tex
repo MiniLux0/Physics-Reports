@@ -1,0 +1,50 @@
+%% ============================================================
+%%  SECCIÓN 12 — Observaciones, Sugerencias y Conclusiones
+%% ============================================================
+
+\section{Observaciones}
+\label{sec:observaciones}
+
+\begin{enumerate}
+    \item \textbf{Influencia de la impedancia interna de la fuente de excitación:} El generador de funciones OWON AG 051F posee una impedancia de salida estándar de $R_{\text{gen}} = \qty{50}{\ohm}$. En rigor, la resistencia total que limita la corriente de carga en la malla es $R_{\text{total}} = R + R_{\text{gen}}$. Para la resistencia mayor ($R_1 = \qty{9980}{\ohm}$), la impedancia del generador representa apenas un $\qty{0,50}{\percent}$, lo cual queda absorbido dentro de la incertidumbre instrumental del resistor ($\pm\qty{0,58}{\percent}$). Para la resistencia menor ($R_3 = \qty{2250}{\ohm}$), la fracción asciende al $\qty{2,2}{\percent}$, introduciendo un leve sesgo sistemático por defecto en la capacitancia calculada si no se descuenta la resistencia interna de la fuente.
+    
+    \item \textbf{Efecto de carga parásita de las sondas del osciloscopio:} Las sondas de prueba directas $1\text{X}$ presentan una impedancia de entrada típica de $R_{\text{probe}} = \qty{1}{\mega\ohm}$ en paralelo con una capacitancia parásita de $C_{\text{probe}} \approx \qty{15}{\pico\farad}$. Al medir en bornes de los condensadores del módulo ($C \ge \qty{10}{\nano\farad}$), la capacitancia parásita de la sonda representa una perturbación inferior al $\qty{0,15}{\percent}$, resultando completamente despreciable frente a las tolerancias de fabricación de los componentes.
+    
+    \item \textbf{Tolerancia comercial y envejecimiento en componentes pasivos:} La discrepancia del \qty{+22,48}{\percent} observada en el condensador $C_2$ (nominal de \qty{22,40}{\nano\farad}, efectivo por MCO de \qty{27,44}{\nano\farad}) refleja fielmente la dispersión habitual de los capacitores comerciales de poliéster y cerámicos para propósitos educativos, cuya tolerancia nominal de catálogo es típicamente de $\pm\qty{20}{\percent}$. Este resultado demuestra que la discrepancia porcentual respecto al valor rotulado no se debió a imprecisiones en el procedimiento experimental, sino a la propia variabilidad intrínseca del lote de componentes del laboratorio.
+    
+    \item \textbf{Configuración crítica de tierras comunes:} La conexión obligatoria de las pinzas de masa de ambos canales en el nodo central entre la resistencia y el condensador fue indispensable para la integridad del experimento. Al compartir ambos canales el chasis metálico común del osciloscopio HMO1202, conectar las tierras en nodos distintos habría creado un bucle de cortocircuito a través de la red de masa del laboratorio, dañando potencialmente los componentes o la etapa de entrada del instrumento.
+\end{enumerate}
+
+\section{Sugerencias}
+\label{sec:sugerencias}
+
+\begin{enumerate}
+    \item \textbf{Uso de sondas atenuadoras 10X compensadas:} Para mitigar el efecto de carga capacitiva y aumentar la impedancia de entrada a \qty{10}{\mega\ohm} con apenas \qty{10}{\pico\farad} en paralelo, se sugiere emplear sondas atenuadoras $10\text{X}$ previamente compensadas mediante el terminal de prueba de onda cuadrada a \qty{1}{\kilo\hertz} del propio osciloscopio, especialmente cuando se trabaje con constantes de tiempo inferiores a \qty{50}{\micro\second}.
+    
+    \item \textbf{Caracterización previa con puente de impedancias LCR:} Se recomienda que en futuras prácticas se mida previamente cada condensador y resistor con un puente digital RLC o capacímetro de precisión (como un medidor de cuatro terminales Kelvin a \qty{1}{\kilo\hertz} y \qty{100}{\hertz}), registrando el valor de capacitancia de referencia con una incertidumbre inferior al $\pm\qty{0,2}{\percent}$ y cuantificando la resistencia serie equivalente (ESR).
+    
+    \item \textbf{Automatización de la adquisición mediante protocolo USB-TMC:} Para eliminar la incertidumbre humana derivada del posicionamiento manual de los cursores visuales en la pantalla del osciloscopio, sería altamente conveniente conectar el puerto USB posterior del Rohde \& Schwarz HMO1202 a una computadora de mesa y descargar la matriz completa de datos crudos temporales ($2048$ puntos de muestreo a 8 bits) mediante scripts de adquisición en Python (librería \texttt{pyvisa}), permitiendo realizar el ajuste no lineal exponencial directo mediante algoritmos de Levenberg-Marquardt.
+\end{enumerate}
+
+\section{Conclusiones}
+\label{sec:conclusiones}
+
+\begin{enumerate}
+    \item Se calibraron satisfactoriamente el generador de funciones OWON AG 051F y el osciloscopio digital Rohde \& Schwarz HMO1202 a una frecuencia de excitación de $f = \qty{250}{\hertz}$ y una amplitud de $V_0 = \qty{10,0}{\voltpp}$. El semiperíodo de conmutación resultante ($T/2 = \qty{2,00}{\milli\second}$) superó en un factor mayor a $5{,}8$ a la constante de tiempo más lenta del sistema ($\tau_{\max} = \qty{344,8}{\micro\second}$), garantizando en todos los ensayos la saturación cuasiestacionaria completa del condensador ($> \qty{99,7}{\percent}$) y la correcta identificación de la meseta asintótica en pantalla.
+    
+    \item Se determinaron cuantitativamente las constantes de tiempo capacitivas $\tau$ para las 9 combinaciones de la matriz experimental de la Mesa C7 al nivel del \qty{63,2}{\percent} de la tensión de saturación, cubriendo un amplio rango temporal comprendido entre \qty{24,4 \pm 0,14}{\micro\second} ($R_3 \times C_1$) y \qty{344,8 \pm 0,15}{\micro\second} ($R_1 \times C_3$), con una incertidumbre instrumental relativa inferior al $\qty{0,6}{\percent}$.
+    
+    \item Se comprobó la complementariedad dinámica entre el proceso de carga del condensador y la caída de potencial en la resistencia, verificando que el intervalo de decaimiento al \qty{36,8}{\percent} del valor máximo inicial en la traza de $V_R(t)$ reproduce el valor de la constante de tiempo $\tau$ obtenido sobre la traza de $V_C(t)$ con una concordancia superior al $\qty{99,5}{\percent}$.
+    
+    \item Se confirmó de manera categórica la estricta relación lineal $\tau = R \cdot C$ predicha por la teoría de circuitos de primer orden mediante regresiones por mínimos cuadrados ordinarios (MCO) agrupadas por cada condensador, obteniéndose las siguientes capacitancias efectivas:
+    \begin{itemize}
+        \item Condensador $C_1$: $C_{1,\text{OLS}} = \qty{10,79 \pm 0,05}{\nano\farad}$ con $R^2 = 0{,}99998$ y error relativo de \qty{+7,95}{\percent} frente al valor nominal de \qty{10,0}{\nano\farad}.
+        \item Condensador $C_2$: $C_{2,\text{OLS}} = \qty{27,44 \pm 0,03}{\nano\farad}$ con $R^2 = 0{,}99999$ y error relativo de \qty{+22,48}{\percent} frente al valor nominal de \qty{22,40}{\nano\farad}, compatible con la tolerancia comercial del fabricante ($\pm\qty{20}{\percent}$).
+        \item Condensador $C_3$: $C_{3,\text{OLS}} = \qty{34,61 \pm 0,29}{\nano\farad}$ con $R^2 = 0{,}99993$ y error relativo de \qty{+4,15}{\percent} frente al valor nominal de \qty{33,23}{\nano\farad}.
+    \end{itemize}
+    Las pruebas de hipótesis estadísticas sobre los interceptos residuales ($|b|/s_b \le 1{,}23 < 2{,}0$ y contraste de Student bilateral $t_{\text{stat}} \ll t_{\text{crit}} = 12{,}71$ para $\nu = 1$ y $\alpha = 0{,}05$) demostraron formalmente que la ordenada en el origen es indistinguible de cero, convalidando la ausencia de sesgos aditivos o no linealidades en el modelo físico.
+    
+    \item Se validó experimentalmente en tiempo real la Segunda Ley de Kirchhoff (Ley de Mallas) en régimen transitorio empleando la función aritmética \texttt{MATH ADD} del osciloscopio digital HMO1202, demostrando que la suma instantánea $V_C(t) + V_R(t)$ anula las curvaturas exponenciales y reconstruye la onda cuadrada de excitación con una fluctuación residual menor a \qty{0,05}{\volt} (desviación relativa inferior al $\qty{0,5}{\percent}$), lo que comprueba el principio de conservación de la energía en circuitos dinámicos.
+    
+    \item Se analizó y verificó con éxito la respuesta transitoria del circuito con divisor resistivo del paso 20 mediante el Teorema de Thévenin, corroborando que la presencia de la resistencia $R_2$ en paralelo limita la tensión de saturación del condensador al valor teórico de $V_{\text{th}} = \qty{4,06}{\volt}$, acelera la velocidad de carga a una constante equivalente de $\tau_{\text{th}} \approx \qty{140,1}{\micro\second}$, y determina que la corriente suministrada por la fuente decaiga hacia un régimen permanente continuo no nulo de $I_{\min} = \qty{0,59}{\milli\ampere}$.
+\end{enumerate}

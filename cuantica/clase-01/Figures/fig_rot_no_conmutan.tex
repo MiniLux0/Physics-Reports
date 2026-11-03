@@ -1,0 +1,51 @@
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    x={(-0.50cm,-0.36cm)}, y={(1cm,0cm)}, z={(0cm,1cm)},
+    scale=1.6, >=Stealth, font=\small]
+
+  % ---------- Panel (a): primero R_x, luego R_y ----------
+  \begin{scope}
+    \draw[grisUNI!40] (0,0,0)--(-1.2,0,0);
+    \draw[grisUNI!40] (0,0,0)--(0,-1.6,0);
+    \draw[grisUNI!40] (0,0,0)--(0,0,-1.5);
+    \draw[->,grisUNI] (0,0,0)--(1.8,0,0) node[below left]{$x$};
+    \draw[->,grisUNI] (0,0,0)--(0,1.8,0) node[right]{$y$};
+    \draw[->,grisUNI] (0,0,0)--(0,0,1.8) node[above]{$z$};
+    \draw[->,thick,grisUNI!70!black] (0,0,0)--(1,0,1)
+          node[above left]{$\vec v=(1,0,1)$};
+    \draw[->,thick,azulUNI,dashed] (0,0,0)--(1,-1,0)
+          node[left]{$(1,-1,0)$};
+    \draw[->,very thick,rojoUNI] (0,0,0)--(0,-1,-1)
+          node[below]{$(0,-1,-1)$};
+    \node at (0,0.4,2.3)
+          {\textbf{(a)} $\hat R_y(\tfrac{\pi}{2})\,\hat R_x(\tfrac{\pi}{2})\,\vec v$};
+  \end{scope}
+
+  % ---------- Panel (b): primero R_y, luego R_x ----------
+  \begin{scope}[shift={(canvas cs:x=0cm,y=0cm)}]
+    \pgftransformxshift{4.9cm}
+    \draw[grisUNI!40] (0,0,0)--(-1.2,0,0);
+    \draw[grisUNI!40] (0,0,0)--(0,-1.6,0);
+    \draw[grisUNI!40] (0,0,0)--(0,0,-1.5);
+    \draw[->,grisUNI] (0,0,0)--(1.8,0,0) node[below left]{$x$};
+    \draw[->,grisUNI] (0,0,0)--(0,1.8,0) node[right]{$y$};
+    \draw[->,grisUNI] (0,0,0)--(0,0,1.8) node[above]{$z$};
+    \draw[->,thick,grisUNI!70!black] (0,0,0)--(1,0,1)
+          node[above left]{$\vec v=(1,0,1)$};
+    \draw[->,thick,azulUNI,dashed] (0,0,0)--(1,0,-1)
+          node[below left]{$(1,0,-1)$};
+    \draw[->,very thick,rojoUNI] (0,0,0)--(1,1,0)
+          node[below right]{$(1,1,0)$};
+    \node at (0,0.4,2.3)
+          {\textbf{(b)} $\hat R_x(\tfrac{\pi}{2})\,\hat R_y(\tfrac{\pi}{2})\,\vec v$};
+  \end{scope}
+\end{tikzpicture}
+\caption{Las rotaciones finitas no conmutan. Un mismo vector $\vec v=(1,0,1)$,
+girado $\pi/2$ alrededor de $x$ y de $y$ en órdenes distintos, termina en
+posiciones distintas (rojo). Es la versión geométrica de
+$\eu^{-\iu\alpha\hat L_x/\hbar}\eu^{-\iu\beta\hat L_y/\hbar}\neq
+\eu^{-\iu\beta\hat L_y/\hbar}\eu^{-\iu\alpha\hat L_x/\hbar}$ (ec.~\eqref{eq:bch_falla_L}); línea
+discontinua: posición intermedia.}
+\label{fig:rot-no-conmutan}
+\end{figure}

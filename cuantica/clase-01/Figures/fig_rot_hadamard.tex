@@ -1,0 +1,46 @@
+\begin{figure}[H]
+\centering
+\begin{subfigure}[t]{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=2.2]
+  \draw[->,gray] (-0.3,0) -- (1.35,0) node[right] {$\hat x$};
+  \draw[->,gray] (0,-0.9) -- (0,1.2) node[above] {$\hat y$};
+  \draw[dashed,gray!60] (0,0) circle (1);
+  \draw[-{Stealth},very thick,uniblue] (0,0) -- (1,0);
+  \draw[-{Stealth},very thick,unired] (0,0) -- ({cos(40)},{-sin(40)})
+        node[below right] {$\hat x'$};
+  \draw[unigreen,thick] (0.45,0) arc (0:-40:0.45);
+  \node[unigreen] at (0.62,-0.13) {$\theta$};
+  \draw[dotted,unired] ({cos(40)},{-sin(40)}) -- ({cos(40)},0);
+  \draw[dotted,unired] ({cos(40)},{-sin(40)}) -- (0,{-sin(40)});
+  \node[font=\scriptsize,unired,above] at ({cos(40)},0) {$\cos\theta$};
+  \node[font=\scriptsize,unired,left] at (0,{-sin(40)}) {$-\sin\theta$};
+\end{tikzpicture}
+\caption{$\hat x'=\hat x\cos\theta-\hat y\sin\theta$ (componentes sobre $\hat x,\hat y$).}
+\end{subfigure}\hfill
+\begin{subfigure}[t]{0.52\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=\linewidth,height=6.2cm,xlabel={$\theta$},
+  xmin=0,xmax=7,ymin=-2.2,ymax=2.2,
+  legend style={font=\scriptsize,at={(0.5,-0.28)},anchor=north,legend columns=3},
+  grid=both,minor tick num=1,
+  xtick={0,1.5708,3.1416,4.7124,6.2832},
+  xticklabels={$0$,$\pi/2$,$\pi$,$3\pi/2$,$2\pi$}]
+  \addplot[black,very thick,domain=0:7,samples=200] {cos(deg(x))};
+  \addlegendentry{$\cos\theta$}
+  \addplot[uniblue,dashed,thick,domain=0:7,samples=100] {1};
+  \addlegendentry{orden 0}
+  \addplot[unired,thick,domain=0:7,samples=100] {1-x^2/2};
+  \addlegendentry{hasta orden 2}
+  \addplot[unigreen,thick,domain=0:7,samples=100] {1-x^2/2+x^4/24};
+  \addlegendentry{hasta orden 4}
+  \addplot[orange,thick,domain=0:7,samples=100] {1-x^2/2+x^4/24-x^6/720};
+  \addlegendentry{hasta orden 6}
+\end{axis}
+\end{tikzpicture}
+\caption{Sumas parciales de la serie de Hadamard (coeficiente de $\hat x$).}
+\end{subfigure}
+\caption{Rotaci\'on finita generada por $\hat L_z$: cada orden de la serie de Hadamard a\~nade un t\'ermino de la serie de Taylor de $\cos\theta$ y $\sin\theta$.}
+\label{fig:rot_hadamard}
+\end{figure}
