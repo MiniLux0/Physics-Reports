@@ -29,9 +29,10 @@ out/
 *.bcf
 *.run.xml
 
+cuantica/
+
 # --- Entorno Local & Archivos Temporales de Trabajo ---
 .agent/
-.agents/teamwork/
 .gemini/
 DATOS_A_CORREGIR.md
 
@@ -41,6 +42,9 @@ DATOS_A_CORREGIR.md
 *.pdf
 !semestre-*/lab*/main.pdf
 !semestre-*/guias/**
+!semestre-*/lab*/entrega_manuscrita/*.pdf
+!semestre-*/etica/*.pdf
+!semestre-*/lab*/*.pdf
 
 # --- Python & Entornos Virtuales ---
 # Entornos virtuales locales de Python
