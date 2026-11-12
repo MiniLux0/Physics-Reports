@@ -67,14 +67,14 @@ data_file = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data'
 
 # Si el JSON no existe, invocar model_data primero
 if not os.path.exists(data_file):
-    from model_data import run_modeling
-    run_modeling()
+    from model_data import process_data
+    process_data()
 
 with open(data_file, 'r', encoding='utf-8') as f:
-    sim_data = json.load(f)
+    exp_data = json.load(f)
 
-dataset = sim_data['dataset']
-ols_res = sim_data['ols_results']
+dataset = exp_data['dataset']
+ols_res = exp_data['ols_results']
 
 
 # =============================================================================
@@ -229,9 +229,9 @@ def plot_linealizacion_tau():
 
         # Línea de regresión: tau_fit (us) = (c_fit_nF * 1e-3) * R + b_us
         tau_line = (c_fit_nF * 1e-3) * r_domain + b_us
-        c_fit_str = f"{c_fit_nF:.2f}".replace('.', ',')
-        s_c_str = f"{s_c_nF:.2f}".replace('.', ',')
-        r2_str = f"{r2:.5f}".replace('.', ',')
+        c_fit_str = f"{c_fit_nF:.2f}".replace('.', '{,}')
+        s_c_str = f"{s_c_nF:.2f}".replace('.', '{,}')
+        r2_str = f"{r2:.5f}".replace('.', '{,}')
 
         ax_top.plot(r_domain / 1e3, tau_line, color=style['color'], linestyle='-', linewidth=1.5,
                     label=rf"{style['label']}: $C = ({c_fit_str} \pm {s_c_str})\ \mathrm{{nF}},\ R^2 = {r2_str}$")
@@ -454,7 +454,7 @@ def plot_paso20_thevenin():
 
     ax2.scatter([semi_T_us], [I_max_desc], color=COLOR_CARMINE, zorder=5, s=32)
     ax2.annotate(r'$I_{R1,\mathrm{descarga}}^{\max} = -\frac{V_{\mathrm{th}}}{R_1} \approx -0{,}41\ \mathrm{mA}$',
-                 xy=(semi_T_us, I_max_desc), xytext=(semi_T_us + 150, I_max_desc - 0.35),
+                 xy=(semi_T_us, I_max_desc), xytext=(semi_T_us + 120, I_max_desc - 0.30),
                  arrowprops=dict(arrowstyle='->', color=COLOR_CARMINE, lw=1.1),
                  fontsize=8.2)
 

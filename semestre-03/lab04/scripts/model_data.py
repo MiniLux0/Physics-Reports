@@ -17,7 +17,7 @@ import os
 import json
 import numpy as np
 
-def run_modeling():
+def process_data():
     # -------------------------------------------------------------------------
     # 0. Clarificación Metrológica de Parámetros preliminares
     # -------------------------------------------------------------------------
@@ -230,5 +230,7 @@ def run_modeling():
 
     return dataset, ols_results
 
+run_modeling = process_data
+
 if __name__ == '__main__':
-    run_modeling()
+    process_data()

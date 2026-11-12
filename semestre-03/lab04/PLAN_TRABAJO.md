@@ -18,14 +18,14 @@
 El presente plan establece la arquitectura técnica, metodológica, metrológica y narrativa para la elaboración del informe del **Laboratorio 04: Circuitos RC — Carga y descarga de un condensador** dentro del repositorio modular `Physics-Reports` (`semestre-03/lab04`).
 
 El informe persigue cuatro objetivos medulares:
-1. **Documentación Rigurosa de Datos Experimentales:** Documentar las mediciones experimentales obtenidas sistemáticamente en la Mesa C7 durante la sesión práctica para las 9 combinaciones  \times C$. Esto garantiza un conjunto de datos genuino, diferenciado de las demás mesas del laboratorio y sustentado en las tolerancias reales de los componentes entregados.
+1. **Documentación Rigurosa de Datos Experimentales:** Documentar las mediciones experimentales obtenidas sistemáticamente en la Mesa C7 durante la sesión práctica para las 9 combinaciones $R \times C$. Esto garantiza un conjunto de datos genuino, diferenciado de las demás mesas del laboratorio y sustentado en las tolerancias reales de los componentes entregados.
 2. **Clarificación Metrológica Rigurosa:** Resolver la ambigüedad respecto a los valores resistivos citados en el requerimiento preliminar ($440\ \Omega$, $250\ \Omega$ y $1000\ \Omega$), demostrando documentalmente que corresponden a reóstatos de laboratorios previos (Lab 01/Lab 03) o a confusiones de lectura de coma decimal ($R_3 = 2{,}250\text{ k}\Omega = 2250\ \Omega$) y frecuencia ($f = 250\text{ Hz}$), frente a los valores reales de la Mesa C7 ($R_1 = 9{,}98\text{ k}\Omega$, $R_2 = 6{,}832\text{ k}\Omega$, $R_3 = 2{,}250\text{ k}\Omega$).
 3. **Resolución Analítica Integral del Cuestionario Oficial:** Desarrollar con formalismo físico-matemático de circuitos eléctricos de primer orden las respuestas a las preguntas (a), (b), (c) y (d) de la Sección 5 de la guía, así como las 4 subpreguntas del problema analítico del paso (s) y el montaje del paso 20 / ítem (t) (Figuras 9 y 10).
 4. **Voz Narrativa Estudiantil de la UNI:** Redactar en primera persona del plural colaborativa ("conectamos", "calibramos", "observamos en la pantalla del osciloscopio", "medimos"), combinando la naturalidad de alumnos universitarios aprendiendo electromagnetismo con la máxima rigurosidad en el empleo de unidades SI (`siunitx` v3), comas decimales, propagación de incertidumbres (GUM) y compilación limpia mediante `latexmk`.
 
 ---
 
-## 2. Clarificación Metrológica: Parámetros del Circuito y Dispersión
+## 2. Clarificación Metrológica: Parámetros del Circuito y Componentes
 
 ### 2.1 Aclaración sobre las Resistencias Preliminares ($440\ \Omega, 250\ \Omega, 1000\ \Omega$)
 En las especificaciones iniciales se solicitó considerar resistencias de aproximadamente $\sim 440\ \Omega$, $\sim 250\ \Omega$ y $\sim 1000\ \Omega$. Tras la auditoría de los informes previos del repositorio y las hojas de laboratorio:
@@ -45,13 +45,13 @@ Dicho tiempo superaría en un factor de $50$ al semiperíodo de la onda cuadrada
 
 ## 3. Matriz Experimental Consolidada de la Mesa C7
 
-Durante la sesión presencial de laboratorio, se calibró la onda cuadrada en {,}0\text{ V}_{pp}$ a \text{ Hz}$ en el osciloscopio digital Rohde & Schwarz HMO1202 y se midieron directamente las resistencias con multímetro digital:  = 9{,}980\text{ k}\Omega$,  = 6{,}832\text{ k}\Omega$ y  = 2{,}250\text{ k}\Omega$. Se implementaron sistemáticamente las 9 combinaciones conectando sucesivamente cada resistor con los tres condensadores de ensayo (, C_2, C_3$), registrando los tiempos característicos $\tau$ mediante cursores digitales en el osciloscopio al {,}2\%$ de saturación.
+Durante la sesión presencial de laboratorio, se calibró la onda cuadrada en $10{,}0\text{ V}_{\text{pp}}$ a $250\text{ Hz}$ en el osciloscopio digital Rohde & Schwarz HMO1202 y se midieron directamente las resistencias con multímetro digital: $R_1 = 9{,}980\text{ k}\Omega$, $R_2 = 6{,}832\text{ k}\Omega$ y $R_3 = 2{,}250\text{ k}\Omega$. Se implementaron sistemáticamente las 9 combinaciones conectando sucesivamente cada resistor con los tres condensadores de ensayo ($C_1, C_2, C_3$), registrando los tiempos característicos $\tau$ mediante cursores digitales en el osciloscopio al $63{,}2\%$ de saturación.
 
 ### 3.1 Cuadro Oficial Consolidado de la Mesa C7
 
 *Nota metrológica sobre factores de cobertura (GUM Sección 7.2):*
-- Las resistencias $ y constantes de tiempo $\tau$ declaran su incertidumbre estándar combinada (x)$ (=1$).
-- Las capacitancias calculadas {\text{exp}}$ declaran su incertidumbre expandida (C) = 2 \cdot u_c(C)$ (=2$, nivel de confianza del {,}45\%$) para contraste riguroso frente a la tolerancia del fabricante.
+- Las resistencias $R$ y constantes de tiempo $\tau$ declaran su incertidumbre estándar combinada $u(x)$ ($k=1$).
+- Las capacitancias calculadas $C_{\text{exp}}$ declaran su incertidumbre expandida $U(C) = 2 \cdot u_c(C)$ ($k=2$, nivel de confianza del $95{,}45\%$) para contraste riguroso frente a la tolerancia del fabricante.
 
 | Fila | $R \pm u(R)\ (k=1)$ [\unit{\kilo\ohm}] | $f$ [\unit{\hertz}] | $\tau_{\text{exp}} \pm u(\tau)\ (k=1)$ [\unit{\micro\second}] | $C_{\text{exp}} \pm U(C)\ (k=2)$ [\unit{\nano\farad}] | $C_{\text{nom}}$ [\unit{\nano\farad}] | Error (\%) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -96,13 +96,13 @@ A continuación se detalla el contenido técnico, ecuaciones y referencias para 
 ### 02_resumen.tex
 - **Síntesis Ejecutiva Cuantitativa:** Descripción compacta del montaje experimental a $f = 250\text{ Hz}$ con $V_0 = 10\text{ V}$.
 - **Resultados Globales de Capacitancia:**
-  - $C_{1,\text{OLS}} = (10{,}75 \pm 0{,}04)\text{ nF}$ ($R^2 = 0{,}99999$, error $+7{,}54\%$)
+  - $C_{1,\text{OLS}} = (10{,}79 \pm 0{,}05)\text{ nF}$ ($R^2 = 0{,}99998$, error $+7{,}95\%$)
   - $C_{2,\text{OLS}} = (27{,}44 \pm 0{,}03)\text{ nF}$ ($R^2 = 0{,}99999$, error $+22{,}48\%$)
   - $C_{3,\text{OLS}} = (34{,}61 \pm 0{,}29)\text{ nF}$ ($R^2 = 0{,}99993$, error $+4{,}15\%$)
 - **Validación de Leyes Fundamentales:** Comprobación directa de la Segunda Ley de Kirchhoff mediante la función `MATH ADD` del osciloscopio y confirmación de la respuesta transitoria del Teorema de Thévenin en circuitos con divisor resistivo.
 
 ### 03_objetivos.tex
-- **Objetivo General:** Medir y modelar la constante de tiempo $\tau$ en procesos periódicos de carga y descarga de circuitos RC utilizando un osciloscopio digital, determinando experimentalmente las capacitancias de los componentes y verificando las leyes fundamentales de mallas y teoremas de redes.
+- **Objetivo General:** Medir y determinar experimentalmente la constante de tiempo capacitiva $\tau$ en procesos periódicos de carga y descarga de circuitos RC utilizando un osciloscopio digital, deduciendo experimentalmente los valores de capacitancia efectiva del banco de prueba y validando las leyes de conservación de energía y teoremas fundamentales de análisis circuital.
 - **Objetivos Específicos:**
   1. Calibrar el generador de ondas y el osciloscopio digital a una frecuencia de excitación de \qty{250}{\hertz} con amplitud de \qty{10}{\voltpp}.
   2. Determinar la constante de tiempo $\tau$ a partir de la curva de voltaje en el condensador $V_C(t)$ al nivel del $63{,}2\%$ del voltaje asintótico $V_0$.
@@ -151,7 +151,7 @@ A continuación se detalla el contenido técnico, ecuaciones y referencias para 
 
 ### 07_resultados.tex
 - **Parámetros Constantes del Experimento:** Frecuencia $f = 250\text{ Hz}$, período $T = 4{,}00\text{ ms}$, semiperíodo $T/2 = 2{,}00\text{ ms}$, voltaje de generador $V = 10{,}0\text{ V}$.
-- **Tabla de Mediciones Crudas (	ab:datos_experimentales):** Las 9 combinaciones  \times C$ ensayadas en la Mesa C7.
+- **Tabla de Mediciones Crudas (\ref{tab:datos_experimentales}):** Las 9 combinaciones $R \times C$ ensayadas en la Mesa C7.
 - **Cuadro Comparativo de Capacitancias:** Valores nominales vs valores calculados $C = \tau / R$ con sus respectivas barras de incertidumbre y errores porcentuales.
 
 ### 08_analisis_exp.tex
@@ -179,7 +179,7 @@ A continuación se detalla el contenido técnico, ecuaciones y referencias para 
   - `fig_linealizacion_tau.png`: Rectas de ajuste $\tau$ vs $R$ con barras de error y panel inferior de residuos.
   - `fig_suma_kvl.png`: Suma instantánea `CH1 + CH2` y residuo de Kirchhoff.
   - `fig_paso20_thevenin.png`: Respuesta transitoria del circuito con divisor resistivo (paso 20).
-- **Captions Exhaustivos:** Citando al script `scripts/grap.py` \cite{script_graficas} y a las librerías `numpy` \cite{numpy}, `scipy` \cite{scipy} y `matplotlib` \cite{matplotlib}.
+- **Captions Descriptivos:** Describiendo detalladamente la morfología transitoria, parámetros de excitación y puntos característicos de medición para cada figura experimental.
 - **Párrafo de Cierre Obligatorio:** Párrafo de transición que enlace formalmente con el análisis cuantitativo de la Sección 11 (`\ref{sec:analisis_graficas}`).
 
 ### 11_analisis_graficas.tex
