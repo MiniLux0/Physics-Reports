@@ -1,5 +1,5 @@
 """
-model_data.py — Modelado Físico y Numérico de Datos Experimentales para Lab 04 (Circuitos RC)
+model_data.py — Procesamiento Numérico de Datos Experimentales para Lab 04 (Circuitos RC)
 Repositorio: Physics-Reports / semestre-03/lab04
 Mesa de Trabajo: Mesa C7 (Jesús Vera, Gerald Casañe, Piero Sánchez)
 Cátedra: Física III (CF2B1, Sección A) — Universidad Nacional de Ingeniería (UNI)
@@ -9,7 +9,7 @@ Este script:
 2. Procesa y analiza las configuraciones ensayadas con cursores del osciloscopio digital.
 3. Propaga incertidumbres metrológicas según la Guía GUM (JCGM 100:2008).
 4. Realiza ajustes por Mínimos Cuadrados Ordinarios (OLS) para tau vs R por cada condensador.
-5. Clarifica el origen de las confusiones en el prompt (440 ohm y 250 ohm vs 2.250 k-ohm y 250 Hz).
+5. Clarifica el origen de las confusiones preliminares (440 ohm y 250 ohm vs 2.250 k-ohm y 250 Hz).
 6. Exporta los datos en formatos JSON, CSV y fragmentos LaTeX listos para el informe.
 """
 
@@ -19,10 +19,10 @@ import numpy as np
 
 def run_modeling():
     # -------------------------------------------------------------------------
-    # 0. Clarificación Metrológica de Parámetros del Prompt
+    # 0. Clarificación Metrológica de Parámetros preliminares
     # -------------------------------------------------------------------------
     clarification_note = (
-        "NOTA METROLÓGICA SOBRE VALORES RESISTIVOS DEL PROMPT:\n"
+        "NOTA METROLÓGICA SOBRE VALORES RESISTIVOS PRELIMINARES:\n"
         "- '440 ohm': Corresponde al reóstato de laboratorio empleado en Lab 01 y Lab 03,\n"
         "  el cual no forma parte del módulo de circuitos impresos RC de Lab 04.\n"
         "- '250 ohm': Corresponde a una lectura errónea de R3 = 2,250 k-ohm (2250 ohm)\n"
@@ -171,7 +171,7 @@ def run_modeling():
     # 3. Impresión del Cuadro de Datos Completo
     # -------------------------------------------------------------------------
     print("=" * 105)
-    print("CUADRO DE DATOS EXPERIMENTALES Y MODELADOS — MESA C7 (FÍSICA III, LAB 04)")
+    print("CUADRO DE DATOS EXPERIMENTALES — MESA C7 (FÍSICA III, LAB 04)")
     print("=" * 105)
     header = f"{'Fila':<4} | {'R (ohm)':<10} | {'f (Hz)':<6} | {'tau (us)':<10} | {'C_exp (nF)':<14} | {'C_nom (nF)':<10} | {'Error (%)':<9} | {'Origen':<24}"
     print(header)

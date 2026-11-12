@@ -33,6 +33,7 @@ cuantica/
 
 # --- Entorno Local & Archivos Temporales de Trabajo ---
 .agent/
+.agents/teamwork/
 .gemini/
 DATOS_A_CORREGIR.md
 

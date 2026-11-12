@@ -42,11 +42,14 @@ El proyecto se fundamenta en **4 Pilares de Calidad Científica**:
 | :---: | :--- | :---: | :---: |
 | **L1** | **El osciloscopio como instrumento de medida** | [📄 `main.pdf`](semestre-03/lab01/main.pdf) | ✅ Publicado (36 págs) |
 | **L3** | **Curvas características voltaje–corriente** | [📄 `main.pdf`](semestre-03/lab03/main.pdf) | ✅ Publicado |
+| **L4** | **Circuitos RC — Carga y descarga de un condensador** | [📄 `main.pdf`](semestre-03/lab04/main.pdf) | ✅ Publicado (45 págs) |
 
 * **L1 — El osciloscopio como instrumento de medida:**  
   * *Contenido:* Calibración de tensión DC por regresión lineal ($m = 1{,}0000 \pm 0{,}0000$, $R^2 = 1{,}0000$), contraste True-RMS en señales senoidales y cuadradas ($E_r \approx 0{,}57\%$), análisis de desfase y relación de frecuencias mediante curvas de Lissajous ($X$-$Y$), deducción analítica rigurosa del valor eficaz $V_{\text{rms}}$ en Anexo A y resolución exhaustiva de las 6 interrogantes teóricas del cuestionario oficial.
 * **L3 — Curvas características voltaje–corriente:**  
   * *Contenido:* Caracterización y modelamiento experimental de tres dipolos: resistor de carbón de $100\,\Omega$ ($R = 100{,}02 \pm 0{,}18\,\Omega$, $E_r = 0{,}02\%$), lámpara incandescente de tungsteno ($I = 0{,}1461 V^{0{,}5726}$, $E_{r,n} = 4{,}5\%$ respecto al modelo térmico de Stefan-Boltzmann), y diodo semiconductor de silicio ($V_u = 0{,}66 \pm 0{,}06\,\text{V}$, $E_r = 1{,}5\%$). Incluye resolución completa del cuestionario de 6 preguntas, deducción analítica y propagación GUM de incertidumbres.
+* **L4 — Circuitos RC — Carga y descarga de un condensador:**  
+  * *Contenido:* Caracterización experimental de regímenes transitorios en circuitos RC bajo excitación de onda cuadrada periódica ($f = 250\text{ Hz}$, $V = 10\text{ V}_{pp}$) en la Mesa C7. Determinación de constantes de tiempo $\tau$ con cursores digitales en osciloscopio Rohde & Schwarz HMO1202, verificación metrológica de la relación $\tau = RC$ por mínimos cuadrados ordinarios (MCO) con interceptos físicamente nulos ($|b|/s_b \le 1{,}23$), comprobación en tiempo real de la Segunda Ley de Kirchhoff mediante suma de señales (`MATH ADD`) y análisis de red con divisor resistivo aplicando el Teorema de Thévenin.
 
 ---
 

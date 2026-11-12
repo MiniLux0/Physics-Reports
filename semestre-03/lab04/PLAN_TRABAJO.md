@@ -27,7 +27,7 @@ El informe persigue cuatro objetivos medulares:
 
 ## 2. Clarificación Metrológica: Parámetros del Circuito y Dispersión
 
-### 2.1 Aclaración sobre las Resistencias del Prompt ($440\ \Omega, 250\ \Omega, 1000\ \Omega$)
+### 2.1 Aclaración sobre las Resistencias Preliminares ($440\ \Omega, 250\ \Omega, 1000\ \Omega$)
 En las especificaciones iniciales se solicitó considerar resistencias de aproximadamente $\sim 440\ \Omega$, $\sim 250\ \Omega$ y $\sim 1000\ \Omega$. Tras la auditoría de los informes previos del repositorio y las hojas de laboratorio:
 1. **El valor $440\ \Omega$:** Corresponde al reóstato tubular de alambre bobinado de laboratorio utilizado intensivamente en los Laboratorios 01 (Leyes de Ohm y Kirchhoff) y 03 (Puente de Wheatstone). En el Laboratorio 04 se trabaja con módulos de circuitos impresos o acrílicos provistos de resistencias de película metálica de mayor valor óhmico ($2{,}2\text{ k}\Omega$ a $10\text{ k}\Omega$) para compatibilizar la constante $\tau = RC$ con la frecuencia de $250\text{ Hz}$.
 2. **El valor $250\ \Omega$:** Proviene de una doble confusión habitual en el laboratorio:

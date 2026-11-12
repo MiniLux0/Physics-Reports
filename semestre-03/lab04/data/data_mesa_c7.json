@@ -262,5 +262,5 @@
       "nom_nF": 33.23
     }
   },
-  "clarification": "NOTA METROLÓGICA SOBRE VALORES RESISTIVOS DEL PROMPT:\n- '440 ohm': Corresponde al reóstato de laboratorio empleado en Lab 01 y Lab 03,\n  el cual no forma parte del módulo de circuitos impresos RC de Lab 04.\n- '250 ohm': Corresponde a una lectura errónea de R3 = 2,250 k-ohm (2250 ohm)\n  o una confusión con la frecuencia de excitación f = 250 Hz del generador OWON AG 051F.\n- '1000 ohm': Resistencia nominal R1 usada en la caja de la mesa de compañeros (0.97 k-ohm).\n  En la Mesa C7 propia, los valores medidos con multímetro fueron:\n  R1 = 9.98 k-ohm, R2 = 6.832 k-ohm, R3 = 2.250 k-ohm.\n"
+  "clarification": "NOTA METROLÓGICA SOBRE VALORES RESISTIVOS PRELIMINARES:\n- '440 ohm': Corresponde al reóstato de laboratorio empleado en Lab 01 y Lab 03,\n  el cual no forma parte del módulo de circuitos impresos RC de Lab 04.\n- '250 ohm': Corresponde a una lectura errónea de R3 = 2,250 k-ohm (2250 ohm)\n  o una confusión con la frecuencia de excitación f = 250 Hz del generador OWON AG 051F.\n- '1000 ohm': Resistencia nominal R1 usada en la caja de la mesa de compañeros (0.97 k-ohm).\n  En la Mesa C7 propia, los valores medidos con multímetro fueron:\n  R1 = 9.98 k-ohm, R2 = 6.832 k-ohm, R3 = 2.250 k-ohm.\n"
 }
