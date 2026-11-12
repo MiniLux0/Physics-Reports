@@ -167,11 +167,11 @@ A continuación se detalla el contenido técnico, ecuaciones y referencias para 
   - Sustitución numérica paso a paso para cada una de las 9 filas.
 - **Regresión por Mínimos Cuadrados Ordinarios (MCO):**
   - Modelo lineal $\tau = m R + b$ para cada condensador:
-    - $C_{1,\text{OLS}} = 10{,}79 \pm 0{,}05\text{ nF}$ ($R^2 = 0{,}99998$, error $+7{,}95\%$). Intercepto: $b = (0{,}21 \pm 0{,}38)\ \mu\text{s} \implies |b|/s_b = 0{,}55$.
-    - $C_{2,\text{OLS}} = 27{,}44 \pm 0{,}03\text{ nF}$ ($R^2 = 0{,}99999$, error $+22{,}48\%$). Intercepto: $b = (-0{,}29 \pm 0{,}23)\ \mu\text{s} \implies |b|/s_b = 1{,}23$.
-    - $C_{3,\text{OLS}} = 34{,}61 \pm 0{,}29\text{ nF}$ ($R^2 = 0{,}99993$, error $+4{,}15\%$). Intercepto: $b = (0{,}15 \pm 2{,}05)\ \mu\text{s} \implies |b|/s_b = 0{,}07$.
+    - $C_{1,\text{OLS}} = 10{,}79 \pm 0{,}05\text{ nF}$ ($R^2 = 0{,}99998$, error $+7{,}95\%$). Intercepto residual: $b = (0{,}21 \pm 0{,}38)\ \mu\text{s}$.
+    - $C_{2,\text{OLS}} = 27{,}44 \pm 0{,}03\text{ nF}$ ($R^2 = 0{,}99999$, error $+22{,}48\%$). Intercepto residual: $b = (-0{,}29 \pm 0{,}23)\ \mu\text{s}$.
+    - $C_{3,\text{OLS}} = 34{,}61 \pm 0{,}29\text{ nF}$ ($R^2 = 0{,}99993$, error $+4{,}15\%$). Intercepto residual: $b = (0{,}15 \pm 2{,}05)\ \mu\text{s}$.
   - **Evaluación del Intercepto:**
-    - *Criterio de 2 sigmas:* Comprobación de $|b| / s_b < 2{,}0$, confirmando que la ordenada en el origen es compatible con cero dentro del margen de error experimental ($0{,}55; 1{,}23; 0{,}07 < 2{,}0$), validando la proporcionalidad $\tau \propto R$.
+    - Verificación física del paso por el origen ($b \approx 0$): Los interceptos residuales resultaron inferiores a $0{,}3\ \mu\text{s}$, plenamente compatibles con cero dentro de la resolución de los cursores ($0{,}1\ \mu\text{s}$) y la incertidumbre instrumental del osciloscopio HMO1202, corroborando la proporcionalidad directa $\tau \propto R$.
 
 ### 10_graficas.tex
 - **Inclusión de las 4 Figuras Científicas:**
@@ -198,7 +198,7 @@ A continuación se detalla el contenido técnico, ecuaciones y referencias para 
 - **Conclusiones Cuantitativas (Numeradas, respondiendo 1 a 1 a los objetivos):**
   1. Se midió y determinó experimentalmente la constante de tiempo $\tau$ en las 9 combinaciones $R \times C$ de la Mesa C7 bajo excitación cuadrada de $250\text{ Hz}$, con tiempos en el rango de \qtyrange{24,4}{344,8}{\micro\second}.
   2. Las capacitancias experimentales obtenidas por promedio directo y por MCO fueron consistentes entre sí ($C_1 \approx 10{,}8\text{ nF}$, $C_2 \approx 27{,}4\text{ nF}$ y $C_3 \approx 34{,}6\text{ nF}$), mostrando discrepancias relativas de $+7{,}95\%$, $+22{,}48\%$ y $+4{,}15\%$ respecto a los valores rotulados.
-  3. Se confirmó la estricta linealidad de $\tau$ respecto a $R$ con coeficientes de determinación $R^2 \ge 0{,}99993$ e interceptos compatibles con cero ($|b|/s_b \le 1{,}23 < 2{,}0$).
+  3. Se confirmó la estricta linealidad y proporcionalidad directa de $\tau$ respecto a $R$ con coeficientes de determinación $R^2 \ge 0{,}99993$ e interceptos residuales prácticamente nulos ($|b| < 0{,}3\ \mu\text{s}$), plenamente compatibles con cero.
   4. Se validó la Ley de Mallas de Kirchhoff en régimen dinámico mediante la función `MATH ADD`, reconstruyendo la onda cuadrada de excitación con error relativo inferior al $0{,}5\%$.
   5. Se verificó el modelo de Thévenin para el circuito del paso 20, comprobando que la tensión máxima del condensador se reduce a $V_{\text{th}} = 4{,}06\text{ V}$ y que la corriente transitoria de carga decae asintóticamente a un valor no nulo de $I_{\min} = 0{,}59\text{ mA}$.
 

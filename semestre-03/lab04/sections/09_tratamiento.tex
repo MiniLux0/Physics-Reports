@@ -125,14 +125,14 @@ En la Tabla~\ref{tab:resumen_ols} se presentan los parámetros ajustados por MCO
     \caption{Parámetros de la regresión lineal complementaria por MCO ($\tau$ vs $R$).}
     \label{tab:resumen_ols}
     \resizebox{\linewidth}{!}{%
-    \begin{tabular}{lcccccc}
+    \begin{tabular}{lccccc}
         \toprule
-        \textbf{Condensador} & $C_{\text{OLS}} \pm s_C$ & $b \pm s_b$ & $R^2$ & $\frac{|b|}{s_b}$ & $C_{\text{nom}}$ & \textbf{Error Rel.} \\
-         & (\unit{\nano\farad}) & (\unit{\micro\second}) & & ($< 2{,}0$) & (\unit{\nano\farad}) & (\unit{\percent}) \\
+        \textbf{Condensador} & $C_{\text{OLS}} \pm s_C$ & $b \pm s_b$ & $R^2$ & $C_{\text{nom}}$ & \textbf{Error Rel.} \\
+         & (\unit{\nano\farad}) & (\unit{\micro\second}) & & (\unit{\nano\farad}) & (\unit{\percent}) \\
         \midrule
-        $C_1$ & \num{10,79 \pm 0,05} & \num{0,21 \pm 0,38} & \num{0,99998} & \num{0,55} & \num{10,00} & $+7{,}95$ \\
-        $C_2$ & \num{27,44 \pm 0,03} & \num{-0,29 \pm 0,23} & \num{0,99999} & \num{1,23} & \num{22,40} & $+22{,}48$ \\
-        $C_3$ & \num{34,61 \pm 0,29} & \num{0,15 \pm 2,05} & \num{0,99993} & \num{0,07} & \num{33,23} & $+4{,}15$ \\
+        $C_1$ & \num{10,79 \pm 0,05} & \num{0,21 \pm 0,38} & \num{0,99998} & \num{10,00} & $+7{,}95$ \\
+        $C_2$ & \num{27,44 \pm 0,03} & \num{-0,29 \pm 0,23} & \num{0,99999} & \num{22,40} & $+22{,}48$ \\
+        $C_3$ & \num{34,61 \pm 0,29} & \num{0,15 \pm 2,05} & \num{0,99993} & \num{33,23} & $+4{,}15$ \\
         \bottomrule
     \end{tabular}%
     }
@@ -141,6 +141,6 @@ En la Tabla~\ref{tab:resumen_ols} se presentan los parámetros ajustados por MCO
 A partir de la Tabla~\ref{tab:resumen_ols} se destacan los siguientes aspectos:
 \begin{itemize}
     \item \textbf{Excelente linealidad:} Los coeficientes de determinación $R^2 \ge 0{,}99993$ demuestran que la relación entre la constante de tiempo $\tau$ y la resistencia $R$ es estrictamente lineal en todo el rango ensayado.
-    \item \textbf{Consistencia física del intercepto:} En los tres condensadores, el cociente $|b| / s_b < 2{,}0$ indica que la ordenada en el origen es compatible con cero dentro del margen de incertidumbre experimental ($|b| < 2 s_b$), lo que ratifica la validez de la proporcionalidad directa $\tau = RC$ sin sesgos instrumentales apreciables.
+    \item \textbf{Significado físico de la ordenada en el origen:} En los tres condensadores, los interceptos residuales resultaron del orden de fracciones de microsegundo ($|b| < \qty{0,3}{\micro\second}$). Desde el punto de vista físico, la relación fundamental $\tau = RC$ predice una recta que pasa exactamente por el origen ($b = 0$), ya que si la resistencia del circuito fuese nula ($R = 0$), el condensador se cargaría instantáneamente ($\tau = 0$). Los valores calculados para la ordenada al origen ($b_{C1} = \qty{0,21}{\micro\second}$, $b_{C2} = \qty{-0,29}{\micro\second}$ y $b_{C3} = \qty{0,15}{\micro\second}$) son minúsculos y plenamente consistentes con cero al situarse en el entorno de la resolución de los cursores temporales del osciloscopio (\qty{0,1}{\micro\second}) y la incertidumbre en la apreciación de la traza, confirmando que la relación es estrictamente de proporcionalidad directa ($\tau \propto R$).
     \item \textbf{Concordancia entre métodos:} Los valores de capacitancia obtenidos mediante la pendiente de la regresión ($C_{\text{OLS}}$) concuerdan plenamente con las medias aritméticas directas ($\bar{C}$): para $C_1$ se tiene $10{,}79\ \unit{\nano\farad}$ vs $10{,}84\ \unit{\nano\farad}$; para $C_2$, $27{,}44\ \unit{\nano\farad}$ vs $27{,}37\ \unit{\nano\farad}$; y para $C_3$, $34{,}61\ \unit{\nano\farad}$ vs $34{,}60\ \unit{\nano\farad}$. Las diferencias relativas entre ambos métodos son inferiores al \qty{0,5}{\percent}, validando la consistencia interna del tratamiento de datos.
 \end{itemize}
