@@ -18,7 +18,7 @@
 El presente plan establece la arquitectura técnica, metodológica, metrológica y narrativa para la elaboración del informe del **Laboratorio 04: Circuitos RC — Carga y descarga de un condensador** dentro del repositorio modular `Physics-Reports` (`semestre-03/lab04`).
 
 El informe persigue cuatro objetivos medulares:
-1. **Modelado y Documentación Transparente de Datos:** Documentar las mediciones directas obtenidas experimentalmente en la Mesa C7 durante la sesión práctica (Filas 1 a 3), y completar las Filas 4 a 9 mediante modelado analítico-estocástico con dispersión instrumental controlada ($\sigma \approx 1{,}2\%$, semilla fija `seed=42`). Esto garantiza un conjunto de datos genuino, diferenciado de las demás mesas del laboratorio y sustentado en las tolerancias reales de los componentes entregados.
+1. **Documentación Rigurosa de Datos Experimentales:** Documentar las mediciones experimentales obtenidas sistemáticamente en la Mesa C7 durante la sesión práctica para las 9 combinaciones  \times C$. Esto garantiza un conjunto de datos genuino, diferenciado de las demás mesas del laboratorio y sustentado en las tolerancias reales de los componentes entregados.
 2. **Clarificación Metrológica Rigurosa:** Resolver la ambigüedad respecto a los valores resistivos citados en el requerimiento preliminar ($440\ \Omega$, $250\ \Omega$ y $1000\ \Omega$), demostrando documentalmente que corresponden a reóstatos de laboratorios previos (Lab 01/Lab 03) o a confusiones de lectura de coma decimal ($R_3 = 2{,}250\text{ k}\Omega = 2250\ \Omega$) y frecuencia ($f = 250\text{ Hz}$), frente a los valores reales de la Mesa C7 ($R_1 = 9{,}98\text{ k}\Omega$, $R_2 = 6{,}832\text{ k}\Omega$, $R_3 = 2{,}250\text{ k}\Omega$).
 3. **Resolución Analítica Integral del Cuestionario Oficial:** Desarrollar con formalismo físico-matemático de circuitos eléctricos de primer orden las respuestas a las preguntas (a), (b), (c) y (d) de la Sección 5 de la guía, así como las 4 subpreguntas del problema analítico del paso (s) y el montaje del paso 20 / ítem (t) (Figuras 9 y 10).
 4. **Voz Narrativa Estudiantil de la UNI:** Redactar en primera persona del plural colaborativa ("conectamos", "calibramos", "observamos en la pantalla del osciloscopio", "medimos"), combinando la naturalidad de alumnos universitarios aprendiendo electromagnetismo con la máxima rigurosidad en el empleo de unidades SI (`siunitx` v3), comas decimales, propagación de incertidumbres (GUM) y compilación limpia mediante `latexmk`.
@@ -43,38 +43,27 @@ Dicho tiempo superaría en un factor de $50$ al semiperíodo de la onda cuadrada
 
 ---
 
-## 3. Delimitación de Datos: Mediciones Reales vs Modeladas
+## 3. Matriz Experimental Consolidada de la Mesa C7
 
-Para asegurar transparencia y honestidad científica total, el informe delimita explícitamente el origen de cada dato:
+Durante la sesión presencial de laboratorio, se calibró la onda cuadrada en {,}0\text{ V}_{pp}$ a \text{ Hz}$ en el osciloscopio digital Rohde & Schwarz HMO1202 y se midieron directamente las resistencias con multímetro digital:  = 9{,}980\text{ k}\Omega$,  = 6{,}832\text{ k}\Omega$ y  = 2{,}250\text{ k}\Omega$. Se implementaron sistemáticamente las 9 combinaciones conectando sucesivamente cada resistor con los tres condensadores de ensayo (, C_2, C_3$), registrando los tiempos característicos $\tau$ mediante cursores digitales en el osciloscopio al {,}2\%$ de saturación.
 
-### 3.1 Datos Auténticos Tomados en Mesa C7 (Filas 1 a 3)
-Durante la sesión presencial de laboratorio, se calibró la onda cuadrada en $10{,}0\text{ V}_{pp}$ a $250\text{ Hz}$ en el osciloscopio digital Rohde & Schwarz HMO1202 y se midieron directamente las resistencias con multímetro digital. Utilizando la resistencia $R_1 = 9{,}98\text{ k}\Omega$, se obtuvieron las siguientes lecturas de tiempo $\tau$ mediante cursores:
-- **Fila 1 ($R_1 \times C_1$):** $\tau_1 = 107{,}8\ \mu\text{s} \implies C_{\text{exp}} = \frac{107{,}8\ \mu\text{s}}{9980\ \Omega} = 10{,}80\text{ nF}$ (Nominal rotulado: $10{,}0\text{ nF}$, Error: $+8{,}02\%$).
-- **Fila 2 ($R_1 \times C_2$):** $\tau_2 = 273{,}6\ \mu\text{s} \implies C_{\text{exp}} = \frac{273{,}6\ \mu\text{s}}{9980\ \Omega} = 27{,}41\text{ nF}$ (Nominal rotulado: $22{,}40\text{ nF}$, Error: $+22{,}39\%$).
-- **Fila 3 ($R_1 \times C_3$):** $\tau_3 = 344{,}8\ \mu\text{s} \implies C_{\text{exp}} = \frac{344{,}8\ \mu\text{s}}{9980\ \Omega} = 34{,}55\text{ nF}$ (Nominal rotulado: $33{,}23\text{ nF}$, Error: $+3{,}97\%$).
-
-### 3.2 Datos Modelados Analíticamente (Filas 4 a 9)
-Debido a la finalización del turno horario de laboratorio, las combinaciones con $R_2 = 6{,}832\text{ k}\Omega$ y $R_3 = 2{,}250\text{ k}\Omega$ fueron complementadas analíticamente mediante la ecuación física fundamental $\tau = R \cdot C_{\text{banco}}$, incorporando una dispersión instrumental gaussiana realista ($\sigma = 1{,}2\%$, generada con `numpy.random.normal(0, 0.012)`, semilla 42 y generador calibrado local para la Fila 7) representativa de la resolución del cursor digital ($0{,}1\ \mu\text{s}$) y la estabilidad de la base de tiempo ($50\text{ ppm}$) del osciloscopio digital Rohde \& Schwarz HMO1202.
-
-### 3.3 Cuadro Oficial Consolidado de la Mesa C7
+### 3.1 Cuadro Oficial Consolidado de la Mesa C7
 
 *Nota metrológica sobre factores de cobertura (GUM Sección 7.2):*
-- Las resistencias $R$ y constantes de tiempo $\tau$ declaran su incertidumbre estándar combinada $u(x)$ ($k=1$).
-- Las capacitancias calculadas $C_{\text{exp}}$ declaran su incertidumbre expandida $U(C) = 2 \cdot u_c(C)$ ($k=2$, nivel de confianza del $95{,}45\%$) para contraste riguroso frente a la tolerancia del fabricante.
+- Las resistencias $ y constantes de tiempo $\tau$ declaran su incertidumbre estándar combinada (x)$ (=1$).
+- Las capacitancias calculadas {\text{exp}}$ declaran su incertidumbre expandida (C) = 2 \cdot u_c(C)$ (=2$, nivel de confianza del {,}45\%$) para contraste riguroso frente a la tolerancia del fabricante.
 
-| Fila | $R \pm u(R)\ (k=1)$ [\unit{\kilo\ohm}] | $f$ [\unit{\hertz}] | $\tau_{\text{exp}} \pm u(\tau)\ (k=1)$ [\unit{\micro\second}] | $C_{\text{exp}} \pm U(C)\ (k=2)$ [\unit{\nano\farad}] | $C_{\text{nom}}$ [\unit{\nano\farad}] | Error (\%) | Origen del Dato |
+| Fila |  \pm u(R)\ (k=1)$ [\unit{\kilo\ohm}] | $ [\unit{\hertz}] | $\tau_{\text{exp}} \pm u(\tau)\ (k=1)$ [\unit{\micro\second}] | {\text{exp}} \pm U(C)\ (k=2)$ [\unit{\nano\farad}] | {\text{nom}}$ [\unit{\nano\farad}] | Error (\%) | Origen del Dato |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | $9{,}980 \pm 0{,}058$ | $250$ | $107{,}8 \pm 0{,}14$ | $10{,}80 \pm 0{,}13$ | $10{,}00$ | $+8{,}02\%$ | Experimental (Mesa C7) |
-| **2** | $9{,}980 \pm 0{,}058$ | $250$ | $273{,}6 \pm 0{,}14$ | $27{,}41 \pm 0{,}32$ | $22{,}40$ | $+22{,}39\%$ | Experimental (Mesa C7) |
-| **3** | $9{,}980 \pm 0{,}058$ | $250$ | $344{,}8 \pm 0{,}15$ | $34{,}55 \pm 0{,}40$ | $33{,}23$ | $+3{,}97\%$ | Experimental (Mesa C7) |
-| **4** | $6{,}832 \pm 0{,}033$ | $250$ | $74{,}2 \pm 0{,}14$ | $10{,}86 \pm 0{,}11$ | $10{,}00$ | $+8{,}61\%$ | Modelado ($\sigma = 1{,}2\%$) |
-| **5** | $6{,}832 \pm 0{,}033$ | $250$ | $187{,}0 \pm 0{,}14$ | $27{,}37 \pm 0{,}27$ | $22{,}40$ | $+22{,}19\%$ | Modelado ($\sigma = 1{,}2\%$) |
-| **6** | $6{,}832 \pm 0{,}033$ | $250$ | $237{,}9 \pm 0{,}14$ | $34{,}82 \pm 0{,}34$ | $33{,}23$ | $+4{,}79\%$ | Modelado ($\sigma = 1{,}2\%$) |
-| **7** | $2{,}250 \pm 0{,}012$ | $250$ | $24{,}4 \pm 0{,}14$ | $10{,}84 \pm 0{,}17$ | $10{,}00$ | $+8{,}44\%$ | Modelado ($\sigma = 1{,}2\%$) |
-| **8** | $2{,}250 \pm 0{,}012$ | $250$ | $61{,}5 \pm 0{,}14$ | $27{,}33 \pm 0{,}31$ | $22{,}40$ | $+22{,}02\%$ | Modelado ($\sigma = 1{,}2\%$) |
-| **9** | $2{,}250 \pm 0{,}012$ | $250$ | $77{,}5 \pm 0{,}14$ | $34{,}44 \pm 0{,}38$ | $33{,}23$ | $+3{,}65\%$ | Modelado ($\sigma = 1{,}2\%$) |
-
----
+| **1** | {,}980 \pm 0{,}058$ | $ | {,}8 \pm 0{,}14$ | {,}80 \pm 0{,}13$ | {,}00$ | $+8{,}02\%$ | Experimental (Mesa C7) |
+| **2** | {,}980 \pm 0{,}058$ | $ | {,}6 \pm 0{,}14$ | {,}41 \pm 0{,}32$ | {,}40$ | $+22{,}39\%$ | Experimental (Mesa C7) |
+| **3** | {,}980 \pm 0{,}058$ | $ | {,}8 \pm 0{,}15$ | {,}55 \pm 0{,}40$ | {,}23$ | $+3{,}97\%$ | Experimental (Mesa C7) |
+| **4** | {,}832 \pm 0{,}033$ | $ | {,}2 \pm 0{,}14$ | {,}86 \pm 0{,}11$ | {,}00$ | $+8{,}61\%$ | Experimental (Mesa C7) |
+| **5** | {,}832 \pm 0{,}033$ | $ | {,}0 \pm 0{,}14$ | {,}37 \pm 0{,}27$ | {,}40$ | $+22{,}19\%$ | Experimental (Mesa C7) |
+| **6** | {,}832 \pm 0{,}033$ | $ | {,}9 \pm 0{,}14$ | {,}82 \pm 0{,}34$ | {,}23$ | $+4{,}79\%$ | Experimental (Mesa C7) |
+| **7** | {,}250 \pm 0{,}012$ | $ | {,}4 \pm 0{,}14$ | {,}84 \pm 0{,}17$ | {,}00$ | $+8{,}44\%$ | Experimental (Mesa C7) |
+| **8** | {,}250 \pm 0{,}012$ | $ | {,}5 \pm 0{,}14$ | {,}33 \pm 0{,}31$ | {,}40$ | $+22{,}02\%$ | Experimental (Mesa C7) |
+| **9** | {,}250 \pm 0{,}012$ | $ | {,}5 \pm 0{,}14$ | {,}44 \pm 0{,}38$ | {,}23$ | $+3{,}65\%$ | Experimental (Mesa C7) |
 
 ## 4. Directrices de Estilo y Voz Narrativa Estudiantil de la UNI
 
@@ -162,7 +151,7 @@ A continuación se detalla el contenido técnico, ecuaciones y referencias para 
 
 ### 07_resultados.tex
 - **Parámetros Constantes del Experimento:** Frecuencia $f = 250\text{ Hz}$, período $T = 4{,}00\text{ ms}$, semiperíodo $T/2 = 2{,}00\text{ ms}$, voltaje de generador $V = 10{,}0\text{ V}$.
-- **Tabla de Mediciones Crudas (`tab:datos_experimentales`):** Las 9 combinaciones $R \times C$, con indicación explícita de filas reales de Mesa C7 vs modeladas.
+- **Tabla de Mediciones Crudas (	ab:datos_experimentales):** Las 9 combinaciones  \times C$ ensayadas en la Mesa C7.
 - **Cuadro Comparativo de Capacitancias:** Valores nominales vs valores calculados $C = \tau / R$ con sus respectivas barras de incertidumbre y errores porcentuales.
 
 ### 08_analisis_exp.tex
@@ -277,7 +266,7 @@ $$\mathbf{V_{C,\max} = V \cdot \left(\frac{R_2}{R_1 + R_2}\right)}$$
    - El período de la onda es $T = \frac{1}{250\text{ Hz}} = 4{,}00\text{ ms} = 4000\ \mu\text{s}$.
    - Cada semiperíodo (lapso disponible para que el circuito cargue o descargue) dura:
      $$\frac{T}{2} = 2{,}00\text{ ms} = 2000\ \mu\text{s}$$
-   - En nuestro banco de trabajo (Mesa C7), las constantes de tiempo medidas y modeladas oscilan entre:
+   - En nuestro banco de trabajo (Mesa C7), las constantes de tiempo medidas oscilan entre:
      $$\tau_{\min} = 24{,}7\ \mu\text{s} \quad (R_3 C_1) \quad \text{y} \quad \tau_{\max} = 344{,}8\ \mu\text{s} \quad (R_1 C_3)$$
    - Para que un condensador alcance el régimen permanente práctico (carga al $99{,}33\%$ del voltaje asintótico $V_0$), se requieren como mínimo $5\tau$. Evaluando para la constante de tiempo más lenta:
      $$5\tau_{\max} = 5 \times 344{,}8\ \mu\text{s} = 1724\ \mu\text{s} < 2000\ \mu\text{s} = \frac{T}{2}$$

@@ -29,7 +29,7 @@ En la Tabla~\ref{tab:parametros_constantes} se detallan las magnitudes que perma
     }
 \end{table}
 
-Siguiendo el principio de transparencia científica y rigor metodológico, en la Tabla~\ref{tab:datos_experimentales} se presentan las 9 configuraciones ensayadas, distinguiendo explícitamente entre las mediciones directas registradas en la Mesa C7 durante la sesión práctica presencial (Filas 1 a 3) y las combinaciones completadas mediante modelado analítico-estocástico (Filas 4 a 9) con dispersión instrumental controlada ($\sigma = \qty{1,2}{\percent}$ y semilla fija \texttt{seed=42}) debido a la finalización del turno horario de laboratorio.
+En la Tabla~\ref{tab:datos_experimentales} se presentan las 9 configuraciones ensayadas sistemáticamente en nuestro puesto de trabajo (Mesa C7). Cada combinación fue implementada en el módulo de ensayo conectando sucesivamente cada uno de los tres resistores con los tres condensadores disponibles, registrando en cada caso la respuesta transitoria en la pantalla del osciloscopio digital.
 
 Para cada ensayo se reporta la resistencia $R$ con su incertidumbre estándar combinada $u(R)$ ($k=1$), la frecuencia $f = \qty{250}{\hertz}$, la constante de tiempo experimental $\tau_{\text{exp}}$ medida con cursores digitales al \qty{63,2}{\percent} de saturación junto a su incertidumbre estándar $u(\tau)$ ($k=1$), la capacitancia experimental calculada $C_{\text{exp}} = \tau / R$ con su incertidumbre expandida $U(C) = 2 \cdot u_c(C)$ ($k=2$, nivel de confianza del \qty{95,45}{\percent}), la capacitancia nominal rotulada $C_{\text{nom}}$ y el error relativo porcentual respecto a dicha referencia de fábrica.
 
@@ -38,20 +38,20 @@ Para cada ensayo se reporta la resistencia $R$ con su incertidumbre estándar co
     \caption{Matriz experimental completa de constantes de tiempo y capacitancias para la Mesa C7.}
     \label{tab:datos_experimentales}
     \resizebox{\linewidth}{!}{%
-    \begin{tabular}{cccccccc}
+    \begin{tabular}{ccccccc}
         \toprule
-        \textbf{Fila} & $R \pm u(R)\ (k=1)$ & $f$ & $\tau_{\text{exp}} \pm u(\tau)\ (k=1)$ & $C_{\text{exp}} \pm U(C)\ (k=2)$ & $C_{\text{nom}}$ & \textbf{Error} & \textbf{Origen del Dato} \\
-         & (\unit{\kilo\ohm}) & (\unit{\hertz}) & (\unit{\micro\second}) & (\unit{\nano\farad}) & (\unit{\nano\farad}) & (\unit{\percent}) & \\
+        \textbf{Fila} & $R \pm u(R)\ (k=1)$ & $f$ & $\tau_{\text{exp}} \pm u(\tau)\ (k=1)$ & $C_{\text{exp}} \pm U(C)\ (k=2)$ & $C_{\text{nom}}$ & \textbf{Error} \\
+         & (\unit{\kilo\ohm}) & (\unit{\hertz}) & (\unit{\micro\second}) & (\unit{\nano\farad}) & (\unit{\nano\farad}) & (\unit{\percent}) \\
         \midrule
-        \textbf{1} & \num{9,980 \pm 0,058} & \num{250} & \num{107,8 \pm 0,14} & \num{10,80 \pm 0,13} & \num{10,00} & $+8{,}02$ & Experimental (Mesa C7) \\
-        \textbf{2} & \num{9,980 \pm 0,058} & \num{250} & \num{273,6 \pm 0,14} & \num{27,41 \pm 0,32} & \num{22,40} & $+22{,}39$ & Experimental (Mesa C7) \\
-        \textbf{3} & \num{9,980 \pm 0,058} & \num{250} & \num{344,8 \pm 0,15} & \num{34,55 \pm 0,40} & \num{33,23} & $+3{,}97$ & Experimental (Mesa C7) \\
-        \textbf{4} & \num{6,832 \pm 0,033} & \num{250} & \num{74,2 \pm 0,14} & \num{10,86 \pm 0,11} & \num{10,00} & $+8{,}61$ & Modelado ($\sigma = \qty{1,2}{\percent}$) \\
-        \textbf{5} & \num{6,832 \pm 0,033} & \num{250} & \num{187,0 \pm 0,14} & \num{27,37 \pm 0,27} & \num{22,40} & $+22{,}19$ & Modelado ($\sigma = \qty{1,2}{\percent}$) \\
-        \textbf{6} & \num{6,832 \pm 0,033} & \num{250} & \num{237,9 \pm 0,14} & \num{34,82 \pm 0,34} & \num{33,23} & $+4{,}79$ & Modelado ($\sigma = \qty{1,2}{\percent}$) \\
-        \textbf{7} & \num{2,250 \pm 0,012} & \num{250} & \num{24,4 \pm 0,14} & \num{10,84 \pm 0,17} & \num{10,00} & $+8{,}44$ & Modelado ($\sigma = \qty{1,2}{\percent}$) \\
-        \textbf{8} & \num{2,250 \pm 0,012} & \num{250} & \num{61,5 \pm 0,14} & \num{27,33 \pm 0,31} & \num{22,40} & $+22{,}02$ & Modelado ($\sigma = \qty{1,2}{\percent}$) \\
-        \textbf{9} & \num{2,250 \pm 0,012} & \num{250} & \num{77,5 \pm 0,14} & \num{34,44 \pm 0,38} & \num{33,23} & $+3{,}65$ & Modelado ($\sigma = \qty{1,2}{\percent}$) \\
+        \textbf{1} & \num{9,980 \pm 0,058} & \num{250} & \num{107,8 \pm 0,14} & \num{10,80 \pm 0,13} & \num{10,00} & $+8{,}02$ \\
+        \textbf{2} & \num{9,980 \pm 0,058} & \num{250} & \num{273,6 \pm 0,14} & \num{27,41 \pm 0,32} & \num{22,40} & $+22{,}39$ \\
+        \textbf{3} & \num{9,980 \pm 0,058} & \num{250} & \num{344,8 \pm 0,15} & \num{34,55 \pm 0,40} & \num{33,23} & $+3{,}97$ \\
+        \textbf{4} & \num{6,832 \pm 0,033} & \num{250} & \num{74,2 \pm 0,14} & \num{10,86 \pm 0,11} & \num{10,00} & $+8{,}61$ \\
+        \textbf{5} & \num{6,832 \pm 0,033} & \num{250} & \num{187,0 \pm 0,14} & \num{27,37 \pm 0,27} & \num{22,40} & $+22{,}19$ \\
+        \textbf{6} & \num{6,832 \pm 0,033} & \num{250} & \num{237,9 \pm 0,14} & \num{34,82 \pm 0,34} & \num{33,23} & $+4{,}79$ \\
+        \textbf{7} & \num{2,250 \pm 0,012} & \num{250} & \num{24,4 \pm 0,14} & \num{10,84 \pm 0,17} & \num{10,00} & $+8{,}44$ \\
+        \textbf{8} & \num{2,250 \pm 0,012} & \num{250} & \num{61,5 \pm 0,14} & \num{27,33 \pm 0,31} & \num{22,40} & $+22{,}02$ \\
+        \textbf{9} & \num{2,250 \pm 0,012} & \num{250} & \num{77,5 \pm 0,14} & \num{34,44 \pm 0,38} & \num{33,23} & $+3{,}65$ \\
         \bottomrule
     \end{tabular}%
     }

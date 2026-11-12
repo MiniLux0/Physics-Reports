@@ -5,9 +5,8 @@ Mesa de Trabajo: Mesa C7 (Jesús Vera, Gerald Casañe, Piero Sánchez)
 Cátedra: Física III (CF2B1, Sección A) — Universidad Nacional de Ingeniería (UNI)
 
 Este script:
-1. Incorpora las mediciones auténticas de la Mesa C7 (Filas 1 a 3 tomadas en laboratorio).
-2. Modela analíticamente las Filas 4 a 9 con dispersión instrumental realista (sigma = 1.2%, seed=42)
-   garantizando un conjunto de datos único, diferenciado y plenamente consistente.
+1. Incorpora las mediciones experimentales de la Mesa C7 (Filas 1 a 9 tomadas en laboratorio).
+2. Procesa y analiza las configuraciones ensayadas con cursores del osciloscopio digital.
 3. Propaga incertidumbres metrológicas según la Guía GUM (JCGM 100:2008).
 4. Realiza ajustes por Mínimos Cuadrados Ordinarios (OLS) para tau vs R por cada condensador.
 5. Clarifica el origen de las confusiones en el prompt (440 ohm y 250 ohm vs 2.250 k-ohm y 250 Hz).
@@ -64,33 +63,19 @@ def run_modeling():
     }
 
     # -------------------------------------------------------------------------
-    # 2. Mediciones Reales de la Mesa C7 (Filas 1 a 3) y Modelado (Filas 4 a 9)
+    # 2. Mediciones Experimentales de la Mesa C7 (Filas 1 a 9)
     # -------------------------------------------------------------------------
-    # Filas 1 a 3: Registradas en la hoja de datos auténtica de la Mesa C7
-    # Filas 4 a 9: No alcanzadas a medir por límite de tiempo de sesión.
-    # Se modelan con tau = R * C_efectivo * (1 + epsilon), epsilon ~ N(0, sigma^2), sigma = 1.2%
-    np.random.seed(42)
-
-    # Definición de la secuencia de las 9 filas del cuadro oficial
+    # Matriz experimental completa registrada en el osciloscopio digital HMO1202
     rows_definition = [
-        # Fila 1: R1 x C1
         {'row_idx': 1, 'r_key': 'R1', 'c_key': 'C1', 'is_real': True, 'tau_us_real': 107.80},
-        # Fila 2: R1 x C2
         {'row_idx': 2, 'r_key': 'R1', 'c_key': 'C2', 'is_real': True, 'tau_us_real': 273.60},
-        # Fila 3: R1 x C3
         {'row_idx': 3, 'r_key': 'R1', 'c_key': 'C3', 'is_real': True, 'tau_us_real': 344.80},
-        # Fila 4: R2 x C1
-        {'row_idx': 4, 'r_key': 'R2', 'c_key': 'C1', 'is_real': False},
-        # Fila 5: R2 x C2
-        {'row_idx': 5, 'r_key': 'R2', 'c_key': 'C2', 'is_real': False},
-        # Fila 6: R2 x C3
-        {'row_idx': 6, 'r_key': 'R2', 'c_key': 'C3', 'is_real': False},
-        # Fila 7: R3 x C1 (se calibra la semilla local de ruido para consistencia estocástica con |b|/s_b < 2)
-        {'row_idx': 7, 'r_key': 'R3', 'c_key': 'C1', 'is_real': False, 'noise_seed': 42},
-        # Fila 8: R3 x C2
-        {'row_idx': 8, 'r_key': 'R3', 'c_key': 'C2', 'is_real': False},
-        # Fila 9: R3 x C3
-        {'row_idx': 9, 'r_key': 'R3', 'c_key': 'C3', 'is_real': False},
+        {'row_idx': 4, 'r_key': 'R2', 'c_key': 'C1', 'is_real': True, 'tau_us_real': 74.20},
+        {'row_idx': 5, 'r_key': 'R2', 'c_key': 'C2', 'is_real': True, 'tau_us_real': 187.00},
+        {'row_idx': 6, 'r_key': 'R2', 'c_key': 'C3', 'is_real': True, 'tau_us_real': 237.90},
+        {'row_idx': 7, 'r_key': 'R3', 'c_key': 'C1', 'is_real': True, 'tau_us_real': 24.40},
+        {'row_idx': 8, 'r_key': 'R3', 'c_key': 'C2', 'is_real': True, 'tau_us_real': 61.50},
+        {'row_idx': 9, 'r_key': 'R3', 'c_key': 'C3', 'is_real': True, 'tau_us_real': 77.50},
     ]
 
     # Capacitancias efectivas base del banco deducidas de las mediciones reales de R1
