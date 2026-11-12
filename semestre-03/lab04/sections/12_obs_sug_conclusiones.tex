@@ -23,7 +23,7 @@
     
     \item \textbf{Caracterización previa con puente de impedancias LCR:} Se recomienda que en futuras prácticas se mida previamente cada condensador y resistor con un puente digital RLC o capacímetro de precisión (como un medidor de cuatro terminales Kelvin a \qty{1}{\kilo\hertz} y \qty{100}{\hertz}), registrando el valor de capacitancia de referencia con una incertidumbre inferior al $\pm\qty{0,2}{\percent}$ y cuantificando la resistencia serie equivalente (ESR).
     
-    \item \textbf{Automatización de la adquisición mediante protocolo USB-TMC:} Para eliminar la incertidumbre humana derivada del posicionamiento manual de los cursores visuales en la pantalla del osciloscopio, sería altamente conveniente conectar el puerto USB posterior del Rohde \& Schwarz HMO1202 a una computadora de mesa y descargar la matriz completa de datos crudos temporales ($2048$ puntos de muestreo a 8 bits) mediante scripts de adquisición en Python (librería \texttt{pyvisa}), permitiendo realizar el ajuste no lineal exponencial directo mediante algoritmos de Levenberg-Marquardt.
+    \item \textbf{Adquisición y respaldo directo vía USB:} Para agilizar el registro de datos y facilitar la inspección detallada de las formas de onda, se sugiere conectar el osciloscopio vía USB para transferir directamente las formas de onda adquiridas a una memoria de almacenamiento digital (o a una computadora del laboratorio), evitando depender exclusivamente de la lectura manual con cursores en pantalla.
 \end{enumerate}
 
 \section{Conclusiones}
@@ -36,13 +36,13 @@
     
     \item Se comprobó la complementariedad dinámica entre el proceso de carga del condensador y la caída de potencial en la resistencia, verificando que el intervalo de decaimiento al \qty{36,8}{\percent} del valor máximo inicial en la traza de $V_R(t)$ reproduce el valor de la constante de tiempo $\tau$ obtenido sobre la traza de $V_C(t)$ con una concordancia superior al $\qty{99,5}{\percent}$.
     
-    \item Se confirmó de manera categórica la estricta relación lineal $\tau = R \cdot C$ predicha por la teoría de circuitos de primer orden mediante regresiones por mínimos cuadrados ordinarios (MCO) agrupadas por cada condensador, obteniéndose las siguientes capacitancias efectivas:
+    \item Se determinaron las capacitancias efectivas tanto mediante el promedio de las mediciones individuales ($\bar{C} = \tau / R$) como mediante la pendiente de la regresión lineal complementaria ($C_{\text{OLS}} = \Delta \tau / \Delta R$), obteniéndose una concordancia mutua excelente (diferencias menores al \qty{0,5}{\percent}):
     \begin{itemize}
-        \item Condensador $C_1$: $C_{1,\text{OLS}} = \qty{10,79 \pm 0,05}{\nano\farad}$ con $R^2 = 0{,}99998$ y error relativo de \qty{+7,95}{\percent} frente al valor nominal de \qty{10,0}{\nano\farad}.
-        \item Condensador $C_2$: $C_{2,\text{OLS}} = \qty{27,44 \pm 0,03}{\nano\farad}$ con $R^2 = 0{,}99999$ y error relativo de \qty{+22,48}{\percent} frente al valor nominal de \qty{22,40}{\nano\farad}, compatible con la tolerancia comercial del fabricante ($\pm\qty{20}{\percent}$).
-        \item Condensador $C_3$: $C_{3,\text{OLS}} = \qty{34,61 \pm 0,29}{\nano\farad}$ con $R^2 = 0{,}99993$ y error relativo de \qty{+4,15}{\percent} frente al valor nominal de \qty{33,23}{\nano\farad}.
+        \item Condensador $C_1$: $\bar{C}_1 = \qty{10,84 \pm 0,14}{\nano\farad}$ y $C_{1,\text{OLS}} = \qty{10,79 \pm 0,05}{\nano\farad}$ ($R^2 = 0{,}99998$), con error relativo de \qty{+7,95}{\percent} frente al valor nominal de \qty{10,0}{\nano\farad}.
+        \item Condensador $C_2$: $\bar{C}_2 = \qty{27,37 \pm 0,30}{\nano\farad}$ y $C_{2,\text{OLS}} = \qty{27,44 \pm 0,03}{\nano\farad}$ ($R^2 = 0{,}99999$), con error relativo de \qty{+22,48}{\percent} frente al valor nominal de \qty{22,40}{\nano\farad}, compatible con la tolerancia comercial del fabricante ($\pm\qty{20}{\percent}$).
+        \item Condensador $C_3$: $\bar{C}_3 = \qty{34,60 \pm 0,44}{\nano\farad}$ y $C_{3,\text{OLS}} = \qty{34,61 \pm 0,29}{\nano\farad}$ ($R^2 = 0{,}99993$), con error relativo de \qty{+4,15}{\percent} frente al valor nominal de \qty{33,23}{\nano\farad}.
     \end{itemize}
-    Las pruebas de hipótesis estadísticas sobre los interceptos residuales ($|b|/s_b \le 1{,}23 < 2{,}0$ y contraste de Student bilateral $t_{\text{stat}} \ll t_{\text{crit}} = 12{,}71$ para $\nu = 1$ y $\alpha = 0{,}05$) demostraron formalmente que la ordenada en el origen es indistinguible de cero, convalidando la ausencia de sesgos aditivos o no linealidades en el modelo físico.
+    Asimismo, la evaluación de los interceptos residuales ($|b| < 2 s_b$) confirmó que la ordenada en el origen es compatible con cero dentro del margen de incertidumbre experimental, convalidando la proporcionalidad directa $\tau \propto R$ predicha por la teoría física sin sesgos aditivos apreciables.
     
     \item Se validó experimentalmente en tiempo real la Segunda Ley de Kirchhoff (Ley de Mallas) en régimen transitorio empleando la función aritmética \texttt{MATH ADD} del osciloscopio digital HMO1202, demostrando que la suma instantánea $V_C(t) + V_R(t)$ anula las curvaturas exponenciales y reconstruye la onda cuadrada de excitación con una fluctuación residual menor a \qty{0,05}{\volt} (desviación relativa inferior al $\qty{0,5}{\percent}$), lo que comprueba el principio de conservación de la energía en circuitos dinámicos.
     

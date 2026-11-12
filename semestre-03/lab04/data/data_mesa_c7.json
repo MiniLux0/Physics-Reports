@@ -56,9 +56,7 @@
       "u_c_nF": 0.06,
       "U_c_nF": 0.13,
       "c_nom_nF": 10.0,
-      "error_rel_pct": 8.02,
-      "es_real": true,
-      "origen": "Experimental (Mesa C7)"
+      "error_rel_pct": 8.02
     },
     {
       "fila": 2,
@@ -76,9 +74,7 @@
       "u_c_nF": 0.16,
       "U_c_nF": 0.32,
       "c_nom_nF": 22.4,
-      "error_rel_pct": 22.39,
-      "es_real": true,
-      "origen": "Experimental (Mesa C7)"
+      "error_rel_pct": 22.39
     },
     {
       "fila": 3,
@@ -96,9 +92,7 @@
       "u_c_nF": 0.2,
       "U_c_nF": 0.4,
       "c_nom_nF": 33.23,
-      "error_rel_pct": 3.97,
-      "es_real": true,
-      "origen": "Experimental (Mesa C7)"
+      "error_rel_pct": 3.97
     },
     {
       "fila": 4,
@@ -116,9 +110,7 @@
       "u_c_nF": 0.06,
       "U_c_nF": 0.11,
       "c_nom_nF": 10.0,
-      "error_rel_pct": 8.61,
-      "es_real": true,
-      "origen": "Experimental (Mesa C7)"
+      "error_rel_pct": 8.61
     },
     {
       "fila": 5,
@@ -136,9 +128,7 @@
       "u_c_nF": 0.13,
       "U_c_nF": 0.27,
       "c_nom_nF": 22.4,
-      "error_rel_pct": 22.19,
-      "es_real": true,
-      "origen": "Experimental (Mesa C7)"
+      "error_rel_pct": 22.19
     },
     {
       "fila": 6,
@@ -156,9 +146,7 @@
       "u_c_nF": 0.17,
       "U_c_nF": 0.34,
       "c_nom_nF": 33.23,
-      "error_rel_pct": 4.79,
-      "es_real": true,
-      "origen": "Experimental (Mesa C7)"
+      "error_rel_pct": 4.79
     },
     {
       "fila": 7,
@@ -176,9 +164,7 @@
       "u_c_nF": 0.08,
       "U_c_nF": 0.17,
       "c_nom_nF": 10.0,
-      "error_rel_pct": 8.44,
-      "es_real": true,
-      "origen": "Experimental (Mesa C7)"
+      "error_rel_pct": 8.44
     },
     {
       "fila": 8,
@@ -196,9 +182,7 @@
       "u_c_nF": 0.15,
       "U_c_nF": 0.31,
       "c_nom_nF": 22.4,
-      "error_rel_pct": 22.02,
-      "es_real": true,
-      "origen": "Experimental (Mesa C7)"
+      "error_rel_pct": 22.02
     },
     {
       "fila": 9,
@@ -216,9 +200,7 @@
       "u_c_nF": 0.19,
       "U_c_nF": 0.38,
       "c_nom_nF": 33.23,
-      "error_rel_pct": 3.65,
-      "es_real": true,
-      "origen": "Experimental (Mesa C7)"
+      "error_rel_pct": 3.65
     }
   ],
   "ols_results": {
@@ -230,7 +212,6 @@
       "s_b_us": 0.38,
       "t_stat": 0.55,
       "passed_2sigma": true,
-      "passed_student": true,
       "r2": 0.999975,
       "err_fit_pct": 7.95,
       "nom_nF": 10.0
@@ -243,7 +224,6 @@
       "s_b_us": 0.23,
       "t_stat": 1.23,
       "passed_2sigma": true,
-      "passed_student": true,
       "r2": 0.999999,
       "err_fit_pct": 22.48,
       "nom_nF": 22.4
@@ -256,7 +236,6 @@
       "s_b_us": 2.05,
       "t_stat": 0.07,
       "passed_2sigma": true,
-      "passed_student": true,
       "r2": 0.99993,
       "err_fit_pct": 4.15,
       "nom_nF": 33.23

@@ -67,29 +67,16 @@ def run_modeling():
     # -------------------------------------------------------------------------
     # Matriz experimental completa registrada en el osciloscopio digital HMO1202
     rows_definition = [
-        {'row_idx': 1, 'r_key': 'R1', 'c_key': 'C1', 'is_real': True, 'tau_us_real': 107.80},
-        {'row_idx': 2, 'r_key': 'R1', 'c_key': 'C2', 'is_real': True, 'tau_us_real': 273.60},
-        {'row_idx': 3, 'r_key': 'R1', 'c_key': 'C3', 'is_real': True, 'tau_us_real': 344.80},
-        {'row_idx': 4, 'r_key': 'R2', 'c_key': 'C1', 'is_real': True, 'tau_us_real': 74.20},
-        {'row_idx': 5, 'r_key': 'R2', 'c_key': 'C2', 'is_real': True, 'tau_us_real': 187.00},
-        {'row_idx': 6, 'r_key': 'R2', 'c_key': 'C3', 'is_real': True, 'tau_us_real': 237.90},
-        {'row_idx': 7, 'r_key': 'R3', 'c_key': 'C1', 'is_real': True, 'tau_us_real': 24.40},
-        {'row_idx': 8, 'r_key': 'R3', 'c_key': 'C2', 'is_real': True, 'tau_us_real': 61.50},
-        {'row_idx': 9, 'r_key': 'R3', 'c_key': 'C3', 'is_real': True, 'tau_us_real': 77.50},
+        {'row_idx': 1, 'r_key': 'R1', 'c_key': 'C1', 'tau_us': 107.80},
+        {'row_idx': 2, 'r_key': 'R1', 'c_key': 'C2', 'tau_us': 273.60},
+        {'row_idx': 3, 'r_key': 'R1', 'c_key': 'C3', 'tau_us': 344.80},
+        {'row_idx': 4, 'r_key': 'R2', 'c_key': 'C1', 'tau_us': 74.20},
+        {'row_idx': 5, 'r_key': 'R2', 'c_key': 'C2', 'tau_us': 187.00},
+        {'row_idx': 6, 'r_key': 'R2', 'c_key': 'C3', 'tau_us': 237.90},
+        {'row_idx': 7, 'r_key': 'R3', 'c_key': 'C1', 'tau_us': 24.40},
+        {'row_idx': 8, 'r_key': 'R3', 'c_key': 'C2', 'tau_us': 61.50},
+        {'row_idx': 9, 'r_key': 'R3', 'c_key': 'C3', 'tau_us': 77.50},
     ]
-
-    # Capacitancias efectivas base del banco deducidas de las mediciones reales de R1
-    # C_eff_1 = 107.8 us / 9980 ohm = 10.8016 nF
-    # C_eff_2 = 273.6 us / 9980 ohm = 27.4148 nF
-    # C_eff_3 = 344.8 us / 9980 ohm = 34.5491 nF
-    c_bench_effective = {
-        'C1': 107.80e-6 / resistors['R1']['val'],
-        'C2': 273.60e-6 / resistors['R1']['val'],
-        'C3': 344.80e-6 / resistors['R1']['val']
-    }
-
-    # Factor de dispersión instrumental (sigma = 1.2% por resolución de cursor y disparo de osciloscopio)
-    sigma_dispersion = 0.012
 
     dataset = []
     for item in rows_definition:
@@ -98,35 +85,14 @@ def run_modeling():
         c_nom = capacitors[item['c_key']]['nom_F']
         c_nom_nF = capacitors[item['c_key']]['nom_nF']
 
-        if item['is_real']:
-            tau_s = item['tau_us_real'] * 1e-6
-            tau_us = item['tau_us_real']
-            origin = "Experimental (Mesa C7)"
-        else:
-            # Modelo físico con dispersión normal representativa del osciloscopio
-            c_base = c_bench_effective[item['c_key']]
-            tau_ideal = r_val * c_base
-            if 'noise_seed' in item:
-                # Se avanza el generador global para mantener sincronía del flujo pseudoaleatorio,
-                # y se utiliza un generador calibrado local (eps = +0.50 sigma) para evitar que
-                # un sorteo atípico de cola (> 1.5 sigma) induzca un intercepto espurio en C1.
-                _ = np.random.normal(0.0, sigma_dispersion)
-                row_rng = np.random.RandomState(item['noise_seed'])
-                eps = row_rng.normal(0.0, sigma_dispersion)
-            else:
-                eps = np.random.normal(0.0, sigma_dispersion)
-            tau_modeled = tau_ideal * (1.0 + eps)
-            # Redondeo a resolución de cursor HMO1202 (0.1 us)
-            tau_us = round(tau_modeled * 1e6, 1)
-            tau_s = tau_us * 1e-6
-            origin = "Modelado Físico (sigma=1.2%)"
+        tau_us = item['tau_us']
+        tau_s = tau_us * 1e-6
 
         # Incertidumbre estándar en tau (Osciloscopio digital Rohde & Schwarz HMO1202, según GUM Tipo B)
         # u(tau) = sqrt((Delta_cursor / sqrt(12))^2 + (50 ppm * tau)^2)
         # - Resolución del cursor digital en escala 500 us/div: Delta_cursor = 0.5 us
         #   Distribución rectangular Tipo B: u_res = Delta_cursor / sqrt(12) approx 0.144 us
         # - Exactitud de la base de tiempo: 50 ppm (0.005%)
-        # (Se elimina el término del 0.8% del multímetro que había sido arrastrado indebidamente)
         delta_cursor = 0.5e-6
         u_tau = np.sqrt((delta_cursor / np.sqrt(12.0))**2 + (50e-6 * tau_s)**2)
 
@@ -162,28 +128,26 @@ def run_modeling():
             'u_c_nF': round(u_c_nF, 2),
             'U_c_nF': round(U_c_nF, 2),
             'c_nom_nF': c_nom_nF,
-            'error_rel_pct': round(error_rel_pct, 2),
-            'es_real': item['is_real'],
-            'origen': origin
+            'error_rel_pct': round(error_rel_pct, 2)
         })
 
     # -------------------------------------------------------------------------
     # 3. Impresión del Cuadro de Datos Completo
     # -------------------------------------------------------------------------
-    print("=" * 105)
+    print("=" * 85)
     print("CUADRO DE DATOS EXPERIMENTALES — MESA C7 (FÍSICA III, LAB 04)")
-    print("=" * 105)
-    header = f"{'Fila':<4} | {'R (ohm)':<10} | {'f (Hz)':<6} | {'tau (us)':<10} | {'C_exp (nF)':<14} | {'C_nom (nF)':<10} | {'Error (%)':<9} | {'Origen':<24}"
+    print("=" * 85)
+    header = f"{'Fila':<4} | {'R (ohm)':<10} | {'f (Hz)':<6} | {'tau (us)':<10} | {'C_exp (nF)':<14} | {'C_nom (nF)':<10} | {'Error (%)':<9}"
     print(header)
-    print("-" * 105)
+    print("-" * 85)
     for d in dataset:
         row_str = (
             f"{d['fila']:<4} | {d['r_ohm']:<10.1f} | {d['f_hz']:<6.0f} | "
             f"{d['tau_us']:<10.1f} | {d['c_exp_nF']:>5.2f} +- {d['U_c_nF']:<4.2f} | "
-            f"{d['c_nom_nF']:<10.2f} | {d['error_rel_pct']:>+7.2f}% | {d['origen']:<24}"
+            f"{d['c_nom_nF']:<10.2f} | {d['error_rel_pct']:>+7.2f}%"
         )
         print(row_str)
-    print("=" * 105)
+    print("=" * 85)
 
     # -------------------------------------------------------------------------
     # 4. Ajustes Lineales por Mínimos Cuadrados Ordinarios (tau vs R)
@@ -216,12 +180,10 @@ def run_modeling():
         c_nom_nF = capacitors[c_key]['nom_nF']
         err_fit_pct = ((c_fit_nF - c_nom_nF) / c_nom_nF) * 100.0
 
-        # Evaluación dinámica de consistencia física del intercepto:
-        # 1. Criterio empírico 2-sigma: |b| / s_b < 2.0
-        # 2. Contraste formal t de Student (nu = N - 2 = 1 grado de libertad, alpha = 0.05 bilateral -> t_crit = 12.706)
+        # Evaluación de consistencia física del intercepto:
+        # Criterio empírico 2-sigma: |b| / s_b < 2.0
         t_stat = abs(intercept) / s_b
         passed_2sigma = bool(t_stat < 2.0)
-        passed_student = bool(t_stat < 12.706)
 
         ols_results[c_key] = {
             'c_fit_nF': round(c_fit_nF, 2),
@@ -231,7 +193,6 @@ def run_modeling():
             's_b_us': round(s_b * 1e6, 2),
             't_stat': round(t_stat, 2),
             'passed_2sigma': passed_2sigma,
-            'passed_student': passed_student,
             'r2': round(r2, 6),
             'err_fit_pct': round(err_fit_pct, 2),
             'nom_nF': c_nom_nF
@@ -239,7 +200,7 @@ def run_modeling():
 
         print(f"Condensador {c_key} (Nominal: {c_nom_nF:.2f} nF):")
         print(f"  -> Capacitancia ajustada (pendiente): C_fit = ({c_fit_nF:.2f} +- {s_c_nF:.2f}) nF")
-        print(f"  -> Intercepto: b = ({intercept*1e6:.2f} +- {s_b*1e6:.2f}) us  (|b|/s_b = {t_stat:.2f} | 2-sigma < 2.0: {passed_2sigma} | Student t(nu=1)<12.71: {passed_student})")
+        print(f"  -> Intercepto: b = ({intercept*1e6:.2f} +- {s_b*1e6:.2f}) us  (|b|/s_b = {t_stat:.2f} | 2-sigma < 2.0: {passed_2sigma})")
         print(f"  -> Coeficiente R^2: {r2:.6f}")
         print(f"  -> Error relativo vs nominal: {err_fit_pct:+.2f}%\n")
 
@@ -262,9 +223,9 @@ def run_modeling():
 
     csv_path = os.path.join(data_dir, 'data_mesa_c7.csv')
     with open(csv_path, 'w', encoding='utf-8') as f:
-        f.write("fila,resistencia_ohm,frecuencia_hz,tau_us,u_tau_us,c_exp_nf,u_c_nf,U_c_nf,c_nom_nf,error_pct,es_real,origen\n")
+        f.write("fila,resistencia_ohm,frecuencia_hz,tau_us,u_tau_us,c_exp_nf,u_c_nf,U_c_nf,c_nom_nf,error_pct\n")
         for d in dataset:
-            f.write(f"{d['fila']},{d['r_ohm']},{d['f_hz']},{d['tau_us']},{d['u_tau_us']},{d['c_exp_nF']},{d['u_c_nF']},{d['U_c_nF']},{d['c_nom_nF']},{d['error_rel_pct']},{d['es_real']},{d['origen']}\n")
+            f.write(f"{d['fila']},{d['r_ohm']},{d['f_hz']},{d['tau_us']},{d['u_tau_us']},{d['c_exp_nF']},{d['u_c_nF']},{d['U_c_nF']},{d['c_nom_nF']},{d['error_rel_pct']}\n")
     print(f"[OK] Datos guardados en CSV: {csv_path}")
 
     return dataset, ols_results

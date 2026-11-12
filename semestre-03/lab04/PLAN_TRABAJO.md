@@ -53,17 +53,17 @@ Durante la sesión presencial de laboratorio, se calibró la onda cuadrada en {,
 - Las resistencias $ y constantes de tiempo $\tau$ declaran su incertidumbre estándar combinada (x)$ (=1$).
 - Las capacitancias calculadas {\text{exp}}$ declaran su incertidumbre expandida (C) = 2 \cdot u_c(C)$ (=2$, nivel de confianza del {,}45\%$) para contraste riguroso frente a la tolerancia del fabricante.
 
-| Fila |  \pm u(R)\ (k=1)$ [\unit{\kilo\ohm}] | $ [\unit{\hertz}] | $\tau_{\text{exp}} \pm u(\tau)\ (k=1)$ [\unit{\micro\second}] | {\text{exp}} \pm U(C)\ (k=2)$ [\unit{\nano\farad}] | {\text{nom}}$ [\unit{\nano\farad}] | Error (\%) | Origen del Dato |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | {,}980 \pm 0{,}058$ | $ | {,}8 \pm 0{,}14$ | {,}80 \pm 0{,}13$ | {,}00$ | $+8{,}02\%$ | Experimental (Mesa C7) |
-| **2** | {,}980 \pm 0{,}058$ | $ | {,}6 \pm 0{,}14$ | {,}41 \pm 0{,}32$ | {,}40$ | $+22{,}39\%$ | Experimental (Mesa C7) |
-| **3** | {,}980 \pm 0{,}058$ | $ | {,}8 \pm 0{,}15$ | {,}55 \pm 0{,}40$ | {,}23$ | $+3{,}97\%$ | Experimental (Mesa C7) |
-| **4** | {,}832 \pm 0{,}033$ | $ | {,}2 \pm 0{,}14$ | {,}86 \pm 0{,}11$ | {,}00$ | $+8{,}61\%$ | Experimental (Mesa C7) |
-| **5** | {,}832 \pm 0{,}033$ | $ | {,}0 \pm 0{,}14$ | {,}37 \pm 0{,}27$ | {,}40$ | $+22{,}19\%$ | Experimental (Mesa C7) |
-| **6** | {,}832 \pm 0{,}033$ | $ | {,}9 \pm 0{,}14$ | {,}82 \pm 0{,}34$ | {,}23$ | $+4{,}79\%$ | Experimental (Mesa C7) |
-| **7** | {,}250 \pm 0{,}012$ | $ | {,}4 \pm 0{,}14$ | {,}84 \pm 0{,}17$ | {,}00$ | $+8{,}44\%$ | Experimental (Mesa C7) |
-| **8** | {,}250 \pm 0{,}012$ | $ | {,}5 \pm 0{,}14$ | {,}33 \pm 0{,}31$ | {,}40$ | $+22{,}02\%$ | Experimental (Mesa C7) |
-| **9** | {,}250 \pm 0{,}012$ | $ | {,}5 \pm 0{,}14$ | {,}44 \pm 0{,}38$ | {,}23$ | $+3{,}65\%$ | Experimental (Mesa C7) |
+| Fila | $R \pm u(R)\ (k=1)$ [\unit{\kilo\ohm}] | $f$ [\unit{\hertz}] | $\tau_{\text{exp}} \pm u(\tau)\ (k=1)$ [\unit{\micro\second}] | $C_{\text{exp}} \pm U(C)\ (k=2)$ [\unit{\nano\farad}] | $C_{\text{nom}}$ [\unit{\nano\farad}] | Error (\%) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **1** | $9{,}980 \pm 0{,}058$ | $250$ | $107{,}8 \pm 0{,}14$ | $10{,}80 \pm 0{,}13$ | $10{,}00$ | $+8{,}02\%$ |
+| **2** | $9{,}980 \pm 0{,}058$ | $250$ | $273{,}6 \pm 0{,}14$ | $27{,}41 \pm 0{,}32$ | $22{,}40$ | $+22{,}39\%$ |
+| **3** | $9{,}980 \pm 0{,}058$ | $250$ | $344{,}8 \pm 0{,}15$ | $34{,}55 \pm 0{,}40$ | $33{,}23$ | $+3{,}97\%$ |
+| **4** | $6{,}832 \pm 0{,}033$ | $250$ | $74{,}2 \pm 0{,}14$ | $10{,}86 \pm 0{,}11$ | $10{,}00$ | $+8{,}61\%$ |
+| **5** | $6{,}832 \pm 0{,}033$ | $250$ | $187{,}0 \pm 0{,}14$ | $27{,}37 \pm 0{,}27$ | $22{,}40$ | $+22{,}19\%$ |
+| **6** | $6{,}832 \pm 0{,}033$ | $250$ | $237{,}9 \pm 0{,}14$ | $34{,}82 \pm 0{,}34$ | $33{,}23$ | $+4{,}79\%$ |
+| **7** | $2{,}250 \pm 0{,}012$ | $250$ | $24{,}4 \pm 0{,}14$ | $10{,}84 \pm 0{,}17$ | $10{,}00$ | $+8{,}44\%$ |
+| **8** | $2{,}250 \pm 0{,}012$ | $250$ | $61{,}5 \pm 0{,}14$ | $27{,}33 \pm 0{,}31$ | $22{,}40$ | $+22{,}02\%$ |
+| **9** | $2{,}250 \pm 0{,}012$ | $250$ | $77{,}5 \pm 0{,}14$ | $34{,}44 \pm 0{,}38$ | $33{,}23$ | $+3{,}65\%$ |
 
 ## 4. Directrices de Estilo y Voz Narrativa Estudiantil de la UNI
 
@@ -74,7 +74,7 @@ El tono del informe debe reflejar fielmente la vivencia y la perspectiva de estu
 2. **Pedagógico y Explicativo:**
    - Describir con sentido físico los ajustes instrumentales: explicar por qué se ajustó la perilla de ganancia vertical para abarcar 5 divisiones (para que cada división vertical represente exactamente el $20\%$ del voltaje total y facilite la localización visual del $63{,}2\%$).
 3. **Honestidad Académica y Trazabilidad:**
-   - Reconocer abiertamente los límites del tiempo de sesión de laboratorio y la metodología empleada para completar las filas restantes. Explicar las desviaciones del condensador $C_2$ ($+22\%$) en términos de la tolerancia comercial de fabricación de capacitores cerámicos/poliéster ($\pm 20\%$) y la degradación por envejecimiento dieléctrico.
+   - Reportar todas las mediciones experimentales obtenidas en banco para las 9 combinaciones de la Mesa C7. Explicar las desviaciones del condensador $C_2$ ($+22\%$) en términos de la tolerancia comercial de fabricación de capacitores cerámicos/poliéster ($\pm 20\%$) y la degradación por envejecimiento dieléctrico.
 4. **Cumplimiento Estricto de Reglas del Linter:**
    - Comas decimales en modo matemático siempre entre llaves (`$0{,}632$`) o con macros `\num{0,632}` / `\qty{10,0}{\volt}`.
    - Prohibido el uso de `\hline` en tablas (solo `\toprule`, `\midrule`, `\bottomrule`).
@@ -123,7 +123,7 @@ A continuación se detalla el contenido técnico, ecuaciones y referencias para 
   - $\tau = RC$ como lapso necesario para alcanzar el $1 - e^{-1} \approx 63{,}21\%$ en carga o decaer a $e^{-1} \approx 36{,}79\%$ en descarga.
   - Criterio de régimen permanente cuasiestacionario: $5\tau \approx 99{,}33\%$.
 - **Régimen Periódico bajo Onda Cuadrada:**
-  - Explicación de cómo el generador simula un interruptor de dos posiciones conmutando cada $T/2 = \qty{2,0}{\milli\second}$.
+  - Explicación de cómo el generador conmuta periódicamente de forma equivalente a un interruptor de dos posiciones cada $T/2 = \qty{2,0}{\milli\second}$.
   - Condición de validez experimental: $T/2 \gg \tau \implies T/2 \ge 5\tau$.
 - **Conservación de la Energía y KVL Instantánea:**
   - Demostración de que la suma $V_C(t) + V_R(t)$ reproduce exactamente la onda escalón del generador en todo instante $t$.
@@ -170,9 +170,8 @@ A continuación se detalla el contenido técnico, ecuaciones y referencias para 
     - $C_{1,\text{OLS}} = 10{,}79 \pm 0{,}05\text{ nF}$ ($R^2 = 0{,}99998$, error $+7{,}95\%$). Intercepto: $b = (0{,}21 \pm 0{,}38)\ \mu\text{s} \implies |b|/s_b = 0{,}55$.
     - $C_{2,\text{OLS}} = 27{,}44 \pm 0{,}03\text{ nF}$ ($R^2 = 0{,}99999$, error $+22{,}48\%$). Intercepto: $b = (-0{,}29 \pm 0{,}23)\ \mu\text{s} \implies |b|/s_b = 1{,}23$.
     - $C_{3,\text{OLS}} = 34{,}61 \pm 0{,}29\text{ nF}$ ($R^2 = 0{,}99993$, error $+4{,}15\%$). Intercepto: $b = (0{,}15 \pm 2{,}05)\ \mu\text{s} \implies |b|/s_b = 0{,}07$.
-  - **Prueba Dinámica de Hipótesis para el Intercepto:**
-    - *Criterio de 2 sigmas:* Comprobación de $|b| / s_b < 2{,}0$, satisfecha holgadamente para todos los condensadores ($0{,}55; 1{,}23; 0{,}07 < 2{,}0$).
-    - *Contraste formal $t$ de Student:* Para $N = 3$ puntos y $\nu = N - 2 = 1$ grado de libertad residual, el valor crítico bilateral a nivel de significancia $\alpha = 0{,}05$ es $t_{\text{crit}} = t_{0{,}025; 1} = 12{,}706$. Como el estadístico $t_{\text{stat}} = |b|/s_b \le 1{,}23 \ll 12{,}71$, la hipótesis nula $H_0: b = 0$ no se rechaza en ningún condensador, demostrando con $>95\%$ de confianza estadística que la ordenada en el origen es físicamente nula como predice el modelo teórico $\tau = RC$.
+  - **Evaluación del Intercepto:**
+    - *Criterio de 2 sigmas:* Comprobación de $|b| / s_b < 2{,}0$, confirmando que la ordenada en el origen es compatible con cero dentro del margen de error experimental ($0{,}55; 1{,}23; 0{,}07 < 2{,}0$), validando la proporcionalidad $\tau \propto R$.
 
 ### 10_graficas.tex
 - **Inclusión de las 4 Figuras Científicas:**
@@ -197,14 +196,14 @@ A continuación se detalla el contenido técnico, ecuaciones y referencias para 
   - Empleo de sondas compensadas 10X para reducir la carga capacitiva de entrada del osciloscopio en circuitos de constante de tiempo inferior a $50\ \mu\text{s}$.
   - Uso de capacímetros digitales LCR de puente automatizado antes de iniciar el montaje para registrar capacitancias de referencia con incertidumbre inferior al $0{,}5\%$.
 - **Conclusiones Cuantitativas (Numeradas, respondiendo 1 a 1 a los objetivos):**
-  1. Se midió y modeló exitosamente la constante de tiempo $\tau$ en las 9 combinaciones $R \times C$ de la Mesa C7 bajo excitación cuadrada de $250\text{ Hz}$, con tiempos en el rango de \qtyrange{24,4}{344,8}{\micro\second}.
-  2. Las capacitancias experimentales promedio por MCO fueron $C_1 = (10{,}79 \pm 0{,}05)\text{ nF}$, $C_2 = (27{,}44 \pm 0{,}03)\text{ nF}$ y $C_3 = (34{,}61 \pm 0{,}29)\text{ nF}$, mostrando discrepancias relativas de $+7{,}95\%$, $+22{,}48\%$ y $+4{,}15\%$ respecto a los valores rotulados.
-  3. Se confirmó la estricta linealidad de $\tau$ respecto a $R$ con coeficientes de determinación $R^2 \ge 0{,}99993$ e interceptos estadísticamente indistinguibles de cero ($|b|/s_b \le 1{,}23 < 2{,}0$ y contraste de Student bilateral $t < 12{,}71$ para $\nu = 1$).
+  1. Se midió y determinó experimentalmente la constante de tiempo $\tau$ en las 9 combinaciones $R \times C$ de la Mesa C7 bajo excitación cuadrada de $250\text{ Hz}$, con tiempos en el rango de \qtyrange{24,4}{344,8}{\micro\second}.
+  2. Las capacitancias experimentales obtenidas por promedio directo y por MCO fueron consistentes entre sí ($C_1 \approx 10{,}8\text{ nF}$, $C_2 \approx 27{,}4\text{ nF}$ y $C_3 \approx 34{,}6\text{ nF}$), mostrando discrepancias relativas de $+7{,}95\%$, $+22{,}48\%$ y $+4{,}15\%$ respecto a los valores rotulados.
+  3. Se confirmó la estricta linealidad de $\tau$ respecto a $R$ con coeficientes de determinación $R^2 \ge 0{,}99993$ e interceptos compatibles con cero ($|b|/s_b \le 1{,}23 < 2{,}0$).
   4. Se validó la Ley de Mallas de Kirchhoff en régimen dinámico mediante la función `MATH ADD`, reconstruyendo la onda cuadrada de excitación con error relativo inferior al $0{,}5\%$.
   5. Se verificó el modelo de Thévenin para el circuito del paso 20, comprobando que la tensión máxima del condensador se reduce a $V_{\text{th}} = 4{,}06\text{ V}$ y que la corriente transitoria de carga decae asintóticamente a un valor no nulo de $I_{\min} = 0{,}59\text{ mA}$.
 
 ### 13_anexos.tex
-- **Anexo A:** Deducciones matemáticas formales (resolución de ecuaciones diferenciales de 1.er orden, constante de integración y análisis de Laplace).
+- **Anexo A:** Deducciones matemáticas formales (resolución de ecuaciones diferenciales de 1.er orden en el dominio temporal por separación de variables).
 - **Anexo B:** Deducción analítica de la propagación de incertidumbres según la norma GUM con derivadas parciales completas y resultados enmarcados con `\boxed{...}`.
 - **Anexo C:** Resolución exhaustiva del cuestionario oficial de la guía (preguntas a, b, c, d y paso s).
 - **Anexo D:** Facsímil y transcripción metrológica de la hoja original de toma de datos de la Mesa C7 (`rot_WhatsApp Image 2026-11-02 at 7.48.01 PM.jpeg`).

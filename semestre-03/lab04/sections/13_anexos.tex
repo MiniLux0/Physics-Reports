@@ -7,60 +7,75 @@
 \section{Deducción analítica formal de las ecuaciones de carga y descarga}
 \label{sec:anexo_deducciones}
 
-\subsection{Proceso de carga con fuente constante mediante transformada de Laplace}
+\subsection{Proceso de carga con fuente continua constante}
 
-En la Sección~\ref{sec:fundamento} se resolvió la ecuación diferencial del circuito RC en el dominio del tiempo mediante separación de variables. Para fundamentar el análisis desde la perspectiva de sistemas lineales e invariantes en el tiempo (LTI) de la teoría de control y telecomunicaciones, presentamos a continuación la deducción empleando la transformada de Laplace \cite{alexander}.
-
-Consideremos la ecuación íntegro-diferencial de la malla en reposo ($q(0^-) = 0$):
+Consideremos el circuito serie formado por una fuente de tensión continua ideal de valor $V_0$, un resistor de resistencia $R$ y un condensador inicialmente descargado ($q(0) = 0$, $v_C(0) = 0$). Aplicando la Segunda Ley de Kirchhoff (Ley de Mallas) para todo tiempo $t \ge 0$:
 \begin{equation}
-    R\,i(t) + \frac{1}{C}\int_{0^-}^{t} i(\lambda)\,d\lambda = V_0 \cdot u(t)
-    \label{eq:malla_laplace}
+    V_0 - v_R(t) - v_C(t) = 0 \implies V_0 - R\,i(t) - \frac{q(t)}{C} = 0
+    \label{eq:malla_carga_anexo}
 \end{equation}
-donde $u(t)$ es la función escalón unitario de Heaviside. Aplicando la transformada unilateral de Laplace ($\mathcal{L}\{f(t)\} = F(s)$):
+Dado que la intensidad de corriente instantánea corresponde a la tasa temporal de variación de la carga en las armaduras del condensador ($i(t) = dq/dt$), la ecuación~\eqref{eq:malla_carga_anexo} se reescribe como una ecuación diferencial ordinaria lineal de primer orden:
 \begin{equation}
-    R\,I(s) + \frac{1}{s C}\,I(s) = \frac{V_0}{s}
+    R\,\frac{dq}{dt} + \frac{q(t)}{C} = V_0 \implies \frac{dq}{dt} + \frac{q(t)}{RC} = \frac{V_0}{R}
 \end{equation}
-Factorizando la intensidad de corriente en el plano complejo de frecuencias $s$:
+Reordenando los términos para integrar por separación de variables:
 \begin{equation}
-    I(s)\left( R + \frac{1}{s C} \right) = \frac{V_0}{s} \implies I(s)\left( \frac{s R C + 1}{s C} \right) = \frac{V_0}{s}
+    \frac{dq}{C V_0 - q} = \frac{dt}{RC}
 \end{equation}
-Despejando $I(s)$:
+Integrando ambos miembros desde la condición inicial de reposo ($t = 0, q = 0$) hasta un instante genérico $t$ con carga acumulada $q(t)$:
 \begin{equation}
-    I(s) = \frac{V_0\,C}{s R C + 1} = \frac{V_0 / R}{s + \frac{1}{R C}}
+    \int_{0}^{q(t)} \frac{dq'}{C V_0 - q'} = \int_{0}^{t} \frac{dt'}{RC} \implies -\left[ \ln(C V_0 - q') \right]_{0}^{q(t)} = \frac{t}{RC}
 \end{equation}
-Aplicando la transformada inversa de Laplace ($\mathcal{L}^{-1}\{(s + a)^{-1}\} = e^{-a t}$):
+Evaluando los límites de integración:
 \begin{equation}
-    \boxed{i(t) = \frac{V_0}{R}\,e^{-t / RC} \cdot u(t)}
+    -\ln\left(\frac{C V_0 - q(t)}{C V_0}\right) = \frac{t}{RC} \implies \frac{C V_0 - q(t)}{C V_0} = e^{-t / RC}
 \end{equation}
-Para la diferencia de potencial en bornes del condensador $V_C(s)$:
+Despejando la carga instantánea $q(t)$:
 \begin{equation}
-    V_C(s) = \frac{1}{s C}\,I(s) = \frac{V_0 / (R C)}{s\left(s + \frac{1}{R C}\right)}
+    \boxed{q(t) = C V_0 \left( 1 - e^{-t / RC} \right)}
 \end{equation}
-Descomponiendo en fracciones simples:
+A partir de la relación constitutiva del condensador $v_C(t) = q(t) / C$, se obtiene la tensión en bornes del condensador:
 \begin{equation}
-    \frac{V_0 / (R C)}{s\left(s + \frac{1}{R C}\right)} = \frac{A}{s} + \frac{B}{s + \frac{1}{R C}} \implies A = V_0, \quad B = -V_0
+    \boxed{v_C(t) = V_0 \left( 1 - e^{-t / RC} \right)}
 \end{equation}
-Por consiguiente:
+Derivando $q(t)$ respecto al tiempo, se deduce la corriente instantánea $i(t)$:
 \begin{equation}
-    V_C(s) = \frac{V_0}{s} - \frac{V_0}{s + \frac{1}{R C}}
+    \boxed{i(t) = \frac{dq}{dt} = \frac{V_0}{R}\,e^{-t / RC}}
 \end{equation}
-Antitransformando al dominio del tiempo:
+y la caída de potencial instantánea en la resistencia $v_R(t) = R\,i(t)$:
 \begin{equation}
-    \boxed{v_C(t) = V_0 \left( 1 - e^{-t / RC} \right) u(t)}
+    \boxed{v_R(t) = V_0\,e^{-t / RC}}
 \end{equation}
-lo que demuestra con absoluta generalidad matemática la forma de onda exponencial observada en el osciloscopio.
 
 \subsection{Proceso de descarga libre del condensador}
 
-Para la descarga libre, considerando como condición inicial $v_C(0) = V_0$ y fuente nula ($V_0 = 0$):
+Para el proceso de descarga libre, la fuente externa se desactiva ($V_0 = 0$), encontrándose el condensador previamente cargado a la tensión inicial $v_C(0) = V_0$ con carga $q(0) = Q_0 = C V_0$. La ecuación de malla de Kirchhoff establece:
 \begin{equation}
-    R\,I(s) + \frac{1}{s C}\left( I(s) + C V_0 \right) = 0 \implies I(s)\left( R + \frac{1}{s C} \right) = -\frac{V_0}{s}
+    -v_R(t) - v_C(t) = 0 \implies R\,\frac{dq}{dt} + \frac{q(t)}{C} = 0
 \end{equation}
+Separando variables:
 \begin{equation}
-    I(s) = -\frac{V_0 / R}{s + \frac{1}{R C}} \implies \boxed{i(t) = -\frac{V_0}{R}\,e^{-t / RC}}
+    \frac{dq}{q} = -\frac{dt}{RC}
 \end{equation}
+Integrando entre $t = 0$ ($q = Q_0$) y el instante genérico $t$ ($q = q(t)$):
 \begin{equation}
-    V_C(s) = \frac{I(s) + C V_0}{s C} = \frac{V_0}{s + \frac{1}{R C}} \implies \boxed{v_C(t) = V_0\,e^{-t / RC}}
+    \int_{Q_0}^{q(t)} \frac{dq'}{q'} = -\int_{0}^{t} \frac{dt'}{RC} \implies \ln\left(\frac{q(t)}{Q_0}\right) = -\frac{t}{RC}
+\end{equation}
+Despejando la carga instantánea:
+\begin{equation}
+    \boxed{q(t) = Q_0\,e^{-t / RC} = C V_0\,e^{-t / RC}}
+\end{equation}
+La tensión en el condensador durante la descarga resulta:
+\begin{equation}
+    \boxed{v_C(t) = \frac{q(t)}{C} = V_0\,e^{-t / RC}}
+\end{equation}
+mientras que la corriente de descarga, al circular en sentido opuesto al de carga, viene dada por:
+\begin{equation}
+    \boxed{i(t) = \frac{dq}{dt} = -\frac{V_0}{R}\,e^{-t / RC}}
+\end{equation}
+y la caída de potencial en el resistor:
+\begin{equation}
+    \boxed{v_R(t) = R\,i(t) = -V_0\,e^{-t / RC}}
 \end{equation}
 
 \section{Propagación analítica de incertidumbres metrológicas (Norma GUM)}

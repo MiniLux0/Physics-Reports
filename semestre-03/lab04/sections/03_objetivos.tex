@@ -7,7 +7,7 @@
 
 \subsection{Objetivo general}
 
-Medir y modelar cuantitativamente la constante de tiempo capacitiva $\tau$ en procesos periódicos de carga y descarga de circuitos RC excitados por ondas cuadradas mediante instrumentación digital de laboratorio, deduciendo experimentalmente los valores de capacitancia efectiva del banco de prueba y validando las leyes de conservación de energía (Ley de Mallas de Kirchhoff) y teoremas fundamentales de análisis circuital (Teorema de Thévenin).
+Medir y determinar experimentalmente la constante de tiempo capacitiva $\tau$ en procesos periódicos de carga y descarga de circuitos RC excitados por ondas cuadradas mediante instrumentación digital de laboratorio, deduciendo experimentalmente los valores de capacitancia efectiva del banco de prueba y validando las leyes de conservación de energía (Ley de Mallas de Kirchhoff) y teoremas fundamentales de análisis circuital (Teorema de Thévenin).
 
 \subsection{Objetivos específicos}
 
@@ -15,7 +15,7 @@ Medir y modelar cuantitativamente la constante de tiempo capacitiva $\tau$ en pr
     \item Calibrar el generador de funciones digital OWON AG 051F y el osciloscopio Rohde \& Schwarz HMO1202 a una frecuencia de excitación periódica de \qty{250}{\hertz} y una amplitud de \qty{10,0}{\voltpp}, verificando que el semiperíodo de conmutación garantice el régimen permanente cuasiestacionario ($T/2 \ge 5\tau$).
     \item Determinar experimentalmente la constante de tiempo $\tau$ en el osciloscopio a partir de la curva de tensión transitoria en bornes del condensador $V_C(t)$, ubicando la cota de carga correspondiente al \qty{63,2}{\percent} de la tensión de saturación $V_0$.
     \item Determinar la constante de tiempo $\tau$ a partir de la señal de tensión sobre el resistor $V_R(t)$, midiendo el intervalo de decaimiento hasta el \qty{36,8}{\percent} de su valor máximo inicial.
-    \item Corroborar la relación física lineal $\tau = R \cdot C$ mediante regresión por mínimos cuadrados ordinarios (MCO) para tres condensadores diferentes ($C_1, C_2, C_3$), deduciendo sus capacitancias efectivas y contrastando estadísticamente la hipótesis de intercepto nulo ($b = 0$).
+    \item Corroborar la relación física lineal $\tau = R \cdot C$ mediante regresión por mínimos cuadrados ordinarios (MCO) para tres condensadores diferentes ($C_1, C_2, C_3$), deduciendo sus capacitancias efectivas y comprobando la compatibilidad del intercepto con cero ($b \approx 0$).
     \item Verificar en tiempo real la Segunda Ley de Kirchhoff ($V_{\text{gen}}(t) = V_C(t) + V_R(t)$) en régimen transitorio empleando la función aritmética digital \texttt{MATH ADD} del osciloscopio.
     \item Analizar analítica y experimentalmente la respuesta temporal de una red RC mixta provista de divisor de tensión resistivo (montaje del paso 20 / Figuras 9 y 10 de la guía), contrastando sus asíntotas de tensión y corriente frente al modelo equivalente de Thévenin.
 \end{enumerate}

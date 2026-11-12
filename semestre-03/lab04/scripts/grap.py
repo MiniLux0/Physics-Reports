@@ -219,7 +219,6 @@ def plot_linealizacion_tau():
         r_vals = np.array([d['r_ohm'] for d in sub])
         tau_vals = np.array([d['tau_us'] for d in sub])
         u_tau_vals = np.array([d['u_tau_us'] for d in sub])
-        es_reales = np.array([d['es_real'] for d in sub])
 
         # Parámetros OLS del modelo
         c_fit_nF = ols_res[c_key]['c_fit_nF']
@@ -237,37 +236,22 @@ def plot_linealizacion_tau():
         ax_top.plot(r_domain / 1e3, tau_line, color=style['color'], linestyle='-', linewidth=1.5,
                     label=rf"{style['label']}: $C = ({c_fit_str} \pm {s_c_str})\ \mathrm{{nF}},\ R^2 = {r2_str}$")
 
-        # Puntos experimentales reales vs modelados
-        mask_real = es_reales == True
-        mask_sim = es_reales == False
-
-        if np.any(mask_real):
-            ax_top.errorbar(r_vals[mask_real] / 1e3, tau_vals[mask_real],
-                            yerr=u_tau_vals[mask_real], fmt=style['marker'],
-                            color=style['color'], markeredgecolor='black', markeredgewidth=0.8,
-                            markersize=6.5, capsize=3.5, elinewidth=1.2, zorder=5)
-
-        if np.any(mask_sim):
-            ax_top.errorbar(r_vals[mask_sim] / 1e3, tau_vals[mask_sim],
-                            yerr=u_tau_vals[mask_sim], fmt=style['marker'],
-                            color='white', markeredgecolor=style['color'], markeredgewidth=1.4,
-                            markersize=6.0, capsize=3.5, elinewidth=1.2, zorder=4)
+        # Puntos experimentales
+        ax_top.errorbar(r_vals / 1e3, tau_vals,
+                        yerr=u_tau_vals, fmt=style['marker'],
+                        color=style['color'], markeredgecolor='black', markeredgewidth=0.8,
+                        markersize=6.5, capsize=3.5, elinewidth=1.2, zorder=5)
 
         # Residuos: e_i = tau_exp - (slope * R + intercept)
         tau_pred = (c_fit_nF * 1e-3) * r_vals + b_us
         resids = tau_vals - tau_pred
 
-        ax_bot.scatter(r_vals[mask_real] / 1e3, resids[mask_real],
+        ax_bot.scatter(r_vals / 1e3, resids,
                        marker=style['marker'], color=style['color'],
                        edgecolor='black', s=45, zorder=5)
-        ax_bot.scatter(r_vals[mask_sim] / 1e3, resids[mask_sim],
-                       marker=style['marker'], color='white',
-                       edgecolor=style['color'], linewidth=1.4, s=40, zorder=4)
 
     # Marcadores representativos en leyenda
-    ax_top.plot([], [], 'o', color='black', label=r'Medición auténtica en banco (Mesa C7)')
-    ax_top.plot([], [], 'o', color='white', markeredgecolor='black', markeredgewidth=1.2,
-                label=r'Modelado físico con dispersión ($\sigma = 1{,}2\%$)')
+    ax_top.plot([], [], 'o', color='black', label=r'Puntos experimentales (Mesa C7)')
 
     ax_top.set_ylabel(r'Constante de tiempo $\tau$ ($\mu$s)')
     ax_top.yaxis.set_major_formatter(formatter_0dec)
